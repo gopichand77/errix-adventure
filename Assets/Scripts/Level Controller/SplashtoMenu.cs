@@ -16,7 +16,7 @@ public class SplashtoMenu : MonoBehaviour
         
     }
     IEnumerator Timer(){
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.8f);
         GoNextLevel();
     }
     void GoNextLevel()
