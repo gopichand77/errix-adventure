@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TaptoPlay : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
     [SerializeField] string ListofWorld;
     Touch touch;
