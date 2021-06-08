@@ -16,13 +16,13 @@ public class CameraRes : MonoBehaviour
     public void scaleBackgroundImageFitScreenSize()
     {
         Vector2 deviveScreenResolution = new Vector2(Screen.width, Screen.height);
-        print(deviveScreenResolution);
+        // print(deviveScreenResolution);
 
         float srcheight = Screen.height;
         float srcWidth = Screen.width;
 
         float DEVICE_SCREEN_ASPECT = srcWidth / srcheight;
-        print("DEVICE_SCREEN_ASPECT" + DEVICE_SCREEN_ASPECT.ToString());
+        // print("DEVICE_SCREEN_ASPECT" + DEVICE_SCREEN_ASPECT.ToString());
 
         //Main Camera Aspect == Device Aspect
         mainCam.aspect = DEVICE_SCREEN_ASPECT;
@@ -31,8 +31,8 @@ public class CameraRes : MonoBehaviour
 
         float camHeight = 100.0f * mainCam.orthographicSize * 2.0f;
         float camWidth = camHeight * DEVICE_SCREEN_ASPECT;
-        print("camHeight:" + camHeight.ToString());
-        print("camWidth:" + camWidth.ToString());
+        // print("camHeight:" + camHeight.ToString());
+        // print("camWidth:" + camWidth.ToString());
 
         //Get Background image 
 
@@ -40,8 +40,8 @@ public class CameraRes : MonoBehaviour
         float bgImgH = backgroundImageSR.sprite.rect.height;
         float bgImgW = backgroundImageSR.sprite.rect.width;
 
-        print("bgImhgH:" + bgImgH.ToString());
-        print("bgImgW:" + bgImgW.ToString());
+        // print("bgImhgH:" + bgImgH.ToString());
+        // print("bgImgW:" + bgImgW.ToString());
         //
         float bgImg_scale_ratio_Height = camHeight / bgImgH;
         float bgImg_scale_ratio_Width = camHeight / bgImgW;
