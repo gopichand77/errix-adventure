@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Controller")]
     public CharacterController2D controller;
+    public ParticleSystem dust;
     [Header("Speed")]
     public float runSpeed = 40f;
 
@@ -20,17 +21,30 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        
+        // horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = SimpleInput.GetAxisRaw("Horizontal") * runSpeed;
 
         if(Input.GetButtonDown("Jump")){
             jump = true;
+            CreateDust();
         }
+    }
+
+    public void JumpButton(){
+            jump = true;
+            CreateDust();
+        
     }
 
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
+    }
+
+    void CreateDust(){
+        dust.Play();
     }
 }
 
