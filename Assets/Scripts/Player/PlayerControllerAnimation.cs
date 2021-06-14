@@ -16,7 +16,7 @@ public class PlayerControllerAnimation : MonoBehaviour
     {
         // animator.SetFloat("horizontal", Mathf.Abs(Input.GetAxis("Horizontal")));
         // animator.SetFloat("vertical", Mathf.Abs(Input.GetAxis("Vertical")));
-        animator.SetFloat("horizontal", Mathf.Abs(SimpleInput.GetAxis("Horizontal")));
-        animator.SetFloat("vertical", Mathf.Abs(SimpleInput.GetAxis("Vertical")));
+        animator.SetFloat("horizontal", Mathf.Abs(Input.GetAxis("Horizontal")));
+        animator.SetFloat("vertical", Mathf.Abs(Input.GetAxis("Vertical")));
     }
 }
