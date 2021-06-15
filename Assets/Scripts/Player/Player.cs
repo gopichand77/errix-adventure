@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
-    public float moveSpeed = 10f;
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
+    [Header("Variables")]
+    public float moveSpeed = 10f;
+    public float jumpForce = 7f;
     public ParticleSystem dust;
+    
 
 
     private void Start()
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
 
         if (CrossPlatformInputManager.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
 
-            rb.AddForce(Vector2.up * 700f);
+            rb.AddForce(Vector2.up * 100f * jumpForce);
         // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
 
 
