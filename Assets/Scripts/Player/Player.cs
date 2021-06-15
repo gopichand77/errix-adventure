@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
+    
     public ParticleSystem dust;
     
 
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") *moveSpeed;
 
         if (CrossPlatformInputManager.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
 
@@ -79,25 +80,42 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (dirX > 0)
+        if(dirX  > 0 && !facingRight)
         {
-            facingRight = true;
+            Flip();
+
+        }
+        else if(dirX < 0  && facingRight)
+        {
+            Flip();
+        }
+    //     if (dirX > 0)
+    //     {
+    //         facingRight = true;
             
-        }
+    //     }
 
-        else if (dirX < 0)
-        {
-            facingRight = false;
-        }
+    //     else if (dirX < 0)
+    //     {
+    //         facingRight = false;
+    //     }
 
 
-        if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
-        {
-            localScale.x *= -1;
-            CreateDust();
-        }
+    //     if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
+    //     {
+    //         localScale.x *= -1;
+    //         CreateDust();
+    //     }
 
-        transform.localScale = localScale;
+    //     transform.localScale = localScale;
+    // }
+    }
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f,180f,0f);
+        CreateDust();
+
     }
 
     void CreateDust()
