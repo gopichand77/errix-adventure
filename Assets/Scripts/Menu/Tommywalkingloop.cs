@@ -18,7 +18,7 @@ public class Tommywalkingloop : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-        if (transform.position.x > 12f) {
+        if (transform.position.x > 14f) {
             transform.position = startPosition;
         }
     }
