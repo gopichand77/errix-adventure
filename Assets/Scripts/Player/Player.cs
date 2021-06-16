@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
+    public int Bullets;
+    public Button AttackButton;
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
@@ -23,12 +26,35 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        localScale = transform.localScale;
+        AttackButton.interactable = false;
         // moveSpeed;
     }
 
 
     private void Update()
+    {
+        Movement();
+        checkAttackButton();
+
+
+        
+    }
+    void checkAttackButton()
+    {
+        if(Bullets >  0)
+        {
+           AttackButton.interactable = true;
+        }
+        if(Bullets ==  0)
+        {
+           AttackButton.interactable = false;
+        }
+    }
+    public void BulletHandler()
+    {
+        Bullets -=1;
+    }
+    void Movement()
     {
         dirX = CrossPlatformInputManager.GetAxis("Horizontal") *moveSpeed;
 
@@ -89,26 +115,7 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-    //     if (dirX > 0)
-    //     {
-    //         facingRight = true;
-            
-    //     }
-
-    //     else if (dirX < 0)
-    //     {
-    //         facingRight = false;
-    //     }
-
-
-    //     if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
-    //     {
-    //         localScale.x *= -1;
-    //         CreateDust();
-    //     }
-
-    //     transform.localScale = localScale;
-    // }
+   
     }
     void Flip()
     {

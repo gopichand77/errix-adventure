@@ -10,23 +10,27 @@ public class Weapon : MonoBehaviour
    public Animator anim;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-    //    if(Input.GetButtonDown("Fire1"))
-    //     {
-    //        Shoot();
-    //     }  
-   // Fire();
+        
+        
+        
     }
      public void Fire()
     {
+
         Shoot();
+        Player player = gameObject.GetComponent<Player>();
+        player.BulletHandler();
+    }
         
     void Shoot()
     {
         Instantiate(Axeprefab, firepoint.position,firepoint.rotation);
+        
+
         StartCoroutine(ThrowAnime());
-       }
+    }
     IEnumerator ThrowAnime()
         {
             anim.SetBool("throw",true);
@@ -47,5 +51,3 @@ public class Weapon : MonoBehaviour
     //     }
     
     }
-    
-}
