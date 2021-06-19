@@ -22,61 +22,64 @@ public class PlayerInstructions : MonoBehaviour
     public void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue(); 
+        StartDialogue();
         Done.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (textComponent.text == lines[index]) 
+            if (textComponent.text == lines[index])
             {
                 NextLine();
-            } 
-            else {
-                 StopAllCoroutines();
+            }
+            else
+            {
+                StopAllCoroutines();
                 textComponent.text = lines[index];
             }
-            if(Input.GetMouseButtonDown(0))
-        {
-            index++ ;
-        }
-        //  if(index > 0 && index < 2 && Input.GetMouseButtonDown(0))
-        //  {
-        // Image.gameObject.GetComponentInChildren<Image> ().sprite = Right;
-        // }
-        if(index > 1 && index < 3 && Input.GetMouseButtonDown(0))
-        {
-        Image.gameObject.GetComponentInChildren<Image> ().sprite = Right;
-          }
-        if(index > 2 && index < 4&& Input.GetMouseButtonDown(0))
-        {
-        Image.gameObject.GetComponentInChildren<Image> ().sprite = Left;
-           
-        }
-        if(index > 3 && index <5 && Input.GetMouseButtonDown(0))
-        {
-        Image.gameObject.GetComponentInChildren<Image> ().sprite = Attack;
-         Done.gameObject.SetActive(true);
-            
-        }
-        if(index > 4) 
-        {
-           // gameObject.SetActive(false);
-            Dialog.gameObject.SetActive(false);
-        }
-      
-       
+            if (Input.GetMouseButtonDown(0))
+            {
+                index++;
+            }
+            //  if(index > 0 && index < 2 && Input.GetMouseButtonDown(0))
+            //  {
+            // Image.gameObject.GetComponentInChildren<Image> ().sprite = Right;
+            // }
+            if (index > 1 && index < 3 && Input.GetMouseButtonDown(0))
+            {
+                Image.gameObject.GetComponentInChildren<Image>().sprite = Right;
+            }
+            if (index > 2 && index < 4 && Input.GetMouseButtonDown(0))
+            {
+                Image.gameObject.GetComponentInChildren<Image>().sprite = Left;
+
+            }
+            if (index > 3 && index < 5 && Input.GetMouseButtonDown(0))
+            {
+                Image.gameObject.GetComponentInChildren<Image>().sprite = Attack;
+                Done.gameObject.SetActive(true);
+
+            }
+            if (index > 4)
+            {
+                // gameObject.SetActive(false);
+                Dialog.gameObject.SetActive(false);
+            }
+
+
         }
     }
-    void StartDialogue() {
+    void StartDialogue()
+    {
         index = 0;
         StartCoroutine(TypeLine());
     }
 
-    IEnumerator TypeLine() {
+    IEnumerator TypeLine()
+    {
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
@@ -84,26 +87,36 @@ public class PlayerInstructions : MonoBehaviour
         }
     }
 
+    // void NextLine()
+    // {
+    //     if (Input.GetMouseButtonDown(0))
+    //     {
+    //         if (index < lines.Length - 1)
+    //         {
+    //             index++;
+    //             textComponent.text = string.Empty;
+    //             StartCoroutine(TypeLine());
+    //         }
+    //         else
+    //         {
+    //             gameObject.SetActive(false);
+    //             // Dialog.gameObject.SetActive(false);
+    //         }
+    //     }
+    // }
     void NextLine(){
-        if(Input.GetMouseButtonDown(0))
-        {
-        if (index < lines.Length - 1)
-         {
+        if (index < lines.Length - 1) {
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         }
-        else 
-        {
-           // gameObject.SetActive(false);
-            Dialog.gameObject.SetActive(false);
+        else {
+            gameObject.SetActive(false);
         }
-        }
-    } 
+    }
+
     public void DoneButton()
     {
-       Destroy(Dialog.gameObject);
-
-
+        Destroy(Dialog.gameObject);
     }
 }
