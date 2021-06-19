@@ -13,11 +13,12 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 localScale;
     public int Bullets;
+    public int Coins;
     public Button AttackButton;
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
-    
+
     public ParticleSystem dust;
     
 
@@ -129,5 +130,36 @@ public class Player : MonoBehaviour
     {
         dust.Play();
     }
+     public void NoofCoins()
+     {
+           Coins += 1;
+          
+}
+ bool CollectCoin(Collision2D collision)
+    {
+       Coin coins = collision.gameObject.GetComponent<Coin>();
+    
+      
+        if(coins!=null)
+        {
+            
+            return true;
+            
+            
+        }
+        else {
+           
+            return false;
+        }
+    }
+     private void OnCollisionEnter2D(Collision2D collision)
+    {//this triggers when the player shouldhurtfromcollision returns true
+        if (CollectCoin(collision))
+        {
+            Coins +=1;
+        }
+
+    }
+
 
 }

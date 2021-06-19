@@ -15,17 +15,11 @@ public class SignBoardTrigger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    
-        if(PlayerRange)
-        {
-            Dialog.gameObject.SetActive(true);
-        }
+  
         
         // Dialog.gameObject.SetActive(false);
         
-    }
+    
     // void OnTriggerEnter2D(Collider2D hitInfo)
     // {
     //     if(hitInfo.CompareTag("Player"))
@@ -36,15 +30,15 @@ public class SignBoardTrigger : MonoBehaviour
     // }
   void OnCollisionEnter2D(Collision2D collision)
         {
-            ShouldDieFromCollision(collision);
+            SignBoardActive(collision);
             
         }
 
-        bool ShouldDieFromCollision(Collision2D collision)
+        bool SignBoardActive(Collision2D collision)
         {
             Player player = collision.gameObject.GetComponent<Player>();
            if(collision.contacts[0].normal.y < -0.5){
-                Dialog.gameObject.SetActive(true);
+                Dialog.gameObject.SetActive(false);//Dialg Box is Deactivated To Activate Keep True
                
              return true;
            }
