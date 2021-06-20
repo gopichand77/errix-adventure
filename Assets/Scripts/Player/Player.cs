@@ -133,15 +133,18 @@ public class Player : MonoBehaviour
      public void NoofCoins()
      {
            Coins += 1;
+         
           
 }
+ 
  bool CollectCoin(Collision2D collision)
     {
-       Coin coins = collision.gameObject.GetComponent<Coin>();
-    
+      
+    Coin coins = gameObject.GetComponent<Coin>();
       
         if(coins!=null)
         {
+             rb.velocity = new Vector2(0f,0f);
             
             return true;
             
@@ -157,6 +160,7 @@ public class Player : MonoBehaviour
         if (CollectCoin(collision))
         {
             Coins +=1;
+           
         }
 
     }
