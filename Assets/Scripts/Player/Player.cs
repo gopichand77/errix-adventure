@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
     void Movement()
     {
         dirX = CrossPlatformInputManager.GetAxis("Horizontal") *moveSpeed;
+        // dirX = Input.GetAxis("Horizontal") *moveSpeed;
 
         if (CrossPlatformInputManager.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
 
