@@ -9,8 +9,8 @@ public class Monster : MonoBehaviour
     public int health = 40;
     Rigidbody2D rb;
     public SpriteRenderer DeathAffect;
-    
-    
+
+
     bool _hasDied;
 
     private void Start()
@@ -34,63 +34,63 @@ public class Monster : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
-       
+
         if (trig.gameObject.CompareTag("Turn"))
         {
             if (movingRight)
             {
                 movingRight = false;
             }
-           else
+            else
             {
                 movingRight = true;
             }
-            
+
         }
-    
-        
+
+
     }
     void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (ShouldDieFromCollision(collision))
         {
-            if (ShouldDieFromCollision(collision))
-            {
-                StartCoroutine(Die());
-
-            }
-
+            StartCoroutine(Die());
         }
 
-        bool ShouldDieFromCollision(Collision2D collision)
-        {
-            Player player = collision.gameObject.GetComponent<Player>();
-             if (_hasDied)
-                return false;
+    }
+
+    bool ShouldDieFromCollision(Collision2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (_hasDied)
+            return false;
 
         if (collision.contacts[0].normal.y < -0.5)
         {
-              return true;
+            return true;
         }
-        
+
 
         return false;
-     }
-        IEnumerator Die()
+    }
+    IEnumerator Die()
+    {
+        _hasDied = true;
+        moveSpeed = 0;
+        animator.SetBool("isHurt", true);
+        yield return new WaitForSeconds(0.2f);
+        gameObject.SetActive(false);
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
         {
-            _hasDied = true;
-            moveSpeed = 0;
-           animator.SetBool("isHurt", true);
-            yield return new WaitForSeconds(0.2f);
-            gameObject.SetActive(false);
+            StartCoroutine(Die());
         }
-       public void TakeDamage (int damage){
-           health -=damage;
-           if(health<=0)
-           {
-               StartCoroutine(Die());
-           }
-           
-       }
 
     }
+
+}
 
 

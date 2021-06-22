@@ -57,10 +57,10 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") *moveSpeed;
-        // dirX = Input.GetAxis("Horizontal") *moveSpeed;
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") *moveSpeed;
+        dirX = Input.GetAxis("Horizontal") *moveSpeed;
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
 
             rb.AddForce(Vector2.up * 100f * jumpForce);
         // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
