@@ -20,7 +20,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour{
     public GameObject followObject;
     public Vector2 followOffset;
-    public float speed = 3f;
+    public float speed = 5f;
     private Vector2 threshold;
     private Rigidbody2D rb;
 
@@ -59,3 +59,4 @@ public class CameraController : MonoBehaviour{
         Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));
     }
 }
+

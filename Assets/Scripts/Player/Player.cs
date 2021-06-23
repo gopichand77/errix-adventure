@@ -14,13 +14,16 @@ public class Player : MonoBehaviour
     private Vector3 localScale;
     public int Bullets;
     public int Coins;
+    private bool isGrounded;
     public Button AttackButton;
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
-
+    public Transform groundCheck;
+    public LayerMask groundlayer;
     public ParticleSystem dust;
-    
+    private bool canDoubleJump;
+
 
 
     private void Start()
@@ -38,31 +41,44 @@ public class Player : MonoBehaviour
         checkAttackButton();
 
 
-        
+
     }
     void checkAttackButton()
     {
-        if(Bullets >  0)
+        if (Bullets > 0)
         {
-           AttackButton.interactable = true;
+            AttackButton.interactable = true;
         }
-        if(Bullets ==  0)
+        if (Bullets == 0 || Bullets < 0)
         {
-           AttackButton.interactable = false;
+            AttackButton.interactable = false;
         }
     }
     public void BulletHandler()
     {
-        Bullets -=1;
+        Bullets -= 1;
     }
     void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") *moveSpeed;
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
         dirX = Input.GetAxis("Horizontal") *moveSpeed;
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
-
-            rb.AddForce(Vector2.up * 100f * jumpForce);
+        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (isGrounded)
+            {
+                Jump();
+                canDoubleJump = true;
+            }
+            else if (canDoubleJump)
+            {
+                // jumpForce = jumpForce / 1.5f;
+                Jump();
+                canDoubleJump = false;
+                // jumpForce = jumpForce * 1.5f;
+            }
+        }
         // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
 
 
@@ -104,25 +120,26 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
     }
 
     private void LateUpdate()
     {
-        if(dirX  > 0 && !facingRight)
+        if (dirX > 0 && !facingRight)
         {
             Flip();
 
         }
-        else if(dirX < 0  && facingRight)
+        else if (dirX < 0 && facingRight)
         {
             Flip();
         }
-   
+
     }
     void Flip()
     {
         facingRight = !facingRight;
-        transform.Rotate(0f,180f,0f);
+        transform.Rotate(0f, 180f, 0f);
         CreateDust();
 
     }
@@ -131,39 +148,42 @@ public class Player : MonoBehaviour
     {
         dust.Play();
     }
-     public void NoofCoins()
-     {
-           Coins += 1;
-         
-          
-}
- 
- bool CollectCoin(Collision2D collision)
+    public void NoofCoins()
     {
-      
-    Coin coins = gameObject.GetComponent<Coin>();
-      
-        if(coins!=null)
+        Coins += 1;
+    }
+
+    bool CollectCoin(Collision2D collision)
+    {
+
+        Coin coins = gameObject.GetComponent<Coin>();
+
+        if (coins != null)
         {
-             rb.velocity = new Vector2(0f,0f);
-            
+            rb.velocity = new Vector2(0f, 0f);
+
             return true;
-            
-            
+
+
         }
-        else {
-           
+        else
+        {
+
             return false;
         }
     }
-     private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {//this triggers when the player shouldhurtfromcollision returns true
         if (CollectCoin(collision))
         {
-            Coins +=1;
-           
+            Coins += 1;
+
         }
 
+    }
+    void Jump()
+    {
+        rb.AddForce(Vector2.up * 100f * jumpForce);
     }
 
 
