@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundlayer;
     public ParticleSystem dust;
-    private bool canDoubleJump;
+    // private bool canDoubleJump;
 
 
 
@@ -39,9 +39,6 @@ public class Player : MonoBehaviour
     {
         Movement();
         checkAttackButton();
-
-
-
     }
     void checkAttackButton()
     {
@@ -69,15 +66,15 @@ public class Player : MonoBehaviour
             if (isGrounded)
             {
                 Jump();
-                canDoubleJump = true;
+                // canDoubleJump = true;
             }
-            else if (canDoubleJump)
-            {
-                // jumpForce = jumpForce / 1.5f;
-                Jump();
-                canDoubleJump = false;
-                // jumpForce = jumpForce * 1.5f;
-            }
+            // else if (canDoubleJump)
+            // {
+            //     // jumpForce = jumpForce / 1.5f;
+            //     Jump();
+            //     canDoubleJump = false;
+            //     // jumpForce = jumpForce * 1.5f;
+            // }
         }
         // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
 
