@@ -5,43 +5,21 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+  
+     void OnTriggerEnter2D(Collider2D trig)
     {
-        
-    }
+         Player player = trig.gameObject.GetComponent<Player>();
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-        
-    }
-
-
-    bool PlayerCollision(Collision2D collision)
-    {//When tge player gets hurt this func() trigs and returns true 
-        Player player = collision.gameObject.GetComponent<Player>();
-    
-      
-        if(player!=null)
+        if (trig.gameObject.CompareTag("Player"))
         {
-            //animation and the return value for the player 
-            return true;
-            
-            
+           player.NoofCoins();
+Destroy(gameObject);
         }
-        else {
-            
-           // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
-            return false;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {//this triggers when the player shouldhurtfromcollision returns true
-        if (PlayerCollision(collision))
-        {
-            Destroy(gameObject);
-        }
-
     }
 }
+
+
+
+
+
+

@@ -1,44 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     public Rigidbody2D rb;
-    public bool Death;
-
+   public  bool Death;
+   
     public Animator Axe;
+   
 
-
-
-
+   
+   
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.right * speed;
-    }
-
+ }
+ 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Monster enemy = hitInfo.GetComponent<Monster>();
-        if (enemy != null)
+        if(enemy !=null)
         {
             // enemy.TakeDamage(5);
             enemy.gameObject.SetActive(false);
-
-        }
+           
+            }
         Destroy(gameObject);
-
-
+       
+        
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Collider"))
+     void OnCollisionEnter2D(Collision2D collision)
         {
-            Destroy(this.gameObject);
+            if(collision.gameObject.CompareTag("Collider"))
+            {
+           Destroy(this.gameObject);
         }
-    }
-
-
+        }
+  
+    // Update is called once per frame
+   
 }

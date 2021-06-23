@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
    private void Update()
    {
-       transform.position = new Vector3(player.position.x, player.position.y, -10);
+       transform.position = new Vector3(player.position.x, player.position.y, -10f);
     }
 }
 
@@ -18,7 +18,6 @@ public class CameraController : MonoBehaviour
 // using UnityEngine;
 
 // public class CameraController : MonoBehaviour{
-    
 //     public GameObject followObject;
 //     public Vector2 followOffset;
 //     public float speed = 5f;

@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundlayer;
     public ParticleSystem dust;
+    public int health = 40;
+    public float HurtForce = 30f;
     // private bool canDoubleJump;
 
 
@@ -58,7 +60,7 @@ public class Player : MonoBehaviour
     void Movement()
     {
         // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirX = Input.GetAxis("Horizontal") *moveSpeed;
+        dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
         // if (CrossPlatformInputManager.GetButtonDown("Jump"))
         if (Input.GetButtonDown("Jump"))
@@ -150,38 +152,47 @@ public class Player : MonoBehaviour
         Coins += 1;
     }
 
-    bool CollectCoin(Collision2D collision)
-    {
-
-        Coin coins = gameObject.GetComponent<Coin>();
-
-        if (coins != null)
-        {
-            rb.velocity = new Vector2(0f, 0f);
-
-            return true;
-
-
-        }
-        else
-        {
-
-            return false;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {//this triggers when the player shouldhurtfromcollision returns true
-        if (CollectCoin(collision))
-        {
-            Coins += 1;
-
-        }
-
-    }
     void Jump()
     {
         rb.AddForce(Vector2.up * 100f * jumpForce);
     }
+    // bool ShouldHurtFromCollision(Collision2D collision)
+    // {//When tge player gets hurt this func() trigs and returns true 
+    //     Monster enemy = collision.gameObject.GetComponent<Monster>();
+
+    //     if(enemy!=null && collision.contacts[0].normal.x < -0.5)
+    //     {//animation and the return value for the player 
+    //         anim.SetBool("isHurt",true);
+    //         rb.velocity = new Vector2(-HurtForce,rb.velocity.y);
+
+    //         return true;
 
 
+    //     }
+    //     else {
+    //         anim.SetBool("isHurt",false);
+    //        // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
+    //         return false;
+    //     }
+    // }
+    // private void OnCollisionEnter2D(Collision2D collision)
+    // {//this triggers when the player shouldhurtfromcollision returns true
+    //     if (ShouldHurtFromCollision(collision))
+    //     {
+    //         TakeDamage(10);
+    //         //animator.SetBool("isHurt",true);
+    //      ]
+    //         // animator.SetBool("isHurt",true);
+
+    //     }
+
+    // }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+    }
+    
 }
+
+
