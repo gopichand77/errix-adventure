@@ -5,15 +5,15 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     // Start is called before the first frame update
-  
-     void OnTriggerEnter2D(Collider2D trig)
+
+    void OnTriggerEnter2D(Collider2D trig)
     {
-         Player player = trig.gameObject.GetComponent<Player>();
+        Player player = trig.gameObject.GetComponent<Player>();
 
         if (trig.gameObject.CompareTag("Player"))
         {
-           player.NoofCoins();
-Destroy(gameObject);
+            player.NoofCoins();
+            Destroy(gameObject);
         }
     }
 }
