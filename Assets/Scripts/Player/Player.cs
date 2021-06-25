@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    public int Keys;
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
+        Die();
     }
     void checkAttackButton()
     {
@@ -74,11 +76,11 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        // if (Input.GetButtonDown("Jump"))
+        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
@@ -166,6 +168,16 @@ public class Player : MonoBehaviour
     {
         Coins += 1;
     }
+    public void NoofKeys()
+    {
+        Keys += 1;
+    }
+    public void OpenTreasure()
+    {
+        Keys -= 1;
+    }
+
+
 
     void Jump()
     {
@@ -211,6 +223,14 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
 
     }
+    void Die()
+    {
+        if(currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+   
 
 }
 

@@ -22,25 +22,33 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Monster enemy = hitInfo.GetComponent<Monster>();
+
         if(enemy !=null)
         {
             // enemy.TakeDamage(5);
             enemy.gameObject.SetActive(false);
+            Destroy(gameObject);
            
-            }
-        Destroy(gameObject);
-       
-        
 
-    }
-     void OnCollisionEnter2D(Collision2D collision)
-        {
-            if(collision.gameObject.CompareTag("Collider"))
-            {
-           Destroy(this.gameObject);
+            }
+           
         }
+        // private void OnCollisionEnter2D(Collision2D collision)
+        // {
+        //     Monster enemy = collision.gameObject.GetComponent<Monster>();
+
+
+        //     if(collision.contacts[0].normal.y < -0.5 && collision.contacts[0].normal.x < -0.5)
+        //     {
+        //         Destroy(gameObject);
+
+        //     }
+        // }
+        
+    
         }
+        
   
     // Update is called once per frame
    
-}
+
