@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
         Shoot();
         Player player = gameObject.GetComponent<Player>();
         player.BulletHandler();
+        player.TakeDamage(10);
     }
         
     void Shoot()

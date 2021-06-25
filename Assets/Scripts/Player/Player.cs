@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+
+
     private Rigidbody2D rb;
     private Animator anim;
     private float dirX;
@@ -22,9 +24,15 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundlayer;
     public ParticleSystem dust;
-    public int health = 40;
+    // public int health = 40;
     public float HurtForce = 30f;
     // private bool canDoubleJump;
+    [Header("Health")]
+    public int maxHealth = 100;
+    public int currentHealth;
+    public PlayerHealth healthBar;
+
+
 
 
 
@@ -34,6 +42,8 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         AttackButton.interactable = false;
         // moveSpeed;
+        currentHealth = maxHealth;
+        healthBar.SetMaxhealth(maxHealth);
     }
 
 
@@ -41,6 +51,11 @@ public class Player : MonoBehaviour
     {
         Movement();
         checkAttackButton();
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage(10);
+        }
     }
     void checkAttackButton()
     {
@@ -187,12 +202,16 @@ public class Player : MonoBehaviour
     //     }
 
     // }
+
+
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        // health -= damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
     }
-    
+
 }
 
 
