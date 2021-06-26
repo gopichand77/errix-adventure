@@ -5,8 +5,8 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public Animator anim;
-    public SpriteRenderer spriteRenderer;
-    public Sprite Newsprite;
+    public Player player;
+    private bool Opened = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +18,23 @@ public class Chest : MonoBehaviour
     {
         
     }
-    public void OpenTreasure()
-    {
-        spriteRenderer.sprite = Newsprite;
-    }
+    
     public void OpenChest()
     {
+        if(player.Keys > 0 && Opened){
+            player.Keys -=1;
         anim.SetBool("Open",true);
+        Opened = false;
+        StartCoroutine(CollectTreasure());
+
+        }
         
+        
+    }
+    IEnumerator CollectTreasure()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
 }

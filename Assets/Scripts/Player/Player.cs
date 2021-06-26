@@ -19,9 +19,9 @@ public class Player : MonoBehaviour
     public int Coins;
     private bool isGrounded;
     public Button AttackButton;
-    public GameObject TreasureKey1;
-    public GameObject TreasureKey2;
-    public GameObject TreasureKey3;
+    public Button TreasureKey1;
+    public Button TreasureKey2;
+    public Button TreasureKey3;
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
         // moveSpeed;
         currentHealth = maxHealth;
         healthBar.SetMaxhealth(maxHealth);
-        TreasureKey1.SetActive(false);
-        TreasureKey2.SetActive(false);
-        TreasureKey3.SetActive(false);
+        TreasureKey1.gameObject.SetActive(false);
+        TreasureKey2.gameObject.SetActive(false);
+        TreasureKey3.gameObject.SetActive(false);
 
     }
 
@@ -239,26 +239,38 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-         if (trig.gameObject.CompareTag("Treasure") && Keys > 0)
+         if (trig.gameObject.CompareTag("Treasure") )
         {
             TreasureKey1.gameObject.SetActive(true);
             AttackButton.gameObject.SetActive(false);
+            TreasureKey1.interactable = true;
             
         }
         
-         if (trig.gameObject.CompareTag("Treasure2") && Keys > 0)
+         if (trig.gameObject.CompareTag("Treasure2") )
         {
             TreasureKey2.gameObject.SetActive(true);
+            TreasureKey2.interactable = true;
             AttackButton.gameObject.SetActive(false);
             
         }
         
-         if (trig.gameObject.CompareTag("Treasure3") && Keys > 0)
+         if (trig.gameObject.CompareTag("Treasure3"))
         {
+
             TreasureKey3.gameObject.SetActive(true);
+            TreasureKey3.interactable = true;
             AttackButton.gameObject.SetActive(false);
             
         }
+        if(Keys == 0)
+        {
+            TreasureKey2.interactable = false;
+        TreasureKey3.interactable = false;
+       TreasureKey1.interactable = false;
+            
+        }
+        
         
     }
    private void OnTriggerExit2D(Collider2D other)

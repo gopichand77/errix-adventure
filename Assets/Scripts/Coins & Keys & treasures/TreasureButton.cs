@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreasureButton : Chest
+public class TreasureButton : MonoBehaviour
 {
-    private Chest chest;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,8 @@ public class TreasureButton : Chest
     }
     public void Treasure()
     {
-        OpenTreasure();
+        Chest chest =  gameObject.GetComponent<Chest>();
+        
 
 
     }
