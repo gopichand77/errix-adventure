@@ -31,6 +31,10 @@ public class Bullet : MonoBehaviour
            
 
             }
+            if(hitInfo.gameObject.CompareTag("Collider"))
+            {
+                 Destroy(gameObject);
+            }
            
         }
         // private void OnCollisionEnter2D(Collision2D collision)
