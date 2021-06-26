@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public int Coins;
     private bool isGrounded;
     public Button AttackButton;
+    public GameObject TreasureKey;
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
         // moveSpeed;
         currentHealth = maxHealth;
         healthBar.SetMaxhealth(maxHealth);
+        TreasureKey.SetActive(false);
     }
 
 
@@ -230,7 +232,22 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
-   
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+         if (trig.gameObject.CompareTag("Treasure") && Keys > 0)
+        {
+            TreasureKey.gameObject.SetActive(true);
+            AttackButton.gameObject.SetActive(false);
+            
+        }
+        
+    }
+   private void OnTriggerExit2D(Collider2D other)
+   {
+       TreasureKey.gameObject.SetActive(false);
+            AttackButton.gameObject.SetActive(true);
+       
+   }
 
 }
 

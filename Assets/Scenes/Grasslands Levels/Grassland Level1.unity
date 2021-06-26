@@ -34653,6 +34653,7 @@ MonoBehaviour:
   Bullets: 100
   Coins: 0
   AttackButton: {fileID: 392112210}
+  TreasureKey: {fileID: 1208229933}
   moveSpeed: 7
   jumpForce: 7
   groundCheck: {fileID: 416634973}
@@ -35843,8 +35844,10 @@ GameObject:
   - component: {fileID: 1208229934}
   - component: {fileID: 1208229936}
   - component: {fileID: 1208229935}
+  - component: {fileID: 1208229938}
+  - component: {fileID: 1208229937}
   m_Layer: 5
-  m_Name: Key
+  m_Name: Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35866,7 +35869,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -237.7, y: 2.100006}
+  m_AnchoredPosition: {x: -237.69995, y: 2.1000366}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1208229935
@@ -35907,6 +35910,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208229933}
   m_CullTransparentMesh: 1
+--- !u!114 &1208229937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208229933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9fc727c113dd547b4c53645d6418e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenChest: {fileID: 8688212494263025684, guid: fc61c1e2d20aa434f931de380f06453b, type: 3}
+  spriteRenderer: {fileID: 2010739314}
+--- !u!114 &1208229938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208229933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1208229935}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2010739316}
+        m_TargetAssemblyTypeName: Treasure, Assembly-CSharp
+        m_MethodName: OpenTreasure
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1212093091
 GameObject:
   m_ObjectHideFlags: 0
@@ -41215,9 +41288,10 @@ GameObject:
   - component: {fileID: 2010739314}
   - component: {fileID: 2010739316}
   - component: {fileID: 2010739317}
+  - component: {fileID: 2010739318}
   m_Layer: 0
   m_Name: Chest_Locked_0
-  m_TagString: Untagged
+  m_TagString: Treasure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41299,9 +41373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fc727c113dd547b4c53645d6418e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenChest: {fileID: 8688212494263025684, guid: fc61c1e2d20aa434f931de380f06453b, type: 3}
+  OpenChest: {fileID: 4714410783012859700, guid: 91b6567602c844a0995013de46b9fb9c, type: 3}
   spriteRenderer: {fileID: 2010739314}
-  treasure: {fileID: 2010739317}
 --- !u!61 &2010739317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41328,6 +41401,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.125, y: 1.125}
   m_EdgeRadius: 0
+--- !u!95 &2010739318
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010739313}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3860d1754425444dbe75db3451b7645, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2107960797
 GameObject:
   m_ObjectHideFlags: 0
