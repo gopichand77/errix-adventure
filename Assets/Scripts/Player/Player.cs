@@ -19,7 +19,9 @@ public class Player : MonoBehaviour
     public int Coins;
     private bool isGrounded;
     public Button AttackButton;
-    public GameObject TreasureKey;
+    public GameObject TreasureKey1;
+    public GameObject TreasureKey2;
+    public GameObject TreasureKey3;
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
@@ -46,7 +48,10 @@ public class Player : MonoBehaviour
         // moveSpeed;
         currentHealth = maxHealth;
         healthBar.SetMaxhealth(maxHealth);
-        TreasureKey.SetActive(false);
+        TreasureKey1.SetActive(false);
+        TreasureKey2.SetActive(false);
+        TreasureKey3.SetActive(false);
+
     }
 
 
@@ -236,7 +241,21 @@ public class Player : MonoBehaviour
     {
          if (trig.gameObject.CompareTag("Treasure") && Keys > 0)
         {
-            TreasureKey.gameObject.SetActive(true);
+            TreasureKey1.gameObject.SetActive(true);
+            AttackButton.gameObject.SetActive(false);
+            
+        }
+        
+         if (trig.gameObject.CompareTag("Treasure2") && Keys > 0)
+        {
+            TreasureKey2.gameObject.SetActive(true);
+            AttackButton.gameObject.SetActive(false);
+            
+        }
+        
+         if (trig.gameObject.CompareTag("Treasure3") && Keys > 0)
+        {
+            TreasureKey3.gameObject.SetActive(true);
             AttackButton.gameObject.SetActive(false);
             
         }
@@ -244,10 +263,15 @@ public class Player : MonoBehaviour
     }
    private void OnTriggerExit2D(Collider2D other)
    {
-       TreasureKey.gameObject.SetActive(false);
-            AttackButton.gameObject.SetActive(true);
+
+       
+        TreasureKey2.gameObject.SetActive(false);
+        TreasureKey3.gameObject.SetActive(false);
+       TreasureKey1.gameObject.SetActive(false);
+        AttackButton.gameObject.SetActive(true);
        
    }
+ 
 
 }
 
