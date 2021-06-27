@@ -33,7 +33,7 @@ public class Chest : MonoBehaviour
     }
     IEnumerator CollectTreasure()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 

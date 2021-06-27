@@ -15,13 +15,17 @@ public class Player : MonoBehaviour
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
+    private bool isGrounded;
+
     public int Bullets;
     public int Coins;
-    private bool isGrounded;
+
     public Button AttackButton;
     public Button TreasureKey1;
     public Button TreasureKey2;
     public Button TreasureKey3;
+
+
     [Header("Variables")]
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
@@ -83,11 +87,11 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        // if (Input.GetButtonDown("Jump"))
+        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
@@ -232,58 +236,58 @@ public class Player : MonoBehaviour
     }
     void Die()
     {
-        if(currentHealth == 0)
+        if (currentHealth == 0)
         {
             Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-         if (trig.gameObject.CompareTag("Treasure") )
+        if (trig.gameObject.CompareTag("Treasure"))
         {
             TreasureKey1.gameObject.SetActive(true);
             AttackButton.gameObject.SetActive(false);
             TreasureKey1.interactable = true;
-            
+
         }
-        
-         if (trig.gameObject.CompareTag("Treasure2") )
+
+        if (trig.gameObject.CompareTag("Treasure2"))
         {
             TreasureKey2.gameObject.SetActive(true);
             TreasureKey2.interactable = true;
             AttackButton.gameObject.SetActive(false);
-            
+
         }
-        
-         if (trig.gameObject.CompareTag("Treasure3"))
+
+        if (trig.gameObject.CompareTag("Treasure3"))
         {
 
             TreasureKey3.gameObject.SetActive(true);
             TreasureKey3.interactable = true;
             AttackButton.gameObject.SetActive(false);
-            
+
         }
-        if(Keys == 0)
+        if (Keys == 0)
         {
             TreasureKey2.interactable = false;
-        TreasureKey3.interactable = false;
-       TreasureKey1.interactable = false;
-            
-        }
-        
-        
-    }
-   private void OnTriggerExit2D(Collider2D other)
-   {
+            TreasureKey3.interactable = false;
+            TreasureKey1.interactable = false;
 
-       
+        }
+
+
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+
+
         TreasureKey2.gameObject.SetActive(false);
         TreasureKey3.gameObject.SetActive(false);
-       TreasureKey1.gameObject.SetActive(false);
+        TreasureKey1.gameObject.SetActive(false);
         AttackButton.gameObject.SetActive(true);
-       
-   }
- 
+
+    }
+
 
 }
 

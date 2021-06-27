@@ -31,14 +31,13 @@ public class SignBoardTrigger : MonoBehaviour
   void OnCollisionEnter2D(Collision2D collision)
         {
             SignBoardActive(collision);
-            
         }
 
         bool SignBoardActive(Collision2D collision)
         {
             Player player = collision.gameObject.GetComponent<Player>();
            if(collision.contacts[0].normal.y < -0.5){
-                Dialog.gameObject.SetActive(false);//Dialg Box is Deactivated To Activate Keep True
+                Dialog.gameObject.SetActive(true);//Dialg Box is Deactivated To Activate Keep True
                
              return true;
            }
