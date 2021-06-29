@@ -5,11 +5,15 @@ public class Monster : MonoBehaviour
 {
     public float moveSpeed = 1;
     public bool movingRight;
-    public Animator animator;
+    public Animator anim;
     public int health = 40;
     Rigidbody2D rb;
-    public SpriteRenderer DeathAffect;
+    
 
+    [SerializeField]
+    public Transform Player;
+    float playerdist;
+    public float attackRange;
 
     bool _hasDied;
 
@@ -20,6 +24,19 @@ public class Monster : MonoBehaviour
     }
     private void Update()
     {
+         playerdist = Vector2.Distance(transform.position, Player.position);
+         if (playerdist < attackRange)
+        {
+            anim.SetBool("Attack",true);
+           
+        }
+         if (playerdist > attackRange)
+        {
+            anim.SetBool("Attack",false);
+           
+            
+        }
+
         if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * moveSpeed, 0, 0);
@@ -78,7 +95,7 @@ public class Monster : MonoBehaviour
     {
         _hasDied = true;
         moveSpeed = 0;
-        animator.SetBool("isHurt", true);
+        anim.SetBool("isHurt", true);
         yield return new WaitForSeconds(0.2f);
         gameObject.SetActive(false);
     }
