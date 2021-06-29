@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
-
-
     private Rigidbody2D rb;
     private Animator anim;
     public int Keys;
