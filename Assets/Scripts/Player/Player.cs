@@ -177,6 +177,10 @@ public class Player : MonoBehaviour
     {
         Coins += 1;
     }
+    public void NoOfAxes()
+    {
+        Bullets += 1;
+    }
     public void NoofKeys()
     {
         Keys += 1;
