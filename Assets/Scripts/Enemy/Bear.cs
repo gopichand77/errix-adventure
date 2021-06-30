@@ -32,6 +32,9 @@ public class Bear : MonoBehaviour
         {
             anim.SetBool("Attack",true);
             moveSpeed = 0;
+            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform.localScale = new Vector2(-1, 1);
+
             // ChasePlayer();
             
             
@@ -89,6 +92,29 @@ public class Bear : MonoBehaviour
         anim.SetBool("WakeUp",false);
         anim.SetFloat("Movement",moveSpeed);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        if(player && collision.contacts[0].normal.x > -10)
+
+        {
+            Flip();
+            player.TakeDamage(10);
+            player.anim.SetBool("isHurt",true);
+            // new WaitForSeconds(1.2f);
+            // player.anim.SetBool("isHurt",false);
+
+        }
+        
+    }
+     void Flip()
+    {
+        
+        transform.Rotate(0f, 180f, 0f);
+      
+
+    }
+
    // || Player.position.x < transform.position.x && transform.localScale.x  > 0
         
     }

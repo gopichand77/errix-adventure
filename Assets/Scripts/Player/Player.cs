@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
-    private Animator anim;
+    public Animator anim;
     public int Keys;
     private float dirX;
     private bool facingRight = true;
@@ -85,11 +85,11 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        // if (Input.GetButtonDown("Jump"))
+        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
@@ -196,6 +196,7 @@ public class Player : MonoBehaviour
     {
         //When the player gets hurt this func() trigs and returns true 
         Monster enemy = collision.gameObject.GetComponent<Monster>();
+        Bear bear = collision.gameObject.GetComponent<Bear>();
 
         if(enemy!=null && collision.contacts[0].normal.x < 0.5)
         {
@@ -205,14 +206,23 @@ public class Player : MonoBehaviour
             
 
             return true;
-
-
         }
+         if(bear!=null && collision.contacts[0].normal.x < 0.5)
+        {
+            //animation and the return value for the player 
+            anim.SetBool("isHurt",true);
+            rb.velocity = new Vector2(-HurtForce,rb.velocity.y);
+            
+
+            return true;
+        }
+        
         else {
             anim.SetBool("isHurt",false);
            // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
             return false;
         }
+       
         
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -234,9 +244,18 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         // health -= damage;
+
+       StartCoroutine(Hurt());
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
+    }
+    IEnumerator Hurt()
+    {
+        rb.velocity = new Vector2(-HurtForce,rb.velocity.y);
+        anim.SetBool("isHurt",true);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("isHurt",false);
     }
     void Die()
     {

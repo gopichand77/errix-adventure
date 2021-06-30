@@ -9,6 +9,7 @@ public class RockHead : MonoBehaviour
     public bool movingRight = false;
     [SerializeField]
     float playerdist;
+    
     public float EnemyRange;
 
 
@@ -40,6 +41,7 @@ public class RockHead : MonoBehaviour
         }
         if (playerdist > EnemyRange)
         {
+            
             moveSpeed = 0f;
         }
 
