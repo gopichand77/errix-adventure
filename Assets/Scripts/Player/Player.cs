@@ -198,32 +198,33 @@ public class Player : MonoBehaviour
         Monster enemy = collision.gameObject.GetComponent<Monster>();
         Bear bear = collision.gameObject.GetComponent<Bear>();
 
-        if(enemy!=null && collision.contacts[0].normal.x < 0.5)
+        if (enemy != null && collision.contacts[0].normal.x < 0.5)
         {
             //animation and the return value for the player 
-            anim.SetBool("isHurt",true);
+            anim.SetBool("isHurt", true);
             // rb.velocity = new Vector2(-HurtForce,rb.velocity.y);\
-            
+
 
             return true;
         }
-         if(bear!=null && collision.contacts[0].normal.x < 0.5)
+        if (bear != null && collision.contacts[0].normal.x < 0.5)
         {
             //animation and the return value for the player 
-            anim.SetBool("isHurt",true);
-            rb.velocity = new Vector2(-HurtForce,rb.velocity.y);
-            
+            anim.SetBool("isHurt", true);
+            rb.velocity = new Vector2(-HurtForce, rb.velocity.y);
+
 
             return true;
         }
-        
-        else {
-            anim.SetBool("isHurt",false);
-           // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
+
+        else
+        {
+            anim.SetBool("isHurt", false);
+            // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
             return false;
         }
-       
-        
+
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -233,7 +234,7 @@ public class Player : MonoBehaviour
             TakeDamage(10);
             // rb.AddForce(new Vector2(-HurtForce, 0), ForceMode2D.Impulse);
             //animator.SetBool("isHurt",true);
-         
+
             // animator.SetBool("isHurt",true);
 
         }
@@ -245,17 +246,17 @@ public class Player : MonoBehaviour
     {
         // health -= damage;
 
-       StartCoroutine(Hurt());
+        StartCoroutine(Hurt());
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
     }
     IEnumerator Hurt()
     {
-        rb.velocity = new Vector2(-HurtForce,rb.velocity.y);
-        anim.SetBool("isHurt",true);
+        rb.velocity = new Vector2(-HurtForce, rb.velocity.y);
+        anim.SetBool("isHurt", true);
         yield return new WaitForSeconds(1f);
-        anim.SetBool("isHurt",false);
+        anim.SetBool("isHurt", false);
     }
     void Die()
     {
