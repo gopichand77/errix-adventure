@@ -26,13 +26,25 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             // enemy.TakeDamage(5);
+            rb.velocity = transform.right * 0;
+            Axe.SetBool("Death",true);
+            StartCoroutine(Death());
             enemy.gameObject.SetActive(false);
-            Destroy(gameObject);
+           
 
 
         }
         if (hitInfo.gameObject.CompareTag("Collider"))
         {
+            rb.velocity = transform.right * 0;
+            Axe.SetBool("Death",true);
+            StartCoroutine(Death());
+            
+          
+        }
+        IEnumerator Death()
+        {
+            yield return new WaitForSeconds(1f);
             Destroy(gameObject);
         }
 
