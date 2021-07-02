@@ -5,9 +5,9 @@ using UnityEngine;
 public class Axe : MonoBehaviour
 {
     // Start is called before the first frame update
-   public Animator anim;
-   private bool AxeCollected =  true ;
-   public int NoOfBullets = 5;
+    public Animator anim;
+    private bool AxeCollected = true;
+    public int NoOfBullets = 5;
 
     void OnTriggerEnter2D(Collider2D trig)
     {
@@ -19,18 +19,19 @@ public class Axe : MonoBehaviour
             player.Bullets = player.Bullets + NoOfBullets;
             StartCoroutine(Collected());
             AxeCollected = false;
-             
-            
-            
+
+
+
             // Destroy(gameObject);
-            
+
         }
     }
 
-    IEnumerator Collected() {
+    IEnumerator Collected()
+    {
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-       
-        
+
+
     }
 }
