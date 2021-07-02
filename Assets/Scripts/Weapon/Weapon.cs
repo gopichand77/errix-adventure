@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     {
 
         Shoot();
+        
         Player player = gameObject.GetComponent<Player>();
         player.BulletHandler();
         

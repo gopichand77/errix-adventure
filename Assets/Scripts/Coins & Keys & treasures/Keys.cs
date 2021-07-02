@@ -14,7 +14,7 @@ public class Keys : MonoBehaviour
 
         if (trig.gameObject.CompareTag("Player"))
         {
-            player.NoofKeys();
+            player.NoofKeys(1);
             StartCoroutine(Collected());
         }
     }

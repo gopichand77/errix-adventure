@@ -7,16 +7,20 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
 
     public Animator anim;
+    private bool CoinCollected =  true ;
+
 
     void OnTriggerEnter2D(Collider2D trig)
     {
         Player player = trig.gameObject.GetComponent<Player>();
 
-        if (trig.gameObject.CompareTag("Player"))
+        if (trig.gameObject.CompareTag("Player") && CoinCollected)
         {
             player.NoofCoins();
+            CoinCollected =false;
             // Destroy(gameObject);
             anim.SetBool("collectedCoin", true);
+
             StartCoroutine(Collected());
             
         }

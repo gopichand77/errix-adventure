@@ -6,6 +6,7 @@ public class ChestGoldCoin : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator anim;
+    private bool ChestOpened = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class ChestGoldCoin : MonoBehaviour
     {
         Player player = trig.gameObject.GetComponent<Player>();
 
-        if (trig.gameObject.CompareTag("Player"))
+        if (trig.gameObject.CompareTag("Player") && ChestOpened)
         {
             
             player.NoofCoins();

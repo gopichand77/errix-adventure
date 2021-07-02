@@ -6,17 +6,23 @@ public class Axe : MonoBehaviour
 {
     // Start is called before the first frame update
    public Animator anim;
+   private bool AxeCollected =  true ;
+   public int NoOfBullets = 5;
 
     void OnTriggerEnter2D(Collider2D trig)
     {
         Player player = trig.gameObject.GetComponent<Player>();
 
-        if (trig.gameObject.CompareTag("Player"))
+        if (trig.gameObject.CompareTag("Player") && AxeCollected)
         {
-            player.NoOfAxes();
-            // Destroy(gameObject);
-            anim.SetBool("AxeCollected", true);
+            anim.SetBool("isCollected", true);
+            player.Bullets = player.Bullets + NoOfBullets;
             StartCoroutine(Collected());
+            AxeCollected = false;
+             
+            
+            
+            // Destroy(gameObject);
             
         }
     }
@@ -24,5 +30,7 @@ public class Axe : MonoBehaviour
     IEnumerator Collected() {
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
+       
+        
     }
 }

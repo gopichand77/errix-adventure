@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
 
     public int Bullets;
+
     public int Coins;
 
     public Button AttackButton;
@@ -172,20 +173,20 @@ public class Player : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
-    }
+    } 
     public void NoofCoins()
     {
-        Coins += 1;
+        Coins = Coins + 1;
     }
-    public void NoOfAxes()
+    public void NoOfAxes(int NoOfAxes1)
     {
-        Bullets += 1;
+        Bullets += NoOfAxes1;
     }
-    public void NoofKeys()
+    public void NoofKeys(int NoofKeys1)
     {
-        Keys += 1;
+        Keys += NoofKeys1;
     }
-    public void OpenTreasure()
+    public void OpenTreasure(int NoofCoins1)
     {
         Keys -= 1;
     }
