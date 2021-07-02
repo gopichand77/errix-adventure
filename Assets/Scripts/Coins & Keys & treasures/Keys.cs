@@ -6,16 +6,18 @@ public class Keys : MonoBehaviour
 {
     // Start is called before the first frame update
     public Animator anim;
+    private bool KeyCollected = true;
 
 
     void OnTriggerEnter2D(Collider2D trig)
     {
         Player player = trig.gameObject.GetComponent<Player>();
 
-        if (trig.gameObject.CompareTag("Player"))
+        if (trig.gameObject.CompareTag("Player") && KeyCollected)
         {
             player.NoofKeys(1);
             StartCoroutine(Collected());
+            KeyCollected  = false;
         }
     }
 
