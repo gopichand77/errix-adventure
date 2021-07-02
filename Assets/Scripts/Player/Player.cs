@@ -86,11 +86,11 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        // if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
