@@ -12,11 +12,11 @@ public class SafeAreaPanel : MonoBehaviour
     }
 
     private void OnEnable() {
-        SafeAreaDetection.onSafeAreaChanged += RefreshPanel;
+        SafeAreaDetectionCanvas.onSafeAreaChanged += RefreshPanel;
     }
 
     private void OnDisAble() {
-        SafeAreaDetection.onSafeAreaChanged -= RefreshPanel;
+        SafeAreaDetectionCanvas.onSafeAreaChanged -= RefreshPanel;
     }
 
     private void RefreshPanel(Rect safeArea) {

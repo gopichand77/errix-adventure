@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SafeAreaDetection : MonoBehaviour
+public class SafeAreaDetectionCanvas : MonoBehaviour
 {
     public delegate void SafeAreaChanged(Rect safeArea);
     public static event SafeAreaChanged onSafeAreaChanged;
