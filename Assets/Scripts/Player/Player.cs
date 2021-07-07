@@ -38,6 +38,13 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public PlayerHealth healthBar;
 
+    [Header("KnockOut")]
+    public float knockback;
+    public float knockLenght;
+    public float knockCount;
+    public bool knockfromRight;
+    public bool Damaged =false;
+
 
 
 
@@ -143,11 +150,38 @@ public class Player : MonoBehaviour
             anim.SetBool("isFalling", true);
         }
     }
-    private void FixedUpdate()
+  private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
+        if(knockCount <=0)
+        {
+            rb.velocity = new Vector2(dirX, rb.velocity.y);
+        }
+            else
+            {
+                if(knockfromRight)
+                {
+                    rb.velocity = new Vector2(-knockback, rb.velocity.y);
+                    Damaged = true;
+                    
+                    
+
+                }
+                if(!knockfromRight)
+                
+                    rb.velocity = new Vector2(knockback, rb.velocity.y);
+                    Damaged = true;
+                    
+                    
+                knockCount -= Time.deltaTime;
+            
+            }
+           
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
+        
     }
+
 
     private void LateUpdate()
     {
@@ -197,70 +231,31 @@ public class Player : MonoBehaviour
     {
         rb.AddForce(Vector2.up * 100f * jumpForce);
     }
-    bool ShouldHurtFromCollision(Collision2D collision)
-    {
-        //When the player gets hurt this func() trigs and returns true 
-        Monster enemy = collision.gameObject.GetComponent<Monster>();
-        Bear bear = collision.gameObject.GetComponent<Bear>();
-
-        if (enemy != null && collision.contacts[0].normal.x < 0.5)
-        {
-            //animation and the return value for the player 
-            anim.SetBool("isHurt", true);
-            // rb.velocity = new Vector2(-HurtForce,rb.velocity.y);\
+ 
 
 
-            return true;
-        }
-        if (bear != null && collision.contacts[0].normal.x < 0.5)
-        {
-            //animation and the return value for the player 
-            anim.SetBool("isHurt", true);
-            rb.velocity = new Vector2(-HurtForce, rb.velocity.y);
-
-
-            return true;
-        }
-
-        else
-        {
-            anim.SetBool("isHurt", false);
-            // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
-            return false;
-        }
-
-
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //this triggers when the player shouldhurtfromcollision returns true
-        if (ShouldHurtFromCollision(collision))
-        {
-            TakeDamage(10);
-            // rb.AddForce(new Vector2(-HurtForce, 0), ForceMode2D.Impulse);
-            //animator.SetBool("isHurt",true);
-
-            // animator.SetBool("isHurt",true);
-
-        }
-
-    }
-
-
-    public void TakeDamage(int damage)
+ public void TakeDamage(int damage)
     {
         // health -= damage;
 
         StartCoroutine(Hurt());
+        if(Damaged)
+        {
         currentHealth -= damage;
+        Damaged =false;
+        }
         healthBar.SetHealth(currentHealth);
+        
 
     }
     IEnumerator Hurt()
     {
         rb.velocity = new Vector2(-HurtForce, rb.velocity.y);
         anim.SetBool("isHurt", true);
-        yield return new WaitForSeconds(1f);
+        
+        moveSpeed = 0;
+        yield return new WaitForSeconds(0.8f);
+        moveSpeed = 7;
         anim.SetBool("isHurt", false);
     }
     void Die()

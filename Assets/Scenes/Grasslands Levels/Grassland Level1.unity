@@ -385,7 +385,7 @@ Transform:
   - {fileID: 1961890911}
   - {fileID: 179870587}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &21645729
 GameObject:
@@ -6583,7 +6583,7 @@ Transform:
   - {fileID: 393392476}
   - {fileID: 1368325108}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &325536501
 GameObject:
@@ -7492,7 +7492,7 @@ GameObject:
   - component: {fileID: 393347235}
   m_Layer: 0
   m_Name: Bear
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7556,7 +7556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393347229}
   m_LocalRotation: {x: 0.033155207, y: 0, z: 0, w: 0.9994502}
-  m_LocalPosition: {x: 175.92, y: -2.25, z: 0}
+  m_LocalPosition: {x: 206.6, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1923840975}
@@ -69963,7 +69963,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647521254}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &600455394
 BoxCollider2D:
@@ -70075,11 +70075,10 @@ Transform:
   m_LocalPosition: {x: 64, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1079075094}
   - {fileID: 600455393}
   - {fileID: 793782718}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653462957
 GameObject:
@@ -70935,7 +70934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647521254}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &793782719
 BoxCollider2D:
@@ -72007,6 +72006,11 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 233743372}
+  knockback: 10
+  knockLenght: 0.5
+  knockCount: 0
+  knockfromRight: 0
+  Damaged: 0
 --- !u!95 &1003737825
 Animator:
   serializedVersion: 3
@@ -72085,7 +72089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003737823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 825818629}
@@ -72406,6 +72410,7 @@ GameObject:
   - component: {fileID: 1079075095}
   - component: {fileID: 1079075096}
   - component: {fileID: 1079075097}
+  - component: {fileID: 1079075098}
   m_Layer: 0
   m_Name: Crocodile
   m_TagString: Enemy
@@ -72491,11 +72496,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079075091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 64, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 647521254}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1079075095
 BoxCollider2D:
@@ -72510,7 +72515,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047887802, y: -0.03473109}
+  m_Offset: {x: -0.041498184, y: -0.03473109}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -72521,7 +72526,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6868706, y: 0.8791075}
+  m_Size: {x: 1.6333504, y: 0.8165624}
   m_EdgeRadius: 0
 --- !u!50 &1079075096
 Rigidbody2D:
@@ -72562,6 +72567,32 @@ MonoBehaviour:
   health: 0
   Player: {fileID: 1003737827}
   attackRange: 8
+--- !u!61 &1079075098
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079075091}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.0714285, y: 1.0714285}
+    newSize: {x: 2.0714285, y: 1.0714285}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0714285, y: 1.0714285}
+  m_EdgeRadius: 0
 --- !u!1 &1083042102
 GameObject:
   m_ObjectHideFlags: 0
@@ -72591,7 +72622,7 @@ Transform:
   m_Children:
   - {fileID: 876083294}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087123279
 GameObject:
@@ -134834,7 +134865,7 @@ Transform:
   - {fileID: 772092433}
   - {fileID: 1575299916}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252648203
 GameObject:
@@ -138035,7 +138066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1348376174
 BoxCollider2D:
@@ -138474,7 +138505,7 @@ Transform:
   - {fileID: 1051295700}
   - {fileID: 741777583}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1466619777 stripped
 Transform:
@@ -145371,7 +145402,7 @@ Transform:
   - {fileID: 468432717}
   - {fileID: 1923840975}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1674983050
 GameObject:
@@ -145470,7 +145501,7 @@ Transform:
   - {fileID: 735826603}
   - {fileID: 2071744543}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1705078191
 GameObject:
@@ -145501,7 +145532,7 @@ Transform:
   m_Children:
   - {fileID: 1565864056}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709475103
 GameObject:
@@ -148374,7 +148405,7 @@ Transform:
   - {fileID: 1711000172}
   - {fileID: 226045358}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!233 &2012676996
 HingeJoint2D:
@@ -148635,7 +148666,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061273919
 GameObject:
