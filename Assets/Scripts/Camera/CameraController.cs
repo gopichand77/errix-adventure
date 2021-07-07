@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-   public Transform player;
+    public Transform player;
+    public Vector3 offset;
 
-   private void Update()
-   {
-       transform.position = new Vector3(player.position.x, player.position.y, -10f);
+    [Range(1, 10)]
+    public float smoothFactor;
+
+    private void FixedUpdate()
+    {
+        Follow();
     }
+    // private void FixedUpdate()
+    // {
+    //     Follow();
+    // }
+
+    void Follow()
+    {
+        Vector3 playerPosition = player.position + offset;
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, playerPosition, smoothFactor * Time.fixedDeltaTime);
+        transform.position = smoothPosition;
+    }
+
+
+
+
+    // public Transform player;
+
+    // private void Update()
+    // {
+    //     transform.position = new Vector3(player.position.x, player.position.y, -10f);
+    // }
 }
 
 // using System.Collections;

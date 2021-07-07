@@ -8,7 +8,7 @@ public class Monster : MonoBehaviour
     public Animator anim;
     public int health = 40;
     Rigidbody2D rb;
-    
+
 
     [SerializeField]
     public Transform Player;
@@ -24,17 +24,17 @@ public class Monster : MonoBehaviour
     }
     private void Update()
     {
-         playerdist = Vector2.Distance(transform.position, Player.position);
-         if (playerdist < attackRange)
+        playerdist = Vector2.Distance(transform.position, Player.position);
+        if (playerdist < attackRange)
         {
-            anim.SetBool("Attack",true);
-           
+            anim.SetBool("Attack", true);
+
         }
-         if (playerdist > attackRange)
+        if (playerdist > attackRange)
         {
-            anim.SetBool("Attack",false);
-           
-            
+            anim.SetBool("Attack", false);
+
+
         }
 
         if (movingRight)
@@ -64,7 +64,7 @@ public class Monster : MonoBehaviour
             }
 
         }
-        
+
 
 
     }
@@ -81,7 +81,9 @@ public class Monster : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
         if (_hasDied)
+        {
             return false;
+        }
 
         if (collision.contacts[0].normal.y < -0.5)
         {

@@ -36,14 +36,18 @@ public class Player : MonoBehaviour
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
-    public PlayerHealth healthBar;
+    public PlayerHealthSlider healthBar;
 
     [Header("KnockOut")]
     public float knockback;
     public float knockLenght;
     public float knockCount;
     public bool knockfromRight;
-    public bool Damaged =false;
+    public bool Damaged = false;
+
+    //for score
+    [Header("Score")]
+    public Text scoreText;
 
 
 
@@ -57,9 +61,13 @@ public class Player : MonoBehaviour
         // moveSpeed;
         currentHealth = maxHealth;
         healthBar.SetMaxhealth(maxHealth);
+
+        //treasure reference 
         TreasureKey1.gameObject.SetActive(false);
         TreasureKey2.gameObject.SetActive(false);
         TreasureKey3.gameObject.SetActive(false);
+        //for score
+        scoreText.text = "";
 
     }
 
@@ -68,6 +76,8 @@ public class Player : MonoBehaviour
     {
         Movement();
         checkAttackButton();
+        //for score
+        scoreText.text = "" + Coins;
 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -150,36 +160,33 @@ public class Player : MonoBehaviour
             anim.SetBool("isFalling", true);
         }
     }
-  private void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
-        if(knockCount <=0)
+        if (knockCount <= 0)
         {
             rb.velocity = new Vector2(dirX, rb.velocity.y);
         }
-            else
+        else
+        {
+            if (knockfromRight)
             {
-                if(knockfromRight)
-                {
-                    rb.velocity = new Vector2(-knockback, rb.velocity.y);
-                    Damaged = true;
-                    
-                    
+                rb.velocity = new Vector2(-knockback, rb.velocity.y);
+                Damaged = true;
 
-                }
-                if(!knockfromRight)
-                
-                    rb.velocity = new Vector2(knockback, rb.velocity.y);
-                    Damaged = true;
-                    
-                    
-                knockCount -= Time.deltaTime;
-            
+
+
             }
-           
-        
+            if (!knockfromRight)
+
+                rb.velocity = new Vector2(knockback, rb.velocity.y);
+            Damaged = true;
+
+
+            knockCount -= Time.deltaTime;
+
+        }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
-        
     }
 
 
@@ -188,7 +195,6 @@ public class Player : MonoBehaviour
         if (dirX > 0 && !facingRight)
         {
             Flip();
-
         }
         else if (dirX < 0 && facingRight)
         {
@@ -201,13 +207,14 @@ public class Player : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
         CreateDust();
-
     }
 
     void CreateDust()
     {
         dust.Play();
-    } 
+    }
+
+    //count score
     public void NoofCoins()
     {
         Coins = Coins + 1;
@@ -231,28 +238,25 @@ public class Player : MonoBehaviour
     {
         rb.AddForce(Vector2.up * 100f * jumpForce);
     }
- 
 
 
- public void TakeDamage(int damage)
+
+    public void TakeDamage(int damage)
     {
         // health -= damage;
-
         StartCoroutine(Hurt());
-        if(Damaged)
+        if (Damaged)
         {
-        currentHealth -= damage;
-        Damaged =false;
+            currentHealth -= damage;
+            Damaged = false;
         }
         healthBar.SetHealth(currentHealth);
-        
-
     }
     IEnumerator Hurt()
     {
         rb.velocity = new Vector2(-HurtForce, rb.velocity.y);
         anim.SetBool("isHurt", true);
-        
+
         moveSpeed = 0;
         yield return new WaitForSeconds(0.8f);
         moveSpeed = 7;
@@ -272,7 +276,6 @@ public class Player : MonoBehaviour
             TreasureKey1.gameObject.SetActive(true);
             AttackButton.gameObject.SetActive(false);
             TreasureKey1.interactable = true;
-
         }
 
         if (trig.gameObject.CompareTag("Treasure2"))
@@ -285,7 +288,6 @@ public class Player : MonoBehaviour
 
         if (trig.gameObject.CompareTag("Treasure3"))
         {
-
             TreasureKey3.gameObject.SetActive(true);
             TreasureKey3.interactable = true;
             AttackButton.gameObject.SetActive(false);
@@ -296,23 +298,17 @@ public class Player : MonoBehaviour
             TreasureKey2.interactable = false;
             TreasureKey3.interactable = false;
             TreasureKey1.interactable = false;
-
         }
 
 
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-
-
         TreasureKey2.gameObject.SetActive(false);
         TreasureKey3.gameObject.SetActive(false);
         TreasureKey1.gameObject.SetActive(false);
         AttackButton.gameObject.SetActive(true);
-
     }
-
-
 }
 
 
