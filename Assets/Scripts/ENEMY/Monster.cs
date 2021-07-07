@@ -64,35 +64,16 @@ public class Monster : MonoBehaviour
             }
 
         }
-
-
-
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (ShouldDieFromCollision(collision))
+         if(trig.gameObject.tag == "Player")
         {
             StartCoroutine(Die());
+
         }
+
+
 
     }
-
-    bool ShouldDieFromCollision(Collision2D collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (_hasDied)
-        {
-            return false;
-        }
-
-        if (collision.contacts[0].normal.y < -0.5)
-        {
-            return true;
-        }
-
-
-        return false;
-    }
+   
     IEnumerator Die()
     {
         _hasDied = true;
