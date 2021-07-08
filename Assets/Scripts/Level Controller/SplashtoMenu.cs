@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class SplashtoMenu : MonoBehaviour
 {
     [SerializeField] string menu;
@@ -12,8 +13,6 @@ public class SplashtoMenu : MonoBehaviour
     void Update()
     {
         StartCoroutine(Timer());
-
-        
     }
     IEnumerator Timer(){
         yield return new WaitForSeconds(4.8f);
@@ -22,6 +21,5 @@ public class SplashtoMenu : MonoBehaviour
     void GoNextLevel()
     {
         SceneManager.LoadSceneAsync(menu);
-
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] string ListofWorld;
-    Touch touch;
+    // Touch touch;
     // Start is called before the first frame update
     
 
