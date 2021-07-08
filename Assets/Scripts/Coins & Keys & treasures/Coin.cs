@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
 
     public Animator anim;
-    private bool CoinCollected =  true ;
+    private bool CoinCollected = true;
 
 
     void OnTriggerEnter2D(Collider2D trig)
@@ -16,17 +16,18 @@ public class Coin : MonoBehaviour
 
         if (trig.gameObject.CompareTag("Player") && CoinCollected)
         {
-            player.NoofCoins();
-            CoinCollected =false;
+            player.NoofGoldCoins();
+            CoinCollected = false;
             // Destroy(gameObject);
             anim.SetBool("collectedCoin", true);
 
             StartCoroutine(Collected());
-            
+
         }
     }
 
-    IEnumerator Collected() {
+    IEnumerator Collected()
+    {
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

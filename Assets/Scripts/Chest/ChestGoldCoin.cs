@@ -21,7 +21,7 @@ public class ChestGoldCoin : MonoBehaviour
         if (trig.gameObject.CompareTag("Player") && ChestOpened)
         {
             
-            player.NoofCoins();
+            player.NoofGoldCoins();
             
             StartCoroutine(CoinOut());
             

@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
 
     public int Bullets;
 
-    public int Coins;
+    public int goldCoins;
+    public int gems;
 
     public Button AttackButton;
     public Button TreasureKey1;
@@ -46,8 +47,12 @@ public class Player : MonoBehaviour
     public bool Damaged = false;
 
     //for score
-    [Header("Score")]
-    public Text scoreText;
+    [Header("UI Elements")]
+    public Text goldCoinScoreText;
+    public Text gemsScoreText;
+    public Text keysText;
+    public Text treasureOpenedText;
+    public Text noOfBulletsText;
 
 
 
@@ -67,7 +72,11 @@ public class Player : MonoBehaviour
         TreasureKey2.gameObject.SetActive(false);
         TreasureKey3.gameObject.SetActive(false);
         //for score
-        scoreText.text = "";
+        goldCoinScoreText.text = ""; //goldcoins
+        gemsScoreText.text = ""; //gems
+        keysText.text = ""; //keys
+        treasureOpenedText.text = "";//Treasures opened
+        noOfBulletsText.text = ""; //bullets
 
     }
 
@@ -77,8 +86,11 @@ public class Player : MonoBehaviour
         Movement();
         checkAttackButton();
         //for score
-        scoreText.text = "" + Coins;
-
+        goldCoinScoreText.text = "" + goldCoins;//working
+        gemsScoreText.text = "" + gems;//not working
+        keysText.text = "" + Keys;//working
+        noOfBulletsText.text = "" + Bullets;// working
+        //notworking treasure 
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
@@ -103,11 +115,11 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        // if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
@@ -215,9 +227,9 @@ public class Player : MonoBehaviour
     }
 
     //count score
-    public void NoofCoins()
+    public void NoofGoldCoins()
     {
-        Coins = Coins + 1;
+        goldCoins = goldCoins + 1;
     }
     public void NoOfAxes(int NoOfAxes1)
     {
