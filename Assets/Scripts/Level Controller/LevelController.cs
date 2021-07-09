@@ -1,20 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
+using System.Collections.Generic;
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] string ListofWorld;
-    // Touch touch;
-    // Start is called before the first frame update
+    public string listofWorld;
+    public string LoadingScreen;
+   
     
 
     // Update is called once per frame
-   
     public void GoNextLevel()
     {
-        SceneManager.LoadScene(ListofWorld);
-
+        SceneManager.LoadSceneAsync(LoadingScreen);
+        DontDestroyOnLoad(gameObject);
+        StartCoroutine(Scene());
     }
+     IEnumerator Scene()
+    {
+        
+        
+        yield return  new WaitForSeconds(2f);
+        
+        SceneManager.LoadSceneAsync(listofWorld);
+       
+     
+    }
+    
+  
 }
