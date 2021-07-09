@@ -4,21 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
-    public string listofWorld;
-    // Start is called before the first frame update
-    void Start()
+    public string levelName;
+    
+    
+    public void NextLevel()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-     public void LevelWithTrans()
-    {
-       SceneManager.LoadSceneAsync(listofWorld);
+       SceneManager.LoadSceneAsync(levelName);
     }
 }
 

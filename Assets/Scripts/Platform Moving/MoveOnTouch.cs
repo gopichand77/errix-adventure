@@ -5,15 +5,19 @@ using UnityEngine;
 public class MoveOnTouch : MonoBehaviour
 {
 
-    public float dirX, moveSpeed = 3f;
+    public float  moveSpeed = 3f;
     bool moveRight = true;
+    public float gridPos;
+    [Header("Limits")]
+    public float rightLimit;
+    public float leftLimit;
     
 
     void Update() {
-        if (transform.position.x > 8f){
+        if (transform.position.x - gridPos > rightLimit){
             moveRight = false;
         }
-        if (transform.position.x < -2f){
+        if (transform.position.x - gridPos < -leftLimit){
             moveRight =true;
         }
 

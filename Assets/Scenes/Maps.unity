@@ -1846,7 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b246bf2ddd9a74570b101caabb9fc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listofWorld: 
+  levelName: Menu
 --- !u!114 &1166101454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1893,7 +1893,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1166101453}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
-        m_MethodName: GoNextLevel
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b246bf2ddd9a74570b101caabb9fc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listofWorld: Grasslands Level Selector
+  levelName: Grasslands Level Selector
 --- !u!1 &1358258184
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class Monster : MonoBehaviour
     float playerdist;
     public float attackRange;
 
-    bool _hasDied;
+    // bool _hasDied;
 
     private void Start()
     {
@@ -76,7 +76,7 @@ public class Monster : MonoBehaviour
    
     IEnumerator Die()
     {
-        _hasDied = true;
+        // _hasDied = true;
         moveSpeed = 0;
         anim.SetBool("isHurt", true);
         yield return new WaitForSeconds(0.2f);

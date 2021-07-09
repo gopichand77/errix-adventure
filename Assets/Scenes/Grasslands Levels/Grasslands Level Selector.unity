@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b246bf2ddd9a74570b101caabb9fc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listofWorld: 
+  levelName: 
 --- !u!1 &23905691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +1983,10 @@ PrefabInstance:
       propertyPath: listofWorld
       value: GrassLand Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 670503482330536166, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
+      propertyPath: nameOfLevel
+      value: Grassland Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867900, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2069,7 +2073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867901, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_Name
-      value: Transition
+      value: Transition Level 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
@@ -2819,7 +2823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1347034810}
         m_TargetAssemblyTypeName: Transition, Assembly-CSharp
-        m_MethodName: LevelWithTrans
+        m_MethodName: GoToNextLevelTran
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

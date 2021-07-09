@@ -4,13 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 public class Transition : MonoBehaviour
 {
-    public string listofWorld;
-   
-   
-    
+    public string nameOfLevel;
 
-    // Update is called once per frame
-    public void LevelWithTrans()
+    public void GoToNextLevelTran()
     {
         SceneManager.LoadSceneAsync("Loading Screen");
         DontDestroyOnLoad(gameObject);
@@ -19,7 +15,7 @@ public class Transition : MonoBehaviour
      IEnumerator Scene()
     {
         yield return  new WaitForSeconds(2f);
-        SceneManager.LoadSceneAsync(listofWorld);
+        SceneManager.LoadSceneAsync(nameOfLevel);
         Destroy(gameObject);
     }
     

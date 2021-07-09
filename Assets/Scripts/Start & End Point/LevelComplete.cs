@@ -5,17 +5,14 @@ using UnityEngine;
 public class LevelComplete : MonoBehaviour
 {
     public Animator animator;
-    
+    public ParticleSystem particleSystem;
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        
-        
         if(trig.gameObject.CompareTag("Player"))
         {
             animator.SetBool("Done",true);
-
-
+            particleSystem.Play();
         }
     }
 }
