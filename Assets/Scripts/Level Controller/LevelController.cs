@@ -1,31 +1,24 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     public string listofWorld;
-    public string LoadingScreen;
-   
-    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
-    public void GoNextLevel()
-    {
-        SceneManager.LoadSceneAsync(LoadingScreen);
-        DontDestroyOnLoad(gameObject);
-        StartCoroutine(Scene());
-    }
-     IEnumerator Scene()
+    void Update()
     {
         
-        
-        yield return  new WaitForSeconds(2f);
-        
-        SceneManager.LoadSceneAsync(listofWorld);
-       
-     
     }
-    
-  
+     public void LevelWithTrans()
+    {
+       SceneManager.LoadSceneAsync(listofWorld);
+    }
 }
+
