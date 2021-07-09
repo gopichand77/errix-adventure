@@ -321,6 +321,24 @@ public class Player : MonoBehaviour
         TreasureKey1.gameObject.SetActive(false);
         AttackButton.gameObject.SetActive(true);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {//this triggers when the player shouldhurtfromcollision returns true
+    
+        if (collision.gameObject.CompareTag("Traps"))
+        {
+            StartCoroutine(Die(collision));
+        }
+    }
+    IEnumerator Die(Collision2D collision)
+    
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        yield return new WaitForSeconds(1f);
+       player.gameObject.SetActive(true);
+    //    Buttons.gameObject.SetActive(false); Game Over
+    }
+       
+    
 }
 
 
