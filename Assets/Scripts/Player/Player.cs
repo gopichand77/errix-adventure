@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         goldCoinScoreText.text = ""; //goldcoins
         gemsScoreText.text = ""; //gems
         keysText.text = ""; //keys
-        treasureOpenedText.text = "";//Treasures opened
+        treasureOpenedText.text = "" ;//Treasures opened
         noOfBulletsText.text = ""; //bullets
 
     }
