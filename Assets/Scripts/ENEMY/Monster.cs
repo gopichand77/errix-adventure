@@ -64,11 +64,11 @@ public class Monster : MonoBehaviour
             }
 
         }
-         if(trig.gameObject.tag == "Player")
-        {
-            StartCoroutine(Die());
+        //  if(trig.gameObject.tag == "Player")
+        // {
+        //     StartCoroutine(Die());
 
-        }
+        // }
 
 
 

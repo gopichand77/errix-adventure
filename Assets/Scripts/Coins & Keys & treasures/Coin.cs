@@ -20,6 +20,7 @@ public class Coin : MonoBehaviour
             CoinCollected = false;
             // Destroy(gameObject);
             anim.SetBool("collectedCoin", true);
+            
 
             StartCoroutine(Collected());
 

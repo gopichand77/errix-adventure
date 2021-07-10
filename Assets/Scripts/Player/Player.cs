@@ -9,11 +9,12 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public int Keys;
+    public int openChests;
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
     private bool isGrounded;
-
+    
     public int Bullets;
 
     public int goldCoins;
@@ -45,6 +46,15 @@ public class Player : MonoBehaviour
     public float knockCount;
     public bool knockfromRight;
     public bool Damaged = false;
+    
+    [Header("spikeKnockOut")]
+    public float SPIKEknockback;
+    public float SPIKEknockLenght;
+    public float SPIKEknockCount;
+    public bool  SPIKEhurt;
+    public bool  SPIKEDamaged = false;
+    
+    
 
     //for score
     [Header("UI Elements")]
@@ -75,7 +85,7 @@ public class Player : MonoBehaviour
         goldCoinScoreText.text = ""; //goldcoins
         gemsScoreText.text = ""; //gems
         keysText.text = ""; //keys
-        treasureOpenedText.text = "" ;//Treasures opened
+        treasureOpenedText.text = "";//Treasures opened
         noOfBulletsText.text = ""; //bullets
 
     }
@@ -90,12 +100,13 @@ public class Player : MonoBehaviour
         gemsScoreText.text = "" + gems;//not working
         keysText.text = "" + Keys;//working
         noOfBulletsText.text = "" + Bullets;// working
+        treasureOpenedText.text = "" +openChests ;
         //notworking treasure 
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
         }
-        // Die();
+        Die();
 
     }
     void checkAttackButton()
@@ -115,11 +126,11 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        // if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
@@ -175,29 +186,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
-        if (knockCount <= 0)
-        {
-            rb.velocity = new Vector2(dirX, rb.velocity.y);
-        }
-        else
-        {
-            if (knockfromRight)
-            {
-                rb.velocity = new Vector2(-knockback, rb.velocity.y);
-                Damaged = true;
-
-
-
-            }
-            if (!knockfromRight)
-
-                rb.velocity = new Vector2(knockback, rb.velocity.y);
-            Damaged = true;
-
-
-            knockCount -= Time.deltaTime;
-
-        }
+        hurtFromEnemy();
+        hurtFromSpikes();
+       
+            
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
     }
 
@@ -243,6 +235,14 @@ public class Player : MonoBehaviour
     {
         Keys -= 1;
     }
+     public void ChestOpen()
+    {
+        openChests = openChests + 1;
+    }
+    public void NoOfgems()
+    {
+        gems = gems + 1;
+    }
 
 
 
@@ -257,32 +257,41 @@ public class Player : MonoBehaviour
     {
         // health -= damage;
         StartCoroutine(Hurt());
-        if (Damaged)
+        if (Damaged|| SPIKEDamaged)
         {
             currentHealth -= damage;
             Damaged = false;
+            SPIKEDamaged = false;
         }
         healthBar.SetHealth(currentHealth);
     }
     IEnumerator Hurt()
     {
-        rb.velocity = new Vector2(-HurtForce, rb.velocity.y);
+        
         anim.SetBool("isHurt", true);
-
         moveSpeed = 0;
         yield return new WaitForSeconds(0.8f);
         moveSpeed = 7;
         anim.SetBool("isHurt", false);
+
+        
     }
     void Die()
     {
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
     }
+    
     private void OnTriggerEnter2D(Collider2D trig)
     {
+        if(trig.gameObject.CompareTag("greenGem"))
+        {
+            Destroy(trig.gameObject);
+          
+            NoOfgems();
+        }
         if (trig.gameObject.CompareTag("Treasure"))
         {
             TreasureKey1.gameObject.SetActive(true);
@@ -321,23 +330,56 @@ public class Player : MonoBehaviour
         TreasureKey1.gameObject.SetActive(false);
         AttackButton.gameObject.SetActive(true);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {//this triggers when the player shouldhurtfromcollision returns true
-    
-        if (collision.gameObject.CompareTag("Traps"))
+    void hurtFromEnemy()
+    {
+        if (knockCount <= 0)
         {
-            StartCoroutine(Die(collision));
+            rb.velocity = new Vector2(dirX, rb.velocity.y);
+        }
+        
+        else
+        {
+            if (knockfromRight)
+            {
+                rb.velocity = new Vector2(-knockback, rb.velocity.y);
+                Damaged = true;
+
+
+
+            }
+            if (!knockfromRight)
+
+                rb.velocity = new Vector2(knockback, rb.velocity.y);
+            Damaged = true;
+
+
+            knockCount -= Time.deltaTime;
+
         }
     }
-    IEnumerator Die(Collision2D collision)
-    
+    void hurtFromSpikes()
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        yield return new WaitForSeconds(1f);
-       player.gameObject.SetActive(true);
-    //    Buttons.gameObject.SetActive(false); Game Over
+         if (SPIKEknockCount <= 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+        }
+          else
+          {
+              if(SPIKEhurt)
+              {
+                rb.velocity = new Vector2(dirX, SPIKEknockback );
+                SPIKEDamaged = true;
+                SPIKEknockCount -= Time.deltaTime;
+
+
+
+            }
+          }
+            
     }
-       
+     
+    
+  
     
 }
 

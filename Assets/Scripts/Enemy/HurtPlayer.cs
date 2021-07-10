@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HurtPlayer : MonoBehaviour
 {
+    public int EnemyDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class HurtPlayer : MonoBehaviour
             var player =  collider2D.GetComponent<Player>();
             if(player.Damaged)
             {
-                player.TakeDamage(10/2);
+                player.TakeDamage(EnemyDamage);
+                player.anim.SetBool("isHurt",true);
                 player.Damaged = false;
             }
             player.knockCount = player.knockLenght;

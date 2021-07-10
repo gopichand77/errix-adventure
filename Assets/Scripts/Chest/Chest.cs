@@ -26,6 +26,7 @@ public class Chest : MonoBehaviour
         if(player.Keys > 0 && Opened){
             player.Keys -=1;
         anim.SetBool("Open",true);
+        player.ChestOpen();
         Instantiate(GoldChest,CoinPoint.position,CoinPoint.rotation);
 
         Opened = false;
