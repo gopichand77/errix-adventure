@@ -48,11 +48,11 @@ public class Player : MonoBehaviour
     public bool Damaged = false;
     
     [Header("spikeKnockOut")]
-    public float SPIKEknockback;
-    public float SPIKEknockLenght;
-    public float SPIKEknockCount;
-    public bool  SPIKEhurt;
-    public bool  SPIKEDamaged = false;
+    public float spikeKnockback;
+    public float spikeKnockLenght;
+    public float spikeKnockCount;
+    public bool  spikeHurt;
+    public bool  spikeDamaged = false;
     
     
 
@@ -257,11 +257,11 @@ public class Player : MonoBehaviour
     {
         // health -= damage;
         StartCoroutine(Hurt());
-        if (Damaged|| SPIKEDamaged)
+        if (Damaged|| spikeDamaged)
         {
             currentHealth -= damage;
             Damaged = false;
-            SPIKEDamaged = false;
+            spikeDamaged = false;
         }
         healthBar.SetHealth(currentHealth);
     }
@@ -359,20 +359,17 @@ public class Player : MonoBehaviour
     }
     void hurtFromSpikes()
     {
-         if (SPIKEknockCount <= 0)
+         if (spikeKnockCount <= 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
           else
           {
-              if(SPIKEhurt)
+              if(spikeHurt)
               {
-                rb.velocity = new Vector2(dirX, SPIKEknockback );
-                SPIKEDamaged = true;
-                SPIKEknockCount -= Time.deltaTime;
-
-
-
+                rb.velocity = new Vector2(dirX, spikeKnockback );
+                spikeDamaged = true;
+                spikeKnockCount -= Time.deltaTime;
             }
           }
             
