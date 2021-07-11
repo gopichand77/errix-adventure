@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator anim;
+    public GameObject GameOver;
     public int Keys;
     public int openChests;
     private float dirX;
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public PlayerHealthSlider healthBar;
+     
 
     [Header("KnockOut")]
     public float knockback;
@@ -71,6 +73,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        GameOver.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         AttackButton.interactable = false;
@@ -94,6 +97,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(currentHealth <= 0)
+        {
+            GameOver.SetActive(true);
+        }
         Movement();
         checkAttackButton();
         //for score
