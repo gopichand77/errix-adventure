@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     // public int health = 40;
     public float HurtForce = 30;
     // private bool canDoubleJump;
+  
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
@@ -135,6 +136,7 @@ public class Player : MonoBehaviour
             if (isGrounded)
             {
                 Jump();
+               
                 // canDoubleJump = true;
             }
             // else if (canDoubleJump)
@@ -248,7 +250,10 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
+        
         rb.AddForce(Vector2.up * 100f * jumpForce);
+       
+        
     }
 
 
@@ -267,6 +272,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator Hurt()
     {
+        anim.SetBool("isFalling",false);
         
         anim.SetBool("isHurt", true);
         moveSpeed = 0;

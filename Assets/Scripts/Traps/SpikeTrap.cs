@@ -16,6 +16,7 @@ public class SpikeTrap : MonoBehaviour
             if (player.spikeDamaged)
             {
                 player.TakeDamage(spikeDamge);
+                player.anim.SetBool("isFalling",false);
                 player.anim.SetBool("isHurt", true);
                 player.moveSpeed = 7;
                 player.spikeDamaged = false;
