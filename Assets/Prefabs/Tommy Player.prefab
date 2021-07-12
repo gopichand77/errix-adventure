@@ -185,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5611923, y: 0.59575725}
+  m_Size: {x: 0.5611923, y: 0.6878146}
   m_EdgeRadius: 0
 --- !u!58 &7423574116704486771
 CircleCollider2D:
@@ -217,7 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7423574116704486769}
   anim: {fileID: 7423574116704486774}
+  GameOver: {fileID: 0}
   Keys: 1
+  openChests: 0
   Bullets: 0
   goldCoins: 0
   gems: 0
@@ -241,6 +243,11 @@ MonoBehaviour:
   knockCount: 0
   knockfromRight: 0
   Damaged: 0
+  spikeKnockback: 0
+  spikeKnockLenght: 0
+  spikeKnockCount: 0
+  spikeHurt: 0
+  spikeDamaged: 0
   goldCoinScoreText: {fileID: 0}
   gemsScoreText: {fileID: 0}
   keysText: {fileID: 0}

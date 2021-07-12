@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 localScale;
     private bool isGrounded;
-    
+
     public int Bullets;
 
     public int goldCoins;
@@ -36,12 +36,12 @@ public class Player : MonoBehaviour
     // public int health = 40;
     public float HurtForce = 30;
     // private bool canDoubleJump;
-  
+
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
     public PlayerHealthSlider healthBar;
-     
+
 
     [Header("KnockOut")]
     public float knockback;
@@ -49,15 +49,15 @@ public class Player : MonoBehaviour
     public float knockCount;
     public bool knockfromRight;
     public bool Damaged = false;
-    
+
     [Header("spikeKnockOut")]
     public float spikeKnockback;
     public float spikeKnockLenght;
     public float spikeKnockCount;
-    public bool  spikeHurt;
-    public bool  spikeDamaged = false;
-    
-    
+    public bool spikeHurt;
+    public bool spikeDamaged = false;
+
+
 
     //for score
     [Header("UI Elements")]
@@ -97,8 +97,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
+            new WaitForSeconds(1);
             GameOver.SetActive(true);
         }
         Movement();
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
         gemsScoreText.text = "" + gems;//not working
         keysText.text = "" + Keys;//working
         noOfBulletsText.text = "" + Bullets;// working
-        treasureOpenedText.text = "" +openChests ;
+        treasureOpenedText.text = "" + openChests;
         //notworking treasure 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -128,22 +129,29 @@ public class Player : MonoBehaviour
             AttackButton.interactable = false;
         }
     }
+
+    IEnumerator GameTim()
+    {
+        yield return new WaitForSeconds(2);
+        GameOver.SetActive(true);
+    }
+
     public void BulletHandler()
     {
         Bullets -= 1;
     }
     void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        // if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
                 Jump();
-               
+
                 // canDoubleJump = true;
             }
             // else if (canDoubleJump)
@@ -197,8 +205,8 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(dirX, rb.velocity.y);
         hurtFromEnemy();
         hurtFromSpikes();
-       
-            
+
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
     }
 
@@ -244,7 +252,7 @@ public class Player : MonoBehaviour
     {
         Keys -= 1;
     }
-     public void ChestOpen()
+    public void ChestOpen()
     {
         openChests = openChests + 1;
     }
@@ -257,10 +265,10 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        
+
         rb.AddForce(Vector2.up * 100f * jumpForce);
-       
-        
+
+
     }
 
 
@@ -269,7 +277,7 @@ public class Player : MonoBehaviour
     {
         // health -= damage;
         StartCoroutine(Hurt());
-        if (Damaged|| spikeDamaged)
+        if (Damaged || spikeDamaged)
         {
             currentHealth -= damage;
             Damaged = false;
@@ -279,15 +287,15 @@ public class Player : MonoBehaviour
     }
     IEnumerator Hurt()
     {
-        anim.SetBool("isFalling",false);
-        
+        anim.SetBool("isFalling", false);
+
         anim.SetBool("isHurt", true);
         moveSpeed = 0;
         yield return new WaitForSeconds(0.8f);
         moveSpeed = 7;
         anim.SetBool("isHurt", false);
 
-        
+
     }
     void Die()
     {
@@ -296,13 +304,13 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.CompareTag("greenGem"))
+        if (trig.gameObject.CompareTag("greenGem"))
         {
             Destroy(trig.gameObject);
-          
+
             NoOfgems();
         }
         if (trig.gameObject.CompareTag("Treasure"))
@@ -349,7 +357,7 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(dirX, rb.velocity.y);
         }
-        
+
         else
         {
             if (knockfromRight)
@@ -372,25 +380,25 @@ public class Player : MonoBehaviour
     }
     void hurtFromSpikes()
     {
-         if (spikeKnockCount <= 0)
+        if (spikeKnockCount <= 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
-          else
-          {
-              if(spikeHurt)
-              {
-                rb.velocity = new Vector2(dirX, spikeKnockback );
+        else
+        {
+            if (spikeHurt)
+            {
                 spikeDamaged = true;
+                rb.velocity = new Vector2(dirX, spikeKnockback);
                 spikeKnockCount -= Time.deltaTime;
             }
-          }
-            
+        }
+
     }
-     
-    
-  
-    
+
+
+
+
 }
 
 
