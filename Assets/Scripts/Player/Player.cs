@@ -15,19 +15,19 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 localScale;
     private bool isGrounded;
-
     public int Bullets;
-
     public int goldCoins;
     public int gems;
 
+
+    [Header("AttackButtons")]
     public Button AttackButton;
     public Button TreasureKey1;
     public Button TreasureKey2;
     public Button TreasureKey3;
 
 
-    [Header("Variables")]
+
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
     public Transform groundCheck;
@@ -54,8 +54,8 @@ public class Player : MonoBehaviour
     public float spikeKnockback;
     public float spikeKnockLenght;
     public float spikeKnockCount;
-    public bool spikeHurt;
-    public bool spikeDamaged = false;
+    public bool spikeHurt = true;
+    public bool spikeDamaged = true;
 
 
 
@@ -142,13 +142,13 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        // if (Input.GetButtonDown("Jump"))
+        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            if (isGrounded)
+            if (isGrounded || rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
             {
                 Jump();
 
@@ -180,20 +180,20 @@ public class Player : MonoBehaviour
 
 
 
-        if (rb.velocity.y == 0)
+        if (rb.velocity.y == 0 || isGrounded)
         {
             //these codes are for jumping and falling animation
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", false);
         }
 
-        if (rb.velocity.y > 2)
+        if (rb.velocity.y > 2 && !isGrounded)
         {
             //these codes are for jumping and falling animation
             anim.SetBool("isJumping", true);
             CreateDust();
         }
-        if (rb.velocity.y < -1.2)
+        if (rb.velocity.y < -1.2 && !isGrounded)
         {
             //these codes are for jumping and falling animation
             anim.SetBool("isJumping", false);
@@ -351,7 +351,7 @@ public class Player : MonoBehaviour
         TreasureKey1.gameObject.SetActive(false);
         AttackButton.gameObject.SetActive(true);
     }
-    void hurtFromEnemy()
+void hurtFromEnemy()
     {
         if (knockCount <= 0)
         {
@@ -378,7 +378,7 @@ public class Player : MonoBehaviour
 
         }
     }
-    void hurtFromSpikes()
+     void hurtFromSpikes()
     {
         if (spikeKnockCount <= 0)
         {

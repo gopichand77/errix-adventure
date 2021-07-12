@@ -22,7 +22,7 @@ public class ChestGoldCoin : MonoBehaviour
         {
             
             player.NoofGoldCoins();
-            
+            ChestOpened = false;
             StartCoroutine(CoinOut());
             
             

@@ -16,7 +16,7 @@ public class Earthworm : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (movingRight)
         {

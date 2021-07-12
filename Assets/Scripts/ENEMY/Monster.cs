@@ -37,6 +37,10 @@ public class Monster : MonoBehaviour
 
         }
 
+        
+    }
+    private void FixedUpdate()
+    {
         if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * moveSpeed, 0, 0);
@@ -48,6 +52,7 @@ public class Monster : MonoBehaviour
             transform.Translate(-2 * Time.deltaTime * moveSpeed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
         }
+        
     }
     void OnTriggerEnter2D(Collider2D trig)
     {

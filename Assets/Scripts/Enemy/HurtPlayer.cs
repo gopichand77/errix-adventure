@@ -6,17 +6,7 @@ public class HurtPlayer : MonoBehaviour
 {
     public int EnemyDamage;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-     private void OnTriggerEnter2D(Collider2D collider2D)
+    private void OnTriggerEnter2D(Collider2D collider2D)
     {
         if(collider2D.gameObject.tag == "Player")
         {
