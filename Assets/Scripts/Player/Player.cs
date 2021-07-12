@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int Keys;
     public int openChests;
     private float dirX;
+    private float dirY;
     private bool facingRight = true;
     private Vector3 localScale;
     private bool isGrounded;
@@ -142,13 +143,14 @@ public class Player : MonoBehaviour
     }
     void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        // dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        
 
-        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        // if (Input.GetButtonDown("Jump"))
         {
-            if (isGrounded || rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
+            if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
             {
                 Jump();
 
