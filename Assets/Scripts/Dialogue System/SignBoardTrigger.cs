@@ -26,7 +26,7 @@ public class SignBoardTrigger : MonoBehaviour
         {
             Dialog.gameObject.SetActive(true);
         
-        Debug.Log("Player is true");
+        // Debug.Log("Player is true");
         }
     }
     private void OnTriggerExit2D(Collider2D other)

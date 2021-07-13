@@ -14,7 +14,7 @@ public class Transition : MonoBehaviour
     }
      IEnumerator Scene()
     {
-        yield return  new WaitForSeconds(2f);
+        yield return  new WaitForSeconds(1.8f);
         SceneManager.LoadSceneAsync(nameOfLevel);
         Destroy(gameObject);
     }
