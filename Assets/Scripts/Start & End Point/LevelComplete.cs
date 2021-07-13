@@ -6,7 +6,8 @@ public class LevelComplete : MonoBehaviour
 {
     public Animator animator;
     public ParticleSystem confetti;
-    public string levelName;
+    public GameObject Trnasition;
+    public GameObject ControlPanles;
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D trig)
     {
@@ -17,13 +18,12 @@ public class LevelComplete : MonoBehaviour
             StartCoroutine(Level());
         }
     }
-    public void NextLevel()
-    {
-       SceneManager.LoadSceneAsync(levelName);
-    }
+    
     IEnumerator Level()
     {
         yield return new WaitForSeconds(2f);
-        NextLevel();
+        Trnasition.gameObject.SetActive(true);
+        ControlPanles.SetActive(false);
+        
     }
 }

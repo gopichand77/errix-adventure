@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SettingMenu : MonoBehaviour
 {
-    public Canvas TitleCanvas;
+    public GameObject TitleCanvas;
     public GameObject SettingsMenu;
     // Start is called before the first frame update
    
@@ -16,7 +16,7 @@ public class SettingMenu : MonoBehaviour
     public void Back()
    {
        SettingsMenu.SetActive(false);
-       TitleCanvas.gameObject.SetActive(true);
+       TitleCanvas.SetActive(true);
    } 
     public void Quit()
    {
