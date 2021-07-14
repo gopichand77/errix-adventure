@@ -22,14 +22,14 @@ public class Bullet : MonoBehaviour
     {
         Monster enemy = hitInfo.GetComponent<Monster>();
 
-        if (enemy != null)
-        {
-            // enemy.TakeDamage(5);
-            rb.velocity = transform.right * 0;
-            anim.SetBool("isDestroy", true);
-            StartCoroutine(Death());
-            enemy.gameObject.SetActive(false);
-        }
+        // if (enemy != null)
+        // {
+        //     // enemy.TakeDamage(5);
+        //     rb.velocity = transform.right * 0;
+        //     anim.SetBool("isDestroy", true);
+        //     StartCoroutine(Death());
+        //     enemy.gameObject.SetActive(false);
+        // }
         if (hitInfo.gameObject.CompareTag("Collider"))
         {
             rb.velocity = transform.right * 0;

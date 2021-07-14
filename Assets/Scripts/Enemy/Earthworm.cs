@@ -7,20 +7,14 @@ public class Earthworm : MonoBehaviour
     public float moveSpeed = 1;
     public bool movingRight;
     public Animator anim;
-    public int health = 100;
     Rigidbody2D rb;
 
-    // bool _hasDied;
-
-    private Material matWhite;
-    private Material matDefault;
-    SpriteRenderer spriteRenderer;
+   
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+      
         rb = GetComponent<Rigidbody2D>();
-        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
-        matDefault = spriteRenderer.material;
+       
     }
     private void FixedUpdate()
     {
@@ -50,26 +44,9 @@ public class Earthworm : MonoBehaviour
 
         }
 
-        if (trig.CompareTag("Bullet"))//collisons 
-        {
-            Destroy(trig.gameObject);
-            health--;
-            spriteRenderer.material = matWhite;
-            if(health <= 0){
-                KillSelf();
-            }
-        }
-        //  if(trig.gameObject.tag == "Player")
-        // {
-        //     StartCoroutine(Die());
-
-        // }
-
+        
     }
-
-    private void KillSelf(){
-        Destroy(gameObject);
-    }
+ 
 
 
 }
