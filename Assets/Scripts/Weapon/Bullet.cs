@@ -37,13 +37,14 @@ public class Bullet : MonoBehaviour
             StartCoroutine(Death());
         }
 
-        if (hitInfo.gameObject.CompareTag("Earthworm"))
-        {
-            rb.velocity = transform.right * 0;
-            anim.SetBool("isDestroy", true);
-            StartCoroutine(Death());
-            Destroy(hitInfo.gameObject);
-        }
+        //earthworm die
+        // if (hitInfo.gameObject.CompareTag("Earthworm"))
+        // {
+        //     rb.velocity = transform.right * 0;
+        //     anim.SetBool("isDestroy", true);
+        //     StartCoroutine(Death());
+        //     Destroy(hitInfo.gameObject);
+        // }
 
 
     }

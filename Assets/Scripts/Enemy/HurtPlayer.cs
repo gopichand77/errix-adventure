@@ -8,22 +8,28 @@ public class HurtPlayer : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if(collider2D.gameObject.tag == "Player")
+        if (collider2D.gameObject.tag == "Player")
         {
-            
-            var player =  collider2D.GetComponent<Player>();
-            if(player.Damaged)
+
+            var player = collider2D.GetComponent<Player>();
+            if (player.Damaged)
             {
                 player.TakeDamage(EnemyDamage);
-                player.anim.SetBool("isHurt",true);
+                player.anim.SetBool("isHurt", true);
                 player.Damaged = false;
             }
             player.knockCount = player.knockLenght;
 
-            if(collider2D.transform.position.x  < transform.position.x)
-            player.knockfromRight = true;
+            if (collider2D.transform.position.x < transform.position.x)
+            {
+                player.knockfromRight = true
+            ;
+            }
             else
-            player.knockfromRight =  false;
+            {
+                player.knockfromRight = false
+            ;
+            }
 
         }
     }
