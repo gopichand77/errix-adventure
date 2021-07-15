@@ -171,7 +171,8 @@ MonoBehaviour:
   movingRight: 0
   anim: {fileID: 5336023604668299755}
   health: 0
-  Player: {fileID: 0}
+  enemyParticleSys: {fileID: 8334910104506423446}
+  Player: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
   attackRange: 8
 --- !u!61 &5336023604668299749
 BoxCollider2D:
@@ -226,3 +227,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   damage: 5
+  Dead: 0

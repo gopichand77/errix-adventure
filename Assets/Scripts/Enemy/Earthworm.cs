@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Earthworm : MonoBehaviour
 {
+    [SerializeField]
+    EnemyParticleSys enemyParticleSys; 
     public float moveSpeed = 1;
     public bool movingRight;
     public Animator anim;
@@ -16,6 +18,7 @@ public class Earthworm : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
        
     }
+
     private void FixedUpdate()
     {
         if (movingRight)
@@ -28,6 +31,11 @@ public class Earthworm : MonoBehaviour
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
         }
+        if(enemyParticleSys.Dead)
+        {
+            moveSpeed = 0;
+        }
+        
     }
     void OnTriggerEnter2D(Collider2D trig)
     {

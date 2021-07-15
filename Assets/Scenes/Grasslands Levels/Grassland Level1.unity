@@ -57369,25 +57369,6 @@ Transform:
   m_Father: {fileID: 1626975037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &470912342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3659762941596076536, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
-  m_PrefabInstance: {fileID: 506482060}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &470912350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470912342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 214c76ea9a88034419f69fc848b4c633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  damage: 5
 --- !u!1001 &485487403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57677,6 +57658,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3659762941596076534, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
+      propertyPath: enemyParticleSys
+      value: 
+      objectReference: {fileID: 635667054}
     - target: {fileID: 3659762941596076536, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -57939,8 +57924,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5208377440090042237, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
 --- !u!1 &511984780
 GameObject:
@@ -62581,6 +62565,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbedbd2485237340bfb6f4945d02ac8, type: 3}
+--- !u!114 &635667054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4768671217441142806, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
+  m_PrefabInstance: {fileID: 504457689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214c76ea9a88034419f69fc848b4c633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &637293378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100884,7 +100879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334910104506423446, guid: 25ef3a6b4e2a30945b03c27074d8ae23, type: 3}
       propertyPath: health
-      value: 1000000000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8334910104506423446, guid: 25ef3a6b4e2a30945b03c27074d8ae23, type: 3}
       propertyPath: enemyTransform
@@ -101903,20 +101898,40 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1940999024}
+    - target: {fileID: 3440990259869314139, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1940999024}
     - target: {fileID: 3440990260071325110, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
       propertyPath: cam
+      value: 
+      objectReference: {fileID: 1940999024}
+    - target: {fileID: 3440990260071325110, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
+      propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1940999024}
     - target: {fileID: 3440990261021672141, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 1940999024}
+    - target: {fileID: 3440990261021672141, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1940999024}
     - target: {fileID: 3440990261084919646, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 1940999024}
+    - target: {fileID: 3440990261084919646, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1940999024}
     - target: {fileID: 3440990261226148988, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
       propertyPath: cam
+      value: 
+      objectReference: {fileID: 1940999024}
+    - target: {fileID: 3440990261226148988, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
+      propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1940999024}
     - target: {fileID: 3440990261848153978, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
@@ -102325,6 +102340,10 @@ PrefabInstance:
       propertyPath: TreasureKey3
       value: 
       objectReference: {fileID: 1209747376}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: Bullets
+      value: 137
+      objectReference: {fileID: 0}
     - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: keysText
       value: 

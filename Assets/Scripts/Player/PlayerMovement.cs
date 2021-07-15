@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         // if (CrossPlatformInputManager.GetButtonDown("Jump"))
         if (Input.GetButtonDown("Jump"))
         {
-            if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
+            if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.5)
             {
                 Jump();
 

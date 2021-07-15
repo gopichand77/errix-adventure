@@ -11,6 +11,7 @@ public class PlayerHurt : MonoBehaviour
     //2.Spike KnockBack
     //This Script Takes Input from the enemy HurtPlayer Script and then knockBacks the Player 
     //The KnockBackLength is a Public variable.
+    //=======================================================//
     [SerializeField]
     Player playerScript;
     [Header("KnockOut")]
@@ -25,8 +26,6 @@ public class PlayerHurt : MonoBehaviour
     public float spikeKnockCount;
     public bool spikeHurt = true;
     public bool spikeDamaged = true;
-    // Start is called before the first frame update
-   
     private void FixedUpdate()
     {
         
@@ -78,4 +77,5 @@ public class PlayerHurt : MonoBehaviour
 
         }
     }
+   
 }

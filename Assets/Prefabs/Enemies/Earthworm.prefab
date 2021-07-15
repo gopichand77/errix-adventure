@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3659762941596076539}
   - component: {fileID: 3659762941596076534}
   - component: {fileID: 3659762941596076529}
-  - component: {fileID: 5208377440090042237}
+  - component: {fileID: 4768671217441142806}
   m_Layer: 0
   m_Name: Earthworm
   m_TagString: Earthworm
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8824b79bbd1749278dfa134a07cd487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyParticleSys: {fileID: 4768671217441142806}
   moveSpeed: 1
   movingRight: 1
   anim: {fileID: 3659762941596076533}
@@ -285,7 +286,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.569559, y: 0.8941603}
   m_EdgeRadius: 0
---- !u!114 &5208377440090042237
+--- !u!114 &4768671217441142806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   damage: 5
+  Dead: 0
 --- !u!1 &3659762942103772998
 GameObject:
   m_ObjectHideFlags: 0

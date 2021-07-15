@@ -6,10 +6,9 @@ public class Monster : MonoBehaviour
     public float moveSpeed = 1;
     public bool movingRight;
     public Animator anim;
-    public int health = 40;
     Rigidbody2D rb;
-
-
+    [SerializeField]
+    EnemyParticleSys enemyParticleSys;
     [SerializeField]
     public Transform Player;
     float playerdist;
@@ -37,7 +36,7 @@ public class Monster : MonoBehaviour
 
         }
 
-        
+
     }
     private void FixedUpdate()
     {
@@ -52,7 +51,11 @@ public class Monster : MonoBehaviour
             transform.Translate(-2 * Time.deltaTime * moveSpeed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
         }
-        
+        if (enemyParticleSys.Dead)
+        {
+            moveSpeed = 0;
+        }
+
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
@@ -69,33 +72,17 @@ public class Monster : MonoBehaviour
             }
 
         }
-        //  if(trig.gameObject.tag == "Player")
-        // {
-        //     StartCoroutine(Die());
-
-        // }
-
-
-
     }
-   
-    IEnumerator Die()
-    {
-        // _hasDied = true;
-        moveSpeed = 0;
-        anim.SetBool("isHurt", true);
-        yield return new WaitForSeconds(0.2f);
-        gameObject.SetActive(false);
-    }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            StartCoroutine(Die());
-        }
 
-    }
+    // IEnumerator Die()
+    // {
+    //     // _hasDied = true;
+    //     moveSpeed = 0;
+    //     anim.SetBool("isHurt", true);
+    //     yield return new WaitForSeconds(0.2f);
+    //     gameObject.SetActive(false);
+    // }
+
 
 }
 

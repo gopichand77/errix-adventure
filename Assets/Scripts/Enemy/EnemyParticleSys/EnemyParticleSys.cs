@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyParticleSys : MonoBehaviour
 {
     private Material matWhite;
+    
     private Material matDefault;
     SpriteRenderer spriteRenderer;
     public int health = 10;
     public int damage;
+    public bool Dead = false;
      private UnityEngine.Object exploRef;
     // Start is called before the first frame update
    private void Start()
@@ -33,10 +35,11 @@ public class EnemyParticleSys : MonoBehaviour
             health -=5;
          
             spriteRenderer.material = matWhite;
-             GameObject explosion = (GameObject)Instantiate(exploRef);
-            explosion.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+             
             if(health <= 0){
-                KillSelf();
+                 Dead = true;
+                
+               Invoke("KillSelf", 0.2f);
             }
         
         else
@@ -46,13 +49,16 @@ public class EnemyParticleSys : MonoBehaviour
 
     }
     }
-    private void KillSelf(){
-       
+    public void KillSelf(){
+      
         Destroy(gameObject);
+         GameObject explosion = (GameObject)Instantiate(exploRef);
+            explosion.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
     }
     public void ResetMaterial()
     {
         spriteRenderer.material = matDefault;
+       
 
     }
 
