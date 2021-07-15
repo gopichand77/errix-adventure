@@ -20,11 +20,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
       private void Start()
     {
-        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-       
-
     }
 
 
@@ -43,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
         // if (CrossPlatformInputManager.GetButtonDown("Jump"))
         if (Input.GetButtonDown("Jump"))
         {
-            if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
+            // if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
+             if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.5)
             {
                 Jump();
 
