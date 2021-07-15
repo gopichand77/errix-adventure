@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SettingMenu : MonoBehaviour
 {
-    public GameObject TitleCanvas;
-    public GameObject SettingsMenu;
+    public GameObject titleCanvas;
+    public GameObject pauseMenu;
     // Start is called before the first frame update
    
    public void Setting()
    {
-       SettingsMenu.SetActive(true);
-       TitleCanvas.gameObject.SetActive(false);
+       pauseMenu.SetActive(true);
+       titleCanvas.gameObject.SetActive(false);
    } 
     public void Back()
    {
-       SettingsMenu.SetActive(false);
-       TitleCanvas.SetActive(true);
+       pauseMenu.SetActive(false);
+       titleCanvas.SetActive(true);
    } 
     public void Quit()
    {

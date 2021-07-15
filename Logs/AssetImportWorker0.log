@@ -1,50 +1,1003 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.13f1 (71691879b7f5) revision 7432472'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home Single Language; OS build 19043.1083; Version 2009; 64bit' Language: 'en' Physical Memory: 16193 MB
-BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.13f1\Editor\Unity.exe
+/Applications/2020.3.13f1/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/avina/OneDrive/Documents/GitHub/errix-adventure
+/Users/gopichand/Desktop/Unity/errix-adventure
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58088
-Successfully changed project path to: C:/Users/avina/OneDrive/Documents/GitHub/errix-adventure
-C:/Users/avina/OneDrive/Documents/GitHub/errix-adventure
+49340
+Successfully changed project path to: /Users/gopichand/Desktop/Unity/errix-adventure
+/Users/gopichand/Desktop/Unity/errix-adventure
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 101.43 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 61.44 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.13f1 (71691879b7f5)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/avina/OneDrive/Documents/GitHub/errix-adventure/Assets
+[Subsystems] Discovering subsystems at path /Applications/2020.3.13f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/gopichand/Desktop/Unity/errix-adventure/Assets
 GfxDevice: creating device client; threaded=0
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce MX250 (ID=0x1d13)
-    Vendor:   
-    VRAM:     1983 MB
-    Driver:   27.21.14.6231
+2021-07-15 10:40:30.115 Unity[866:9255] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2021-07-15 10:40:30.115 Unity[866:9255] Metal devices available: 1
+2021-07-15 10:40:30.115 Unity[866:9255] 0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2021-07-15 10:40:30.115 Unity[866:9255] Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 655
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56272
+Mono path[0] = '/Applications/2020.3.13f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/2020.3.13f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/2020.3.13f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56866
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002922 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 82.80 ms, found 5 plugins.
+Register platform support module: /Applications/2020.3.13f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000548 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 53.36 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.763 seconds
+- Completed reload, in  2.871 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.443384 seconds.
+Registered in 0.010286 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 47.45 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.373 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/2020.3.13f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2289 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 188.2 MB.
+System memory in use after: 188.4 MB.
+
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2717.
+Total: 2.709801 ms (FindLiveObjects: 0.307792 ms CreateObjectMapping: 0.099902 ms MarkObjects: 2.221374 ms  DeleteObjects: 0.080002 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/Enemies/Crocodile.prefab
+  artifactKey: Guid(25ef3a6b4e2a30945b03c27074d8ae23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Crocodile.prefab using Guid(25ef3a6b4e2a30945b03c27074d8ae23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fc9b40fdff42ceed2f057d2f098c5dc') in 1.293331 seconds 
+  Import took 1.298997 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Prefabs/Enemies/Earthworm.prefab
+  artifactKey: Guid(ee057925aaaf940c09e72526d2d1d603) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Earthworm.prefab using Guid(ee057925aaaf940c09e72526d2d1d603) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6708d727f044b57017ab180e91393c7') in 0.015077 seconds 
+  Import took 0.020903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.881271 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfb45c5f5f860692c4c3931a29d02207') in 0.009639 seconds 
+  Import took 0.018016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.065921 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6e87244548b32f5769930ddf33de2d0') in 0.003722 seconds 
+  Import took 0.014716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 135.553181 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e5e618290560050e2dca85c747db362') in 0.012923 seconds 
+  Import took 0.023054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001411 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e5e618290560050e2dca85c747db362') in 0.003386 seconds 
+  Import took 0.014206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.317154 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a5538c70ca73eba3f848180f7f5fe6b') in 0.003355 seconds 
+  Import took 0.011781 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 467.256466 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c9a7bafcea17cd08b316a200f0f80ae') in 0.004047 seconds 
+  Import took 0.013747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 250.210469 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6450f25d824d9f4a98a5bcbf311fcfa') in 0.003751 seconds 
+  Import took 0.016498 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 100.751859 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa56273fa92a845fdfc46fa2c3998e01') in 0.003303 seconds 
+  Import took 0.012171 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.128273 seconds.
+  path: Assets/Prefabs/Player Related
+  artifactKey: Guid(7e9edf2e850a648a39bb760e60860af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related using Guid(7e9edf2e850a648a39bb760e60860af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c731e78513f72194e5d44c3a826d9708') in 0.001684 seconds 
+  Import took 0.006979 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019158 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.340 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 196.3 MB.
+System memory in use after: 196.5 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2728.
+Total: 2.732278 ms (FindLiveObjects: 0.249220 ms CreateObjectMapping: 0.089382 ms MarkObjects: 2.356671 ms  DeleteObjects: 0.035727 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019309 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.79 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.286 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.83 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 196.6 MB.
+System memory in use after: 196.8 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2732.
+Total: 3.163315 ms (FindLiveObjects: 0.354559 ms CreateObjectMapping: 0.104299 ms MarkObjects: 2.660190 ms  DeleteObjects: 0.043070 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010390 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.293 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.63 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 196.8 MB.
+System memory in use after: 197.1 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2736.
+Total: 2.557703 ms (FindLiveObjects: 0.224403 ms CreateObjectMapping: 0.094845 ms MarkObjects: 2.202786 ms  DeleteObjects: 0.034673 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007856 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.79 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.346 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 197.1 MB.
+System memory in use after: 197.3 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2740.
+Total: 2.810548 ms (FindLiveObjects: 0.300984 ms CreateObjectMapping: 0.112444 ms MarkObjects: 2.356911 ms  DeleteObjects: 0.039419 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 367.877457 seconds.
+  path: Assets/Prefabs/Player Related/Grasslands Parallex Effect.prefab
+  artifactKey: Guid(83cf5ceda5caf437e95ee495dfd733d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Grasslands Parallex Effect.prefab using Guid(83cf5ceda5caf437e95ee495dfd733d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd212ec23b5c47141c502010fb9ab79c9') in 0.077281 seconds 
+  Import took 0.082445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 128.672444 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7606862191af4656e2058031cb65809c') in 0.012972 seconds 
+  Import took 0.020459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.183062 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '167331b071e7e0f859ac447e0a976c84') in 0.003627 seconds 
+  Import took 0.012191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 341.252308 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d4463490a3b0d1bfa1ce56ccf925e7f') in 0.009650 seconds 
+  Import took 0.033972 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.608784 seconds.
+  path: Assets/Prefabs/Player Related/Grasslands Parallex Effect.prefab
+  artifactKey: Guid(83cf5ceda5caf437e95ee495dfd733d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Grasslands Parallex Effect.prefab using Guid(83cf5ceda5caf437e95ee495dfd733d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e160acd2205147b9cc27031ff36d7eac') in 0.056657 seconds 
+  Import took 0.066532 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.442409 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c78e31c5a46ec8b992036fbbfdbc2ff1') in 0.006439 seconds 
+  Import took 0.017369 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009532 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.650 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.68 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 197.4 MB.
+System memory in use after: 197.6 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2745.
+Total: 2.734215 ms (FindLiveObjects: 0.264233 ms CreateObjectMapping: 0.089525 ms MarkObjects: 2.329248 ms  DeleteObjects: 0.050066 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 81.434220 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f925e32a10f5d7ed614508a4b312565') in 0.023417 seconds 
+  Import took 0.028826 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018333 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.592 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 197.7 MB.
+System memory in use after: 198.0 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2749.
+Total: 3.420792 ms (FindLiveObjects: 0.377906 ms CreateObjectMapping: 0.109139 ms MarkObjects: 2.871989 ms  DeleteObjects: 0.060540 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1703.942826 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64e4083077412b0ae81786a19ecd3acd') in 0.021176 seconds 
+  Import took 0.027335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.098102 seconds.
+  path: Assets/Prefabs/Player Related/Grasslands Parallex Effect.prefab
+  artifactKey: Guid(83cf5ceda5caf437e95ee495dfd733d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Grasslands Parallex Effect.prefab using Guid(83cf5ceda5caf437e95ee495dfd733d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30c1f108273ad6213b8a8639338acc62') in 0.065953 seconds 
+  Import took 0.071992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.752082 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements
+  artifactKey: Guid(ba35610d5e8604fcabd6b489ed1fe561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements using Guid(ba35610d5e8604fcabd6b489ed1fe561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50771811bbf089b182297bc63cf9ded3') in 0.002324 seconds 
+  Import took 0.007016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.537094 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Controls Panel.prefab
+  artifactKey: Guid(5c83b19c165e64684a896bd9e75f4ed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Controls Panel.prefab using Guid(5c83b19c165e64684a896bd9e75f4ed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2dd6f319d08cb6cffcac9cf531170c0') in 0.049755 seconds 
+  Import took 0.055147 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001129 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Controls Panel.prefab
+  artifactKey: Guid(5c83b19c165e64684a896bd9e75f4ed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Controls Panel.prefab using Guid(5c83b19c165e64684a896bd9e75f4ed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2dd6f319d08cb6cffcac9cf531170c0') in 0.011896 seconds 
+  Import took 0.016577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 56.239854 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Grasslands
+  artifactKey: Guid(c94c81c48f7ac4842a345e2fa074bb89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Grasslands using Guid(c94c81c48f7ac4842a345e2fa074bb89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '464c9a351475f80618139a0d10c5366f') in 0.001534 seconds 
+  Import took 0.006617 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.436808 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Pause Panel.prefab
+  artifactKey: Guid(7fed832084ae54ee0954f5f1190498cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Pause Panel.prefab using Guid(7fed832084ae54ee0954f5f1190498cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ade4c13e35d7d53079062594695c7e9a') in 0.060583 seconds 
+  Import took 0.065817 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.739091 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Next Level Panel.prefab
+  artifactKey: Guid(117cf39c858c1469d8ddc3461edde48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Next Level Panel.prefab using Guid(117cf39c858c1469d8ddc3461edde48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0897d3e351dc20e10dae78deb427ec81') in 0.014669 seconds 
+  Import took 0.019591 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018852 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Next Level Panel.prefab
+  artifactKey: Guid(117cf39c858c1469d8ddc3461edde48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Next Level Panel.prefab using Guid(117cf39c858c1469d8ddc3461edde48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0897d3e351dc20e10dae78deb427ec81') in 0.022251 seconds 
+  Import took 0.028921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.548466 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fd92782a8770270d855d6d8b902be10') in 0.004083 seconds 
+  Import took 0.013690 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018117 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.486 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 198.2 MB.
+System memory in use after: 198.4 MB.
+
+Unloading 94 unused Assets to reduce memory usage. Loaded Objects now: 2756.
+Total: 3.460019 ms (FindLiveObjects: 0.248883 ms CreateObjectMapping: 0.103874 ms MarkObjects: 3.035393 ms  DeleteObjects: 0.070523 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004789 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.450 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.67 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 198.4 MB.
+System memory in use after: 198.6 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2760.
+Total: 3.951233 ms (FindLiveObjects: 0.326548 ms CreateObjectMapping: 0.149382 ms MarkObjects: 3.434138 ms  DeleteObjects: 0.040125 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004526 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.399 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.86 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 198.7 MB.
+System memory in use after: 198.9 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2764.
+Total: 3.240460 ms (FindLiveObjects: 0.443062 ms CreateObjectMapping: 0.308046 ms MarkObjects: 2.447536 ms  DeleteObjects: 0.040617 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 303.785776 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f4f52c4cab6b119bcfdd15951c690cc') in 0.022256 seconds 
+  Import took 0.028035 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.896034 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9f8ef0295a0cf5cd4ce74b4920013fc') in 0.001787 seconds 
+  Import took 0.009257 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.884004 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Game Over Panel.prefab
+  artifactKey: Guid(04d0fe434996649f380e908034df001a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Game Over Panel.prefab using Guid(04d0fe434996649f380e908034df001a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2b0538bd231776ad1dea526354a9b7e') in 0.107284 seconds 
+  Import took 0.112078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001016 seconds.
+  path: Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Game Over Panel.prefab
+  artifactKey: Guid(04d0fe434996649f380e908034df001a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/Ul Elements/Grasslands/Grasslands Game Over Panel.prefab using Guid(04d0fe434996649f380e908034df001a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2b0538bd231776ad1dea526354a9b7e') in 0.023170 seconds 
+  Import took 0.026654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.200056 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71e9c2071a765e4929fc7563f0fcb73e') in 0.007243 seconds 
+  Import took 0.013981 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005295 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.442 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 198.8 MB.
+System memory in use after: 199.1 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2768.
+Total: 2.470632 ms (FindLiveObjects: 0.258360 ms CreateObjectMapping: 0.091657 ms MarkObjects: 2.084657 ms  DeleteObjects: 0.035101 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 89.301329 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd1847d9168fd6c0dbe3a053ed0f5677') in 0.022692 seconds 
+  Import took 0.028174 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004543 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.414 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.65 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 199.2 MB.
+System memory in use after: 199.4 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2772.
+Total: 2.886159 ms (FindLiveObjects: 0.279766 ms CreateObjectMapping: 0.122977 ms MarkObjects: 2.437431 ms  DeleteObjects: 0.044855 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016037 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.644 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.87 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 199.5 MB.
+System memory in use after: 199.7 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2776.
+Total: 2.839056 ms (FindLiveObjects: 0.279431 ms CreateObjectMapping: 0.101265 ms MarkObjects: 2.419583 ms  DeleteObjects: 0.037847 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009794 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.422 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.71 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 199.7 MB.
+System memory in use after: 200.0 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2780.
+Total: 3.239797 ms (FindLiveObjects: 0.299331 ms CreateObjectMapping: 0.080206 ms MarkObjects: 2.813651 ms  DeleteObjects: 0.045657 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 349.520421 seconds.
+  path: Assets/Scenes/Menu.unity
+  artifactKey: Guid(50889097c35c74626ad92839ed2288df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu.unity using Guid(50889097c35c74626ad92839ed2288df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fabcd0043caed173f25f3e30f0b3e59e') in 0.026875 seconds 
+  Import took 0.034278 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010573 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.439 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.65 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 200.0 MB.
+System memory in use after: 200.2 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2784.
+Total: 2.679785 ms (FindLiveObjects: 0.244845 ms CreateObjectMapping: 0.090190 ms MarkObjects: 2.286655 ms  DeleteObjects: 0.056916 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004524 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.435 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.67 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 200.1 MB.
+System memory in use after: 200.3 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2788.
+Total: 2.567857 ms (FindLiveObjects: 0.261253 ms CreateObjectMapping: 0.097905 ms MarkObjects: 2.173169 ms  DeleteObjects: 0.034741 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 183.005896 seconds.
+  path: Assets/Scenes/Menu.unity
+  artifactKey: Guid(50889097c35c74626ad92839ed2288df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu.unity using Guid(50889097c35c74626ad92839ed2288df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '405d137c4512035dee5dd11aeab42d9d') in 0.033958 seconds 
+  Import took 0.041332 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.406214 seconds.
+  path: Assets/Scenes/Loading Screen.unity
+  artifactKey: Guid(8220bae11555148468b24d28799be2be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Loading Screen.unity using Guid(8220bae11555148468b24d28799be2be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93b0748f00d471c20fbb4f99d858370d') in 0.002514 seconds 
+  Import took 0.011840 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018690 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.563 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 200.5 MB.
+System memory in use after: 200.7 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2792.
+Total: 3.106880 ms (FindLiveObjects: 0.332661 ms CreateObjectMapping: 0.114550 ms MarkObjects: 2.607047 ms  DeleteObjects: 0.051307 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 560.131195 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a9193b9ba3c750dc0fb022e2725c337') in 0.103044 seconds 
+  Import took 0.153239 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.492400 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35739eddcc5ad7eea6a33fbe165e4d70') in 0.001643 seconds 
+  Import took 0.008130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 419.900642 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c88369f7a3815908ecf5088a5e07e12') in 0.004892 seconds 
+  Import took 0.015910 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.033596 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.96 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.995 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.90 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 200.9 MB.
+System memory in use after: 201.1 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2796.
+Total: 3.470683 ms (FindLiveObjects: 0.409783 ms CreateObjectMapping: 0.135102 ms MarkObjects: 2.857295 ms  DeleteObjects: 0.066917 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1562.657589 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level1.unity
+  artifactKey: Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level1.unity using Guid(d55ad72f4bb8042198dd81653451ff77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ecc5590cf512f67511d48c367c52dbc') in 0.019485 seconds 
+  Import took 0.028188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.571174 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74a3b5a58c4d422bb0de7837082b0745') in 0.009174 seconds 
+  Import took 0.019145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 156.356934 seconds.
+  path: Assets/Scenes/Grasslands Levels/Grassland Level2.unity
+  artifactKey: Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Grasslands Levels/Grassland Level2.unity using Guid(88755260647f8a54b8e18e28751560a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '982cbaee2a6fbd1e65bef1e61e83566d') in 0.003147 seconds 
+  Import took 0.013490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 47.445764 seconds.
+  path: Assets/Prefabs/Player Related/End Point.prefab
+  artifactKey: Guid(1be3d60d2bcdb4f969c63d6cfc1f0d06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Related/End Point.prefab using Guid(1be3d60d2bcdb4f969c63d6cfc1f0d06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07310308ae4ac780de2502ae8446d84c') in 0.089007 seconds 
+  Import took 0.096147 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010134 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.512 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.67 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2318 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 201.2 MB.
+System memory in use after: 201.4 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 2801.
+Total: 2.703907 ms (FindLiveObjects: 0.265090 ms CreateObjectMapping: 0.104687 ms MarkObjects: 2.293288 ms  DeleteObjects: 0.039998 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

@@ -6,8 +6,8 @@ public class LevelComplete : MonoBehaviour
 {
     public Animator animator;
     public ParticleSystem confetti;
-    public GameObject Trnasition;
-    public GameObject ControlPanles;
+    public GameObject transitionPanel;
+    public GameObject controlPanles;
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D trig)
     {
@@ -22,8 +22,8 @@ public class LevelComplete : MonoBehaviour
     IEnumerator Level()
     {
         yield return new WaitForSeconds(2f);
-        Trnasition.gameObject.SetActive(true);
-        ControlPanles.SetActive(false);
+        transitionPanel.gameObject.SetActive(true);
+        controlPanles.SetActive(false);
         
     }
 }
