@@ -13,7 +13,7 @@ public class greenGems : MonoBehaviour
 
         if (trig.gameObject.CompareTag("Player") && gemCollected)
         {
-            player.NoOfgems();
+            player.Collectables.NoOfgems();
             gemCollected = false;
             // Destroy(gameObject);
             anim.SetBool("collected", true);

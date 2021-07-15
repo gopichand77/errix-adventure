@@ -46,6 +46,10 @@ GameObject:
   - component: {fileID: 7423574116704486771}
   - component: {fileID: 7423574116704486775}
   - component: {fileID: 7423574116704486768}
+  - component: {fileID: 6247982198812336509}
+  - component: {fileID: 5919918261963955168}
+  - component: {fileID: 9170426992720156964}
+  - component: {fileID: 6196523669175608273}
   m_Layer: 6
   m_Name: Tommy Player
   m_TagString: Player
@@ -215,44 +219,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2bc7e4da3bd4783b99c92ac1096cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7423574116704486769}
-  anim: {fileID: 7423574116704486774}
-  GameOver: {fileID: 0}
-  Keys: 1
-  openChests: 0
-  Bullets: 0
-  goldCoins: 0
-  gems: 0
-  AttackButton: {fileID: 0}
-  TreasureKey1: {fileID: 0}
-  TreasureKey2: {fileID: 0}
-  TreasureKey3: {fileID: 0}
-  moveSpeed: 7
-  jumpForce: 7
-  groundCheck: {fileID: 7423574117257973706}
-  groundlayer:
-    serializedVersion: 2
-    m_Bits: 1
-  dust: {fileID: 7423574116870822538}
+  MovementScript: {fileID: 6247982198812336509}
+  InteractButtons: {fileID: 0}
+  Collectables: {fileID: 0}
+  playerhurt: {fileID: 0}
+  GameOverPanel: {fileID: 0}
   HurtForce: 4
-  maxHealth: 100
-  currentHealth: 0
+  maxHealth: 200
+  currentHealth: 200
   healthBar: {fileID: 0}
-  knockback: 10
-  knockLenght: 0.5
-  knockCount: 0
-  knockfromRight: 0
-  Damaged: 0
-  spikeKnockback: 0
-  spikeKnockLenght: 0
-  spikeKnockCount: 0
-  spikeHurt: 0
-  spikeDamaged: 0
-  goldCoinScoreText: {fileID: 0}
-  gemsScoreText: {fileID: 0}
-  keysText: {fileID: 0}
-  treasureOpenedText: {fileID: 0}
-  noOfBulletsText: {fileID: 0}
 --- !u!114 &7423574116704486768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +243,86 @@ MonoBehaviour:
   firepoint: {fileID: 7423574116126047949}
   Axeprefab: {fileID: 6493890710494246444, guid: a7833eab9f9710c43aa29dcc387bd173, type: 3}
   anim: {fileID: 7423574116704486774}
+--- !u!114 &6247982198812336509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423574116704486728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65ecbd64f525ac4980abe5d59257a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 7423574116704486775}
+  rb: {fileID: 7423574116704486769}
+  anim: {fileID: 7423574116704486774}
+  moveSpeed: 10
+  jumpForce: 7
+  groundCheck: {fileID: 7423574117257973706}
+  groundlayer:
+    serializedVersion: 2
+    m_Bits: 1
+  dust: {fileID: 7423574116870822538}
+--- !u!114 &5919918261963955168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423574116704486728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2d006ffcde4cc45976e00d5f7a0a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 7423574116704486775}
+  AttackButton: {fileID: 0}
+  TreasureKey1: {fileID: 0}
+  TreasureKey2: {fileID: 0}
+  TreasureKey3: {fileID: 0}
+--- !u!114 &9170426992720156964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423574116704486728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622e0191d7418aa42b1cf49e2bcda449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 7423574116704486775}
+  knockback: 10
+  knockLenght: 0.5
+  knockCount: 0
+  knockfromRight: 0
+  Damaged: 1
+  spikeKnockback: 7
+  spikeKnockLenght: 0.5
+  spikeKnockCount: 0
+  spikeHurt: 1
+  spikeDamaged: 1
+--- !u!114 &6196523669175608273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423574116704486728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03db8b3f970a9f48837f3525bddf61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 7423574116704486775}
+  goldCoinScoreText: {fileID: 0}
+  gemsScoreText: {fileID: 0}
+  keysText: {fileID: 0}
+  treasureOpenedText: {fileID: 0}
+  noOfBulletsText: {fileID: 0}
 --- !u!1 &7423574116870822539
 GameObject:
   m_ObjectHideFlags: 0

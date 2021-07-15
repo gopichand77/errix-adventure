@@ -13,16 +13,16 @@ public class SpikeTrap : MonoBehaviour
         if (collider2D.gameObject.tag == "Player")
         {
             var player = collider2D.GetComponent<Player>();
-            if (player.spikeDamaged)
+            if (player.playerhurt.spikeDamaged)
             {
                 player.TakeDamage(10);
-                player.spikeDamaged = false;
-                player.anim.SetBool("isHurt",true);
-                player.moveSpeed = 7;
+                player.playerhurt.spikeDamaged = false;
+                player.MovementScript.anim.SetBool("isHurt",true);
+                player.MovementScript.moveSpeed = 7;
                 
             }
-            player.spikeKnockCount = player.knockLenght;
-            player.spikeHurt = true;
+            player.playerhurt.spikeKnockCount = player.playerhurt.knockLenght;
+            player.playerhurt.spikeHurt = true;
         }
     }
 
