@@ -12,22 +12,22 @@ public class HurtPlayer : MonoBehaviour
         {
 
             var player = collider2D.GetComponent<Player>();
-            if (player.Damaged)
+            if (player.playerhurt.Damaged)
             {
                 player.TakeDamage(EnemyDamage);
-                player.anim.SetBool("isHurt", true);
-                player.Damaged = false;
+                player.MovementScript.anim.SetBool("isHurt", true);
+                player.playerhurt.Damaged = false;
             }
-            player.knockCount = player.knockLenght;
+            player.playerhurt.knockCount = player.playerhurt.knockLenght;
 
             if (collider2D.transform.position.x < transform.position.x)
             {
-                player.knockfromRight = true
+                player.playerhurt.knockfromRight = true
             ;
             }
             else
             {
-                player.knockfromRight = false
+                player.playerhurt.knockfromRight = false
             ;
             }
 

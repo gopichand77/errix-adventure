@@ -62354,6 +62354,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &609720258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+  m_PrefabInstance: {fileID: 7423574117378906007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2d006ffcde4cc45976e00d5f7a0a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &609720262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+  m_PrefabInstance: {fileID: 7423574117378906007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03db8b3f970a9f48837f3525bddf61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &609720263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9170426992720156964, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+  m_PrefabInstance: {fileID: 7423574117378906007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622e0191d7418aa42b1cf49e2bcda449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &613613633
 GameObject:
   m_ObjectHideFlags: 0
@@ -100797,6 +100830,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5336023604668299750, guid: 25ef3a6b4e2a30945b03c27074d8ae23, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1003737827}
     - target: {fileID: 5336023604668299753, guid: 25ef3a6b4e2a30945b03c27074d8ae23, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -102272,6 +102309,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: AttackButton
+      value: 
+      objectReference: {fileID: 392112210}
+    - target: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: TreasureKey1
+      value: 
+      objectReference: {fileID: 1208229938}
+    - target: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: TreasureKey2
+      value: 
+      objectReference: {fileID: 1905833172}
+    - target: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: TreasureKey3
+      value: 
+      objectReference: {fileID: 1209747376}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: keysText
+      value: 
+      objectReference: {fileID: 1296909781}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: gemsScoreText
+      value: 
+      objectReference: {fileID: 1365845958}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: noOfBulletsText
+      value: 
+      objectReference: {fileID: 1941034138}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: goldCoinScoreText
+      value: 
+      objectReference: {fileID: 1236872138}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: treasureOpenedText
+      value: 
+      objectReference: {fileID: 695514709}
     - target: {fileID: 7423574116704486728, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_Name
       value: Tommy Player
@@ -102353,17 +102426,21 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
-      propertyPath: maxHealth
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: spikeHurt
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: playerhurt
+      value: 
+      objectReference: {fileID: 609720263}
+    - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: AttackButton
       value: 
       objectReference: {fileID: 392112210}
+    - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: Collectables
+      value: 
+      objectReference: {fileID: 609720262}
     - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: TreasureKey1
       value: 
@@ -102381,9 +102458,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
-      propertyPath: currentHealth
-      value: 200
-      objectReference: {fileID: 0}
+      propertyPath: GameOverPanel
+      value: 
+      objectReference: {fileID: 2079354779}
     - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: gemsScoreText
       value: 
@@ -102396,6 +102473,10 @@ PrefabInstance:
       propertyPath: spikeKnockback
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: InteractButtons
+      value: 
+      objectReference: {fileID: 609720258}
     - target: {fileID: 7423574116704486775, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: noOfBulletsText
       value: 

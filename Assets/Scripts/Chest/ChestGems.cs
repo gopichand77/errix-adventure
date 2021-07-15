@@ -21,7 +21,7 @@ public class ChestGems : MonoBehaviour
         if (trig.gameObject.CompareTag("Player") && ChestOpened)
         {
             
-            player.NoOfgems();
+            player.Collectables.NoOfgems();
             ChestOpened = false;
             StartCoroutine(CoinOut());
             

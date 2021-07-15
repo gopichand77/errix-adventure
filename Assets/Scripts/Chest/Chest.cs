@@ -23,10 +23,10 @@ public class Chest : MonoBehaviour
     
     public void OpenChest()
     {
-        if(player.Keys > 0 && Opened){
-            player.Keys -=1;
+        if(player.Collectables.Keys > 0 && Opened){
+            player.Collectables.Keys -=1;
         anim.SetBool("Open",true);
-        player.ChestOpen();
+        player.Collectables.ChestOpen();
         Instantiate(GoldChest,CoinPoint.position,CoinPoint.rotation);
 
         Opened = false;

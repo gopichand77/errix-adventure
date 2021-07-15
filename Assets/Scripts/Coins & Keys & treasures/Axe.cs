@@ -16,7 +16,7 @@ public class Axe : MonoBehaviour
         if (trig.gameObject.CompareTag("Player") && AxeCollected)
         {
             anim.SetBool("isCollected", true);
-            player.Bullets = player.Bullets + NoOfBullets;
+            player.Collectables.Bullets = player.Collectables.Bullets + NoOfBullets;
             StartCoroutine(Collected());
             AxeCollected = false;
 
