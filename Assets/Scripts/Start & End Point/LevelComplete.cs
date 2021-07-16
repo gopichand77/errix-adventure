@@ -14,16 +14,23 @@ public class LevelComplete : MonoBehaviour
         if(trig.gameObject.CompareTag("Player"))
         {
             animator.SetBool("Done",true);
-            confetti.Play();
+            // confetti.Play();
+            StartCoroutine(ConfettiPlay());
             StartCoroutine(Level());
         }
     }
     
     IEnumerator Level()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5);
         transitionPanel.gameObject.SetActive(true);
         controlPanel.SetActive(false);
         
+    }
+
+    IEnumerator ConfettiPlay(){
+        confetti.Play();
+        yield return new WaitForSeconds(4);
+        confetti.Stop();
     }
 }
