@@ -63,17 +63,15 @@ public class PlayerHurt : MonoBehaviour
             {
                 playerScript.MovementScript.rb.velocity = new Vector2(-knockback, playerScript.MovementScript.rb.velocity.y);
                 Damaged = true;
-
-
-
             }
             if (!knockfromRight)
 
                 playerScript.MovementScript.rb.velocity = new Vector2(knockback, playerScript.MovementScript.rb.velocity.y);
             Damaged = true;
-
-
             knockCount -= Time.deltaTime;
+
+
+           
 
         }
     }

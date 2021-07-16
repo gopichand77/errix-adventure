@@ -1364,8 +1364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b676d4757d0b7054286a5ec5581a823b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleCanvas: {fileID: 9033395092413596180}
-  SettingsMenu: {fileID: 0}
+  titleCanvas: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &9033395092606472743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7423574116704486768, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1

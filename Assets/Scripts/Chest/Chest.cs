@@ -7,7 +7,7 @@ public class Chest : MonoBehaviour
     public Animator anim;
     public Player player;
     public Transform CoinPoint;
-    public Transform GoldChest;
+    public Transform PrefferedObject;
     private bool Opened = true;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class Chest : MonoBehaviour
             player.Collectables.Keys -=1;
         anim.SetBool("Open",true);
         player.Collectables.ChestOpen();
-        Instantiate(GoldChest,CoinPoint.position,CoinPoint.rotation);
+        Instantiate(PrefferedObject,CoinPoint.position,CoinPoint.rotation);
 
         Opened = false;
         StartCoroutine(CollectTreasure());

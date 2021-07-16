@@ -49,11 +49,7 @@ public class Player : MonoBehaviour
             new WaitForSeconds(1);
             GameOverPanel.SetActive(true);
         }
-        
         checkAttackButton();
-        //for score
-       
-        //notworking treasure 
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
@@ -85,9 +81,8 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
     IEnumerator Hurt()
-    {
+    {   
         MovementScript.anim.SetBool("isFalling", false);
-
         MovementScript.anim.SetBool("isHurt", true);
         MovementScript.moveSpeed = 0;
         yield return new WaitForSeconds(0.8f);

@@ -11,6 +11,7 @@ public class ChestGoldCoin : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.up *5 ;
+        
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class ChestGoldCoin : MonoBehaviour
     {
         Player player = trig.gameObject.GetComponent<Player>();
 
-        if (trig.gameObject.CompareTag("Player") && ChestOpened)
+        if (trig.gameObject.CompareTag("Collider") && ChestOpened)
         {
             
             player.Collectables.NoofGoldCoins();

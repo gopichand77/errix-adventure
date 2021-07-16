@@ -68,7 +68,7 @@ public class PlayerCollections : MonoBehaviour
     {
         gems = gems + 1;
     }
-     internal void BulletHandler()
+    internal void BulletHandler()
     {
         Bullets -= 1;
     }
