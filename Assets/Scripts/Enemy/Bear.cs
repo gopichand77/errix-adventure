@@ -13,70 +13,58 @@ public class Bear : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+   
     // Update is called once per frame
-    private void Update()
+       private void FixedUpdate()
     {
-        playerdist = Vector2.Distance(transform.position, Player.position);
-         if (playerdist < EnemyRange)
-        {
-            StartCoroutine(WakeUp());
-            StartCoroutine(Walking());
-        }
-      
-         if (playerdist < attackRange)
-        {
-            anim.SetBool("Attack",true);
-            moveSpeed = 0;
-            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(-1, 1);
-
-            // ChasePlayer();
-            
-            
-            
-        }
-         if (playerdist > attackRange)
-        {
-            anim.SetBool("Attack",false);
-            
-           
-           
-            
-        }
-    //    ChasePlayer();
-        
         if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
             transform.localScale = new Vector2(1, 1);
-
         }
         else
         {
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
         }
+        if(Player.position.x -3 > transform.position.x )
+        {
+           movingRight = false;
+        
+        }
+         if(Player.position.x +3 < transform.position.x ) 
+        {
+           movingRight = true;
+        
+        }
+        if(Player.position.x == transform.position.x)
+        {
+            anim.SetBool("WakeUp", false);
+        }
+        else
+        {
+            anim.SetBool("WakeUp", true);
+        }
+        
+       
+        
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
 
-        if (trig.gameObject.CompareTag("Turn"))
-        {
-            if (movingRight)
-            {
-                movingRight = false;
-            }
-            else
-            {
-                movingRight = true;
-            }
+        // if (trig.gameObject.CompareTag("Turn"))
+        // {
+        //     if (movingRight)
+        //     {
+        //         movingRight = false;
+        //     }
+        //     else
+        //     {
+        //         movingRight = true;
+        //     }
+            
 
-        }
+        // }
 
     }
     IEnumerator WakeUp()

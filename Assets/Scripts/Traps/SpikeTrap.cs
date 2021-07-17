@@ -18,6 +18,7 @@ public class SpikeTrap : MonoBehaviour
                 player.TakeDamage(10);
                 player.playerhurt.spikeDamaged = false;
                 player.MovementScript.anim.SetBool("isHurt",true);
+                player.MovementScript.anim.SetBool("isFalling",false);
                 player.MovementScript.moveSpeed = 7;
                 
             }

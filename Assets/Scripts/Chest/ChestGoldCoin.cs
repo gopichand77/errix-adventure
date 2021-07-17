@@ -11,24 +11,26 @@ public class ChestGoldCoin : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.up *5 ;
+        StartCoroutine(CoinOut());
         
     }
 
     // Update is called once per frame
-    void OnTriggerEnter2D(Collider2D trig)
-    {
-        Player player = trig.gameObject.GetComponent<Player>();
+    // void OnTriggerEnter2D(Collider2D trig)
+    // {
+    //     Player player = trig.gameObject.GetComponent<Player>();
 
-        if (trig.gameObject.CompareTag("Collider") && ChestOpened)
-        {
+    //     if (trig.gameObject.CompareTag("Collider") && ChestOpened)
+    //     {
             
-            player.Collectables.NoofGoldCoins();
-            ChestOpened = false;
-            StartCoroutine(CoinOut());
+    //         player.Collectables.NoofGoldCoins();
+    //         ChestOpened = false;
+    //         StartCoroutine(CoinOut());
             
             
-        }
-    }
+    //     }
+    // }
+    
 
     IEnumerator Collected() {
         yield return new WaitForSeconds(0.5f);
