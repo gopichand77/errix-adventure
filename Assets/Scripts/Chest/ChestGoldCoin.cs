@@ -38,6 +38,8 @@ public class ChestGoldCoin : MonoBehaviour
     }
     IEnumerator CoinOut() {
         yield return new WaitForSeconds(0.5f);
+        Player player = gameObject.GetComponent<Player>();
+        player.Collectables.NoofGoldCoins();
         anim.SetBool("collectedCoin", true);
             StartCoroutine(Collected());
     }

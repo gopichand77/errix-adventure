@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     internal float dirX;
-    internal float dirY;
+    internal bool dirY;
     internal bool facingRight = true;
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
@@ -36,12 +38,19 @@ public class PlayerMovement : MonoBehaviour
     }
      void Movement()
     {
-        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        #if UNITY_EDITOR
         dirX = Input.GetAxis("Horizontal") * moveSpeed;
-        
+        dirY = Input.GetButtonDown("Jump");
 
-        // if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        if (Input.GetButtonDown("Jump"))
+        #elif UNITY_ANDROID
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+
+        #elif UNITY_IOS
+        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+        #endif
+        if (dirY)
         {
             if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.5)
             {

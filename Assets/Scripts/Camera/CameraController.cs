@@ -4,83 +4,69 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offset;
+    [SerializeField]
+    GameObject player;
 
-    [Range(1, 10)]
-    public float smoothFactor;
+    [SerializeField]
+    float timeOffset;
 
-    private void FixedUpdate()
+    [SerializeField]
+    Vector2 posOffset;
+
+    private Vector3 velocity;
+
+    //limits for camera like boundaries
+    [SerializeField]
+    float leftLimit;
+    [SerializeField]
+    float rightLimit;
+    [SerializeField]
+    float bottomLimit;
+    [SerializeField]
+    float topLimit;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        Follow();
-    }
-    // private void FixedUpdate()
-    // {
-    //     Follow();
-    // }
 
-    void Follow()
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        Vector3 playerPosition = player.position + offset;
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, playerPosition, smoothFactor * Time.fixedDeltaTime);
-        transform.position = smoothPosition;
+        //camera current position
+        Vector3 startpos = transform.position;
+
+        //player current position
+        Vector3 endPos = player.transform.position;
+
+        endPos.x += posOffset.x;
+        endPos.y += posOffset.y;
+        endPos.z += -10;
+
+        //smooth move the camera towards the player
+        transform.position = Vector3.Lerp(startpos, endPos, timeOffset * Time.deltaTime);
+
+
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+            Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
+            transform.position.z
+        );
     }
 
-
-
-
-    // public Transform player;
-
-    // private void Update()
-    // {
-    //     transform.position = new Vector3(player.position.x, player.position.y, -10f);
-    // }
+    void OnDrawGizmos()
+    {
+        //draw a box around our camera for boundary
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(rightLimit, topLimit));//top line
+        Gizmos.DrawLine(new Vector2(rightLimit, topLimit), new Vector2(rightLimit, bottomLimit));//right line
+        Gizmos.DrawLine(new Vector2(rightLimit, bottomLimit), new Vector2(leftLimit, bottomLimit));//bottom line
+        Gizmos.DrawLine(new Vector2(leftLimit, bottomLimit), new Vector2(leftLimit, topLimit));//left line
+    }
 }
 
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
 
-// public class CameraController : MonoBehaviour{
-//     public GameObject followObject;
-//     public Vector2 followOffset;
-//     public float speed = 5f;
-//     private Vector2 threshold;
-//     private Rigidbody2D rb;
 
-//     // Start is called before the first frame update
-//     void Start(){
-//         threshold = calculateThreshold();
-//         rb = followObject.GetComponent<Rigidbody2D>();
-//     }
 
-//     // Update is called once per frame
-//     void FixedUpdate(){
-//         Vector2 follow = followObject.transform.position;
-//         float xDifference = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
-//         float yDifference = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * follow.y);
-
-//         Vector3 newPosition = transform.position;
-//         if(Mathf.Abs(xDifference) >= threshold.x){
-//             newPosition.x = follow.x;
-//         }
-//         if(Mathf.Abs(yDifference) >= threshold.y){
-//             newPosition.y = follow.y;
-//         }
-//         float moveSpeed = rb.velocity.magnitude > speed ? rb.velocity.magnitude : speed;
-//         transform.position = Vector3.MoveTowards(transform.position, newPosition, moveSpeed * Time.deltaTime);
-//     }
-//     private Vector3 calculateThreshold(){
-//         Rect aspect = Camera.main.pixelRect;
-//         Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-//         t.x -= followOffset.x;
-//         t.y -= followOffset.y;
-//         return t;
-//     }
-//     private void OnDrawGizmos() {
-//         Gizmos.color = Color.blue;
-//         Vector2 border = calculateThreshold();
-//         Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));
-//     }
-// }
 
