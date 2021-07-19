@@ -21,6 +21,10 @@ public class PlayerCollections : MonoBehaviour
     public Text keysText;
     public Text treasureOpenedText;
     public Text noOfBulletsText;
+    public Text PanelgoldCoinScoreText;
+    public Text PanelgemsScoreText;
+    public Text PaneltreasureOpenedText;
+    
     
     
     // Start is called before the first frame update
@@ -31,6 +35,9 @@ public class PlayerCollections : MonoBehaviour
         keysText.text = ""; //keys
         treasureOpenedText.text = "";//Treasures opened
         noOfBulletsText.text = ""; //bullets
+        PaneltreasureOpenedText.text = "";
+        PanelgoldCoinScoreText.text = "";
+        PanelgemsScoreText.text = "";
         
     }
 
@@ -42,6 +49,9 @@ public class PlayerCollections : MonoBehaviour
         keysText.text = "" + Keys;//working
         noOfBulletsText.text = "" + Bullets;// working
         treasureOpenedText.text = "" + openChests;
+        PaneltreasureOpenedText.text = "" + openChests;
+        PanelgoldCoinScoreText.text = "" + goldCoins;
+        PanelgemsScoreText.text = "" + gems;
         
     }
     internal void NoofGoldCoins()

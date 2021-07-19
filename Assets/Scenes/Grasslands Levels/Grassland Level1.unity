@@ -62598,6 +62598,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbedbd2485237340bfb6f4945d02ac8, type: 3}
+--- !u!114 &627624397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 627624397, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+  m_PrefabInstance: {fileID: 5348423896403754137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &635667054 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4768671217441142806, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
@@ -65341,6 +65352,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859394250}
   m_CullTransparentMesh: 1
+--- !u!114 &867924884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 867924884, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+  m_PrefabInstance: {fileID: 5348423896403754137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &870401956
 GameObject:
   m_ObjectHideFlags: 0
@@ -96028,6 +96050,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1554676282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1554676282, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+  m_PrefabInstance: {fileID: 5348423896403754137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1574424833
 GameObject:
   m_ObjectHideFlags: 0
@@ -101962,6 +101995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grasslands Next Level Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 5348423896254569246, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5348423896312231421, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -102084,6 +102121,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1003737824}
+    - target: {fileID: 6556528483266948237, guid: 1b5849939c98b414e8ac1db1939f498f, type: 3}
+      propertyPath: PrefferedObject
+      value: 
+      objectReference: {fileID: 8629771056137240494, guid: 8369ab979a1a39e4f91eca3d244f7767, type: 3}
     - target: {fileID: 6556528483266948242, guid: 1b5849939c98b414e8ac1db1939f498f, type: 3}
       propertyPath: m_Name
       value: Chest_Locked_0 (2)
@@ -102191,7 +102232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278905141801723087, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d0fe434996649f380e908034df001a, type: 3}
@@ -102239,9 +102280,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1236872138}
     - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: PanelgemsScoreText
+      value: 
+      objectReference: {fileID: 627624397}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: treasureOpenedText
       value: 
       objectReference: {fileID: 695514709}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: PanelgoldCoinScoreText
+      value: 
+      objectReference: {fileID: 1554676282}
+    - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: PaneltreasureOpenedText
+      value: 
+      objectReference: {fileID: 867924884}
     - target: {fileID: 7423574116704486728, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_Name
       value: Tommy Player
@@ -102437,7 +102490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092413596180, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092413596181, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_Pivot.x
@@ -102545,11 +102598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092628277810, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092628277810, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}

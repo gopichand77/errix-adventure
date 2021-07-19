@@ -18,7 +18,10 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundlayer;
     public ParticleSystem dust;
-    internal bool isGrounded;
+    public bool isGrounded;
+    public float hangTime = 0.2f;
+    public float hangCounter;
+    
     // Start is called before the first frame update
       private void Start()
     {
@@ -50,10 +53,13 @@ public class PlayerMovement : MonoBehaviour
         dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
         dirY = CrossPlatformInputManager.GetButtonDown("Jump");
         #endif
-        if (dirY)
-        {
-            if (isGrounded && rb.velocity.y > -0.1 && rb.velocity.y < 0.5)
+        // if (isGrounded)
+        
+        // {
+            
+            if (dirY && isGrounded)
             {
+              
                 Jump();
 
                 // canDoubleJump = true;
@@ -65,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             //     canDoubleJump = false;
             //     // jumpForce = jumpForce * 1.5f;
             // }
-        }
+        // }
         // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
 
 
@@ -81,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-
 
 
         if (rb.velocity.y > -0.1 && rb.velocity.y < 0.1 || isGrounded)
@@ -103,15 +108,49 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", true);
         }
+       
     }
     
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
+        // isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundlayer);
+        // if(isGrounded)
+        // {
+        //     hangCounter = hangTime;
+        // }
+        // else
+        // {
+        //     hangCounter -= Time.smoothDeltaTime;
+        // }
+        
         
 
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
+       
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.CompareTag("Collider"))
+        {
+            isGrounded = true;
+        }
+
+    }
+    private void OnTriggerStay2D(Collider2D col)
+    {
+         if(col.gameObject.CompareTag("Collider"))
+        {
+            isGrounded = true;
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        
+            isGrounded = false;
+      
+        
     }
     void Jump()
     {
