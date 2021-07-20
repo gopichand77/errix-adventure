@@ -256,7 +256,7 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 200, y: 200}
-  m_Constraint: 0
+  m_Constraint: 2
   m_ConstraintCount: 2
 --- !u!114 &56117776
 MonoBehaviour:
@@ -656,7 +656,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cd46e2f749c0c47cd9b136c3338725d4, type: 3}
-  m_Type: 2
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2268,6 +2268,7 @@ GameObject:
   - component: {fileID: 1861050173}
   - component: {fileID: 1861050172}
   - component: {fileID: 1861050171}
+  - component: {fileID: 1861050174}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2324,7 +2325,7 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 200, y: 200}
-  m_Constraint: 0
+  m_Constraint: 2
   m_ConstraintCount: 2
 --- !u!114 &1861050172
 MonoBehaviour:
@@ -2364,6 +2365,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861050169}
   m_CullTransparentMesh: 1
+--- !u!114 &1861050174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861050169}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c7981b7d7d346abb174d4f88ed29af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridLayoutGroup: {fileID: 1861050171}
 --- !u!1 &1912020007
 GameObject:
   m_ObjectHideFlags: 0

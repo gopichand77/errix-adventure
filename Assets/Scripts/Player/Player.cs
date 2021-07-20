@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     //2.HealthBar
     //3.GaveOver Panel
     //4.Death of the Player.
+    [Header("Drag Player here")]
      [SerializeField]
     internal PlayerMovement MovementScript;
     [SerializeField]

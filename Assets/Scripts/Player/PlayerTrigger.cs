@@ -9,8 +9,9 @@ public class PlayerTrigger : MonoBehaviour
     // This also checks for the keys and the bullets of the player//
     [SerializeField]
     Player playerScript;
-     [Header("AttackButtons")]
+    [Header("Attack Button")]
     public Button AttackButton;
+    [Header("Treasure Keys Buttons")]
     public Button TreasureKey1;
     public Button TreasureKey2;
     public Button TreasureKey3;
