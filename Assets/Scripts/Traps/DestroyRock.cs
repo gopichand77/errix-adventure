@@ -27,7 +27,9 @@ public class DestroyRock : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        StartCoroutine(Destroying());
+        if(trig.gameObject.CompareTag("Player")){
+            StartCoroutine(Destroying());
+        }
         
     }
     IEnumerator Destroying()
