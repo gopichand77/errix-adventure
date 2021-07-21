@@ -10,6 +10,14 @@ public class UfoEnemy : MonoBehaviour
     public float desiredPostionY;
     public bool movingRight;
     public Vector3 tempPosition;
+    [SerializeField]
+    Player player;
+    public float playerDist;
+    float fireRate = 1f;
+     float nextFire;
+    [SerializeField]
+    GameObject Shot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +27,9 @@ public class UfoEnemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if
+        checkFireTime();
+
         tempPosition.x += horizontalSpeed;
         tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * VerticalSpeed) * amplitude + desiredPostionY;
         transform.position = tempPosition;
@@ -52,5 +63,14 @@ public class UfoEnemy : MonoBehaviour
 
         }
 
+
+    }
+    void checkFireTime()
+    {
+        if(Time.time > nextFire)
+        {
+            Instantiate(Shot,transform.position, Quaternion.identity);
+            nextFire = Time.time + fireRate;
+        }
     }
 }
