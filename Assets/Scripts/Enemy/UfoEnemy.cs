@@ -14,18 +14,17 @@ public class UfoEnemy : MonoBehaviour
     void Start()
     {
         tempPosition = transform.position;
-        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         tempPosition.x += horizontalSpeed;
-        tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup*VerticalSpeed)*amplitude +desiredPostionY;
+        tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * VerticalSpeed) * amplitude + desiredPostionY;
         transform.position = tempPosition;
         if (movingRight)
         {
-            horizontalSpeed =  0.01f;
+            horizontalSpeed = 0.01f;
             transform.localScale = new Vector2(1, 1);
         }
         else
@@ -34,12 +33,12 @@ public class UfoEnemy : MonoBehaviour
             horizontalSpeed = -0.01f;
             transform.localScale = new Vector2(-1, 1);
         }
-        
-        
+
+
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        
+
         if (trig.gameObject.CompareTag("Turn"))
         {
             if (movingRight)
@@ -52,6 +51,6 @@ public class UfoEnemy : MonoBehaviour
             }
 
         }
-         
+
     }
 }
