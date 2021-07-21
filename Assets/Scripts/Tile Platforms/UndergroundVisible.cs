@@ -16,17 +16,6 @@ public class UndergroundVisible : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // if(alphaValue < 0.4)
-        // {
-        //     CancelInvoke("IncreaseAlpha");
-        // }
-       
-            
-        
-        
-    }
     private void OnTriggerEnter2D(Collider2D trig)
     {
         if(trig.gameObject.CompareTag("Player"))
