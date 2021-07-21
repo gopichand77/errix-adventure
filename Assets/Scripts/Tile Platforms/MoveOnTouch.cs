@@ -35,17 +35,17 @@ public class MoveOnTouch : MonoBehaviour
     private Vector3 velocity;
     private bool moving;
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        Player player = collision.gameObject.GetComponent<Player>();
+    private void OnTriggerEnter2D(Collider2D trig) {
+        Player player = trig.gameObject.GetComponent<Player>();
         if(player){
             moving = true;
-            collision.collider.transform.SetParent(transform);
+            trig.gameObject.transform.SetParent(transform);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision){
+    private void OnTriggerExit2D(Collider2D trig){
         
-            collision.collider.transform.SetParent(null);
+            trig.gameObject.transform.SetParent(null);
         
     }
 

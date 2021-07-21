@@ -5,16 +5,20 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed = 2f;
+    public float speed = 4f;
     Vector2 moveDirection;
     Player player;
+    private Material matDefault;
+    SpriteRenderer spriteRenderer;
+    private UnityEngine.Object exploRef;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         player  = GameObject.FindObjectOfType<Player>();
         moveDirection = (player.transform.position - transform.position).normalized *speed;
-        rb.velocity = new Vector2(moveDirection.x,moveDirection.y);
+        rb.velocity = new Vector2(moveDirection.x,moveDirection.y) * speed;
+        exploRef = Resources.Load("Explosion");
         Destroy(gameObject,10f);
 
         
@@ -34,7 +38,7 @@ public class Shot : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Collider"))
         {
             rb.velocity = transform.right * 0;
-             Destroy(gameObject);
+             Invoke("KillSelf", 0.05f);
             
         }
     }
@@ -43,5 +47,13 @@ public class Shot : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
        
+    }
+     
+     public void KillSelf(){
+      
+        Destroy(gameObject);
+         GameObject explosion = (GameObject)Instantiate(exploRef);
+            explosion.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+            
     }
 }

@@ -12,8 +12,9 @@ public class UfoEnemy : MonoBehaviour
     public Vector3 tempPosition;
     [SerializeField]
     Player player;
-    public float playerDist;
-    float fireRate = 1f;
+    float playerDist;
+    public float rangeOfFire;
+    float fireRate = 0.5f;
      float nextFire;
     [SerializeField]
     GameObject Shot;
@@ -27,8 +28,13 @@ public class UfoEnemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if
-        checkFireTime();
+        playerDist = Vector2.Distance(transform.position, player.transform.position);
+
+        if(playerDist < rangeOfFire)
+        {
+            checkFireTime();
+        }
+        
 
         tempPosition.x += horizontalSpeed;
         tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * VerticalSpeed) * amplitude + desiredPostionY;
