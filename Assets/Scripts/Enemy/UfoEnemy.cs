@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class UfoEnemy : MonoBehaviour
 {
-    public float horizontalSpeed = 0;
+    public float Speed;
+    float horizontalSpeed;
+    public bool vertical;
     public float VerticalSpeed;
     public float amplitude;
     public float desiredPostionY;
     public bool movingRight;
+    
     public Vector3 tempPosition;
+    private Animator anim;
     [SerializeField]
     Player player;
     float playerDist;
+    public float startRange;
     public float rangeOfFire;
     float fireRate = 0.5f;
      float nextFire;
@@ -22,32 +27,40 @@ public class UfoEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
+        Speed = 0;
         tempPosition = transform.position;
     }
+   
 
     // Update is called once per frame
     void FixedUpdate()
     {
+     
+        
         playerDist = Vector2.Distance(transform.position, player.transform.position);
 
+        
+         if(playerDist < startRange)
+        {
+            StartCoroutine(StartUfo());
         if(playerDist < rangeOfFire)
         {
             checkFireTime();
         }
-        
-
-        tempPosition.x += horizontalSpeed;
+        }
+         tempPosition.x += horizontalSpeed;
         tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * VerticalSpeed) * amplitude + desiredPostionY;
         transform.position = tempPosition;
         if (movingRight)
         {
-            horizontalSpeed = 0.01f;
+            horizontalSpeed = Speed;
             transform.localScale = new Vector2(1, 1);
         }
         else
         {
 
-            horizontalSpeed = -0.01f;
+            horizontalSpeed = -Speed;
             transform.localScale = new Vector2(-1, 1);
         }
 
@@ -78,5 +91,26 @@ public class UfoEnemy : MonoBehaviour
             Instantiate(Shot,transform.position, Quaternion.identity);
             nextFire = Time.time + fireRate;
         }
+    }
+    IEnumerator StartUfo()
+    {
+        anim.SetBool("Start",true);
+        yield return new WaitForSeconds(2.1f);
+        anim.SetBool("Patrol",true);
+        Speed = 0.01f;
+        InvokeRepeating("IncreaseSpeed",0,0.2f);
+        
+
+        
+      
+       
+        
+        
+}
+    void IncreaseSpeed()
+    {
+        if(VerticalSpeed < 1)
+        VerticalSpeed = 0.8f;
+
     }
 }
