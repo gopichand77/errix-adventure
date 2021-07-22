@@ -18,12 +18,8 @@ public class Shot : MonoBehaviour
         player  = GameObject.FindObjectOfType<Player>();
         moveDirection = (player.transform.position - transform.position).normalized *speed;
         rb.velocity = new Vector2(moveDirection.x,moveDirection.y) * speed;
-        exploRef = Resources.Load("Explosion");
-        Destroy(gameObject,10f);
-
-        
-
-        
+        exploRef = Resources.Load("SmallExplosion");
+        Destroy(gameObject,10f);   
     }
 
     // Update is called once per frame
@@ -55,5 +51,6 @@ public class Shot : MonoBehaviour
          GameObject explosion = (GameObject)Instantiate(exploRef);
             explosion.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
             
+ 
     }
 }
