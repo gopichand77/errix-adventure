@@ -67,14 +67,15 @@ public class PlayerHurt : MonoBehaviour
             {
                 playerScript.MovementScript.rb.velocity = new Vector2(-knockback, playerScript.MovementScript.rb.velocity.y);
                 Damaged = true;
+                 
             }
             if (!knockfromRight)
 
                 playerScript.MovementScript.rb.velocity = new Vector2(knockback, playerScript.MovementScript.rb.velocity.y);
             Damaged = true;
             knockCount -= Time.deltaTime;
-            GameObject damange = Instantiate(floatingDamage,transform.position,Quaternion.identity) as GameObject;
-            damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
+            
+           
             
 
 
@@ -91,7 +92,23 @@ public class PlayerHurt : MonoBehaviour
             damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
             playerScript.TakeDamage(10);
         }
+        if(trig.gameObject.CompareTag("Enemy"))
+        {
+            Damaged = true;
+            Invoke("Floating",0.5f);
+        }
+        if(trig.gameObject.CompareTag("Traps"))
+        {
+            spikeDamaged =  true;
+            Invoke("Floating",0.5f);
+        }
         
+
+    }
+    void Floating()
+    {
+         GameObject damange = Instantiate(floatingDamage,transform.position,Quaternion.identity) as GameObject;
+            damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
     }
    
 }

@@ -43,6 +43,7 @@ public class EnemyParticleSys : MonoBehaviour
                 
                Invoke("KillSelf", 0.2f);
             }
+            
         
         else
         {
@@ -52,7 +53,7 @@ public class EnemyParticleSys : MonoBehaviour
     }
     }
     public void KillSelf(){
-      
+        
         Destroy(gameObject);
          GameObject explosion = (GameObject)Instantiate(exploRef);
             explosion.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);

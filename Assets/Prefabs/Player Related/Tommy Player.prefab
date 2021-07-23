@@ -221,13 +221,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementScript: {fileID: 6247982198812336509}
-  InteractButtons: {fileID: 0}
-  Collectables: {fileID: 0}
-  playerhurt: {fileID: 0}
+  InteractButtons: {fileID: 5919918261963955168}
+  Collectables: {fileID: 6196523669175608273}
+  playerhurt: {fileID: 9170426992720156964}
   GameOverPanel: {fileID: 0}
   HurtForce: 4
   maxHealth: 200
-  currentHealth: 200
+  currentHealth: 2147483647
   healthBar: {fileID: 0}
 --- !u!114 &7423574116704486768
 MonoBehaviour:
@@ -303,11 +303,11 @@ MonoBehaviour:
   knockLenght: 0.5
   knockCount: 0
   knockfromRight: 0
-  Damaged: 1
+  Damaged: 0
   spikeKnockback: 7
   spikeKnockLenght: 0.5
   spikeKnockCount: 0
-  floatingDamage: {fileID: 0}
+  floatingDamage: {fileID: 2390527921530245899, guid: 205c1d45a7d93e241b7a2418ec4bb8d1, type: 3}
 --- !u!114 &6196523669175608273
 MonoBehaviour:
   m_ObjectHideFlags: 0

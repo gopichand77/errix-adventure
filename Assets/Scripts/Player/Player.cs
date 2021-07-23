@@ -80,8 +80,10 @@ public class Player : MonoBehaviour
             playerhurt.Damaged = false;
             playerhurt.spikeDamaged = false;
             playerhurt.shotHurt =  false;
+            
 
         }
+
         healthBar.SetHealth(currentHealth);
     }
     IEnumerator Hurt()
