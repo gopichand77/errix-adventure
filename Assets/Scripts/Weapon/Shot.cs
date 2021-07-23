@@ -37,6 +37,14 @@ public class Shot : MonoBehaviour
              Invoke("KillSelf", 0.05f);
             
         }
+        if(hitInfo.gameObject.CompareTag("Player"))
+        {
+           
+            Destroy(this.gameObject);
+
+        }
+
+
     }
 
     IEnumerator Death()

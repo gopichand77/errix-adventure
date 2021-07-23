@@ -73,11 +73,14 @@ public class Player : MonoBehaviour
     {
         // health -= damage;
         StartCoroutine(Hurt());
-        if (playerhurt.Damaged || playerhurt.spikeDamaged)
+        if (playerhurt.Damaged || playerhurt.spikeDamaged || playerhurt.shotHurt)
         {
             currentHealth -= damage;
+          
             playerhurt.Damaged = false;
             playerhurt.spikeDamaged = false;
+            playerhurt.shotHurt =  false;
+
         }
         healthBar.SetHealth(currentHealth);
     }

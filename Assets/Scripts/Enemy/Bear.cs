@@ -5,19 +5,45 @@ using UnityEngine;
 public class Bear : MonoBehaviour
 {
     public bool movingRight;
-    public float moveSpeed = 0;
-    public Transform Player;
+    public bool playermovingRight;
+    public float moveSpeed ;
+    public Transform player;
     public float playerdist;
     public float EnemyRange;
     public float attackRange;
     public Rigidbody2D rb;
     public Animator anim;
+    public bool PlayerRange = false;
+    public bool run = false;
     // Start is called before the first frame update
    
+   private void Start()
+   {
+       
+       
+   }
+   private void Update()
+   {
+       playerdist = Vector2.Distance( player.transform.position, transform.position);
+   }
     // Update is called once per frame
        private void FixedUpdate()
     {
-        if (movingRight)
+          if(playerdist < EnemyRange)
+        {
+            PlayerRange = true;
+        }
+          if(playerdist > EnemyRange)
+        {
+            PlayerRange = false;
+        }
+        if(!run)
+        {
+            playermovingRight = false;
+        }
+        
+        if(PlayerRange){
+            if (playermovingRight)
         {
             transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
             transform.localScale = new Vector2(1, 1);
@@ -26,18 +52,45 @@ public class Bear : MonoBehaviour
         {
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
-        }
-        if(Player.position.x -3 > transform.position.x )
-        {
-           movingRight = false;
         
         }
-         if(Player.position.x +3 < transform.position.x ) 
+        }
+           if (movingRight)
         {
-           movingRight = true;
+            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform.localScale = new Vector2(1, 1);
+        }
+        else 
+        {
+            transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform.localScale = new Vector2(-1, 1);
+        }
+        
+        if(player.position.x  > transform.position.x )
+        {
+            if(PlayerRange && !run)
+            {
+           playermovingRight = false;
+            }
         
         }
-        if(Player.position.x == transform.position.x)
+         if(player.position.x +3 < transform.position.x ) 
+        {
+            if(PlayerRange && run){
+           
+           playermovingRight = true;
+            }
+        
+        }
+        if(PlayerRange)
+        {
+            run = true;
+        }
+        if(!PlayerRange)
+        {
+            run = false;
+        }
+        if(player.position.x == transform.position.x)
         {
             anim.SetBool("WakeUp", false);
         }
@@ -45,26 +98,34 @@ public class Bear : MonoBehaviour
         {
             anim.SetBool("WakeUp", true);
         }
-        
+      
        
         
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
 
-        // if (trig.gameObject.CompareTag("Turn"))
-        // {
-        //     if (movingRight)
-        //     {
-        //         movingRight = false;
-        //     }
-        //     else
-        //     {
-        //         movingRight = true;
-        //     }
-            
+        if (trig.gameObject.CompareTag("Turn"))
+        {
+          if(!run)
+           
+           {
+                if(movingRight)
+            {
+                 movingRight = false;
 
-        // }
+            }
+            else if(!movingRight )
+            {
+                movingRight = true;
+            }
+            
+          
+           }
+        
+        
+
+        }
 
     }
     IEnumerator WakeUp()

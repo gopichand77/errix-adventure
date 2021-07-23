@@ -24,9 +24,13 @@ public class PlayerHurt : MonoBehaviour
     public float spikeKnockback;
     public float spikeKnockLenght;
     public float spikeKnockCount;
-    public bool spikeHurt = true;
-    public bool spikeDamaged = true;
+    internal bool spikeHurt = true;
+    internal bool spikeDamaged = true;
+    internal bool shotHurt =  true;
+
+    public GameObject floatingDamage;
     private void FixedUpdate()
+    
     {
         
         hurtFromEnemy();
@@ -69,11 +73,25 @@ public class PlayerHurt : MonoBehaviour
                 playerScript.MovementScript.rb.velocity = new Vector2(knockback, playerScript.MovementScript.rb.velocity.y);
             Damaged = true;
             knockCount -= Time.deltaTime;
+            GameObject damange = Instantiate(floatingDamage,transform.position,Quaternion.identity) as GameObject;
+            damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
+            
 
 
            
 
         }
+    }
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if(trig.gameObject.name.Contains("shot-1"))
+        {
+            shotHurt = true;
+            GameObject damange = Instantiate(floatingDamage,transform.position,Quaternion.identity) as GameObject;
+            damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
+            playerScript.TakeDamage(10);
+        }
+        
     }
    
 }

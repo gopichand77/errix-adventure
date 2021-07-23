@@ -11,7 +11,7 @@ public class EnemyParticleSys : MonoBehaviour
     public int health = 10;
     public int damage;
     public bool Dead = false;
-    public Transform WormPoint;
+    // public Transform WormPoint;
     public Transform PrefferedObject;
      private UnityEngine.Object exploRef;
     // Start is called before the first frame update
@@ -56,7 +56,7 @@ public class EnemyParticleSys : MonoBehaviour
         Destroy(gameObject);
          GameObject explosion = (GameObject)Instantiate(exploRef);
             explosion.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
-            Instantiate(PrefferedObject,WormPoint.position,WormPoint.rotation);
+            Instantiate(PrefferedObject,transform.position,Quaternion.identity);
     }
     public void ResetMaterial()
     {

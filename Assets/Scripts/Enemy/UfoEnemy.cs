@@ -19,7 +19,7 @@ public class UfoEnemy : MonoBehaviour
     float playerDist;
     public float startRange;
     public float rangeOfFire;
-    float fireRate = 0.5f;
+    float fireRate = 0.3f;
      float nextFire;
     [SerializeField]
     GameObject Shot;
@@ -29,6 +29,7 @@ public class UfoEnemy : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         Speed = 0;
+        VerticalSpeed = 0;
         tempPosition = transform.position;
     }
    
@@ -38,7 +39,7 @@ public class UfoEnemy : MonoBehaviour
     {
      
         
-        playerDist = Vector2.Distance(transform.position, player.transform.position);
+        playerDist = Vector2.Distance(player.transform.position,transform.position);
 
         
          if(playerDist < startRange)
@@ -98,19 +99,15 @@ public class UfoEnemy : MonoBehaviour
         yield return new WaitForSeconds(2.1f);
         anim.SetBool("Patrol",true);
         Speed = 0.01f;
-        InvokeRepeating("IncreaseSpeed",0,0.2f);
-        
-
-        
-      
-       
-        
-        
-}
+        InvokeRepeating("IncreaseSpeed",0,5f);
+    }
     void IncreaseSpeed()
     {
         if(VerticalSpeed < 1)
-        VerticalSpeed = 0.8f;
+        {
+            VerticalSpeed += 0.2f;
+        }
+        
 
     }
 }
