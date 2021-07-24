@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerHurt : MonoBehaviour
 {
@@ -89,7 +90,7 @@ public class PlayerHurt : MonoBehaviour
         {
             shotHurt = true;
             GameObject damange = Instantiate(floatingDamage,transform.position,Quaternion.identity) as GameObject;
-            damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
+            damange.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "-10";
             playerScript.TakeDamage(10);
         }
         if(trig.gameObject.CompareTag("Enemy"))
@@ -108,7 +109,7 @@ public class PlayerHurt : MonoBehaviour
     void Floating()
     {
          GameObject damange = Instantiate(floatingDamage,transform.position,Quaternion.identity) as GameObject;
-            damange.transform.GetChild(0).GetComponent<TextMesh>().text = "-10";
+            damange.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "-10";
     }
    
 }
