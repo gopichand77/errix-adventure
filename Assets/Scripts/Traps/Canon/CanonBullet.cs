@@ -6,10 +6,12 @@ public class CanonBullet : MonoBehaviour
 {
     public float speed;
     Rigidbody2D rb;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         StartCoroutine(Speed());
         
         
@@ -24,6 +26,15 @@ public class CanonBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         rb.velocity = transform.right *speed;
+    }
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if(trig.gameObject.CompareTag("Collider"))
+        {
+              rb.velocity = transform.right * 0;
+              anim.SetBool("isDestroyed", true);
+              Destroy(gameObject,0.5f);
+        }
     }
 
 }

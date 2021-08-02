@@ -108,27 +108,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", true);
         }
-       
+        rb.velocity = new Vector2(dirX, rb.velocity.y);
     }
     
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(dirX, rb.velocity.y);
-        // isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundlayer);
-        // if(isGrounded)
-        // {
-        //     hangCounter = hangTime;
-        // }
-        // else
-        // {
-        //     hangCounter -= Time.smoothDeltaTime;
-        // }
-        
-        
-
-
-       
-    }
+   
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Collider"))
