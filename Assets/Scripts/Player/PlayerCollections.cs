@@ -9,7 +9,7 @@ public class PlayerCollections : MonoBehaviour
 
     [SerializeField]
     Player playerScript;
-
+    
     public int Bullets;//We Can keep these as internal to hide from Unity 
     public int goldCoins;// To hide Change public to internal From Unity
     public int gems;

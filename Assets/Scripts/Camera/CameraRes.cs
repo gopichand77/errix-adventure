@@ -6,11 +6,11 @@ public class CameraRes : MonoBehaviour
 {
     public GameObject backgroundImage;
     public Camera mainCam;
+
     // Start is called before the first frame update
     void Start()
     {
         scaleBackgroundImageFitScreenSize();
-
     }
 
     public void scaleBackgroundImageFitScreenSize()

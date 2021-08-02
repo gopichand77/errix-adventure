@@ -28,6 +28,14 @@ public class CameraSize : MonoBehaviour
             InvokeRepeating("IncreaseCam",0,0.03f);
         }
     }
+
+    // private void OnTriggerStay2D(Collider2D collider2D) {
+    //     if(collider2D.gameObject.CompareTag("Player")){
+    //         // cam.orthographicSize += 10 * Time.deltaTime;
+    //         InvokeRepeating("IncreaseCam",0,0.03f);
+    //     }
+    // }
+    
     private void OnTriggerExit2D(Collider2D trig)
     {
           InvokeRepeating("DecreaseCam",0,0.03f);
@@ -36,13 +44,11 @@ public class CameraSize : MonoBehaviour
     void IncreaseCam()
     {
         cam.orthographicSize += 0.01f;
-
     }
      void DecreaseCam()
     {
         cam.orthographicSize -= 0.01f;
 
     }
-
 
 }
