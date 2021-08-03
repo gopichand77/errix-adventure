@@ -22,9 +22,9 @@ public class PlayerCollections : MonoBehaviour
     public Text treasureOpenedText;
     public Text noOfBulletsText;
     [Header("Game Over Panel Text ")]
-    public Text PanelgoldCoinScoreText;
-    public Text PanelgemsScoreText;
-    public Text PaneltreasureOpenedText;
+    private Text PanelgoldCoinScoreText;
+    private Text PanelgemsScoreText;
+    private Text PaneltreasureOpenedText;
     
     
     

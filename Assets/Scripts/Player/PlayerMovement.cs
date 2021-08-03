@@ -21,15 +21,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float hangTime = 0.2f;
     public float hangCounter;
-    
+
     // Start is called before the first frame update
-      private void Start()
+    private void Start()
     {
-        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-       
-
     }
 
 
@@ -37,40 +34,40 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Movement();
-        
+
     }
-     void Movement()
+    void Movement()
     {
-        #if UNITY_EDITOR
-        dirX = Input.GetAxis("Horizontal") * moveSpeed;
-        dirY = Input.GetButtonDown("Jump");
+    #if UNITY_EDITOR
+    dirX = Input.GetAxis("Horizontal") * moveSpeed;
+    dirY = Input.GetButtonDown("Jump");
 
-        #elif UNITY_ANDROID
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+    #elif UNITY_ANDROID
+    dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+    dirY = CrossPlatformInputManager.GetButtonDown("Jump");
 
-        #elif UNITY_IOS
-        dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-        dirY = CrossPlatformInputManager.GetButtonDown("Jump");
-        #endif
+    #elif UNITY_IOS
+    dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+    dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+    #endif
         // if (isGrounded)
-        
-        // {
-            
-            if (dirY && isGrounded)
-            {
-              
-                Jump();
 
-                // canDoubleJump = true;
-            }
-            // else if (canDoubleJump)
-            // {
-            //     // jumpForce = jumpForce / 1.5f;
-            //     Jump();
-            //     canDoubleJump = false;
-            //     // jumpForce = jumpForce * 1.5f;
-            // }
+        // {
+
+        if (dirY && isGrounded)
+        {
+
+            Jump();
+
+            // canDoubleJump = true;
+        }
+        // else if (canDoubleJump)
+        // {
+        //     // jumpForce = jumpForce / 1.5f;
+        //     Jump();
+        //     canDoubleJump = false;
+        //     // jumpForce = jumpForce * 1.5f;
+        // }
         // }
         // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
 
@@ -110,11 +107,11 @@ public class PlayerMovement : MonoBehaviour
         }
         rb.velocity = new Vector2(dirX, rb.velocity.y);
     }
-    
-   
+
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Collider"))
+        if (col.gameObject.CompareTag("Collider"))
         {
             isGrounded = true;
         }
@@ -122,27 +119,22 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D col)
     {
-         if(col.gameObject.CompareTag("Collider"))
+        if (col.gameObject.CompareTag("Collider"))
         {
             isGrounded = true;
         }
-        
+
     }
     private void OnTriggerExit2D(Collider2D col)
     {
-        
-            isGrounded = false;
-      
-        
+        isGrounded = false;
     }
     void Jump()
     {
 
         rb.AddForce(Vector2.up * 100f * jumpForce);
-
-
     }
-     private void LateUpdate()
+    private void LateUpdate()
     {
         if (dirX > 0 && !facingRight)
         {
