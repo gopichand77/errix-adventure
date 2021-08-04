@@ -16,15 +16,16 @@ public class PlayerCollections : MonoBehaviour
     public int Keys;
     public int openChests;
     [Header("UI Elements")]
+    [SerializeField]
     public Text goldCoinScoreText;
     public Text gemsScoreText;
     public Text keysText;
     public Text treasureOpenedText;
     public Text noOfBulletsText;
-    [Header("Game Over Panel Text ")]
-    private Text PanelgoldCoinScoreText;
-    private Text PanelgemsScoreText;
-    private Text PaneltreasureOpenedText;
+    // [Header("Game Over Panel Text ")]
+    // private Text PanelgoldCoinScoreText;
+    // private Text PanelgemsScoreText;
+    // private Text PaneltreasureOpenedText;
     
     
     
@@ -45,7 +46,7 @@ public class PlayerCollections : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         goldCoinScoreText.text = "" + goldCoins;//working
+        goldCoinScoreText.text = "" + goldCoins;//working
         gemsScoreText.text = "" + gems;//not working
         keysText.text = "" + Keys;//working
         noOfBulletsText.text = "" + Bullets;// working
