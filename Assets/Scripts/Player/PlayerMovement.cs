@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float hangTime = 0.2f;
     public float hangCounter;
+    internal bool ctrlActive = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -33,7 +34,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ctrlActive)
+        {
         Movement();
+        }
 
     }
     void Movement()
@@ -56,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (dirY && isGrounded)
         {
+            
 
             Jump();
 

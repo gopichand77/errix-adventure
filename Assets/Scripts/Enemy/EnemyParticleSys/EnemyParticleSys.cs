@@ -5,14 +5,16 @@ using UnityEngine;
 public class EnemyParticleSys : MonoBehaviour
 {
     private Material matWhite;
-
+   
     private Material matDefault;
     SpriteRenderer spriteRenderer;
     public int health = 10;
     public int damage;
     public bool Dead = false;
+    
     // public Transform WormPoint;
     public Transform PrefferedObject;
+    
     private UnityEngine.Object exploRef;
     // Start is called before the first frame update
     private void Start()
@@ -35,6 +37,7 @@ public class EnemyParticleSys : MonoBehaviour
     {
         if (trig.gameObject.CompareTag("Bullet"))//collisons 
         {
+            
             Destroy(trig.gameObject);
             health -= 5;
 
@@ -48,6 +51,7 @@ public class EnemyParticleSys : MonoBehaviour
             }
             else
             {
+                
                 Invoke("ResetMaterial", 0.2f);
             }
 
@@ -56,7 +60,6 @@ public class EnemyParticleSys : MonoBehaviour
     public void KillSelf()
     {
         Destroy(gameObject);
-        
         GameObject explosion = (GameObject)Instantiate(exploRef);
         explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Instantiate(PrefferedObject, transform.position, Quaternion.identity);

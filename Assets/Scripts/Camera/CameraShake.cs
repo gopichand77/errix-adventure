@@ -12,6 +12,13 @@ public class CameraShake : MonoBehaviour
     private void Start() {
         GetComponent<Camera>();
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            ShakeIt();
+        }
+    }
     public void ShakeIt()
     {
         cameraInitialPosition = mainCamera.transform.position;

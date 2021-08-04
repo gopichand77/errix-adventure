@@ -36,9 +36,9 @@ public class PlayerCollections : MonoBehaviour
         keysText.text = ""; //keys
         treasureOpenedText.text = "";//Treasures opened
         noOfBulletsText.text = ""; //bullets
-        PaneltreasureOpenedText.text = "";
-        PanelgoldCoinScoreText.text = "";
-        PanelgemsScoreText.text = "";
+        // PaneltreasureOpenedText.text = "";
+        // PanelgoldCoinScoreText.text = "";
+        // PanelgemsScoreText.text = "";
         
     }
 
@@ -50,9 +50,9 @@ public class PlayerCollections : MonoBehaviour
         keysText.text = "" + Keys;//working
         noOfBulletsText.text = "" + Bullets;// working
         treasureOpenedText.text = "" + openChests;
-        PaneltreasureOpenedText.text = "" + openChests;
-        PanelgoldCoinScoreText.text = "" + goldCoins;
-        PanelgemsScoreText.text = "" + gems;
+        // PaneltreasureOpenedText.text = "" + openChests;
+        // PanelgoldCoinScoreText.text = "" + goldCoins;
+        // PanelgemsScoreText.text = "" + gems;
         
     }
     internal void NoofGoldCoins()
@@ -73,7 +73,8 @@ public class PlayerCollections : MonoBehaviour
     }
     internal void ChestOpen()
     {
-        openChests = openChests + 1;
+        openChests =  + 1;
+        
     }
     internal void NoOfgems()
     {
