@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     //3.GaveOver Panel
     //4.Death of the Player.
     [Header("Drag Player here")]
-     [SerializeField]
+    [SerializeField]
     internal PlayerMovement MovementScript;
     [SerializeField]
     internal PlayerTrigger InteractButtons;

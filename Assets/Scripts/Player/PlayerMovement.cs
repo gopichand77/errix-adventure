@@ -53,6 +53,12 @@ public class PlayerMovement : MonoBehaviour
     #elif UNITY_IOS
     dirY = CrossPlatformInputManager.GetButtonDown("Jump");
     dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+
+    #elif UNITY_EDITOR__WIN || UNITY_EDITOR_OSX || UNITY_STANDALONE || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
+    dirX = Input.GetAxis("Horizontal") * moveSpeed;
+    dirY = Input.GetButtonDown("Jump");
+
+
     #endif
         // if (isGrounded)
 

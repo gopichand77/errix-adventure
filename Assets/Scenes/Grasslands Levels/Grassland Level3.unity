@@ -1332,6 +1332,7 @@ GameObject:
   - component: {fileID: 220959482}
   - component: {fileID: 220959481}
   - component: {fileID: 220959480}
+  - component: {fileID: 220959483}
   m_Layer: 6
   m_Name: Collider
   m_TagString: Collider
@@ -1376,7 +1377,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220959478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4467,6 +4468,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &220959483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220959478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0795e40c2782f463fbebf50ef65a98fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &232174337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7507,6 +7520,7 @@ GameObject:
   - component: {fileID: 374161183}
   - component: {fileID: 374161185}
   - component: {fileID: 374161184}
+  - component: {fileID: 374161186}
   m_Layer: 0
   m_Name: Boundaries
   m_TagString: Untagged
@@ -11718,6 +11732,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &374161186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374161182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0795e40c2782f463fbebf50ef65a98fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &392715308
 PrefabInstance:
   m_ObjectHideFlags: 0

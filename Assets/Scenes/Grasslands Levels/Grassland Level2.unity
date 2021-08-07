@@ -958,6 +958,7 @@ GameObject:
   - component: {fileID: 235542894}
   - component: {fileID: 235542893}
   - component: {fileID: 235542892}
+  - component: {fileID: 235542895}
   m_Layer: 0
   m_Name: Collider - Tile Map
   m_TagString: Collider
@@ -1002,7 +1003,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235542890}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4667,7 +4668,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.59607846}
   m_Origin: {x: -16, y: -5, z: 0}
   m_Size: {x: 188, y: 17, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -4689,6 +4690,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &235542895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235542890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0795e40c2782f463fbebf50ef65a98fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255147956
 GameObject:
   m_ObjectHideFlags: 0
@@ -34953,6 +34966,7 @@ GameObject:
   - component: {fileID: 1481800763}
   - component: {fileID: 1481800765}
   - component: {fileID: 1481800764}
+  - component: {fileID: 1481800766}
   m_Layer: 0
   m_Name: Boundries
   m_TagString: Untagged
@@ -39634,6 +39648,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1481800766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481800762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0795e40c2782f463fbebf50ef65a98fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1488526397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3489421180968919157, guid: 9ae59ed5825baee488f8dcbc31ba9995, type: 3}
