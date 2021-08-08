@@ -11,6 +11,7 @@ public class MoveOnTouch : MonoBehaviour
     [Header("Limits")]
     public float rightLimit;
     public float leftLimit;
+
     
 
     void Update() {
@@ -44,9 +45,7 @@ public class MoveOnTouch : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D trig){
-        
             trig.gameObject.transform.SetParent(null);
-        
     }
 
     private void FixedUpdate(){
