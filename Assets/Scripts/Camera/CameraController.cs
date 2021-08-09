@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
     float bottomLimit;
     [SerializeField]
     float topLimit;
+    public bool bossLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -64,8 +65,12 @@ public class CameraController : MonoBehaviour
         Gizmos.DrawLine(new Vector2(rightLimit, bottomLimit), new Vector2(leftLimit, bottomLimit));//bottom line
         Gizmos.DrawLine(new Vector2(leftLimit, bottomLimit), new Vector2(leftLimit, topLimit));//left line
     }
+  
+   
+
 }
 
+//     }
 
 
 
