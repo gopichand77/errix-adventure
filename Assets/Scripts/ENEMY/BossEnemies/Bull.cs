@@ -150,7 +150,7 @@ public class Bull : MonoBehaviour
         taunting = false;
         moveSpeed = 4f;
         if(bullHealth < 100f){
-            bullHealth = bullHealth + 10f;
+            // bullHealth = bullHealth + 10f;
         }
     }
 

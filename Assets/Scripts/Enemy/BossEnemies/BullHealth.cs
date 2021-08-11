@@ -16,7 +16,6 @@ public class BullHealth : MonoBehaviour
     {
         health = maxHealth;
         bullScript.bullHealth = health;
-        
     }
 
     private void FixedUpdate()
