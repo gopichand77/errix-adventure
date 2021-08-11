@@ -30,9 +30,11 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public PlayerHealthSlider healthBar;
     
+    
 
  private void Start()
     {
+        
         GameOverPanel.SetActive(false);
         InteractButtons.AttackButton.interactable = false;
         currentHealth = maxHealth;
