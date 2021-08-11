@@ -10,7 +10,7 @@ public class Bull : MonoBehaviour
     public float playerdist;
     public float ChaseRange;
     public float AttackRange;
-    public float health =100f;
+    public float bullHealth = 100f;
     public Transform player;
     public GameObject BossCollider;
     bool Died = false;
@@ -19,89 +19,90 @@ public class Bull : MonoBehaviour
     public float moveSpeed;
     public bool Attacking;
     public int EnemyDamage;
-   
+    public BullHealth bullHealthScript; //health bar ui
+
     void Start()
     {
-       moveSpeed = 0f;
-       anim = gameObject.GetComponent<Animator>();
+        moveSpeed = 0f;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         playerdist = Vector2.Distance(transform.position, player.position);
-        if(playerdist < ChaseRange && !WakeUp)
+        playerdist = Vector2.Distance(transform.position, player.position);
+        if (playerdist < ChaseRange && !WakeUp)
         {
-             StartCoroutine(PlayerInRange());
-             WakeUp = true;
+            StartCoroutine(PlayerInRange());
+            WakeUp = true;
 
-        BossCollider.SetActive(true);
-       
+            BossCollider.SetActive(true);
+
 
         }
-        if(health == 0 )
+        if (bullHealth == 0f)
         {
             BossCollider.SetActive(false);
             Died = true;
-            
+            // bullHealthScript.
+            // bullHealth.SetHealth(0,0);//health bar ui
+
         }
-        
+
     }
-       private void FixedUpdate()
+    private void FixedUpdate()
     {
-         
-        
-           if (movingRight)
+        if (movingRight)
         {
-            if(!taunting)
+            if (!taunting)
             {
-            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
+                transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
             }
             transform.localScale = new Vector2(-1, 1);
         }
-        else 
+        else
         {
-            if(!taunting)
+            if (!taunting)
             {
-            transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
+                transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
             }
             transform.localScale = new Vector2(1, 1);
         }
-        
-        if(player.position.x -3  > transform.position.x )
+
+        if (player.position.x - 3 > transform.position.x)
         {
-          movingRight = false;
+            movingRight = false;
         }
-       
-         if(player.position.x +3   < transform.position.x ) 
+
+        if (player.position.x + 3 < transform.position.x)
         {
             movingRight = true;
         }
-         if(playerdist < AttackRange)
-         {
+        if (playerdist < AttackRange)
+        {
             Attacking = true;
-            anim.SetBool("Attack",true);
+            anim.SetBool("Attack", true);
             moveSpeed = moveSpeed * 0f;
-         }
-         if(playerdist >  AttackRange && WakeUp)
-         {
+        }
+        if (playerdist > AttackRange && WakeUp)
+        {
             Attacking = false;
-             anim.SetBool("Attack",false);
+            anim.SetBool("Attack", false);
             moveSpeed = 2f;
-         }
+        }
     }
     IEnumerator PlayerInRange()
     {
         taunting = true;
-        anim.SetBool("PlayerRange",true);
+        anim.SetBool("PlayerRange", true);
         yield return new WaitForSeconds(1f);
         taunting = false;
-        anim.SetBool("PlayerRange",false);
+        anim.SetBool("PlayerRange", false);
         moveSpeed = 2f;
-    
-        anim.SetBool("Chase",true);
+
+        anim.SetBool("Chase", true);
     }
-     private void OnTriggerEnter2D(Collider2D trig)
+    private void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.tag == "Player")
         {
@@ -128,25 +129,30 @@ public class Bull : MonoBehaviour
             }
 
         }
-        if(trig.gameObject.tag == "Turn")
+        if (trig.gameObject.tag == "Turn")
         {
             moveSpeed = 0f;
-           
+
+            bullHealth = bullHealth -5f;
+
         }
     }
-    
+
     IEnumerator Taunt()
-        {
-            taunting = true;
-            moveSpeed = 0f;
-            anim.SetBool("Chase", false);
-            anim.SetBool("Taunt",true);
-            yield return new WaitForSeconds(1f);
-            anim.SetBool("Taunt",false);
-            anim.SetBool("Chase", true);
-            taunting = false;
-            moveSpeed = 4f;
+    {
+        taunting = true;
+        moveSpeed = 0f;
+        anim.SetBool("Chase", false);
+        anim.SetBool("Taunt", true);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Taunt", false);
+        anim.SetBool("Chase", true);
+        taunting = false;
+        moveSpeed = 4f;
+        if(bullHealth < 100f){
+            bullHealth = bullHealth + 10f;
         }
-    
-   
+    }
+
+
 }
