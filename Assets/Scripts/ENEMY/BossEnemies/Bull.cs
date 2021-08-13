@@ -6,26 +6,30 @@ public class Bull : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator anim;
-    public bool movingRight;
-    public float playerdist;
+     bool movingRight;
+     float playerdist;
     public float ChaseRange;
     public float AttackRange;
     public bool  canHurt;
-    public float bullHealth = 100f;
+     public List<GameObject> Boxes;
+     public List<ParticleSystem> Winners;
+    //  public ContextMenu 
+    internal float bullHealth = 100f;
     public Transform player;
     public GameObject BossCollider;
-    bool Died = false;
+    public bool Died = false;
     public int damage;
     bool taunting;
     public bool WakeUp = false;
     public float moveSpeed;
-    public float AttackTime;
-    public float AttackCount;
     public int EnemyDamage;
-    public BullHealth bullHealthScript; //health bar ui
+    public List<BoxCollider2D> boxColliders;
+    // public BullHealth bullHealthScript; //health bar ui
 
     void Start()
     {
+        
+        canHurt = true;
         moveSpeed = 0f;
         anim = gameObject.GetComponent<Animator>();
     }
@@ -60,10 +64,12 @@ public class Bull : MonoBehaviour
     }
       void LookAtPlayer()
     {
-        AttackCount -= Time.deltaTime;
+        if(!Died){
+        
         Vector3 flipped = transform.localScale;
         flipped.z *= -1f;
-        if(taunting){
+        if(taunting)
+        {
         transform.Translate(0, 0, 0);
         }
         else
@@ -91,7 +97,7 @@ public class Bull : MonoBehaviour
             transform.Rotate(0f,180f,0f);
             movingRight = false;
         }
-        if (playerdist < AttackRange && AttackCount <= 0)
+        if (playerdist < AttackRange )
         {
            
             anim.SetBool("Attack", true);
@@ -108,9 +114,12 @@ public class Bull : MonoBehaviour
             moveSpeed = 2f;
         }
     }
+    }
    
      private void OnTriggerEnter2D(Collider2D trig)
     {
+        if(!Died)
+        {
         if (trig.gameObject.tag == "Player")
         {
 
@@ -121,7 +130,7 @@ public class Bull : MonoBehaviour
                 player.MovementScript.anim.SetBool("isHurt", true);
                 player.playerhurt.Damaged = false;
                 StartCoroutine(Taunt());
-                AttackCount = AttackTime;
+                
                 
             }
             
@@ -163,7 +172,21 @@ public class Bull : MonoBehaviour
                 Died = true;
 
                 anim.SetBool("Death",true);
-                moveSpeed = 0f;
+                moveSpeed = moveSpeed * 0f;
+                foreach(GameObject box in Boxes)
+                {
+                    box.SetActive(false);
+                }
+                foreach(ParticleSystem win in Winners)
+                {
+                    win.Play();
+                }
+                foreach(BoxCollider2D collider in boxColliders)
+                {
+                    collider.enabled = false;
+                }
+                
+
             }
             else
             {
@@ -173,6 +196,7 @@ public class Bull : MonoBehaviour
 
         }
     }
+}
   
      IEnumerator PlayerInRange()
     {
