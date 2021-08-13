@@ -11,15 +11,16 @@ public class BullHealth : MonoBehaviour
     public Bull bullScript;
     float lerpSpeed;
     public Vector3 offset;
-
+    
     private void Start()
     {
         health = maxHealth;
-        bullScript.bullHealth = health;
+        bullScript.bullHealth = health;//old
     }
 
     private void FixedUpdate()
     {
+
         HealthBarFiller();
         ColorChanger();
         lerpSpeed = 3f * Time.deltaTime;
@@ -27,7 +28,7 @@ public class BullHealth : MonoBehaviour
     }
     void HealthBarFiller()
     {
-        health = bullScript.bullHealth;
+        health = bullScript.bullHealth; //old
         // BullHealthbar.fillAmount = health/maxHealth;
         bullHealthbar.fillAmount = Mathf.Lerp(bullHealthbar.fillAmount, health / maxHealth, lerpSpeed);
     }
