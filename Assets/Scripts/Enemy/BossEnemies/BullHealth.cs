@@ -10,7 +10,10 @@ public class BullHealth : MonoBehaviour
     float health, maxHealth = 100f;
     public Bull bullScript;
     float lerpSpeed;
-    public Vector3 offset;
+    public float Yoffset;
+    public float Xoffset;
+    [SerializeField]
+    Transform bullEnemy;
 
     private void Start()
     {
@@ -20,10 +23,11 @@ public class BullHealth : MonoBehaviour
 
     private void FixedUpdate()
     {
+        transform.position = new Vector2(bullEnemy.position.x+ Xoffset,bullEnemy.position.y + Yoffset);
         HealthBarFiller();
         ColorChanger();
         lerpSpeed = 3f * Time.deltaTime;
-        bullHealthbar.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
+        // transform.position = Camera.main.WorldToScreenPoint(new Vector2(bullEnemy.position.x,bullEnemy.position.y));
     }
     void HealthBarFiller()
     {
