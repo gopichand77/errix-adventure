@@ -5,42 +5,69 @@ using UnityEngine.UI;
 
 public class BullHealth : MonoBehaviour
 {
-    // public Transform image;
-    public Image bullHealthbar;
-    float health, maxHealth = 100f;
-    public Bull bullScript;
-    float lerpSpeed;
-    public float Yoffset;
-    public float Xoffset;
-    [SerializeField]
-    Transform bullEnemy;
 
-    private void Start()
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+
+    //to set the max health of player
+    public void SetMaxhealth(int health)
     {
-        health = maxHealth;
-        bullScript.bullHealth = health;
+        slider.maxValue = health;
+        slider.value = health;
+        fill.color = gradient.Evaluate(1f);
     }
 
-    private void FixedUpdate()
+    //to the health using the slider
+    public void SetHealth(int health)
     {
-        transform.position = new Vector2(bullEnemy.position.x+ Xoffset,bullEnemy.position.y + Yoffset);
-        HealthBarFiller();
-        ColorChanger();
-        lerpSpeed = 3f * Time.deltaTime;
-        // transform.position = Camera.main.WorldToScreenPoint(new Vector2(bullEnemy.position.x,bullEnemy.position.y));
-    }
-    void HealthBarFiller()
-    {
-        health = bullScript.bullHealth;
-        // BullHealthbar.fillAmount = health/maxHealth;
-        bullHealthbar.fillAmount = Mathf.Lerp(bullHealthbar.fillAmount, health / maxHealth, lerpSpeed);
+        slider.value = health;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    void ColorChanger()
-    {
-        Color healthColor = Color.Lerp(Color.red, Color.green, (health / maxHealth));
-        bullHealthbar.color = healthColor;
-    }
+
+//.....|old
+    // // public Transform image;
+    // public Image bullHealthbar;
+    // float health, maxHealth = 100f;
+    // public Bull bullScript;
+    // float lerpSpeed;
+    // public float Yoffset;
+    // public float Xoffset;
+    // [SerializeField]
+    // Transform bullEnemy;
+
+    // private void Start()
+    // {
+    //     health = maxHealth;
+    //     bullScript.bullHealth = health;
+    // }
+
+    // private void FixedUpdate()
+    // {
+    //     transform.position = new Vector2(bullEnemy.position.x+ Xoffset,bullEnemy.position.y + Yoffset);
+    //     HealthBarFiller();
+    //     ColorChanger();
+    //     lerpSpeed = 3f * Time.deltaTime;
+    //     // transform.position = Camera.main.WorldToScreenPoint(new Vector2(bullEnemy.position.x,bullEnemy.position.y));
+    // }
+    // void HealthBarFiller()
+    // {
+    //     health = bullScript.bullHealth;
+    //     // BullHealthbar.fillAmount = health/maxHealth;
+    //     bullHealthbar.fillAmount = Mathf.Lerp(bullHealthbar.fillAmount, health / maxHealth, lerpSpeed);
+    // }
+
+    // void ColorChanger()
+    // {
+    //     Color healthColor = Color.Lerp(Color.red, Color.green, (health / maxHealth));
+    //     bullHealthbar.color = healthColor;
+    // }
+//old.....|^
+
+
+
+
     // public Slider slider;
     // public Color low;
     // public Color high;

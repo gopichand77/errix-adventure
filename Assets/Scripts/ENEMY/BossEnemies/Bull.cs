@@ -6,13 +6,13 @@ public class Bull : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator anim;
-     bool movingRight;
-     float playerdist;
+    bool movingRight;
+    float playerdist;
     public float ChaseRange;
     public float AttackRange;
-    public bool  canHurt;
-     public List<GameObject> Boxes;
-     public List<ParticleSystem> Winners;
+    public bool canHurt;
+    public List<GameObject> Boxes;
+    public List<ParticleSystem> Winners;
     //  public ContextMenu 
     internal float bullHealth = 100f;
     public Transform player;
@@ -24,11 +24,11 @@ public class Bull : MonoBehaviour
     public float moveSpeed;
     public int EnemyDamage;
     public List<BoxCollider2D> boxColliders;
-    // public BullHealth bullHealthScript; //health bar ui
+    public BullHealth bullHealthScript; //health bar ui
 
     void Start()
     {
-        
+
         canHurt = true;
         moveSpeed = 0f;
         anim = gameObject.GetComponent<Animator>();
@@ -60,145 +60,133 @@ public class Bull : MonoBehaviour
     private void FixedUpdate()
     {
         LookAtPlayer();
-        
+
     }
-      void LookAtPlayer()
+    void LookAtPlayer()
     {
-        if(!Died){
-        
-        Vector3 flipped = transform.localScale;
-        flipped.z *= -1f;
-        if(taunting)
-        {
-        transform.Translate(0, 0, 0);
-        }
-        else
-        {
-            transform.Translate(2*Time.deltaTime* -moveSpeed,0f,0f);
-
-        }
-        
-
-        if (player.position.x - 3 > transform.position.x && !movingRight )
-        {
-            
-            
-            transform.localScale = flipped;
-            transform.Rotate(0f,180f,0f);
-            movingRight = true;
-
-            
-        }
-
-        if (player.position.x + 3 < transform.position.x && movingRight)
-        {
-           
-            transform.localScale = flipped;
-            transform.Rotate(0f,180f,0f);
-            movingRight = false;
-        }
-        if (playerdist < AttackRange )
-        {
-           
-            anim.SetBool("Attack", true);
-           moveSpeed =  moveSpeed *0f;
-           
-
-            
-
-        }
-        if (playerdist > AttackRange && WakeUp)
-        {
-            
-            anim.SetBool("Attack", false);
-            moveSpeed = 2f;
-        }
-    }
-    }
-   
-     private void OnTriggerEnter2D(Collider2D trig)
-    {
-        if(!Died)
-        {
-        if (trig.gameObject.tag == "Player")
+        if (!Died)
         {
 
-            var player = trig.GetComponent<Player>();
-            if (player.playerhurt.Damaged)
+            Vector3 flipped = transform.localScale;
+            flipped.z *= -1f;
+            if (taunting)
             {
-                player.TakeDamage(EnemyDamage);
-                player.MovementScript.anim.SetBool("isHurt", true);
-                player.playerhurt.Damaged = false;
-                StartCoroutine(Taunt());
-                
-                
-            }
-            
-            
-            player.playerhurt.knockCount = player.playerhurt.knockLenght;
-
-            if (trig.transform.position.x < transform.position.x)
-            {
-                player.playerhurt.knockfromRight = true
-            ;
+                transform.Translate(0, 0, 0);
             }
             else
             {
-                player.playerhurt.knockfromRight = false
-            ;
+                transform.Translate(2 * Time.deltaTime * -moveSpeed, 0f, 0f);
+
             }
 
-        }
-        if (trig.gameObject.tag == "Turn")
-        {
-            moveSpeed = 0f;
 
-            // bullHealth = bullHealth -5f;
-
-        }
-        if (trig.gameObject.CompareTag("Bullet") )//collisons 
-        {
-            
-            Destroy(trig.gameObject);
-            if(canHurt)
+            if (player.position.x - 3 > transform.position.x && !movingRight)
             {
-                bullHealth -= 5;
+                transform.localScale = flipped;
+                transform.Rotate(0f, 180f, 0f);
+                movingRight = true;
             }
 
-            
-
-            if (bullHealth <= 0)
+            if (player.position.x + 3 < transform.position.x && movingRight)
             {
-                Died = true;
-
-                anim.SetBool("Death",true);
+                transform.localScale = flipped;
+                transform.Rotate(0f, 180f, 0f);
+                movingRight = false;
+            }
+            if (playerdist < AttackRange)
+            {
+                anim.SetBool("Attack", true);
                 moveSpeed = moveSpeed * 0f;
-                foreach(GameObject box in Boxes)
-                {
-                    box.SetActive(false);
-                }
-                foreach(ParticleSystem win in Winners)
-                {
-                    win.Play();
-                }
-                foreach(BoxCollider2D collider in boxColliders)
-                {
-                    collider.enabled = false;
-                }
-                
-
             }
-            else
+            if (playerdist > AttackRange && WakeUp)
             {
-                
-                
+                anim.SetBool("Attack", false);
+                moveSpeed = 2f;
             }
-
         }
     }
-}
-  
-     IEnumerator PlayerInRange()
+
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (!Died)
+        {
+            if (trig.gameObject.tag == "Player")
+            {
+
+                var player = trig.GetComponent<Player>();
+                if (player.playerhurt.Damaged)
+                {
+                    player.TakeDamage(EnemyDamage);
+                    player.MovementScript.anim.SetBool("isHurt", true);
+                    player.playerhurt.Damaged = false;
+                    StartCoroutine(Taunt());
+                }
+
+
+                player.playerhurt.knockCount = player.playerhurt.knockLenght;
+
+                if (trig.transform.position.x < transform.position.x)
+                {
+                    player.playerhurt.knockfromRight = true
+                ;
+                }
+                else
+                {
+                    player.playerhurt.knockfromRight = false
+                ;
+                }
+
+            }
+            if (trig.gameObject.tag == "Turn")
+            {
+                moveSpeed = 0f;
+
+                // bullHealth = bullHealth -5f;
+
+            }
+            if (trig.gameObject.CompareTag("Bullet"))//collisons 
+            {
+
+                Destroy(trig.gameObject);
+                if (canHurt)
+                {
+                    bullHealth -= 5;
+                }
+
+
+
+                if (bullHealth <= 0)
+                {
+                    Died = true;
+
+                    anim.SetBool("Death", true);
+                    moveSpeed = moveSpeed * 0f;
+                    foreach (GameObject box in Boxes)
+                    {
+                        box.SetActive(false);
+                    }
+                    foreach (ParticleSystem win in Winners)
+                    {
+                        win.Play();
+                    }
+                    foreach (BoxCollider2D collider in boxColliders)
+                    {
+                        collider.enabled = false;
+                    }
+
+
+                }
+                else
+                {
+
+
+                }
+
+            }
+        }
+    }
+
+    IEnumerator PlayerInRange()
     {
         taunting = true;
         anim.SetBool("PlayerRange", true);
@@ -209,26 +197,26 @@ public class Bull : MonoBehaviour
 
         anim.SetBool("Chase", true);
     }
-   
+
     IEnumerator Taunt()
     {
         taunting = true;
-        moveSpeed = moveSpeed*0f;
+        moveSpeed = moveSpeed * 0f;
         canHurt = false;
         // Attacking =  false;
-        anim.SetBool("Attack",true);
+        anim.SetBool("Attack", true);
         anim.SetBool("Chase", false);
         anim.SetBool("Taunt", true);
         yield return new WaitForSeconds(0.8f);
         anim.SetBool("Taunt", false);
         anim.SetBool("Chase", true);
-        anim.SetBool("Attack",false);
+        anim.SetBool("Attack", false);
         canHurt = true;
         // Attacking =  true;
         taunting = false;
         moveSpeed = 4f;
-       
+
     }
- 
+
 
 }

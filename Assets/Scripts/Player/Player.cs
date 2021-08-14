@@ -40,9 +40,7 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxhealth(maxHealth);
          //treasure reference 
-        
-
-       
+               
         //for score
 }
  private void Update()

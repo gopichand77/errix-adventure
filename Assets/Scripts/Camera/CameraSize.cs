@@ -10,22 +10,24 @@ public class CameraSize : MonoBehaviour
 
     private void Update()
     {
-        if(cam.orthographicSize > size )
-            {
-                CancelInvoke("IncreaseCam");
-           
-            }
-            // if(cam.orthographicSize < defaultSize)
-            // {
-            //     CancelInvoke("DecreaseCam");
-           
-            // }
+        if (cam.orthographicSize > size)
+        {
+            CancelInvoke("IncreaseCam");
+
+        }
+        // if(cam.orthographicSize < defaultSize)
+        // {
+        //     CancelInvoke("DecreaseCam");
+
+        // }
     }
     // Start is called before the first frame update
-    private void OnTriggerEnter2D(Collider2D collider2D){
-        if(collider2D.gameObject.CompareTag("Player")){
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.CompareTag("Player"))
+        {
             // cam.orthographicSize += 10 * Time.deltaTime;
-            InvokeRepeating("IncreaseCam",0,0.03f);
+            InvokeRepeating("IncreaseCam", 0, 0.03f);
         }
     }
 
@@ -35,17 +37,17 @@ public class CameraSize : MonoBehaviour
     //         InvokeRepeating("IncreaseCam",0,0.03f);
     //     }
     // }
-    
+
     // private void OnTriggerExit2D(Collider2D trig)
     // {
     //       InvokeRepeating("DecreaseCam",0,0.03f);
-        
+
     // }
     void IncreaseCam()
     {
         cam.orthographicSize += 0.01f;
     }
-     void DecreaseCam()
+    void DecreaseCam()
     {
         cam.orthographicSize -= 0.01f;
 
