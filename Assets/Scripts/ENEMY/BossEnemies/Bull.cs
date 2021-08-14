@@ -261,4 +261,8 @@ public class Bull : MonoBehaviour
 
         anim.SetBool("Chase", true);
     }
+
+    
+
+
 }
