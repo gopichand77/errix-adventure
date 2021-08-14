@@ -16,10 +16,12 @@ public class Chicken : MonoBehaviour
     public Animator anim;
     public float shockForce;
     Rigidbody2D rb;
+    Collider2D col2;
 
 
     private void Start()
     {
+       col2 = this.gameObject.GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -41,6 +43,7 @@ public class Chicken : MonoBehaviour
            
         }
     }
+    
     void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.CompareTag("Turn"))

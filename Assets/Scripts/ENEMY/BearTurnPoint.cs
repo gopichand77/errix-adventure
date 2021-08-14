@@ -41,6 +41,7 @@ public class BearTurnPoint : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
+        
         if (trig.gameObject.CompareTag("Turn"))
         {
             if (movingRight)

@@ -14,7 +14,7 @@ public class Bull : MonoBehaviour
     public List<GameObject> Boxes;
     public List<ParticleSystem> Winners;
     //  public ContextMenu 
-    internal float bullHealth = 100f;
+    public int bullHealth = 100;
     public Transform player;
     public GameObject BossCollider;
     public bool Died = false;
@@ -25,11 +25,19 @@ public class Bull : MonoBehaviour
     public int EnemyDamage;
     public List<BoxCollider2D> boxColliders;
     public BullHealth bullHealthScript; //health bar ui
+    [SerializeField]
+    GameObject bossFightImage;
+     [Header("Health")]
+    public int maxHealth = 100;
+    // public int currentHealth;
+    public BullHealth healthBar;
 
     void Start()
     {
 
+
         canHurt = true;
+         bullHealth = maxHealth;
         moveSpeed = 0f;
         anim = gameObject.GetComponent<Animator>();
     }
@@ -40,8 +48,10 @@ public class Bull : MonoBehaviour
         playerdist = Vector2.Distance(transform.position, player.position);
         if (playerdist < ChaseRange && !WakeUp)
         {
+
             StartCoroutine(PlayerInRange());
             WakeUp = true;
+            bossFightImage.SetActive(true);
 
             BossCollider.SetActive(true);
 
@@ -150,8 +160,11 @@ public class Bull : MonoBehaviour
                 Destroy(trig.gameObject);
                 if (canHurt)
                 {
-                    bullHealth -= 5;
+                    TakeDamage();
+                   
+                    
                 }
+                
 
 
 
@@ -173,6 +186,7 @@ public class Bull : MonoBehaviour
                     {
                         collider.enabled = false;
                     }
+                    
 
 
                 }
@@ -184,6 +198,12 @@ public class Bull : MonoBehaviour
 
             }
         }
+    }
+    void TakeDamage()
+    {
+         bullHealth -= 5;
+         healthBar.SetHealth(bullHealth);
+
     }
 
     IEnumerator PlayerInRange()
