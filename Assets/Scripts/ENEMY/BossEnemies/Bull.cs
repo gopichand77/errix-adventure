@@ -13,7 +13,9 @@ public class Bull : MonoBehaviour
     public bool canHurt;
     public List<GameObject> Boxes;
     public List<ParticleSystem> Winners;
-    //  public ContextMenu 
+    public bool Attacking;
+    public bool Attacked;
+
     public int bullHealth = 100;
     public Transform player;
     public GameObject BossCollider;
@@ -21,7 +23,9 @@ public class Bull : MonoBehaviour
     public int damage;
     bool taunting;
     public bool WakeUp = false;
-    public float moveSpeed;
+    float moveSpeed;
+    
+    // public float Speed;
     public int EnemyDamage;
     public List<BoxCollider2D> boxColliders;
     public BullHealth bullHealthScript; //health bar ui
@@ -34,12 +38,14 @@ public class Bull : MonoBehaviour
 
     void Start()
     {
-
-
+        Attacking = true;
+        Attacked = false;
         canHurt = true;
-         bullHealth = maxHealth;
+        bullHealth = maxHealth;
         moveSpeed = 0f;
+        bullHealthScript.SetMaxhealth(maxHealth);
         anim = gameObject.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -48,15 +54,12 @@ public class Bull : MonoBehaviour
         playerdist = Vector2.Distance(transform.position, player.position);
         if (playerdist < ChaseRange && !WakeUp)
         {
-
             StartCoroutine(PlayerInRange());
             WakeUp = true;
             bossFightImage.SetActive(true);
-
             BossCollider.SetActive(true);
-
-
         }
+
         if (bullHealth == 0f)
         {
             BossCollider.SetActive(false);
@@ -103,11 +106,16 @@ public class Bull : MonoBehaviour
                 transform.Rotate(0f, 180f, 0f);
                 movingRight = false;
             }
-            if (playerdist < AttackRange)
+            if(Attacking)
             {
+            if (playerdist < AttackRange )
+            {
+                
                 anim.SetBool("Attack", true);
-                moveSpeed = moveSpeed * 0f;
             }
+                
+        }
+            
             if (playerdist > AttackRange && WakeUp)
             {
                 anim.SetBool("Attack", false);
@@ -124,12 +132,14 @@ public class Bull : MonoBehaviour
             {
 
                 var player = trig.GetComponent<Player>();
-                if (player.playerhurt.Damaged)
+                if (player.playerhurt.Damaged && Attacking)
                 {
+                    Attacking = false;
                     player.TakeDamage(EnemyDamage);
                     player.MovementScript.anim.SetBool("isHurt", true);
                     player.playerhurt.Damaged = false;
-                    StartCoroutine(Taunt());
+                    StartCoroutine(idle());
+                    
                 }
 
 
@@ -164,10 +174,6 @@ public class Bull : MonoBehaviour
                    
                     
                 }
-                
-
-
-
                 if (bullHealth <= 0)
                 {
                     Died = true;
@@ -186,15 +192,13 @@ public class Bull : MonoBehaviour
                     {
                         collider.enabled = false;
                     }
+                    } 
                     
+                
 
 
-                }
-                else
-                {
 
-
-                }
+                
 
             }
         }
@@ -203,7 +207,47 @@ public class Bull : MonoBehaviour
     {
          bullHealth -= 5;
          healthBar.SetHealth(bullHealth);
+         StartCoroutine(Damage());
 
+
+    }
+    IEnumerator idle()
+        {
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("Attack", false);
+        taunting = true;
+        canHurt = false;
+        anim.SetBool("idle", true);
+        anim.SetBool("Chase", false);
+        Attacked = false;
+        Attacking =  false;
+        yield return new WaitForSeconds(0.8f);
+        anim.SetBool("idle", false);
+        anim.SetBool("Attack", false);
+        anim.SetBool("PlayerRange", true);
+        yield return new WaitForSeconds(1.2f);
+        anim.SetBool("PlayerRange", false);
+        anim.SetBool("idle", false);
+        anim.SetBool("Chase", true);
+        
+        Attacked = true;
+        taunting = false;
+        Attacking = true;
+        canHurt = true;
+
+
+        }
+    
+    
+    IEnumerator Damage()
+    {
+        taunting =  true;
+         anim.SetBool("Damage",true);
+         yield return new WaitForSeconds(0.5f);
+         anim.SetBool("Damage", false);
+         taunting = false;
+         
+        
     }
 
     IEnumerator PlayerInRange()
@@ -213,30 +257,12 @@ public class Bull : MonoBehaviour
         yield return new WaitForSeconds(1f);
         taunting = false;
         anim.SetBool("PlayerRange", false);
-        moveSpeed = 2f;
-
-        anim.SetBool("Chase", true);
-    }
-
-    IEnumerator Taunt()
-    {
-        taunting = true;
-        moveSpeed = moveSpeed * 0f;
-        canHurt = false;
-        // Attacking =  false;
-        anim.SetBool("Attack", true);
-        anim.SetBool("Chase", false);
-        anim.SetBool("Taunt", true);
-        yield return new WaitForSeconds(0.8f);
-        anim.SetBool("Taunt", false);
-        anim.SetBool("Chase", true);
-        anim.SetBool("Attack", false);
-        canHurt = true;
-        // Attacking =  true;
-        taunting = false;
         moveSpeed = 4f;
 
+        anim.SetBool("Chase", true);
     }
+
+    
 
 
 }

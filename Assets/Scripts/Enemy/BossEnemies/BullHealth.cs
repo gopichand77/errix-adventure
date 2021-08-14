@@ -11,17 +11,17 @@ public class BullHealth : MonoBehaviour
     public Image fill;
 
     //to set the max health of player
-    public void SetMaxhealth(int health)
+    public void SetMaxhealth(int bullHealth)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        slider.maxValue = bullHealth;
+        slider.value = bullHealth;
         fill.color = gradient.Evaluate(1f);
     }
 
     //to the health using the slider
-    public void SetHealth(int health)
+    public void SetHealth(int bullHealth)
     {
-        slider.value = health;
+        slider.value = bullHealth;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
