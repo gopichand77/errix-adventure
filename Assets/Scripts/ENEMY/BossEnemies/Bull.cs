@@ -14,7 +14,7 @@ public class Bull : MonoBehaviour
     public List<GameObject> Boxes;
     public List<ParticleSystem> Winners;
     public bool Attacking;
-    public bool Attacked;
+    
 
     public int bullHealth = 100;
     public Transform player;
@@ -39,7 +39,7 @@ public class Bull : MonoBehaviour
     void Start()
     {
         Attacking = true;
-        Attacked = false;
+        
         canHurt = true;
         bullHealth = maxHealth;
         moveSpeed = 0f;
@@ -110,7 +110,8 @@ public class Bull : MonoBehaviour
             {
             if (playerdist < AttackRange )
             {
-                
+                taunting = true;
+                anim.SetBool("Chase",false);
                 anim.SetBool("Attack", true);
             }
                 
@@ -132,7 +133,7 @@ public class Bull : MonoBehaviour
             {
 
                 var player = trig.GetComponent<Player>();
-                if (player.playerhurt.Damaged && Attacking)
+                if (player.playerhurt.Damaged )
                 {
                     Attacking = false;
                     player.TakeDamage(EnemyDamage);
@@ -213,26 +214,27 @@ public class Bull : MonoBehaviour
     }
     IEnumerator idle()
         {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         anim.SetBool("Attack", false);
         taunting = true;
         canHurt = false;
+        Attacking =  false;
         anim.SetBool("idle", true);
         anim.SetBool("Chase", false);
-        Attacked = false;
-        Attacking =  false;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
         anim.SetBool("idle", false);
         anim.SetBool("Attack", false);
         anim.SetBool("PlayerRange", true);
+        
+        Attacking = true;
         yield return new WaitForSeconds(1.2f);
         anim.SetBool("PlayerRange", false);
         anim.SetBool("idle", false);
         anim.SetBool("Chase", true);
         
-        Attacked = true;
+        
         taunting = false;
-        Attacking = true;
+        
         canHurt = true;
 
 
