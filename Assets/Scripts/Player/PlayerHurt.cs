@@ -29,7 +29,8 @@ public class PlayerHurt : MonoBehaviour
     internal bool spikeHurt = true;
     internal bool spikeDamaged = true;
     internal bool shotHurt = true;
-    
+    public GameObject damageTextPrefab;
+    public string textToDisplay;
     public bool isDead;
     public Collider2D playerCol;
     public Collider2D playerCol2;
@@ -71,6 +72,7 @@ public class PlayerHurt : MonoBehaviour
                 spikeDamaged = true;
                 playerScript.MovementScript.rb.velocity = new Vector2(playerScript.MovementScript.dirX, spikeKnockback);
                 spikeKnockCount -= Time.deltaTime;
+               
             }
         }
 
@@ -99,7 +101,7 @@ public class PlayerHurt : MonoBehaviour
                 playerScript.MovementScript.rb.velocity = new Vector2(knockback, playerScript.MovementScript.rb.velocity.y);
             Damaged = true;
             knockCount -= Time.deltaTime;
-
+           
 
 
 
@@ -113,19 +115,19 @@ public class PlayerHurt : MonoBehaviour
         if (trig.gameObject.name.Contains("shot-1"))
         {
             shotHurt = true;
-            GameObject damange = Instantiate(floatingDamage, transform.position, Quaternion.identity) as GameObject;
-            damange.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "-10";
+            GameObject DamageTextInstance = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
+           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
             playerScript.TakeDamage(10);
         }
         if (trig.gameObject.CompareTag("Enemy"))
         {
             Damaged = true;
-            Invoke("Floating", 0.5f);
+            
         }
         if (trig.gameObject.CompareTag("Traps"))
         {
             spikeDamaged = true;
-            Invoke("Floating", 0.5f);
+            
         }
         if(trig.gameObject.CompareTag("Water"))
         {
@@ -133,11 +135,7 @@ public class PlayerHurt : MonoBehaviour
 
         }
     }
-    void Floating()
-    {
-        GameObject damange = Instantiate(floatingDamage, transform.position, Quaternion.identity) as GameObject;
-        damange.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "-10";
-    }
+    
     void PlayerDeath()
     {
         isDead = true;

@@ -13,7 +13,7 @@ public class Bull : MonoBehaviour
     public bool canHurt;
     public List<GameObject> Boxes;
     public List<ParticleSystem> Winners;
-    public bool Attacking;
+    public bool attacking;
     
 
     public int bullHealth = 100;
@@ -24,7 +24,7 @@ public class Bull : MonoBehaviour
     bool taunting;
     public bool WakeUp = false;
     float moveSpeed;
-    
+    public GameObject HealthBar;
     // public float Speed;
     public int EnemyDamage;
     public List<BoxCollider2D> boxColliders;
@@ -37,8 +37,7 @@ public class Bull : MonoBehaviour
 
     void Start()
     {
-        Attacking = true;
-        
+        attacking = true;
         canHurt = true;
         bullHealth = maxHealth;
         moveSpeed = 0f;
@@ -53,16 +52,18 @@ public class Bull : MonoBehaviour
         playerdist = Vector2.Distance(transform.position, player.position);
         if (playerdist < ChaseRange && !WakeUp)
         {
+            HealthBar.SetActive(true);
             StartCoroutine(PlayerInRange());
             WakeUp = true;
             bossFightImage.SetActive(true);
             BossCollider.SetActive(true);
         }
 
-        if (bullHealth == 0f)
+        if (bullHealth <= 0f)
         {
             BossCollider.SetActive(false);
             Died = true;
+            HealthBar.SetActive(false);
             // bullHealthScript.
             // bullHealth.SetHealth(0,0);//health bar ui
 
@@ -105,7 +106,7 @@ public class Bull : MonoBehaviour
                 transform.Rotate(0f, 180f, 0f);
                 movingRight = false;
             }
-            if(Attacking)
+            if(attacking)
             {
             if (playerdist < AttackRange )
             {
@@ -134,7 +135,7 @@ public class Bull : MonoBehaviour
                 var player = trig.GetComponent<Player>();
                 if (player.playerhurt.Damaged )
                 {
-                    Attacking = false;
+                    attacking = false;
                     player.TakeDamage(EnemyDamage);
                     player.MovementScript.anim.SetBool("isHurt", true);
                     player.playerhurt.Damaged = false;
@@ -182,7 +183,7 @@ public class Bull : MonoBehaviour
                     moveSpeed = moveSpeed * 0f;
                     foreach (GameObject box in Boxes)
                     {
-                        box.SetActive(false);
+                        box.SetActive(true);
                     }
                     foreach (ParticleSystem win in Winners)
                     {
@@ -217,7 +218,7 @@ public class Bull : MonoBehaviour
         anim.SetBool("Attack", false);
         taunting = true;
         canHurt = false;
-        Attacking =  false;
+        attacking =  false;
         anim.SetBool("idle", true);
         anim.SetBool("Chase", false);
         yield return new WaitForSeconds(1f);
@@ -225,7 +226,7 @@ public class Bull : MonoBehaviour
         anim.SetBool("Attack", false);
         anim.SetBool("PlayerRange", true);
         
-        Attacking = true;
+        attacking = true;
         yield return new WaitForSeconds(1.2f);
         anim.SetBool("PlayerRange", false);
         anim.SetBool("idle", false);
