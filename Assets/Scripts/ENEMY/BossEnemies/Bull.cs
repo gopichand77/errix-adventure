@@ -34,7 +34,6 @@ public class Bull : MonoBehaviour
      [Header("Health")]
     public int maxHealth = 100;
     // public int currentHealth;
-    public BullHealth healthBar;
 
     void Start()
     {
@@ -207,7 +206,7 @@ public class Bull : MonoBehaviour
     void TakeDamage()
     {
          bullHealth -= 5;
-         healthBar.SetHealth(bullHealth);
+         bullHealthScript.SetHealth(bullHealth);
          StartCoroutine(Damage());
 
 

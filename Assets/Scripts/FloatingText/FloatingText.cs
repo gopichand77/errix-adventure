@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class FloatingText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject,0.8f);
-        
-        
-    }
+    public void DestroyFloatingText(){
+        GameObject parent = gameObject.transform.parent.gameObject;//to get the parent transform 
+        StartCoroutine(DestroyText());
+        // Destroy(parent);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        IEnumerator DestroyText(){
+            yield return new WaitForSeconds(2f);
+            Destroy(parent);
+        }
     }
 }
