@@ -17,7 +17,7 @@ public class PrivacyManager : MonoBehaviour
         
         SimpleGDPR.ShowDialog(new TermsOfServiceDialog().
         SetPrivacyPolicyLink("https://errix.co/privacypolicy.html").
-        SetTermsOfServiceLink("https://errix.co/termsofservice.html"),
+        SetTermsOfServiceLink("https://errix.co/terms&conditions.html"),
         onMenuClosed
         );
 

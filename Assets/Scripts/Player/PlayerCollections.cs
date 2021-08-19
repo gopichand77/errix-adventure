@@ -44,6 +44,7 @@ public class PlayerCollections : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     void Update()
     {
         goldCoinScoreText.text = "" + goldCoins;//working

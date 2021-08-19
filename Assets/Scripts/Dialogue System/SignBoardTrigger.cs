@@ -20,33 +20,33 @@ public class SignBoardTrigger : MonoBehaviour
         // Dialog.gameObject.SetActive(false);
         
     
-    void OnTriggerEnter2D(Collider2D hitInfo)
-    {
-        if(hitInfo.gameObject.CompareTag("Player"))
-        {
-            Dialog.gameObject.SetActive(true);
+    // void OnTriggerEnter2D(Collider2D hitInfo)
+    // {
+    //     if(hitInfo.gameObject.CompareTag("Player"))
+    //     {
+    //         Dialog.gameObject.SetActive(true);
         
-        // Debug.Log("Player is true");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Dialog.gameObject.SetActive(false);
+    //     // Debug.Log("Player is true");
+    //     }
+    // }
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     Dialog.gameObject.SetActive(false);
         
-    }
+    // }
 //   void OnCollisionEnter2D(Collision2D collision)
 //         {
 //             SignBoardActive(collision);
 //         }
 
-        bool SignBoardActive(Collision2D collision)
-        {
-            Player player = collision.gameObject.GetComponent<Player>();
-           if(collision.contacts[0].normal.y < -0.5){
-                Dialog.gameObject.SetActive(true);//Dialg Box is Deactivated To Activate Keep True
+//         bool SignBoardActive(Collision2D collision)
+//         {
+//             Player player = collision.gameObject.GetComponent<Player>();
+//            if(collision.contacts[0].normal.y < -0.5){
+//                 Dialog.gameObject.SetActive(true);//Dialg Box is Deactivated To Activate Keep True
                
-             return true;
-           }
-           return false;
-}
+//              return true;
+//            }
+//            return false;
+// }
 }
