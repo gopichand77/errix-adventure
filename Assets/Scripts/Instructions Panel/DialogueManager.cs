@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     PlayerMovement movementScript;
 
-    // public Button playDialogue1Button;
+    public Button Button;
     // public Button playDialogue2Button;
     // public Button playDialogue3Button;
     [HideInInspector]
@@ -27,24 +27,21 @@ public class DialogueManager : MonoBehaviour
     private bool Dialog3_entered;
     private bool Dialog4_entered;
     private bool Dialog5_entered;
-
     private bool Dialog1Board;
     private bool Dialog2Board;
     private bool Dialog3Board;
     private bool Dialog4Board;
     private bool Dialog5Board;
     #endregion
-
     public GameObject Canvas;
     public GameObject Audio;
-    
-    [TextArea]
+    #region Text Variables
     public string[] Dialog1_sign;
     public string[] Dialog2_sign;
     public string[] Dialog3_sign;
     public string[] Dialog4_Sign;
     public string[] Dialog5_sign;
-
+    #endregion
     private DialogueVertexAnimator dialogueVertexAnimator;
     void Awake()
     {
@@ -54,6 +51,11 @@ public class DialogueManager : MonoBehaviour
     }
     private void Start()
     {
+     Dialog1_entered = false;
+     Dialog2_entered = false;
+     Dialog3_entered = false;
+     Dialog4_entered = false;
+     Dialog5_entered = false;
         index = 0;
 
 
@@ -61,6 +63,7 @@ public class DialogueManager : MonoBehaviour
         Audio.SetActive(false);
 
     }
+    #region  Update 
     private void Update()
     {
         if (Dialog1)
@@ -127,7 +130,120 @@ public class DialogueManager : MonoBehaviour
 
             PlayeDialog3Sign();
         }
-        if (Input.GetMouseButtonDown(0) && Dialog1Board)
+
+        #region  Mouse Input
+
+        // if ((Input.GetMouseButtonDown(0) && Dialog1Board ))
+        // {
+        //     if (index < Dialog1_sign.Length - 1)
+        //     {
+        //         index++;
+        //         textBox.text = string.Empty;
+        //         PlayDialog1();
+        //     }
+        //     else
+        //     {
+        //         movementScript.moveSpeed = 7f;
+        //     movementScript.jumpForce  = 7f;
+        //                         Canvas.SetActive(false);
+        //         Audio.SetActive(false);
+
+
+        //     }
+
+
+        // }
+        // if (Input.GetMouseButtonDown(0) && Dialog2Board)
+        // {
+        //     if (index < Dialog2_sign.Length - 1)
+        //     {
+        //         index++;
+        //         textBox.text = string.Empty;
+        //         PlayDialog2();
+        //     }
+        //     else
+        //     {
+        //         movementScript.moveSpeed = 7f;
+        //     movementScript.jumpForce  = 7f;
+        //                         Canvas.SetActive(false);
+        //         Audio.SetActive(false);
+
+
+        //     }
+
+
+        // }
+        // if (Input.GetMouseButtonDown(0) && Dialog3Board)
+        // {
+        //     if (index < Dialog3_sign.Length - 1)
+        //     {
+        //         index++;
+        //         textBox.text = string.Empty;
+        //         PlayeDialog3Sign();
+        //     }
+        //     else
+        //     {
+        //         movementScript.moveSpeed = 7f;
+        //     movementScript.jumpForce  = 7f;
+        //                         Canvas.SetActive(false);
+        //         Audio.SetActive(false);
+
+
+        //     }
+
+
+        // }
+        //  if (Input.GetMouseButtonDown(0) && Dialog4Board)
+        // {
+        //     if (index < Dialog4_Sign.Length - 1)
+        //     {
+        //         index++;
+        //         textBox.text = string.Empty;
+        //         PlayTrapDialog();
+        //     }
+        //     else
+        //     {
+        //         movementScript.moveSpeed = 7f;
+        //     movementScript.jumpForce  = 7f;
+        //         Canvas.SetActive(false);
+        //         Audio.SetActive(false);
+
+
+        //     }
+
+
+        // }
+
+        // if (Input.GetMouseButtonDown(0) && Dialog5Board)
+        // {
+        //     if (index < Dialog5_sign.Length - 1)
+        //     {
+        //         index++;
+        //         textBox.text = string.Empty;
+        //         PlayDialog5();
+        //     }
+        //     else
+        //     {
+        //         movementScript.moveSpeed = 7f;
+        //     movementScript.jumpForce  = 7f;
+        //         Canvas.SetActive(false);
+        //         Audio.SetActive(false);
+
+
+        //     }
+
+
+        // }
+        #endregion
+        
+       
+
+    }
+    #endregion
+    #region  Button Input
+    public void ButtonClick()
+    {
+                if (Dialog1Board)
         {
             if (index < Dialog1_sign.Length - 1)
             {
@@ -137,7 +253,9 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                Canvas.SetActive(false);
+                movementScript.moveSpeed = 7f;
+            movementScript.jumpForce  = 7f;
+                                Canvas.SetActive(false);
                 Audio.SetActive(false);
 
 
@@ -145,7 +263,7 @@ public class DialogueManager : MonoBehaviour
 
 
         }
-        if (Input.GetMouseButtonDown(0) && Dialog2Board)
+        if (Dialog2Board)
         {
             if (index < Dialog2_sign.Length - 1)
             {
@@ -155,7 +273,9 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                Canvas.SetActive(false);
+                movementScript.moveSpeed = 7f;
+            movementScript.jumpForce  = 7f;
+                                Canvas.SetActive(false);
                 Audio.SetActive(false);
 
 
@@ -163,7 +283,7 @@ public class DialogueManager : MonoBehaviour
 
 
         }
-        if (Input.GetMouseButtonDown(0) && Dialog3Board)
+        if ( Dialog3Board)
         {
             if (index < Dialog3_sign.Length - 1)
             {
@@ -173,7 +293,9 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                Canvas.SetActive(false);
+                movementScript.moveSpeed = 7f;
+            movementScript.jumpForce  = 7f;
+                                Canvas.SetActive(false);
                 Audio.SetActive(false);
 
 
@@ -181,25 +303,7 @@ public class DialogueManager : MonoBehaviour
 
 
         }
-        if (Input.GetMouseButtonDown(0) && Dialog5Board)
-        {
-            if (index < Dialog5_sign.Length - 1)
-            {
-                index++;
-                textBox.text = string.Empty;
-                PlayDialog5();
-            }
-            else
-            {
-                Canvas.SetActive(false);
-                Audio.SetActive(false);
-
-
-            }
-
-
-        }
-        if (Input.GetMouseButtonDown(0) && Dialog4Board)
+         if ( Dialog4Board)
         {
             if (index < Dialog4_Sign.Length - 1)
             {
@@ -209,6 +313,8 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                movementScript.moveSpeed = 7f;
+            movementScript.jumpForce  = 7f;
                 Canvas.SetActive(false);
                 Audio.SetActive(false);
 
@@ -218,50 +324,96 @@ public class DialogueManager : MonoBehaviour
 
         }
 
+        if ( Dialog5Board)
+        {
+            if (index < Dialog5_sign.Length - 1)
+            {
+                index++;
+                textBox.text = string.Empty;
+                PlayDialog5();
+            }
+            else
+            {
+                movementScript.moveSpeed = 7f;
+            movementScript.jumpForce  = 7f;
+                Canvas.SetActive(false);
+                Audio.SetActive(false);
+
+
+            }
+
+
+        }
+        
+       
+
 
     }
+    #endregion
+    
+    #region  Ontrigger
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if (trig.gameObject.name.Equals("Dialog1 signboard"))
+        if (trig.gameObject.name.Equals("Dialog1 signboard") && !Dialog1_entered)
         {
 
             index = 0;
+            Dialog1_entered = true;
+            
+            movementScript.moveSpeed = 0f;
+            movementScript.jumpForce  = 0f;
             Dialog1 = true;
             Canvas.SetActive(true);
             Audio.SetActive(true);
 
         }
-        if (trig.gameObject.name.Equals("Dialog2 signboard"))
+        if (trig.gameObject.name.Equals("Dialog2 signboard") && !Dialog2_entered)
         {
             index = 0;
             Dialog2 = true;
+            Dialog2_entered = true;
+            movementScript.moveSpeed = 0f;
+            movementScript.jumpForce  = 0f;
+            
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
-        if (trig.gameObject.name.Equals("Dialog3 signboard"))
+        if (trig.gameObject.name.Equals("Dialog3 signboard") && !Dialog3_entered)
         {
             index = 0;
             Dialog3 = true;
+            Dialog3_entered = true;
+            movementScript.moveSpeed = 0f;
+            movementScript.jumpForce  = 0f;
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
-        if (trig.gameObject.name.Equals("Dialog4 signboard"))
+        if (trig.gameObject.name.Equals("Dialog4 signboard") && !Dialog4_entered)
         {
             index = 0;
             Dialog4 = true;
+            Dialog4_entered = true;
+            movementScript.moveSpeed = 0f;
+            movementScript.jumpForce  = 0f;
+            
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
         
-        if (trig.gameObject.name.Equals("Dialog5 signboard"))
+        if (trig.gameObject.name.Equals("Dialog5 signboard") && !Dialog5_entered)
         {
             index = 0;
             Dialog5 = true;
+            Dialog5_entered = true;
+            movementScript.moveSpeed = 0f;
+            movementScript.jumpForce  = 0f;
+            
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
 
     }
+    #endregion
     void False()
     {
 
