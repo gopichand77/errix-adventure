@@ -12,50 +12,33 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     PlayerMovement movementScript;
 
-    public Button Button;
+    // public Button canvasButton;
     // public Button playDialogue2Button;
     // public Button playDialogue3Button;
     [HideInInspector]
     #region public Bool
-    private bool Dialog1;
-    private bool Dialog2;
-    private bool Dialog3;
-    private bool Dialog4;
-    private bool Dialog5;
-    private bool Dialog1_entered;
-    private bool Dialog2_entered;
-    private bool Dialog3_entered;
-    private bool Dialog4_entered;
-    private bool Dialog5_entered;
-    private bool Dialog1Board;
-    private bool Dialog2Board;
-    private bool Dialog3Board;
-    private bool Dialog4Board;
-    private bool Dialog5Board;
+    private bool Dialog1, Dialog2, Dialog3, Dialog4, Dialog5;
+    private bool Dialog1_entered, Dialog2_entered, Dialog3_entered, Dialog4_entered, Dialog5_entered;
+    private bool Dialog1Board, Dialog2Board, Dialog3Board, Dialog4Board, Dialog5Board;
     #endregion
     public GameObject Canvas;
     public GameObject Audio;
     #region Text Variables
-    public string[] Dialog1_sign;
-    public string[] Dialog2_sign;
-    public string[] Dialog3_sign;
-    public string[] Dialog4_Sign;
-    public string[] Dialog5_sign;
+    public string[] Dialog1_sign, Dialog2_sign, Dialog3_sign, Dialog4_Sign, Dialog5_sign;
+
     #endregion
     private DialogueVertexAnimator dialogueVertexAnimator;
     void Awake()
     {
-
         dialogueVertexAnimator = new DialogueVertexAnimator(textBox, audioSourceGroup);
-
     }
     private void Start()
     {
-     Dialog1_entered = false;
-     Dialog2_entered = false;
-     Dialog3_entered = false;
-     Dialog4_entered = false;
-     Dialog5_entered = false;
+        Dialog1_entered = false;
+        Dialog2_entered = false;
+        Dialog3_entered = false;
+        Dialog4_entered = false;
+        Dialog5_entered = false;
         index = 0;
 
 
@@ -121,7 +104,6 @@ public class DialogueManager : MonoBehaviour
         {
             Dialog1Board = false;
             Dialog2Board = false;
-
             Dialog4Board = false;
             Dialog5Board = false;
             Dialog3Board = true;
@@ -130,7 +112,6 @@ public class DialogueManager : MonoBehaviour
 
             PlayeDialog3Sign();
         }
-
         #region  Mouse Input
 
         // if ((Input.GetMouseButtonDown(0) && Dialog1Board ))
@@ -235,15 +216,12 @@ public class DialogueManager : MonoBehaviour
 
         // }
         #endregion
-        
-       
-
     }
     #endregion
     #region  Button Input
     public void ButtonClick()
     {
-                if (Dialog1Board)
+        if (Dialog1Board)
         {
             if (index < Dialog1_sign.Length - 1)
             {
@@ -254,13 +232,10 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 movementScript.moveSpeed = 7f;
-            movementScript.jumpForce  = 7f;
-                                Canvas.SetActive(false);
+                movementScript.jumpForce = 7f;
+                Canvas.SetActive(false);
                 Audio.SetActive(false);
-
-
             }
-
 
         }
         if (Dialog2Board)
@@ -274,16 +249,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 movementScript.moveSpeed = 7f;
-            movementScript.jumpForce  = 7f;
-                                Canvas.SetActive(false);
+                movementScript.jumpForce = 7f;
+                Canvas.SetActive(false);
                 Audio.SetActive(false);
-
-
             }
-
-
         }
-        if ( Dialog3Board)
+        if (Dialog3Board)
         {
             if (index < Dialog3_sign.Length - 1)
             {
@@ -294,16 +265,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 movementScript.moveSpeed = 7f;
-            movementScript.jumpForce  = 7f;
-                                Canvas.SetActive(false);
+                movementScript.jumpForce = 7f;
+                Canvas.SetActive(false);
                 Audio.SetActive(false);
-
-
             }
-
-
         }
-         if ( Dialog4Board)
+        if (Dialog4Board)
         {
             if (index < Dialog4_Sign.Length - 1)
             {
@@ -314,17 +281,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 movementScript.moveSpeed = 7f;
-            movementScript.jumpForce  = 7f;
+                movementScript.jumpForce = 7f;
                 Canvas.SetActive(false);
                 Audio.SetActive(false);
-
-
             }
-
-
         }
-
-        if ( Dialog5Board)
+        if (Dialog5Board)
         {
             if (index < Dialog5_sign.Length - 1)
             {
@@ -335,33 +297,24 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 movementScript.moveSpeed = 7f;
-            movementScript.jumpForce  = 7f;
+                movementScript.jumpForce = 7f;
                 Canvas.SetActive(false);
                 Audio.SetActive(false);
-
-
             }
-
-
         }
-        
-       
-
-
     }
     #endregion
-    
+
     #region  Ontrigger
     private void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.name.Equals("Dialog1 signboard") && !Dialog1_entered)
         {
-
             index = 0;
             Dialog1_entered = true;
-            
+
             movementScript.moveSpeed = 0f;
-            movementScript.jumpForce  = 0f;
+            movementScript.jumpForce = 0f;
             Dialog1 = true;
             Canvas.SetActive(true);
             Audio.SetActive(true);
@@ -373,8 +326,8 @@ public class DialogueManager : MonoBehaviour
             Dialog2 = true;
             Dialog2_entered = true;
             movementScript.moveSpeed = 0f;
-            movementScript.jumpForce  = 0f;
-            
+            movementScript.jumpForce = 0f;
+
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
@@ -384,7 +337,7 @@ public class DialogueManager : MonoBehaviour
             Dialog3 = true;
             Dialog3_entered = true;
             movementScript.moveSpeed = 0f;
-            movementScript.jumpForce  = 0f;
+            movementScript.jumpForce = 0f;
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
@@ -394,20 +347,20 @@ public class DialogueManager : MonoBehaviour
             Dialog4 = true;
             Dialog4_entered = true;
             movementScript.moveSpeed = 0f;
-            movementScript.jumpForce  = 0f;
-            
+            movementScript.jumpForce = 0f;
+
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
-        
+
         if (trig.gameObject.name.Equals("Dialog5 signboard") && !Dialog5_entered)
         {
             index = 0;
             Dialog5 = true;
             Dialog5_entered = true;
             movementScript.moveSpeed = 0f;
-            movementScript.jumpForce  = 0f;
-            
+            movementScript.jumpForce = 0f;
+
             Canvas.SetActive(true);
             Audio.SetActive(true);
         }
@@ -416,44 +369,35 @@ public class DialogueManager : MonoBehaviour
     #endregion
     void False()
     {
-
         Dialog1 = false;
         Dialog2 = false;
         Dialog4 = false;
         Dialog3 = false;
         Dialog5 = false;
-
-
     }
 
     private void PlayDialog1()
     {
-
         PlayDialogue(Dialog1_sign[index]);
     }
 
     private void PlayDialog2()
     {
-
         PlayDialogue(Dialog2_sign[index]);
     }
 
     private void PlayeDialog3Sign()
     {
-
         PlayDialogue(Dialog3_sign[index]);
     }
     private void PlayTrapDialog()
     {
-
         PlayDialogue(Dialog4_Sign[index]);
     }
     private void PlayDialog5()
     {
-
         PlayDialogue(Dialog5_sign[index]);
     }
-
 
     private Coroutine typeRoutine = null;
     void PlayDialogue(string message)

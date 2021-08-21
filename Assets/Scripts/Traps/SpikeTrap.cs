@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
-    public GameObject Buttons;
+    public GameObject controlCanvas;
     public int spikeDamge;
 
 

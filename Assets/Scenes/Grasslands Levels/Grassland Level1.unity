@@ -634,7 +634,7 @@ MonoBehaviour:
   textBox: {fileID: 859394252}
   typingClip: {fileID: 8300000, guid: ab27b1b603ab02b4ab77bb3e1150929c, type: 3}
   audioSourceGroup: {fileID: 167179147}
-  movementScript: {fileID: 0}
+  movementScript: {fileID: 7423574117378906008}
   Canvas: {fileID: 511984780}
   Audio: {fileID: 167179146}
   Dialog1_sign:
@@ -100665,7 +100665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f72bca6d4224b549abcbda1abad003b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons: {fileID: 1821900137}
+  controlCanvas: {fileID: 1674983050}
   spikeDamge: 10
 --- !u!19719996 &2010285237
 TilemapCollider2D:
@@ -101683,7 +101683,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 48407210}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: art
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -103364,6 +103364,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+--- !u!114 &7423574117378906008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6247982198812336509, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+  m_PrefabInstance: {fileID: 7423574117378906007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453202691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65ecbd64f525ac4980abe5d59257a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9033395092912075934
 PrefabInstance:
   m_ObjectHideFlags: 0
