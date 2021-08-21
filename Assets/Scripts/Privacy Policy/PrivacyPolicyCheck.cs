@@ -15,14 +15,15 @@ public class PrivacyPolicyCheck : MonoBehaviour
         accepted = PlayerPrefs.GetInt(policykey, 0) == 1;
         Debug.Log(accepted);
 
-        if(!accepted)
+        if (!accepted)
             return;
         off();
         onMenuClosed();
-        
+
     }
 
-    private void off(){
+    private void off()
+    {
         privacyPanel.SetActive(false);
     }
     private void onMenuClosed()
@@ -32,23 +33,23 @@ public class PrivacyPolicyCheck : MonoBehaviour
     }
     public void setPref()
     {
-      PlayerPrefs.SetInt(policykey, 1);
-      off();
+        PlayerPrefs.SetInt(policykey, 1);
+        off();
         onMenuClosed();
-      Debug.Log(accepted);
+        Debug.Log(accepted);
 
     }
-    //  public void BackPref()
-    // {
-    //   PlayerPrefs.SetInt(policykey, 0);
-    //   Debug.Log(accepted);
+    public void BackPref()
+    {
+        PlayerPrefs.SetInt(policykey, 0);
+        Debug.Log(accepted);
 
-    // }
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
