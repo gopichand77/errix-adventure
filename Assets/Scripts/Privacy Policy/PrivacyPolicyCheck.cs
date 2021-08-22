@@ -9,16 +9,27 @@ public class PrivacyPolicyCheck : MonoBehaviour
     private bool accepted;
     [SerializeField]
     GameObject privacyPanel;
+    [SerializeField]
+    GameObject tapToPlay;
     // Start is called before the first frame update
     void Start()
     {
         accepted = PlayerPrefs.GetInt(policykey, 0) == 1;
         Debug.Log(accepted);
 
-        if (!accepted)
-            return;
-        off();
-        onMenuClosed();
+        if (accepted)
+        {
+             off();
+        // onMenuClosed();
+        tapToPlay.SetActive(true);
+        }
+        else
+        {
+            tapToPlay.SetActive(false);
+        }
+
+           
+       
 
     }
 
@@ -28,11 +39,12 @@ public class PrivacyPolicyCheck : MonoBehaviour
     }
     private void onMenuClosed()
     {
-        Debug.Log("PrivacyPolicy Accepted");
-        PlayerPrefs.SetInt(policykey, 1);
+        // Debug.Log("PrivacyPolicy Accepted");
+        // PlayerPrefs.SetInt(policykey, 1);
     }
     public void setPref()
     {
+        tapToPlay.SetActive(true);
         PlayerPrefs.SetInt(policykey, 1);
         off();
         onMenuClosed();
