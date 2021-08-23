@@ -85,13 +85,6 @@ public class Player : MonoBehaviour
             playerhurt.spikeDamaged = false;
             playerhurt.shotHurt =  false;
             Invoke("Floating",0.5f);    
-         
-         
-
-          
-           
-                   
-
         }
 
         healthBar.SetHealth(currentHealth);
@@ -100,7 +93,7 @@ public class Player : MonoBehaviour
     {
         Vector3 PlayerPos =  new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
        GameObject DamageTextInstance = Instantiate(damageTextPrefab, PlayerPos, Quaternion.identity);
-           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay.ToString());
+           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("-"+textToDisplay.ToString());
            Destroy(DamageTextInstance, 2f);
     }
     IEnumerator Hurt()
