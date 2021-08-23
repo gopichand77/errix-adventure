@@ -29,8 +29,7 @@ public class PlayerHurt : MonoBehaviour
     internal bool spikeHurt = true;
     internal bool spikeDamaged = true;
     internal bool shotHurt = true;
-    public GameObject damageTextPrefab;
-    public string textToDisplay;
+    
     public bool isDead;
     public Collider2D playerCol;
     public Collider2D playerCol2;
@@ -115,9 +114,8 @@ public class PlayerHurt : MonoBehaviour
         if (trig.gameObject.name.Contains("shot-1"))
         {
             shotHurt = true;
-            GameObject DamageTextInstance = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
-           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
-            playerScript.TakeDamage(10);
+           
+           
         }
         if (trig.gameObject.CompareTag("Enemy"))
         {

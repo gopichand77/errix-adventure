@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpikeTrap : MonoBehaviour
 {
     public GameObject controlCanvas;
-    public int spikeDamge;
+    public int spikeDamge = 10;
 
 
     private void OnTriggerEnter2D(Collider2D collider2D)

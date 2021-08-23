@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-
+using System;
+using System.Text;
 public class Player : MonoBehaviour
 {
     //=============================================================================//
@@ -22,15 +22,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     internal PlayerHurt playerhurt;
     public GameObject damageTextPrefab;
-    public string textToDisplay;
+    int textToDisplay;
     public GameObject GameOverPanel;
+    public GameObject[] turnOffAtDeath;
     private Vector3 localScale;
     public float HurtForce = 30;
    [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
     public PlayerHealthSlider healthBar;
-    public int damage;
     
 
  private void Start()
@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
         {
             new WaitForSeconds(1);
             GameOverPanel.SetActive(true);
+             foreach (GameObject death in turnOffAtDeath)
+            death.SetActive(false);
         }
         checkAttackButton();
         if (Input.GetKeyDown(KeyCode.H))
@@ -77,11 +79,18 @@ public class Player : MonoBehaviour
         if (playerhurt.Damaged || playerhurt.spikeDamaged || playerhurt.shotHurt)
         {
             currentHealth -= damage;
-          
-            playerhurt.Damaged = false;
+            // damage = textToDisplay;
+            textToDisplay = damage;
+             playerhurt.Damaged = false;
             playerhurt.spikeDamaged = false;
             playerhurt.shotHurt =  false;
-            Invoke("Floating",0.5f);           
+            Invoke("Floating",0.5f);    
+         
+         
+
+          
+           
+                   
 
         }
 
@@ -89,9 +98,10 @@ public class Player : MonoBehaviour
     }
     internal void Floating()
     {
-        Vector3 PlayerPos =  new Vector3(transform.position.x, transform.position.y+2, transform.position.z);
+        Vector3 PlayerPos =  new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
        GameObject DamageTextInstance = Instantiate(damageTextPrefab, PlayerPos, Quaternion.identity);
-           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
+           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay.ToString());
+           Destroy(DamageTextInstance, 2f);
     }
     IEnumerator Hurt()
     {   

@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Collider"))
+        if (col.gameObject.CompareTag("Collider") && rb.velocity.y < 2.5)
         {
             isGrounded = true;
         }
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Collider"))
+        if (col.gameObject.CompareTag("Collider") && rb.velocity.y < 2.5)
         {
             isGrounded = true;
         }

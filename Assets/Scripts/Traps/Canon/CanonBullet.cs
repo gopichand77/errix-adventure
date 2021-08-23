@@ -7,7 +7,9 @@ public class CanonBullet : MonoBehaviour
     public float speed;
     Rigidbody2D rb;
     Animator anim;
-    // Start is called before the first frame update
+    Player player;
+    int damage;
+       // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +36,14 @@ public class CanonBullet : MonoBehaviour
               rb.velocity = transform.right * 0;
               anim.SetBool("isDestroyed", true);
               Destroy(gameObject,0.5f);
+        }
+         if(trig.gameObject.CompareTag("Player"))
+        {
+              rb.velocity = transform.right * 0;
+              Destroy(gameObject,0.5f);
+              player.TakeDamage(damage);
+              
+              
         }
     }
 
