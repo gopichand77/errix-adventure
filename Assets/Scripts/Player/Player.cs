@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public GameObject damageTextPrefab;
     int textToDisplay;
     public GameObject GameOverPanel;
-    public GameObject[] turnOffAtDeath;
+    public GameObject[] DeathOn;
     private Vector3 localScale;
     public float HurtForce = 30;
    [Header("Health")]
@@ -50,8 +50,8 @@ public class Player : MonoBehaviour
         {
             new WaitForSeconds(1);
             GameOverPanel.SetActive(true);
-             foreach (GameObject death in turnOffAtDeath)
-            death.SetActive(false);
+             foreach (GameObject death in DeathOn)
+            death.SetActive(true);
         }
         checkAttackButton();
         if (Input.GetKeyDown(KeyCode.H))
