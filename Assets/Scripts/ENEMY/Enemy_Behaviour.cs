@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy_Behaviour : MonoBehaviour {
 
     #region Public Variables
+    public string attackName;
     public float attackDistance; //Minimum distance for attack
     public float moveSpeed;
     public float timer; //Timer for cooldown between attacks
@@ -14,6 +15,7 @@ public class Enemy_Behaviour : MonoBehaviour {
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
+    public int EnemyDamage;
     #endregion
 
     #region Private Variables
@@ -64,6 +66,7 @@ public class Enemy_Behaviour : MonoBehaviour {
         else if(attackDistance >= distance && cooling == false)
         {
             Attack();
+            
         }
 
         if (cooling)
@@ -89,6 +92,7 @@ public class Enemy_Behaviour : MonoBehaviour {
     {
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
+        
 
         anim.SetBool("canWalk", false);
         anim.SetBool("Attack", true);
@@ -153,5 +157,6 @@ public class Enemy_Behaviour : MonoBehaviour {
     }
       transform.eulerAngles =  rotation;
     }
+   
 
 }
