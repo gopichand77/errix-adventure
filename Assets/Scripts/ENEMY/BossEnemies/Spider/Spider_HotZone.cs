@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HotZoneCheck : MonoBehaviour
+public class Spider_HotZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-   private Enemy_Behaviour enemyParent;
+    private Boss_Spider enemyParent;
    private bool inRange;
    private Animator anim;
 
    private void Awake()
    {
-     enemyParent = GetComponentInParent<Enemy_Behaviour>();
+     enemyParent = GetComponentInParent<Boss_Spider>();
      anim = GetComponentInParent<Animator>();
    }
    private void Update()
    {
-       if(inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+       if(inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Spider_attack"))
        {
            enemyParent.Flip();
        }

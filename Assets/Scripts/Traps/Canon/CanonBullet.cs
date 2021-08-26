@@ -8,12 +8,16 @@ public class CanonBullet : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     Player player;
-    int damage;
+    public int damage;
+    private float Timer;
+    private float coolDown;
+    public bool godMode = true;
        // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        player = GameObject.FindObjectOfType<Player>();
         StartCoroutine(Speed());
         
         
@@ -22,6 +26,7 @@ public class CanonBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Destroy(gameObject,2f);
         
     }
     IEnumerator Speed()
@@ -39,9 +44,16 @@ public class CanonBullet : MonoBehaviour
         }
          if(trig.gameObject.CompareTag("Player"))
         {
+            godMode =  true;
+            player.playerhurt.Damaged = true;
               rb.velocity = transform.right * 0;
-              Destroy(gameObject,0.5f);
-              player.TakeDamage(damage);
+              if(godMode)
+              {
+                  player.TakeDamage(damage);
+                  player.playerhurt.Damaged = false;
+                  godMode =  false;
+              }
+              
               
               
         }

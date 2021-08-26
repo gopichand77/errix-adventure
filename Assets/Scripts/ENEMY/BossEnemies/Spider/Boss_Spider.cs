@@ -2,23 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Behaviour : MonoBehaviour {
-
-    #region Public Variables
+public class Boss_Spider : MonoBehaviour
+{
+   #region Public Variables
     public string attackName;
     public float attackDistance; //Minimum distance for attack
     public float moveSpeed;
     public float timer; //Timer for cooldown between attacks
     [HideInInspector]public  Transform target;
+    
     [HideInInspector]public bool inRange; //Check if Player is in range
     public Transform leftLimit;
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
-    public int EnemyDamage;
+    public Transform  rayCastTransform;
+    public GameObject ThrowObject;
+    
+    public bool canShoot = true;
+
     #endregion
 
     #region Private Variables
+    private float shootTimer;
+    private float shootCoolDown = 2f;
+
     private Animator anim;
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
@@ -34,11 +42,12 @@ public class Enemy_Behaviour : MonoBehaviour {
     }
 
     void Update () {
+        
         if(!attackMode)
         {
             Move();
         }
-        if(!InsideLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+        if(!InsideLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Spider_attack"))
         {
             SelectTarget();
 
@@ -80,7 +89,7 @@ public class Enemy_Behaviour : MonoBehaviour {
     {
         anim.SetBool("canWalk", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(attackName))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
@@ -93,13 +102,15 @@ public class Enemy_Behaviour : MonoBehaviour {
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
         
-
-        anim.SetBool("canWalk", false);
+        Shoot();
+         anim.SetBool("canWalk", false);
+         
         anim.SetBool("Attack", true);
-    }
+}
 
     void Cooldown()
     {
+
         timer -= Time.deltaTime;
 
         if(timer <= 0 && cooling && attackMode)
@@ -108,12 +119,13 @@ public class Enemy_Behaviour : MonoBehaviour {
             timer = intTimer;
         }
     }
-
+   
     void StopAttack()
     {
         cooling = false;
         attackMode = false;
         anim.SetBool("Attack", false);
+       
     }
 
    
@@ -157,6 +169,22 @@ public class Enemy_Behaviour : MonoBehaviour {
     }
       transform.eulerAngles =  rotation;
     }
-   
+    
+     private void Shoot()
+     {
+         shootTimer += Time.deltaTime;
+         if(shootTimer >= shootCoolDown )
+         {
+             canShoot = true;
+              
+             shootTimer =  0;
+         }
+         if(canShoot)
+         {
+             Vector2 Obj =  new Vector2(rayCastTransform.position.x,rayCastTransform.position.y+0.5f);
+            GameObject thr =  (GameObject)Instantiate(ThrowObject,Obj,rayCastTransform.rotation);
 
+             canShoot = false;
+         }
+     }
 }

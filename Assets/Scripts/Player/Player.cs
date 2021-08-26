@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public PlayerHealthSlider healthBar;
     
+    
 
  private void Start()
     {
@@ -78,6 +79,8 @@ public class Player : MonoBehaviour
         StartCoroutine(Hurt());
         if (playerhurt.Damaged || playerhurt.spikeDamaged || playerhurt.shotHurt)
         {
+            
+
             currentHealth -= damage;
             // damage = textToDisplay;
             textToDisplay = damage;
