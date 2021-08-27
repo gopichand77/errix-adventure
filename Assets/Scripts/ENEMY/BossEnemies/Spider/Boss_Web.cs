@@ -50,9 +50,7 @@ public class Boss_Web : MonoBehaviour
 
             rb.velocity = transform.right * 0;
             rb.isKinematic =  true;
-            player.MovementScript.ctrlActive = false;
-            player.MovementScript.moveSpeed = 0f;
-            player.MovementScript.jumpForce = 0f;
+            
             StartCoroutine(Damage());
             Invoke("CanHurt",3);
             spider.TriggerCooling();
@@ -72,6 +70,10 @@ public class Boss_Web : MonoBehaviour
     {
         if(isHurt)
         {
+            // player.MovementScript.ctrlActive = false;
+            player.MovementScript.moveSpeed =  player.MovementScript.moveSpeed*0f;
+            player.MovementScript.jumpForce = 0f;
+
         StartCoroutine(Destroy());
         player.playerhurt.Damaged =  true;
         player.TakeDamage(10);

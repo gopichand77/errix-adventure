@@ -28,7 +28,7 @@ public class Bull : MonoBehaviour
     // public float Speed;
     public int EnemyDamage;
     public List<BoxCollider2D> boxColliders;
-    public BullHealth bullHealthScript; //health bar ui
+    public BossHealth bossHealth; //health bar ui
     [SerializeField]
     GameObject bossFightImage;
      [Header("Health")]
@@ -41,7 +41,7 @@ public class Bull : MonoBehaviour
         canHurt = true;
         bullHealth = maxHealth;
         moveSpeed = 0f;
-        bullHealthScript.SetMaxhealth(maxHealth);
+        bossHealth.SetMaxhealth(maxHealth);
         anim = gameObject.GetComponent<Animator>();
 
     }
@@ -64,7 +64,7 @@ public class Bull : MonoBehaviour
             BossCollider.SetActive(false);
             Died = true;
             HealthBar.SetActive(false);
-            // bullHealthScript.
+            // bossHealth.
             // bullHealth.SetHealth(0,0);//health bar ui
 
         }
@@ -207,7 +207,7 @@ public class Bull : MonoBehaviour
     void TakeDamage()
     {
          bullHealth -= 5;
-         bullHealthScript.SetHealth(bullHealth);
+         bossHealth.SetHealth(bullHealth);
          StartCoroutine(Damage());
 
 

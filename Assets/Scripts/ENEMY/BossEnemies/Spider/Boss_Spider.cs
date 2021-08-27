@@ -10,7 +10,9 @@ public class Boss_Spider : MonoBehaviour
     public float moveSpeed;
     public float timer; //Timer for cooldown between attacks
     [HideInInspector]public  Transform target;
-    
+    public int spiderHealth = 100;
+    public BossHealth bossHealth;
+    public int maxHealth = 100;
     [HideInInspector]public bool inRange; //Check if Player is in range
     public Transform leftLimit;
     public Transform rightLimit;
@@ -18,16 +20,18 @@ public class Boss_Spider : MonoBehaviour
     public GameObject triggerArea;
     public Transform  rayCastTransform;
     public GameObject ThrowObject;
-    
+    public int enemyDamage;
     public bool canShoot = true;
     public bool Check;
+    
 
     #endregion
 
     #region Private Variables
-    private float shootTimer;
-    private float shootCoolDown = 1;
-
+    public float shootTimer;
+    public float shootCoolDown = 0.5f;
+    bool canHurt = true;
+    public bool Death = false;
     private Animator anim;
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
@@ -37,6 +41,8 @@ public class Boss_Spider : MonoBehaviour
 
     void Awake()
     {
+        canHurt = true;
+        bossHealth.SetMaxhealth(maxHealth);
         SelectTarget();
         intTimer = timer; //Store the inital value of timer
         anim = GetComponent<Animator>();
@@ -44,12 +50,20 @@ public class Boss_Spider : MonoBehaviour
 
     void Update () {
         
-        
-        if(!attackMode)
+        if(spiderHealth <= 0)
+        {
+            Death = true;
+            anim.SetBool("death",true);
+           
+
+        }
+       if(!Death)
+       {
+            if(!attackMode)
         {
             Move();
         }
-        if(!InsideLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Spider_attack"))
+        if(!InsideLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Spider_attack") )
         {
             SelectTarget();
 
@@ -63,6 +77,7 @@ public class Boss_Spider : MonoBehaviour
             
            EnemyLogic(); 
         }
+       }
 	}
 
     void EnemyLogic()
@@ -144,7 +159,9 @@ public class Boss_Spider : MonoBehaviour
     }
     public void SelectTarget()
     {
-        float distanceToLeft  =  Vector2.Distance(transform.position, leftLimit.position);
+        if(!Death)
+        {
+            float distanceToLeft  =  Vector2.Distance(transform.position, leftLimit.position);
         float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
 
         target =  distanceToLeft > distanceToRight ? leftLimit : rightLimit;
@@ -157,11 +174,12 @@ public class Boss_Spider : MonoBehaviour
         //     target = rightLimit;
         // }
         Flip();
+        }
     }
     public void Flip()
     {
         Vector3 rotation =  transform.eulerAngles;
-    if(transform.position.x > target.position.x)
+    if(transform.position.x > target.position.x && !Death)
     {
         rotation.y = 180f;
     }
@@ -174,7 +192,9 @@ public class Boss_Spider : MonoBehaviour
     
      private void Shoot()
      {
-         shootTimer += Time.deltaTime;
+       if(!Death)
+       {
+             shootTimer += Time.deltaTime;
          if(shootTimer >= shootCoolDown )
          {
              canShoot = true;
@@ -184,10 +204,51 @@ public class Boss_Spider : MonoBehaviour
          if(canShoot)
          {
              Vector2 Obj =  new Vector2(rayCastTransform.position.x,rayCastTransform.position.y+0.5f);
-            GameObject thr =  (GameObject)Instantiate(ThrowObject,Obj,rayCastTransform.rotation);
+            GameObject thr =  (GameObject)Instantiate(ThrowObject,transform.position,transform.rotation);
 
              canShoot = false;
+             TriggerCooling();
          }
          }
+       }
      }
+      public void TakeDamage(int damage) // The health is reduced in the bullet Script
+    {
+       
+         spiderHealth -= damage;
+         bossHealth.SetHealth(spiderHealth);
+        //  StartCoroutine(Damage());
+
+
+    }
+    
+     private void OnCollisionEnter2D(Collision2D trig)
+     {
+          if (trig.gameObject.tag == "Player" && !Death)
+        {
+            
+
+            var player = GameObject.FindObjectOfType<Player>();
+            if (player.playerhurt.Damaged)
+            {
+                player.TakeDamage(enemyDamage);
+                player.MovementScript.anim.SetBool("isHurt", true);
+                player.playerhurt.Damaged = false;
+            }
+            player.playerhurt.knockCount = player.playerhurt.knockLenght;
+
+            if (trig.transform.position.x < transform.position.x)
+            {
+                player.playerhurt.knockfromRight = true
+            ;
+            }
+            else
+            {
+                player.playerhurt.knockfromRight = false;
+            }
+
+        }
+    }
+   
+     
 }

@@ -36,6 +36,22 @@ public class Bullet : MonoBehaviour
             anim.SetBool("isDestroy", true);
             StartCoroutine(Death());
         }
+        if(hitInfo.gameObject.name.Equals("Spider Boss"))
+        {
+            var spider = GameObject.FindObjectOfType<Boss_Spider>();
+            rb.velocity = transform.right * 0;
+            Destroy(gameObject);
+            spider.TakeDamage(10);
+
+        }
+         if(hitInfo.gameObject.name.Equals("Tree enemy"))
+        {
+            var tree = GameObject.FindObjectOfType<Enemy_Behaviour>();
+            rb.velocity = transform.right * 0;
+            Destroy(gameObject);
+            tree.TakeDamage();
+            
+        }
 
         //earthworm die
         // if (hitInfo.gameObject.CompareTag("Earthworm"))

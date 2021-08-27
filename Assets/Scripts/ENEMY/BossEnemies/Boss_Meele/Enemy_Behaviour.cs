@@ -12,10 +12,13 @@ public class Enemy_Behaviour : MonoBehaviour {
     [HideInInspector]public  Transform target;
     [HideInInspector]public bool inRange; //Check if Player is in range
     public Transform leftLimit;
+    public int Helath = 100;
+    public BossHealth bossHealth;
+    public int maxHealth = 100;
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
-    public GameObject shootObject;
+    
     public Transform rayCastTransForm;
     #endregion
 
@@ -29,6 +32,7 @@ public class Enemy_Behaviour : MonoBehaviour {
 
     void Awake()
     {
+        bossHealth.SetMaxhealth(maxHealth);
         SelectTarget();
         intTimer = timer; //Store the inital value of timer
         anim = GetComponent<Animator>();
@@ -54,6 +58,14 @@ public class Enemy_Behaviour : MonoBehaviour {
            EnemyLogic(); 
         }
 	}
+     public void TakeDamage() // The health is reduced in the bullet Script
+    {
+         Helath -= 10;
+         bossHealth.SetHealth(Helath);
+        //  StartCoroutine(Damage());
+
+
+    }
 
     void EnemyLogic()
     {
@@ -93,13 +105,6 @@ public class Enemy_Behaviour : MonoBehaviour {
     {
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
-        
-        {
-            Instantiate(shootObject,rayCastTransForm.position,rayCastTransForm.rotation);
-
-
-        }
         
 
         anim.SetBool("canWalk", false);
@@ -155,7 +160,7 @@ public class Enemy_Behaviour : MonoBehaviour {
     public void Flip()
     {
         Vector3 rotation =  transform.eulerAngles;
-    if(transform.position.x > target.position.x)
+    if(transform.position.x > target.position.x )
     {
         rotation.y = 180f;
     }
