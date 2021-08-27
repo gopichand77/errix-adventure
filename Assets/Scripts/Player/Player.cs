@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
         MovementScript.anim.SetBool("isFalling", false);
         MovementScript.anim.SetBool("isHurt", true);
         MovementScript.moveSpeed = 0;
+        
         yield return new WaitForSeconds(0.8f);
         MovementScript.moveSpeed = 7;
         MovementScript.anim.SetBool("isHurt", false);

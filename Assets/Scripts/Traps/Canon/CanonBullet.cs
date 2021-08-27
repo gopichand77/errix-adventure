@@ -40,23 +40,21 @@ public class CanonBullet : MonoBehaviour
         {
               rb.velocity = transform.right * 0;
               anim.SetBool("isDestroyed", true);
-              Destroy(gameObject,0.5f);
+              Destroy(gameObject);
         }
          if(trig.gameObject.CompareTag("Player"))
         {
-            godMode =  true;
-            player.playerhurt.Damaged = true;
-              rb.velocity = transform.right * 0;
-              if(godMode)
-              {
-                  player.TakeDamage(damage);
-                  player.playerhurt.Damaged = false;
-                  godMode =  false;
-              }
-              
+            rb.velocity = transform.right * 0;
+            Destroy(gameObject);
+    
+           player.playerhurt.Damaged =  true;
+        player.TakeDamage(10);
+      
+
               
               
         }
     }
+   
 
 }

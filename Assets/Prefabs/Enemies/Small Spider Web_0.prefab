@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8128763137452021885}
   - component: {fileID: 467555738349133631}
   - component: {fileID: -3960904197896071294}
-  - component: {fileID: -6109158579093030687}
   - component: {fileID: 8985518889314091822}
+  - component: {fileID: -9209063825957313238}
   m_Layer: 0
   m_Name: Small Spider Web_0
   m_TagString: Untagged
@@ -126,20 +126,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6109158579093030687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3662283727018269454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f007997f492a6bf4cb636ad4f7e34b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  damage: 10
 --- !u!61 &8985518889314091822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +152,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.125}
   m_EdgeRadius: 0
+--- !u!114 &-9209063825957313238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662283727018269454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6494f169b255444fada325a60dc0c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  damage: 10
+  godMode: 1

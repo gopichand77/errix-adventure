@@ -20,12 +20,13 @@ public class Boss_Spider : MonoBehaviour
     public GameObject ThrowObject;
     
     public bool canShoot = true;
+    public bool Check;
 
     #endregion
 
     #region Private Variables
     private float shootTimer;
-    private float shootCoolDown = 2f;
+    private float shootCoolDown = 1;
 
     private Animator anim;
     private float distance; //Store the distance b/w enemy and player
@@ -42,6 +43,7 @@ public class Boss_Spider : MonoBehaviour
     }
 
     void Update () {
+        
         
         if(!attackMode)
         {
@@ -178,13 +180,14 @@ public class Boss_Spider : MonoBehaviour
              canShoot = true;
               
              shootTimer =  0;
-         }
+         
          if(canShoot)
          {
              Vector2 Obj =  new Vector2(rayCastTransform.position.x,rayCastTransform.position.y+0.5f);
             GameObject thr =  (GameObject)Instantiate(ThrowObject,Obj,rayCastTransform.rotation);
 
              canShoot = false;
+         }
          }
      }
 }
