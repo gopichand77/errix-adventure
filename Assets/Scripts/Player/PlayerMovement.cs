@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (rb.velocity.y > -0.1 && rb.velocity.y < 0.1 || isGrounded)
+        if (rb.velocity.y > -0.1 && rb.velocity.y < 0.1 && isGrounded)
         {
             //these codes are for jumping and falling animation
             anim.SetBool("isJumping", false);

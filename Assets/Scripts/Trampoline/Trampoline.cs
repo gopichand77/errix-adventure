@@ -4,62 +4,96 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    public Rigidbody2D PlayerRb;
+    
     public Animator anim;
-    public float JumpForce = 15f;
+    public float JumpForce;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    bool PlayerCollision(Collision2D collision)
-    {//When tge player gets hurt this func() trigs and returns true 
-        Player player = collision.gameObject.GetComponent<Player>();
-
-
-        if (player != null && collision.contacts[0].normal.y < 0)
+        if(other.transform.CompareTag("Player"))
         {
-            anim.SetBool("Jump", true);
-
-            //animation and the return value for the player 
-            return true;
-
-
-
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = (Vector2.up * JumpForce);
+            anim.Play("Jump");
         }
-        else
-        {
-
-            // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
-            return false;
-        }
+        
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {//this triggers when the player shouldhurtfromcollision returns true
 
-        if (PlayerCollision(collision))
-        {
-            StartCoroutine(TrampJump());
+    // // Start is called before the first frame update
+    // void Start()
+    // {
+
+    // }
+
+    // // Update is called once per frame
+    // void Update()
+    // {
+
+    // }
+    // bool PlayerCollision(Collision2D collision)
+    // {
+    //     //When the player gets hurt this func() trigs and returns true 
+    //     Player player = collision.gameObject.GetComponent<Player>();
 
 
-        }
-        else
-        {
-            anim.SetBool("Jump", false);
+    //     if (player != null && collision.contacts[0].normal.y < 0)
+    //     {
+             
+           
 
-        }
-    }
-    IEnumerator TrampJump()
-    {
-        yield return new WaitForSeconds(0.1f);
-        PlayerRb.velocity = new Vector2(PlayerRb.velocity.x, JumpForce);
+    //         //animation and the return value for the player 
+    //         return true;
 
-    }
+
+
+    //     }
+    //     else
+    //     {
+
+    //         // rb.velocity = new Vector2(HurtForce,rb.velocity.y);
+    //         return false;
+    //     }
+    // }
+    // private void OnCollisionStay2D(Collision2D collision)
+    // {
+        
+    //     if (PlayerCollision(collision))
+    //     {
+    //         // PlayerRb.velocity = new Vector2(PlayerRb.velocity.x, JumpForce);
+    //         StartCoroutine(TrampJump());
+
+
+
+    //     }
+    // }
+    // // private void OnCollisionExit2D(Collision2D collision)
+    // // {
+    // //     Player player = collision.gameObject.GetComponent<Player>();
+    // //     if(!player)
+    // //     {
+    // //         anim.SetBool("Jump",false);
+
+    // //     }
+        
+    
+    // // private void OnCollisionSta(Collision2D collision)
+    // // {//this triggers when the player shouldhurtfromcollision returns true
+
+        
+    // // }
+    // // private void OnCollisionExit2D(Collision2D other)
+    // // {
+    // //      anim.SetBool("Jump", false);
+    // // }
+    // IEnumerator TrampJump()
+    // {
+    //      anim.SetBool("Jump",true);
+    //      yield return new WaitForSeconds(0.3f);
+    //      anim.SetBool("Jump",false);
+    //     yield return new WaitForSeconds(0.3f);
+    //     PlayerRb.velocity = transform.up * 15;
+       
+        
+    // }
+
+
 }

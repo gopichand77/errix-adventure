@@ -12,7 +12,7 @@ public class Boss_Spider : MonoBehaviour
     [HideInInspector]public  Transform target;
     public int spiderHealth = 100;
     public BossHealth bossHealth;
-    public int maxHealth = 100;
+    private int maxHealth = 100;
     [HideInInspector]public bool inRange; //Check if Player is in range
     public Transform leftLimit;
     public Transform rightLimit;
@@ -20,14 +20,15 @@ public class Boss_Spider : MonoBehaviour
     public GameObject triggerArea;
     public Transform  rayCastTransform;
     public GameObject ThrowObject;
-    public int enemyDamage;
-    public bool canShoot = true;
-    public bool Check;
+    
+    
     
 
     #endregion
 
     #region Private Variables
+    private int enemyDamage;
+    private bool canShoot = true;
     public float shootTimer;
     public float shootCoolDown = 0.5f;
     bool canHurt = true;
