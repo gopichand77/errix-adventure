@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     internal bool facingRight = true;
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
-    public Transform groundCheck;
     public LayerMask groundlayer;
     public ParticleSystem dust;
     public bool isGrounded;

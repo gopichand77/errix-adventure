@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hanging_Web : MonoBehaviour
 {
-     public float speed;
+    public float speed;
     Rigidbody2D rb;
     Animator anim;
     Player player;
@@ -17,80 +17,66 @@ public class Hanging_Web : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
         StartCoroutine(Speed());
-        
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject,2f);
-        
+        Destroy(gameObject, 2f);
     }
+
+
     IEnumerator Speed()
     {
         yield return new WaitForSeconds(0.3f);
-        rb.velocity = -transform.up *speed;
+        rb.velocity = -transform.up * speed;
     }
-     private void OnTriggerEnter2D(Collider2D trig)
+
+    private void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.CompareTag("Collider"))
+        if (trig.gameObject.CompareTag("Collider"))
         {
-              rb.velocity = transform.right * 0;
-              anim.SetBool("isDestroyed", true);
-              Destroy(gameObject,0.5f);
+            rb.velocity = transform.right * 0;
+            anim.SetBool("isDestroyed", true);
+            Destroy(gameObject, 0.5f);
         }
-         if(trig.gameObject.CompareTag("Player") && !isHurt)
+        if (trig.gameObject.CompareTag("Player") && !isHurt)
         {
             isHurt = true;
 
             rb.velocity = transform.right * 0;
-            rb.isKinematic =  true;
-            
-            StartCoroutine(Damage());
-            Invoke("CanHurt",3);
-            
+            rb.isKinematic = true;
 
-              
-              
+            StartCoroutine(Damage());
         }
-    
     }
+
+
     private void CanHurt()
     {
         isHurt = false;
-
-
     }
+
     IEnumerator Damage()
     {
-        if(isHurt)
+        if (isHurt)
         {
             // player.MovementScript.ctrlActive = false;
-            
-            player.MovementScript.jumpForce = 0f;
-
-        StartCoroutine(Destroy());
-        player.playerhurt.Damaged =  true;
-        player.TakeDamage(10);
-         
-        
+            StartCoroutine(Destroy());
+            player.playerhurt.Damaged = true;
+            player.TakeDamage(10);
         }
+
         yield return new WaitForSeconds(3f);
         isHurt = false;
     }
+
+
     IEnumerator Destroy()
     {
-       yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
         player.MovementScript.ctrlActive = true;
         player.MovementScript.moveSpeed = 7f;
-            player.MovementScript.jumpForce = 7f;
-//             player.MovementScript.moveSpeed = 7f;
-//             // player.MovementScript.rb.velocity = player.MovementScript.rb.velocity + 7f;
-// player.MovementScript.rb.velocity = new Vector2(player.MovementScript.dirX, player.MovementScript.rb.velocity.y);
-       
-
-        
     }
 }

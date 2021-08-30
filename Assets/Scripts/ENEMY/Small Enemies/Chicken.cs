@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
-       [SerializeField]
+    [SerializeField]
     EnemyParticleSys enemyParticleSys;
-    
+
     public bool isDead;
     public Collider2D playerCol;
     public Collider2D playerCol2;
@@ -18,10 +18,13 @@ public class Chicken : MonoBehaviour
     Rigidbody2D rb;
     Collider2D col2;
 
+    [SerializeField]
+    int health = 20;
+
 
     private void Start()
     {
-       col2 = this.gameObject.GetComponent<Collider2D>();
+        col2 = this.gameObject.GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -40,10 +43,10 @@ public class Chicken : MonoBehaviour
         if (enemyParticleSys.Dead)
         {
             moveSpeed = 0;
-           
+
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.CompareTag("Turn"))
@@ -57,14 +60,20 @@ public class Chicken : MonoBehaviour
                 movingRight = true;
             }
         }
-         if (trig.gameObject.CompareTag("Bullet"))//collisons 
+        if (trig.gameObject.CompareTag("Bullet"))//collisons 
         {
-            
-            Destroy(trig.gameObject);
-           Invoke("PlayerDeath", 0.2f);
+            health -= 10;
+            if (health <= 0)
+            {
+                Destroy(trig.gameObject);
+                Invoke("PlayerDeath", 0.2f);
+            }
+
+
+
             // else
             // {
-                
+
             //     Invoke("ResetMaterial", 0.2f);
             // }
 
@@ -74,21 +83,21 @@ public class Chicken : MonoBehaviour
     {
         isDead = true;
         anim.SetBool("Dead", true);
-        
+
         playerCol.enabled = false;
-        playerCol2.enabled =  false;
-        
+        playerCol2.enabled = false;
+
         foreach (GameObject child in childObjs)
             child.SetActive(false);
         rb.gravityScale = 2.5f;
         // rb.AddForce(transform.up * shockForce, ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * 100f * shockForce);
         rb.velocity = new Vector2(0, 0);
-        Destroy(gameObject,1.8f);
-        
+        Destroy(gameObject, 1.8f);
 
-        
+
+
     }
-     
+
 }
 
