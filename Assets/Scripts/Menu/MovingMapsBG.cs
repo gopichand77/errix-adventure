@@ -13,7 +13,7 @@ public class MovingMapsBG : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
         if (transform.position.y < -40f)
