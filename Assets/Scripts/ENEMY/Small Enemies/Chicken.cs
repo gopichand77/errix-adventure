@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
-    [SerializeField]
-    EnemyParticleSys enemyParticleSys;
+  
 
     public bool isDead;
     public Collider2D playerCol;
@@ -40,11 +39,7 @@ public class Chicken : MonoBehaviour
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
         }
-        if (enemyParticleSys.Dead)
-        {
-            moveSpeed = 0;
-
-        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D trig)
