@@ -19,17 +19,17 @@ public class PrivacyPolicyCheck : MonoBehaviour
 
         if (accepted)
         {
-             off();
-        // onMenuClosed();
-        tapToPlay.SetActive(true);
+            off();
+            // onMenuClosed();
+            tapToPlay.SetActive(true);
         }
         else
         {
             tapToPlay.SetActive(false);
         }
 
-           
-       
+
+
 
     }
 

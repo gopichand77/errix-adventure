@@ -18,7 +18,7 @@ public class CrashlyticsInit : MonoBehaviour {
                 // where app is a Firebase.FirebaseApp property of your application class.
                 // Crashlytics will use the DefaultInstance, as well;
                 // this ensures that Crashlytics is initialized.
-                Firebase.FirebaseApp app = Firebase.FirebaseApp.DefaultInstance;
+                var app = Firebase.FirebaseApp.DefaultInstance;
 
                 // Set a flag here for indicating that your project is ready to use Firebase.
             }

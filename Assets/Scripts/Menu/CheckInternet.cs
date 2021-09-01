@@ -24,7 +24,8 @@ public class CheckInternet : MonoBehaviour
         yield return request.SendWebRequest();
         yield return new WaitForSeconds(1f);
 
-        if (request.error != null)
+        // if (request.error != null)
+        if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             loadingText.gameObject.SetActive(false);
             connectionErrorText.gameObject.SetActive(true);
