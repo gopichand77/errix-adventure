@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public float hangTime = 0.2f;
     public float hangCounter;
     public  bool ctrlActive = true;
+    public bool canDoubleJump;
+    public bool DoubleJump;
 
     // Start is called before the first frame update
     private void Start()
@@ -60,29 +62,32 @@ public class PlayerMovement : MonoBehaviour
     dirX = Input.GetAxis("Horizontal") * moveSpeed;
     dirY = Input.GetButtonDown("Jump");
 
-
+a
     #endif
-        // if (isGrounded)
+    // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+    // dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+        if (dirY)
 
-        // {
+        {
 
-        if (dirY && isGrounded)
+        if (isGrounded)
         {
             
 
             Jump();
 
-            // canDoubleJump = true;
+            canDoubleJump = true;
         }
-        // else if (canDoubleJump)
-        // {
-        //     // jumpForce = jumpForce / 1.5f;
-        //     Jump();
-        //     canDoubleJump = false;
-        //     // jumpForce = jumpForce * 1.5f;
-        // }
-        // }
-        // anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
+        else if (canDoubleJump&& DoubleJump)
+        {
+            
+            jumpForce = jumpForce / 2.5f;
+            Jump();
+            canDoubleJump = false;
+            jumpForce = jumpForce * 2.5f;
+        }
+    }
+        anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
 
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
