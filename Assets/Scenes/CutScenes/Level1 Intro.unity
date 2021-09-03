@@ -321,7 +321,7 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 58093670}
+        - m_Target: {fileID: 1934424565}
           m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
           m_MethodName: Dialog_Text1
           m_Mode: 1
@@ -437,7 +437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &58093669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11383,9 +11383,9 @@ MonoBehaviour:
   - 'Father, I was out of town '
   - What Happened
   Dialog2_sign:
-  - 
+  - But I have to go
   Dialog3_sign:
-  - 
+  - But I have to go
   Dialog4_sign: []
   timGap: 2
   Dialog1: 1
@@ -11421,12 +11421,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 845c80303abcbfb40b064b14cb5226d3, type: 2}
+    - {fileID: 11400000, guid: 089c502de5f584b4ea6a038d1f2f3771, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 225906733}
           m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
           m_MethodName: Dialog_Text1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 225906733}
+          m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
+          m_MethodName: Dialog_Text2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11655,6 +11670,8 @@ PlayableDirector:
     value: {fileID: 225906732}
   - key: {fileID: -6356044520931691226, guid: a65f80cbe7661844e8ac9abe85aef554, type: 2}
     value: {fileID: 58093668}
+  - key: {fileID: -8256407387094555487, guid: a65f80cbe7661844e8ac9abe85aef554, type: 2}
+    value: {fileID: 1892098328}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &304292070
@@ -12379,7 +12396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735315423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.519989, y: -5.11, z: 62.802567}
+  m_LocalPosition: {x: 25.519997, y: -5.11, z: 62.802567}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1713909406}
@@ -13289,7 +13306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1201654856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14032,6 +14049,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 089c502de5f584b4ea6a038d1f2f3771, type: 2}
     - {fileID: 11400000, guid: 845c80303abcbfb40b064b14cb5226d3, type: 2}
+    - {fileID: 11400000, guid: 74db0b8f4e3d4c44f8f54a16b3e71fc5, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -14052,6 +14070,20 @@ MonoBehaviour:
         - m_Target: {fileID: 1910406440}
           m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
           m_MethodName: Dialog_Text1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 225906733}
+          m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
+          m_MethodName: Dialog_Text2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14735,6 +14767,108 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1892098328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1892098331}
+  - component: {fileID: 1892098330}
+  - component: {fileID: 1892098329}
+  m_Layer: 0
+  m_Name: Tommy Convo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1892098329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892098328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 845c80303abcbfb40b064b14cb5226d3, type: 2}
+    - {fileID: 11400000, guid: 089c502de5f584b4ea6a038d1f2f3771, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1892098330}
+          m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
+          m_MethodName: Dialog_Text1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1892098330}
+          m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
+          m_MethodName: Dialog_Text2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1892098330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892098328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4c23dd5bc98e4cbfa0cc432cb7dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 1750383349}
+  typingClip: {fileID: 8300000, guid: ab27b1b603ab02b4ab77bb3e1150929c, type: 3}
+  audioSourceGroup: {fileID: 2116024879}
+  Dialog1_sign:
+  - But I have to go
+  Dialog2_sign: []
+  Dialog3_sign: []
+  Dialog4_sign: []
+  timGap: 2
+  Dialog1: 1
+  Dialog2: 1
+  Dialog3: 1
+  Dialog4: 1
+--- !u!4 &1892098331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892098328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896158055
 GameObject:
   m_ObjectHideFlags: 0
@@ -14908,9 +15042,9 @@ MonoBehaviour:
   - '& kidnappped villagers and your daughter'
   Dialog2_sign:
   - Hey, Monster Come Out
-  Dialog3_sign:
+  Dialog3_sign: []
+  Dialog4_sign:
   - Then I will go and gt Them Back
-  Dialog4_sign: []
   timGap: 3
   Dialog1: 1
   Dialog2: 1
@@ -14964,12 +15098,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 089c502de5f584b4ea6a038d1f2f3771, type: 2}
+    - {fileID: 11400000, guid: 6c38df6f852644745a0310956148f7a0, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1910406440}
           m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
           m_MethodName: Dialog_Text1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 225906733}
+          m_TargetAssemblyTypeName: IntroDialog, Assembly-CSharp
+          m_MethodName: Dialog_Text2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15138,7 +15287,7 @@ MonoBehaviour:
   - Without Fairy Gods we can't Defeat Her
   Dialog4_sign:
   - You are too weak
-  timGap: 3
+  timGap: 2
   Dialog1: 1
   Dialog2: 1
   Dialog3: 1
