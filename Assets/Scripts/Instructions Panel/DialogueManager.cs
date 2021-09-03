@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
             Invoke("False", 0.0001f);
 
 
-            PlayTrapDialog();
+            PlayDialog();
         }
         if (Dialog5)
         {
@@ -175,7 +175,7 @@ public class DialogueManager : MonoBehaviour
             {
                 index++;
                 textBox.text = string.Empty;
-                PlayTrapDialog();
+                PlayDialog();
             }
             else
             {
@@ -289,7 +289,7 @@ public class DialogueManager : MonoBehaviour
     {
         PlayDialogue(Dialog3_sign[index]);
     }
-    private void PlayTrapDialog()
+    private void PlayDialog()
     {
         PlayDialogue(Dialog4_Sign[index]);
     }
