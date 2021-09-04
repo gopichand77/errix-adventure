@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     Player playerScript;
-    public Rigidbody2D rb;
+    internal Rigidbody2D rb;
     public Animator anim;
     internal float dirX;
     internal bool dirY;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 7f;
     public LayerMask groundlayer;
-    public ParticleSystem dust;
+    private ParticleSystem dust;
     public bool isGrounded;
     public float hangTime = 0.2f;
     public float hangCounter;
@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        dust = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
