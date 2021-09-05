@@ -34,42 +34,10 @@ public class Big_Orange : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // if(player.position.x < followRange)
-        // {
-        //     follow = true;
-        // }
-        if (!follow)
-        {
-             if (movingRight)
-        {
-            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else
-        {
-            transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(1, 1);
-        }
-        if (enemyParticleSys.Dead)
-        {
-            moveSpeed = 0;
-        }
-        }
+        
         if(follow)
         {
-            // if(player.transform.position.x > transform.position.x)
-            // {
-                
-            //     transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-
-            // }
-            // else if(player.position.x > transform.position.x)
-            // {
-                
-            //     transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
-
-            // }
-            transform.position = Vector3.MoveTowards(player.position,transform.position , -moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position ,player.position, moveSpeed * Time.deltaTime);
 
 
         }
