@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Enemy_Behaviour : MonoBehaviour {
 
     #region Public Variables
@@ -18,8 +18,10 @@ public class Enemy_Behaviour : MonoBehaviour {
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
-    
+    public int Damage_player;
     public Transform rayCastTransForm;
+    public GameObject damageTextPrefab;
+    int textToDisplay;
     #endregion
 
     #region Private Variables
@@ -58,13 +60,30 @@ public class Enemy_Behaviour : MonoBehaviour {
            EnemyLogic(); 
         }
 	}
-     public void TakeDamage() // The health is reduced in the bullet Script
+     public void TakeDamage(int damage) // The health is reduced in the bullet Script
     {
-         Helath -= 10;
+        if(Helath > 0)
+        {
+             Helath -= damage;
+             textToDisplay = damage;
          bossHealth.SetHealth(Helath);
+        }
+        else if(Helath <= 0)
+        {
+            Debug.Log("Boss Dead");
+            Destroy(this.gameObject);
+            // anim.SetBool("Dead",true);
+        }
         //  StartCoroutine(Damage());
 
 
+    }
+    internal void Floating()
+    {
+        Vector3 PlayerPos =  new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+       GameObject DamageTextInstance = Instantiate(damageTextPrefab, PlayerPos, Quaternion.identity);
+           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("-"+textToDisplay.ToString());
+           Destroy(DamageTextInstance, 2f);
     }
 
     void EnemyLogic()

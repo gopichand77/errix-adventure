@@ -11,14 +11,13 @@ public class Big_Orange : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     public Transform player;
+    public Transform rayCast;
+    
     public float playerDist;
     public float followRange;
     // public float attackRange;
     public bool follow;
     public bool playerRight;
-
-
-
 
     private void Start()
     {
@@ -27,35 +26,66 @@ public class Big_Orange : MonoBehaviour
     }
     private void Update()
     {
-        playerDist =  Vector2.Distance(player.position, transform.position);
+        
         
         
     }
-
     private void FixedUpdate()
     {
-        
-        if(follow)
+        playerDist =  Vector2.Distance(player.position, transform.position);
+        if(canSeePlayer(followRange))
         {
-            transform.position = Vector3.MoveTowards(transform.position ,player.position, moveSpeed * Time.deltaTime);
-
+            ChasePlayer();
+        }
+        else
+        {
+            // StopChasingPlayer();
+            
+        }
+    }
+    void ChasePlayer()
+    {
+        if(transform.position.x < player.position.x)
+        {
+            rb.velocity = new Vector2(moveSpeed,0);
+            transform.localScale = new Vector2(1,1);
+        }
+        else
+        {
+            rb.velocity = new Vector2(-moveSpeed,0);
+            transform.localScale = new Vector2(-1,1);
 
         }
     }
-    void OnTriggerEnter2D(Collider2D trig)
+    void StopChasingPlayer()
     {
-        if (trig.gameObject.CompareTag("Turn"))
+        rb.velocity =  new Vector2(0,0);
+    }
+
+    bool canSeePlayer(float distance)
+    {
+        bool val =  false;
+        float castDist = distance;
+
+        Vector2 endPos = rayCast.position +  Vector3.right * distance;
+
+        RaycastHit2D hit = Physics2D.Linecast(rayCast.position, endPos, 1 << LayerMask.NameToLayer("Action"));
+
+        if(hit.collider !=  null)
         {
-            if (movingRight)
+            if(hit.collider.gameObject.CompareTag("Player"))
             {
-                
-                movingRight = false;
+                val = true;
             }
             else
             {
-                
-                movingRight = true;
+                val = false;
             }
+            Debug.DrawLine(rayCast.position, endPos, Color.blue);
         }
+        return val;
+
     }
+
+  
 }

@@ -43,10 +43,10 @@ public class Hanging_Spider : MonoBehaviour
          
          if(canShoot)
          {
-             Vector2 Obj =  new Vector2(transform.position.x,transform.position.y);
+            Vector2 Obj =  new Vector2(transform.position.x,transform.position.y);
             GameObject thr =  (GameObject)Instantiate(ThrowObject,transform.position,transform.rotation);
 
-             canShoot = false;
+            canShoot = false;
              
          }
          }
