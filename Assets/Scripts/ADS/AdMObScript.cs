@@ -8,21 +8,24 @@ public class AdMObScript : MonoBehaviour
 {
     InterstitialAd interstitial;
     string interstitialId;
+    public string I0S_interstitialId;
+    public string ANDROID_interstitialId;
+
     void Start()
     {
-        RequestInterstitial();
+        // RequestInterstitial();
     }
 
     void RequestInterstitial()
     {
 
 #if UNITY_ANDROID
-        interstitialId = "ca-app-pub-3940256099942544/8691691433";// Test Ads
-        // interstitialId = "ca-app-pub-9793616844322643/7816189618";// Mian
+        // interstitialId = "ca-app-pub-3940256099942544/8691691433";// Test Ads
+        ANDROID_interstitialId = "ca-app-pub-9793616844322643/7816189618";// Mian
         
 #elif UNITY_IPHONE
-        interstitialId = "ca-app-pub-3940256099942544/1033173712";// Test Ads
-        //interstitialId = "ca-app-pub-9793616844322643/9909383375" // Mian 
+        // interstitialId = "ca-app-pub-3940256099942544/1033173712";// Test Ads
+        I0S_interstitialId = "ca-app-pub-9793616844322643/9909383375" // Mian 
 #else
         interstitialId = null;
 #endif
@@ -62,21 +65,26 @@ public class AdMObScript : MonoBehaviour
     //events below
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
+        Debug.Log("Ad loaded");
         //do this when ad loads
     }
 
     public void HandleOnAdFailedToLoad(object sender, EventArgs args)
     {
+        Debug.Log("Ad Failed");
         //do this when ad fails to load
     }
 
     public void HandleOnAdOpened(object sender, EventArgs args)
     {
+        Debug.Log("Ad Opened");
         //do this when ad is opened
     }
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
+        Debug.Log("Ad Opened");
+
         //do this when ad is closed
     }
 

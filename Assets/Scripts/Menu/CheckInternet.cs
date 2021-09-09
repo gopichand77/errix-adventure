@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using TMPro;
 
+using System;
 public class CheckInternet : MonoBehaviour
 {
-    [SerializeField] TMP_Text loadingText;
-    [SerializeField] TMP_Text connectionErrorText;
-    [SerializeField] Button tryAgainButton;
-    [SerializeField] Button playButton;
+    [SerializeField] GameObject loadingText;
+    [SerializeField] GameObject connectionErrorText;
+    [SerializeField] GameObject tryAgainButton;
+    [SerializeField] GameObject playButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class CheckInternet : MonoBehaviour
     {
         UnityWebRequest request = new UnityWebRequest("http://errix.co");
         yield return request.SendWebRequest();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
 
         // if (request.error != null)
         if (Application.internetReachability == NetworkReachability.NotReachable)
