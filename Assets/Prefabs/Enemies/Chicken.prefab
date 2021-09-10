@@ -203,14 +203,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
-  playerCol: {fileID: 5227198893524281254}
-  playerCol2: {fileID: 5227198893524281253}
+  Col1: {fileID: 0}
+  Col2: {fileID: 0}
   childObjs: []
   moveSpeed: 2
   movingRight: 0
   anim: {fileID: 5227198893524281258}
-  shockForce: 2
   health: 20
+  damage: 0
+  damaged: 0
+  shockForce: 2
 --- !u!50 &5227198893524281255
 Rigidbody2D:
   serializedVersion: 4

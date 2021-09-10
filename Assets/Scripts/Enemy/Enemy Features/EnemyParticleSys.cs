@@ -10,6 +10,7 @@ public class EnemyParticleSys : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public int health = 10;
     public int damage;
+    public bool damaged;
     public bool Dead = false;
     
     // public Transform WormPoint;
@@ -39,7 +40,9 @@ public class EnemyParticleSys : MonoBehaviour
         {
             
             Destroy(trig.gameObject);
-            health -= 5;
+            damaged =  true;
+            TakeDamage();
+
 
             spriteRenderer.material = matWhite;
 
@@ -67,6 +70,16 @@ public class EnemyParticleSys : MonoBehaviour
     public void ResetMaterial()
     {
         spriteRenderer.material = matDefault;
+    }
+    void TakeDamage()
+    {
+        if(damaged)
+        {
+            health -= damage;
+        damaged = false;
+        }
+
+        
     }
 
 }

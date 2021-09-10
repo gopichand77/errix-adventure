@@ -7,22 +7,30 @@ public class Chicken : MonoBehaviour
   
 
     public bool isDead;
-    public Collider2D playerCol;
-    public Collider2D playerCol2;
+    public Collider2D Col1;
+    public Collider2D Col2;
+    private Material matDefault;
+    SpriteRenderer spriteRenderer;
+    private Material matWhite;
     public GameObject[] childObjs;
     public float moveSpeed = 1;
     public bool movingRight;
     public Animator anim;
+    public int health = 20;
+    public int damage;
+    public bool damaged;
     public float shockForce;
     Rigidbody2D rb;
     Collider2D col2;
 
-    [SerializeField]
-    int health = 20;
+   
 
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        matDefault = spriteRenderer.material;
         col2 = this.gameObject.GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -57,30 +65,45 @@ public class Chicken : MonoBehaviour
         }
         if (trig.gameObject.CompareTag("Bullet"))//collisons 
         {
-            health -= 10;
+           Destroy(trig.gameObject);
+           spriteRenderer.material = matWhite;
+            Invoke("ResetMaterial", 0.2f);
+            damaged =  true;
+            TakeDamage();
             if (health <= 0)
             {
-                Destroy(trig.gameObject);
-                Invoke("PlayerDeath", 0.2f);
+               Invoke("Death",0.2f);
+
+                
             }
-
-
-
-            // else
-            // {
-
-            //     Invoke("ResetMaterial", 0.2f);
-            // }
-
+            
+    
         }
+    
     }
-    void PlayerDeath()
+     void TakeDamage()
+    {
+        if(damaged)
+        {
+            
+            health -= damage;
+             damaged = false;
+        
+        }
+        
+    }
+     public void ResetMaterial()
+    {
+        spriteRenderer.material = matDefault;
+    }
+
+    void Death()
     {
         isDead = true;
         anim.SetBool("Dead", true);
 
-        playerCol.enabled = false;
-        playerCol2.enabled = false;
+        Col1.enabled = false;
+        Col2.enabled = false;
 
         foreach (GameObject child in childObjs)
             child.SetActive(false);

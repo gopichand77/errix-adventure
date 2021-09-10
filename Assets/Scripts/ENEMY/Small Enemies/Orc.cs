@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BearTurnPoint : MonoBehaviour
+public class Orc : MonoBehaviour
 {
     [SerializeField]
     EnemyParticleSys enemyParticleSys;
@@ -51,4 +51,3 @@ public class BearTurnPoint : MonoBehaviour
         }
     }
 }
-

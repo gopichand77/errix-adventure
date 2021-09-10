@@ -22,7 +22,7 @@ public class CheckInternet : MonoBehaviour
     {
         UnityWebRequest request = new UnityWebRequest("http://errix.co");
         yield return request.SendWebRequest();
-        yield return new WaitForSeconds(0.1f);
+        
 
         // if (request.error != null)
         if (Application.internetReachability == NetworkReachability.NotReachable)

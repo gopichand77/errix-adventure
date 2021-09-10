@@ -15,7 +15,7 @@ public class AdMObScript : MonoBehaviour
     void Start()
     {
         MobileAds.Initialize(initStatus => {});
-        // RequestInterstitial();
+        RequestInterstitial();
     }
 
     void RequestInterstitial()
@@ -56,7 +56,8 @@ public class AdMObScript : MonoBehaviour
     //show the ad
     public void ShowInterstitial()
     {
-         RequestInterstitial();
+        //  RequestInterstitial();
+        //  MobileAds.Initialize(initStatus => {});
         if (interstitial.IsLoaded())
         {
             interstitial.Show();
