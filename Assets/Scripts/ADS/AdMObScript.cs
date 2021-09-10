@@ -8,11 +8,13 @@ public class AdMObScript : MonoBehaviour
 {
     InterstitialAd interstitial;
     string interstitialId;
-    public string I0S_interstitialId;
-    public string ANDROID_interstitialId;
+    // public string I0S_interstitialId;
+    // public string ANDROID_interstitialId;
+    string APP_ID = "ca-app-pub-9793616844322643~4730613852";
 
     void Start()
     {
+        MobileAds.Initialize(initStatus => {});
         // RequestInterstitial();
     }
 
@@ -20,12 +22,12 @@ public class AdMObScript : MonoBehaviour
     {
 
 #if UNITY_ANDROID
-        // interstitialId = "ca-app-pub-3940256099942544/8691691433";// Test Ads
-        ANDROID_interstitialId = "ca-app-pub-9793616844322643/7816189618";// Mian
+        interstitialId = "ca-app-pub-9793616844322643/7816189618";// Test Ads
+        // ANDROID_interstitialId = "ca-app-pub-9793616844322643/7816189618";// Mian
         
 #elif UNITY_IPHONE
-        // interstitialId = "ca-app-pub-3940256099942544/1033173712";// Test Ads
-        I0S_interstitialId = "ca-app-pub-9793616844322643/9909383375" // Mian 
+        interstitialId = "ca-app-pub-3940256099942544/1033173712";// Test Ads
+        // I0S_interstitialId = "ca-app-pub-9793616844322643/9909383375" // Mian 
 #else
         interstitialId = null;
 #endif
