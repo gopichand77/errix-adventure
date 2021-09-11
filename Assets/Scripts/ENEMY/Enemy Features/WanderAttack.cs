@@ -8,7 +8,7 @@ using UnityEngine;
 //I really hope you find my tutorials helpful and knowledgeable
 //Appreciate your support.
 
-public class Dummy : MonoBehaviour {
+public class WanderAttack : MonoBehaviour {
 
     #region Public Variables
     public Transform rayCast;
@@ -17,19 +17,23 @@ public class Dummy : MonoBehaviour {
     public float attackDistance; //Minimum distance for attack
     public float moveSpeed;
     public float timer; //Timer for cooldown between attacks
+    public bool canWalk = true;
+   
     #endregion
 
     #region Private Variables
     private RaycastHit2D hit;
-    private GameObject target;
+    internal GameObject target;
     private Animator anim;
+
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
-    private bool inRange; //Check if Player is in range
+    internal bool inRange; //Check if Player is in range
     private bool cooling; //Check if Enemy is cooling after attack
     private float intTimer;
     private Player player;
     private Vector2 value;
+    
     #endregion
 
     void Awake()
@@ -56,6 +60,8 @@ public class Dummy : MonoBehaviour {
         {
             hit = Physics2D.Raycast(rayCast.position, value, rayCastLength, raycastMask);
             RaycastDebugger();
+            canWalk =  true;
+            moveSpeed = 2f;
         }
 
         //When Player is detected
@@ -77,10 +83,29 @@ public class Dummy : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.tag == "Player")
+        
+        if(trig.gameObject.tag == "Turn")
         {
-            target = trig.gameObject;
-            inRange = true;
+            moveSpeed = 0;
+            inRange = false;
+            canWalk =  false;
+            anim.SetBool("canWalk",false);
+        }
+        if(trig.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(trig.gameObject);
+            anim.SetBool("hurt",true);
+            
+
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D trig)
+    {
+       
+         if(trig.gameObject.tag == "Turn")
+        {
+              canWalk = false;
         }
     }
 
@@ -88,7 +113,7 @@ public class Dummy : MonoBehaviour {
     {
         distance = Vector2.Distance(transform.position, target.transform.position);
 
-        if(distance > attackDistance)
+        if(distance > attackDistance && canWalk)
         {
             Move();
             StopAttack();

@@ -88,7 +88,7 @@ a
             jumpForce = jumpForce * 2.5f;
         }
     }
-        anim.SetFloat("vertical", Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")));//
+        
 
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
