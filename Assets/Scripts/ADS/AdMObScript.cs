@@ -14,11 +14,11 @@ public class AdMObScript : MonoBehaviour
 
     void Start()
     {
-        MobileAds.Initialize(initStatus => {});
-        RequestInterstitial();
+    //     MobileAds.Initialize(initStatus => {});
+    //     RequestInterstitial();
     }
 
-    void RequestInterstitial()
+    public void RequestInterstitial()
     {
 
 #if UNITY_ANDROID
@@ -29,7 +29,7 @@ public class AdMObScript : MonoBehaviour
         interstitialId = "ca-app-pub-3940256099942544/1033173712";// Test Ads
         // I0S_interstitialId = "ca-app-pub-9793616844322643/9909383375" // Mian 
 #else
-        interstitialId = null;
+        interstitialId = "ca-app-pub-9793616844322643/7816189618";
 #endif
         interstitial = new InterstitialAd(interstitialId);
 
@@ -56,8 +56,8 @@ public class AdMObScript : MonoBehaviour
     //show the ad
     public void ShowInterstitial()
     {
-        //  RequestInterstitial();
-        //  MobileAds.Initialize(initStatus => {});
+         RequestInterstitial();
+         MobileAds.Initialize(initStatus => {});
         if (interstitial.IsLoaded())
         {
             interstitial.Show();
