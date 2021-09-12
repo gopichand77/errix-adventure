@@ -43,7 +43,7 @@ public class WanderAttack : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-    void Update () {
+    void FixedUpdate () {
         if(player.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector2(-1, 1);
@@ -94,7 +94,7 @@ public class WanderAttack : MonoBehaviour {
         if(trig.gameObject.CompareTag("Bullet"))
         {
             Destroy(trig.gameObject);
-            anim.SetBool("hurt",true);
+            // anim.SetBool("hurt",true);
             
 
         }
