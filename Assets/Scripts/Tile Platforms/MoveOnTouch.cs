@@ -7,17 +7,28 @@ public class MoveOnTouch : MonoBehaviour
 
     public float moveSpeed = 3f;
     bool moveRight = true;
+    bool moveTop = true;
     public float gridPos;
-    
-    [Header("Limits")]
+    [SerializeField] private Vector3 velocity;
+    private bool moving;
+    public bool yDir  = false;
+    [Header("XLimits")]
     public float rightLimit;
     public float leftLimit;
+    [Header("yLimits")]
+    public float topLimit;
+    public float bottomLimit;
 
 
-
-    void Update()
+    void FixedUpdate()
     {
-        if (transform.position.x - gridPos > rightLimit)
+         if (moving)
+        {
+            transform.position += (velocity * Time.fixedDeltaTime);
+        }
+        if(!yDir)
+        {
+            if (transform.position.x - gridPos > rightLimit)
         {
             moveRight = false;
         }
@@ -35,11 +46,35 @@ public class MoveOnTouch : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
         }
+        }
+        if(yDir)
+        {
+             if (transform.position.y - gridPos > topLimit)
+        {
+            moveTop = false;
+        }
+        if (transform.position.y - gridPos < -bottomLimit)
+        {
+            moveTop = true;
+        }
+
+        if (moveTop)
+        {
+            transform.position = new Vector2(transform.position.x,transform.position.y + moveSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            transform.position = new Vector2(transform.position.x,transform.position.y - moveSpeed * Time.deltaTime);
+        }
+
+
+        }
+        
     }
 
 
-    [SerializeField] private Vector3 velocity;
-    private bool moving;
+    
 
     private void OnTriggerEnter2D(Collider2D trig)
     {
@@ -56,11 +91,5 @@ public class MoveOnTouch : MonoBehaviour
         trig.gameObject.transform.SetParent(null);
     }
 
-    private void FixedUpdate()
-    {
-        if (moving)
-        {
-            transform.position += (velocity * Time.deltaTime);
-        }
-    }
+    
 }

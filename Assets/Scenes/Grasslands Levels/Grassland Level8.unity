@@ -47471,7 +47471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792723325560227357, guid: 4de2b93f6dcd3244983618d035c2a700, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de2b93f6dcd3244983618d035c2a700, type: 3}
@@ -48516,9 +48516,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   gridPos: 0
+  velocity: {x: 0, y: 0, z: 0}
+  yDir: 1
   rightLimit: 9
   leftLimit: 6
-  velocity: {x: 0, y: 0, z: 0}
+  topLimit: 5
+  bottomLimit: 2
 --- !u!483693784 &2005582375
 TilemapRenderer:
   m_ObjectHideFlags: 0
