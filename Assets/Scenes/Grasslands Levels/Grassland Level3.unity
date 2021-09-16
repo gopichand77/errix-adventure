@@ -6527,8 +6527,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb3fe6f1da0943c48e6021a62a104fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 6
+  endOfZoomInCursor: 4
+  endOfZoomOutCursor: 8
+  zoomInSpeed: 1
+  zoomOutSpeed: 1
+  targetZoomOut: 8
+  target: {fileID: 831298434}
   cam: {fileID: 831298433}
+  zoomin: 0
+  zoomout: 0
+  zoom: 0
+  playerenter: 0
 --- !u!61 &281169126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42372,6 +42381,7 @@ GameObject:
   - component: {fileID: 831298433}
   - component: {fileID: 831298432}
   - component: {fileID: 831298435}
+  - component: {fileID: 831298436}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -42464,6 +42474,38 @@ MonoBehaviour:
   bottomLimit: -9.61
   topLimit: 12
   bossLevel: 0
+--- !u!114 &831298436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831298431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!4 &836085454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3489421180968919157, guid: 9ae59ed5825baee488f8dcbc31ba9995, type: 3}
@@ -43440,9 +43482,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   gridPos: 0
+  velocity: {x: 0, y: 0, z: 0}
+  yDir: 0
   rightLimit: 11
   leftLimit: 1
-  velocity: {x: 0, y: 0, z: 0}
+  topLimit: 0
+  bottomLimit: 0
 --- !u!61 &1154875713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44118,9 +44163,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   gridPos: 0
+  velocity: {x: 0, y: 0, z: 0}
+  yDir: 0
   rightLimit: 2.2
   leftLimit: 5
-  velocity: {x: 0, y: 0, z: 0}
+  topLimit: 0
+  bottomLimit: 0
 --- !u!61 &1277367100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44338,11 +44386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867900, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867900, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 4.19
       objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867900, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -44983,7 +45031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45555,7 +45603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730286676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.47, y: 4.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506915315}
@@ -45698,8 +45746,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb3fe6f1da0943c48e6021a62a104fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 6
+  endOfZoomInCursor: 4
+  endOfZoomOutCursor: 8
+  zoomInSpeed: 1
+  zoomOutSpeed: 1
+  targetZoomOut: 8
+  target: {fileID: 831298434}
   cam: {fileID: 831298433}
+  zoomin: 0
+  zoomout: 0
+  zoom: 0
+  playerenter: 0
 --- !u!61 &1764789911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46140,9 +46197,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   gridPos: 0
+  velocity: {x: 0, y: 0, z: 0}
+  yDir: 0
   rightLimit: 9
   leftLimit: 1
-  velocity: {x: 0, y: 0, z: 0}
+  topLimit: 0
+  bottomLimit: 0
 --- !u!1001 &1824627088
 PrefabInstance:
   m_ObjectHideFlags: 0
