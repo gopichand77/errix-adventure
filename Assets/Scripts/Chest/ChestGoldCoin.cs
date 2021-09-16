@@ -15,23 +15,6 @@ public class ChestGoldCoin : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    // void OnTriggerEnter2D(Collider2D trig)
-    // {
-    //     Player player = trig.gameObject.GetComponent<Player>();
-
-    //     if (trig.gameObject.CompareTag("Collider") && ChestOpened)
-    //     {
-            
-    //         player.Collectables.NoofGoldCoins();
-    //         ChestOpened = false;
-    //         StartCoroutine(CoinOut());
-            
-            
-    //     }
-    // }
-    
-
     IEnumerator Collected() {
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
