@@ -11,6 +11,7 @@ public class FallingPlatform : MonoBehaviour
     Rigidbody2D rb;
     Color shift;
     Animator anim;
+    public float standTime = 0.4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class FallingPlatform : MonoBehaviour
         // rotation = new 
         anim = GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        rb.isKinematic =  true;
         box = gameObject.GetComponent<BoxCollider2D>();
         Position = new Vector2(transform.position.x, transform.position.y);
         Debug.Log("Position:" + Position);
@@ -29,18 +31,13 @@ public class FallingPlatform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // rend.a = 0.4f;
-
-
-
-    }
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Collider"))
         {
-            box.enabled = false;
+            
+            rend.color = new Color(1f, 1f, 1f, 0f);
         }
 
 
@@ -49,7 +46,8 @@ public class FallingPlatform : MonoBehaviour
     {
         if (trig.gameObject.CompareTag("Player"))
         {
-            Invoke("Fall", 2f);
+            
+            StartCoroutine(Fall());
 
             // gameObject.SetActive(false);
 
@@ -58,16 +56,23 @@ public class FallingPlatform : MonoBehaviour
 
 
     }
-    void Fall()
+    IEnumerator Fall()
     {
+        yield return new WaitForSeconds(standTime);
         rb.isKinematic = false;
+        
         anim.Play("Yellow idle");
+        StartCoroutine(Downcolor());
+        
+        yield return new WaitForSeconds(0.1f);
         Invoke("Respawan", 1.9f);
-
+        box.enabled = false;
     }
+    
     void Respawan()
     {
         rb.bodyType = RigidbodyType2D.Static;
+        
         transform.rotation = thisRot;
         transform.position = Position;
         StartCoroutine(Changecolor());
@@ -77,6 +82,7 @@ public class FallingPlatform : MonoBehaviour
     }
     IEnumerator Changecolor()
     {
+        StopCoroutine(Downcolor());
         anim.Play("Yellow Rotating");
         yield return new WaitForSeconds(0.3f);
        rend.color = new Color(1f, 1f, 1f, 0.4f);
@@ -91,6 +97,24 @@ public class FallingPlatform : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
         box.enabled = true;
+
+    }
+     IEnumerator Downcolor()
+    {
+        
+        yield return new WaitForSeconds(0.3f);
+       rend.color = new Color(1f, 1f, 1f, 0.4f);
+        yield return new WaitForSeconds(0.3f);
+        rend.color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(0.3f);
+        rend.color = new Color(1f, 1f, 1f, 0.4f);
+        yield return new WaitForSeconds(0.3f);
+        rend.color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(0.3f);
+        rend.color = new Color(1f, 1f, 1f, 0.4f);
+        yield return new WaitForSeconds(0.3f);
+        rend.color = new Color(1f, 1f, 1f, 1f);
+        
 
     }
 
