@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class Enemy_Behaviour : MonoBehaviour {
+public class Enemy_Behaviour : MonoBehaviour
+{
 
     #region Public Variables
     public string attackName;
     public float attackDistance; //Minimum distance for attack
     public float moveSpeed;
     public float timer; //Timer for cooldown between attacks
-    [HideInInspector]public  Transform target;
-    [HideInInspector]public bool inRange; //Check if Player is in range
+    [HideInInspector] public Transform target;
+    [HideInInspector] public bool inRange; //Check if Player is in range
     public Transform leftLimit;
-    public int Helath = 100;
-    public BossHealth bossHealth;
-    public int maxHealth = 100;
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
-    public int Damage_player;
+    [SerializeField]
+    Boss_Hurt Hurt;
     public Transform rayCastTransForm;
-    public GameObject damageTextPrefab;
-    int textToDisplay;
+
     #endregion
 
     #region Private Variables
@@ -34,71 +32,64 @@ public class Enemy_Behaviour : MonoBehaviour {
 
     void Awake()
     {
-        bossHealth.SetMaxhealth(maxHealth);
+
         SelectTarget();
         intTimer = timer; //Store the inital value of timer
         anim = GetComponent<Animator>();
     }
 
-    void Update () {
-        if(!attackMode)
+    void Update()
+    {
+        if (!attackMode)
         {
             Move();
         }
-        if(!InsideLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackName))
+        if (!InsideLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackName))
         {
             SelectTarget();
 
         }
-        
+
 
         //When Player is detected
-        
-        if(inRange)
+
+        if (inRange)
         {
-            
-           EnemyLogic(); 
+            if (!Hurt.Dead)
+            {
+                foreach (GameObject Coll in Hurt.fightCol)
+                {
+                    Coll.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (GameObject Coll in Hurt.fightCol)
+                {
+                    Coll.SetActive(false);
+                }
+
+            }
+
+            EnemyLogic();
         }
-	}
-     public void TakeDamage(int damage) // The health is reduced in the bullet Script
-    {
-        if(Helath > 0)
-        {
-             Helath -= damage;
-             textToDisplay = damage;
-         bossHealth.SetHealth(Helath);
-        }
-        else if(Helath <= 0)
-        {
-            Debug.Log("Boss Dead");
-            Destroy(this.gameObject);
-            // anim.SetBool("Dead",true);
-        }
-        //  StartCoroutine(Damage());
+    }
 
 
-    }
-    internal void Floating()
-    {
-        Vector3 PlayerPos =  new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-       GameObject DamageTextInstance = Instantiate(damageTextPrefab, PlayerPos, Quaternion.identity);
-           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("-"+textToDisplay.ToString());
-           Destroy(DamageTextInstance, 2f);
-    }
 
     void EnemyLogic()
     {
         distance = Vector2.Distance(transform.position, target.position);
 
-        if(distance > attackDistance)
+        if (distance > attackDistance)
         {
-            
+
             StopAttack();
         }
-        else if(attackDistance >= distance && cooling == false)
+        else if (attackDistance >= distance && cooling == false)
         {
             Attack();
-            
+
         }
 
         if (cooling)
@@ -106,6 +97,11 @@ public class Enemy_Behaviour : MonoBehaviour {
             Cooldown();
             anim.SetBool("Attack", false);
         }
+
+
+
+
+
     }
 
     void Move()
@@ -117,6 +113,7 @@ public class Enemy_Behaviour : MonoBehaviour {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
         }
     }
 
@@ -124,7 +121,7 @@ public class Enemy_Behaviour : MonoBehaviour {
     {
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
-        
+
 
         anim.SetBool("canWalk", false);
         anim.SetBool("Attack", true);
@@ -134,7 +131,7 @@ public class Enemy_Behaviour : MonoBehaviour {
     {
         timer -= Time.deltaTime;
 
-        if(timer <= 0 && cooling && attackMode)
+        if (timer <= 0 && cooling && attackMode)
         {
             cooling = false;
             timer = intTimer;
@@ -148,24 +145,24 @@ public class Enemy_Behaviour : MonoBehaviour {
         anim.SetBool("Attack", false);
     }
 
-   
+
 
     public void TriggerCooling()
     {
         cooling = true;
     }
-    
+
     private bool InsideLimits()
     {
-        return transform.position.x > leftLimit.position.x && transform.position.x  < rightLimit.position.x;
+        return transform.position.x > leftLimit.position.x && transform.position.x < rightLimit.position.x;
 
     }
     public void SelectTarget()
     {
-        float distanceToLeft  =  Vector2.Distance(transform.position, leftLimit.position);
+        float distanceToLeft = Vector2.Distance(transform.position, leftLimit.position);
         float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
 
-        target =  distanceToLeft > distanceToRight ? leftLimit : rightLimit;
+        target = distanceToLeft > distanceToRight ? leftLimit : rightLimit;
         // if(distanceToLeft > distanceToRight)
         // {
         // target = leftLimit; 
@@ -178,17 +175,17 @@ public class Enemy_Behaviour : MonoBehaviour {
     }
     public void Flip()
     {
-        Vector3 rotation =  transform.eulerAngles;
-    if(transform.position.x > target.position.x )
-    {
-        rotation.y = 180f;
+        Vector3 rotation = transform.eulerAngles;
+        if (transform.position.x > target.position.x)
+        {
+            rotation.y = 180f;
+        }
+        else
+        {
+            rotation.y = 0f;
+        }
+        transform.eulerAngles = rotation;
     }
-    else
-    {
-        rotation.y = 0f;
-    }
-      transform.eulerAngles =  rotation;
-    }
-   
+
 
 }

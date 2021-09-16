@@ -30,6 +30,10 @@ public class Bullet : MonoBehaviour
         //     StartCoroutine(Death());
         //     enemy.gameObject.SetActive(false);
         // }
+        if(hitInfo.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
         if (hitInfo.gameObject.CompareTag("Collider"))
         {
             rb.velocity = transform.right * 0;
@@ -44,14 +48,7 @@ public class Bullet : MonoBehaviour
             spider.TakeDamage(10);
 
         }
-         if(hitInfo.gameObject.CompareTag("Boss"))
-        {
-            var tree = GameObject.FindObjectOfType<Enemy_Behaviour>();
-            rb.velocity = transform.right * 0;
-            Destroy(gameObject);
-            tree.TakeDamage(tree.Damage_player);
-            
-        }
+       
 
         //earthworm die
         // if (hitInfo.gameObject.CompareTag("Earthworm"))
