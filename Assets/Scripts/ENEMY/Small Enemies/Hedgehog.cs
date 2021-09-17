@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BearTurnPoint : MonoBehaviour
+public class Hedgehog : MonoBehaviour
 {
-    [SerializeField]
+ [SerializeField]
     EnemyParticleSys enemyParticleSys;
     public float moveSpeed = 1;
     public bool movingRight;
     public Animator anim;
     Rigidbody2D rb;
+   public Transform player;
+    public float range;
+    public float playerDist;
 
 
     private void Start()
@@ -19,18 +22,30 @@ public class BearTurnPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
+        playerDist = Vector2.Distance( player.transform.position, transform.position);
+        if(range > playerDist)
+        {
+            anim.Play("Attack");
+            moveSpeed = 0;
+        }
+        else
+        {
+            anim.StopPlayback();
+            moveSpeed = 1;
+            anim.Play("Move");
+        }
         if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-                transform.Rotate(0f, 0f, 0f);
+                transform.localScale = new Vector2(-1, 1);
             
             
         }
         else
         {
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.Rotate(0f, 180f, 0f);
-            
+            transform.localScale = new Vector2(1, 1);
+            ;
         }
         if (enemyParticleSys.Dead)
         {
@@ -54,4 +69,3 @@ public class BearTurnPoint : MonoBehaviour
         }
     }
 }
-
