@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public PlayerHealthSlider healthBar;
+    private Vector3 checkPoint =  new Vector3(0,2,0);
     
     
 
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour
 }
  private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            transform.position =  checkPoint;
+        }
         if (currentHealth <= 0)
         {
             new WaitForSeconds(1);
@@ -62,6 +67,14 @@ public class Player : MonoBehaviour
         Die();
 
     }
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if(trig.gameObject.CompareTag("CheckPoint"))
+        {
+            checkPoint =  new Vector3(trig.transform.position.x,trig.transform.position.y+2,trig.transform.position.z);
+        }
+    }
+
     public void checkAttackButton()
     {
         if (Collectables.Bullets > 0)
