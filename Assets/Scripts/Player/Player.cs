@@ -8,10 +8,11 @@ public class Player : MonoBehaviour
 {
     //=============================================================================//
     //This Script is only Used for 
-    //1.Player Damage Function
-    //2.HealthBar
-    //3.GaveOver Panel
-    //4.Death of the Player.
+    //1. Player Damage Function
+    //2. HealthBar
+    //3. GaveOver Panel
+    //4. Death of the Player.
+    //5. Checkpoint
     [Header("Drag Player here")]
     [SerializeField]
     internal PlayerMovement MovementScript;
