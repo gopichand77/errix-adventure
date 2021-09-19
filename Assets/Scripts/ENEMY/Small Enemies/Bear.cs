@@ -17,6 +17,7 @@ public class Bear : MonoBehaviour
    
    private void Start()
    {
+      player =  GameObject.FindObjectOfType<Player>().transform;
        
        
    }

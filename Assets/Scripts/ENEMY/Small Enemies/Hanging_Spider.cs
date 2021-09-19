@@ -16,6 +16,10 @@ public class Hanging_Spider : MonoBehaviour
 
 
     // Update is called once per frame
+    void Start()
+    {
+        player = GameObject.FindObjectOfType<Player>().transform;
+    }
     void Update()
     {
         Shoot();

@@ -17,6 +17,7 @@ public class Hedgehog : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindObjectOfType<Player>().transform;
         rb = GetComponent<Rigidbody2D>();
     }
 

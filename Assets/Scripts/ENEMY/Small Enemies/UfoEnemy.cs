@@ -11,7 +11,6 @@ public class UfoEnemy : MonoBehaviour
     public float amplitude;
     public float desiredPostionY;
     public bool movingRight;
-    
     public Vector3 tempPosition;
     private Animator anim;
     [SerializeField]
@@ -20,37 +19,26 @@ public class UfoEnemy : MonoBehaviour
     public float startRange;
     public float rangeOfFire;
     float fireRate = 0.3f;
-     float nextFire;
+    float nextFire;
     [SerializeField]
     GameObject Shot;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<Player>();
         anim = gameObject.GetComponent<Animator>();
-        Speed = 0;
-        VerticalSpeed = 0;
         tempPosition = transform.position;
     }
-   
-
-    // Update is called once per frame
+    // FixedUpdate is called once per frame
     void FixedUpdate()
     {
-     
-        
-        playerDist = Vector2.Distance(player.transform.position,transform.position);
-
-        
-         if(playerDist < startRange)
-        {
-            StartCoroutine(StartUfo());
-        if(playerDist < rangeOfFire)
+        playerDist = Vector2.Distance(player.transform.position, transform.position);
+        if (playerDist < rangeOfFire)
         {
             checkFireTime();
         }
-        }
-         tempPosition.x += horizontalSpeed;
+        tempPosition.x += horizontalSpeed;
         tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * VerticalSpeed) * amplitude + desiredPostionY;
         transform.position = tempPosition;
         if (movingRight)
@@ -60,16 +48,12 @@ public class UfoEnemy : MonoBehaviour
         }
         else
         {
-
             horizontalSpeed = -Speed;
             transform.localScale = new Vector2(-1, 1);
         }
-
-
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-
         if (trig.gameObject.CompareTag("Turn"))
         {
             if (movingRight)
@@ -80,34 +64,29 @@ public class UfoEnemy : MonoBehaviour
             {
                 movingRight = true;
             }
-
         }
-
-
     }
     void checkFireTime()
     {
-        if(Time.time > nextFire)
+        if (Time.time > nextFire)
         {
-            Instantiate(Shot,transform.position, Quaternion.identity);
+            Instantiate(Shot, transform.position, Quaternion.identity);
             nextFire = Time.time + fireRate;
         }
     }
     IEnumerator StartUfo()
     {
-        anim.SetBool("Start",true);
+        anim.SetBool("Start", true);
         yield return new WaitForSeconds(2.1f);
-        anim.SetBool("Patrol",true);
+        anim.SetBool("Patrol", true);
         Speed = 0.01f;
-        InvokeRepeating("IncreaseSpeed",0,5f);
+        InvokeRepeating("IncreaseSpeed", 0, 5f);
     }
     void IncreaseSpeed()
     {
-        if(VerticalSpeed < 1)
+        if (VerticalSpeed < 1)
         {
             VerticalSpeed += 0.2f;
         }
-        
-
     }
 }

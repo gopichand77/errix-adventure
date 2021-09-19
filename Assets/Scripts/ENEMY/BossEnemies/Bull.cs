@@ -14,8 +14,6 @@ public class Bull : MonoBehaviour
     public List<GameObject> Boxes;
     public List<ParticleSystem> Winners;
     public bool attacking;
-    
-
     public int bullHealth = 100;
     public Transform player;
     public GameObject BossCollider;
@@ -37,6 +35,7 @@ public class Bull : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindObjectOfType<Player>().transform;
         attacking = true;
         canHurt = true;
         bullHealth = maxHealth;

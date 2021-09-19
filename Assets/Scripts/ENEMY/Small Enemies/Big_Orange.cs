@@ -21,6 +21,7 @@ public class Big_Orange : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindObjectOfType<Player>().transform;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
