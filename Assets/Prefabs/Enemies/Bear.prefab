@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6102421936156366352}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BearPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8693032934784751044}
   - component: {fileID: 8693032934784751045}
   - component: {fileID: 8693032934784751043}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bear
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -154,12 +154,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingRight: 0
   moveSpeed: 0
-  Player: {fileID: 0}
+  player: {fileID: 0}
   playerdist: 0
-  EnemyRange: 5
-  attackRange: 1.8
   rb: {fileID: 8693032934784751047}
   anim: {fileID: 8693032934784751045}
+  PlayerRange: 0
+  run: 0
 --- !u!114 &8693032934784751042
 MonoBehaviour:
   m_ObjectHideFlags: 0
