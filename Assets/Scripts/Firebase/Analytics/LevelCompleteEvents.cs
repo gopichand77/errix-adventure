@@ -20,7 +20,7 @@ public class LevelCompleteEvents : MonoBehaviour
     }
 
     public void GLevel1(){
-        FirebaseAnalytics.LogEvent("GLevel1");
+        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart);
         Debug.Log("GLevel1");
     }
 

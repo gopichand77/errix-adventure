@@ -30,7 +30,7 @@ public class SpawnMonsters : MonoBehaviour
         Turns =  GameObject.FindGameObjectsWithTag("Turn");
         foreach (GameObject trn in Turns)
         {
-            if(trn.name == "Turn" || trn.name == "Turn1")
+            if(trn.name == "Turn" || trn.name == "Turn 1")
             {
                 trn.SetActive(false);
 
