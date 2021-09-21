@@ -19,9 +19,7 @@ public class SpawnMonsters : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Turns =  GameObject.FindGameObjectsWithTag("Turn");
-        
-        
+        Turns =  GameObject.FindGameObjectsWithTag("Turn");  
     }
 
     // Update is called once per frame

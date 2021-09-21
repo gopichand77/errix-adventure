@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class CameraSize : MonoBehaviour
 {
-
-   [SerializeField] float endOfZoomInCursor = .001f; 
-    [SerializeField] float endOfZoomOutCursor = .05f;
-
     //Target values for the zoom effect
     [SerializeField] float zoomInSpeed = 1f;
     [SerializeField] float zoomOutSpeed = 1f;
@@ -23,10 +19,10 @@ public class CameraSize : MonoBehaviour
     //Cache reference
     public Transform target;
     public Camera cam;
-    public bool zoomin;
-    public bool zoomout;
+    public bool zoomIn;
+    public bool zoomOut;
     public bool zoom;
-    public bool playerenter= false;
+    public bool playerEnter = false;
 
 
 
@@ -42,71 +38,61 @@ public class CameraSize : MonoBehaviour
     }
     private void Update()
     {
-       
-        if(zoomout)
+
+        if (zoomOut)
         {
             ZoomOutCamera();
-             zoomin = false;
-            
+            zoomIn = false;
+
 
         }
-        if(zoomin)
+        if (zoomIn)
         {
             ZoomInCamera();
-            zoomout = false;
+            zoomOut = false;
         }
-        
+
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.CompareTag("Player"))
+        if (trig.gameObject.CompareTag("Player"))
         {
-            playerenter = true;
-            zoomout = true;
-            zoomin = false;
+            playerEnter = true;
+            zoomOut = true;
+            zoomIn = false;
         }
     }
     private void OnTriggerExit2D(Collider2D trig)
     {
-        if(trig.gameObject.CompareTag("Player"))
+        if (trig.gameObject.CompareTag("Player"))
         {
             // ZoomInCamera();
-            zoomout = false;
-            zoomin = true;
+            zoomOut = false;
+            zoomIn = true;
         }
     }
 
-    public void ZoomInCamera()
+    private void ZoomInCamera()
     {
         if (!IsZoomedIn)
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, initalZoom, Time.deltaTime * zoomInSpeed);
             cam.transform.position = new Vector3(Mathf.Lerp(cam.transform.position.x, target.position.x, Time.deltaTime * zoomInSpeed),
-                Mathf.Lerp(cam.transform.position.y,cam.transform.position.y , Time.deltaTime * zoomInSpeed), 
+                Mathf.Lerp(cam.transform.position.y, cam.transform.position.y, Time.deltaTime * zoomInSpeed),
                 cam.transform.position.z);
-            if (initalZoom<= endOfZoomInCursor)
-            {
-                IsZoomedIn = true;
-                
-            }
         }
     }
 
-    public void ZoomOutCamera()
+    private void ZoomOutCamera()
     {
 
-       
+
         if (!IsZoomedOut)
         {
-             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoomOut, Time.deltaTime * zoomInSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoomOut, Time.deltaTime * zoomInSpeed);
             cam.transform.position = new Vector3(Mathf.Lerp(cam.transform.position.x, target.position.x, Time.deltaTime * zoomInSpeed),
-                Mathf.Lerp(cam.transform.position.y, cam.transform.position.y, Time.deltaTime * zoomInSpeed), 
+                Mathf.Lerp(cam.transform.position.y, cam.transform.position.y, Time.deltaTime * zoomInSpeed),
                 cam.transform.position.z);
-            if (initalZoom + targetZoomOut <= endOfZoomOutCursor)
-            {
-                IsZoomedOut = false;
-                
-            }
         }
     }
 
