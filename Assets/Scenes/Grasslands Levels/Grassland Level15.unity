@@ -6218,6 +6218,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3659762940796420809, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
   m_PrefabInstance: {fileID: 129179863}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &148222380 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6792723325560227356, guid: 4de2b93f6dcd3244983618d035c2a700, type: 3}
+  m_PrefabInstance: {fileID: 874314291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &148222383 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6792723325560227345, guid: 4de2b93f6dcd3244983618d035c2a700, type: 3}
+  m_PrefabInstance: {fileID: 874314291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &151204406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37305,11 +37315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 112.23
+      value: 63.2
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.74
+      value: 8.2
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52458,6 +52468,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.19457412
       objectReference: {fileID: 0}
+    - target: {fileID: 3305987967285510449, guid: cfc2d3bd557b4f443889571a1fd450f7, type: 3}
+      propertyPath: box2
+      value: 
+      objectReference: {fileID: 148222380}
+    - target: {fileID: 3305987967285510449, guid: cfc2d3bd557b4f443889571a1fd450f7, type: 3}
+      propertyPath: rendChild
+      value: 
+      objectReference: {fileID: 148222383}
     - target: {fileID: 3305987967285510461, guid: cfc2d3bd557b4f443889571a1fd450f7, type: 3}
       propertyPath: m_Name
       value: Falling Platform (1)

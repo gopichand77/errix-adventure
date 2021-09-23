@@ -6,9 +6,10 @@ public class FallingPlatform : MonoBehaviour
 {
     Vector2 Position;
     SpriteRenderer rend;
-    // SpriteRenderer rendChild;
+    public SpriteRenderer rendChild;
     Quaternion thisRot;
     BoxCollider2D box;
+    public BoxCollider2D box2;
     Rigidbody2D rb;
     Color shift;
     Animator anim;
@@ -17,7 +18,7 @@ public class FallingPlatform : MonoBehaviour
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        // rendChild = GetComponentInChildren<SpriteRenderer>();
+       
         
         thisRot = Quaternion.identity;
         thisRot.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
@@ -40,7 +41,7 @@ public class FallingPlatform : MonoBehaviour
         {
             
             rend.color = new Color(1f, 1f, 1f, 0f);
-            // rendChild.color = new Color(1f, 1f, 1f, 0f);
+            rendChild.color = new Color(1f, 1f, 1f, 0f);
         }
 
 
@@ -70,6 +71,7 @@ public class FallingPlatform : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Invoke("Respawan", 1.9f);
         box.enabled = false;
+        box2.enabled = false;
     }
     
     void Respawan()
@@ -89,17 +91,24 @@ public class FallingPlatform : MonoBehaviour
         anim.Play("Yellow Rotating");
         yield return new WaitForSeconds(0.3f);
        rend.color = new Color(1f, 1f, 1f, 0.4f);
+       rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
+         rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
+        rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
+        rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
+        rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
+        rendChild.color = new Color(1f, 1f, 1f, 1f);
         box.enabled = true;
+        box2.enabled = true;
 
     }
      IEnumerator Downcolor()
@@ -107,16 +116,22 @@ public class FallingPlatform : MonoBehaviour
         
         yield return new WaitForSeconds(0.3f);
        rend.color = new Color(1f, 1f, 1f, 0.4f);
+       rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
+        rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
+         rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
+        rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
+        rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
+        rendChild.color = new Color(1f, 1f, 1f, 1f);
         
 
     }

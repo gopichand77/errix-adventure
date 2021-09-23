@@ -7,7 +7,10 @@ public class SpikeTrap : MonoBehaviour
     public GameObject controlCanvas;
     public int spikeDamge = 10;
 
-
+    private void Start()
+    {
+        controlCanvas =  GameObject.Find("Controls Panel");
+    }
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.tag == "Player")
