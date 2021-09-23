@@ -18,7 +18,8 @@ public class MoveOnTouch : MonoBehaviour
     [Header("yLimits")]
     public float topLimit;
     public float bottomLimit;
-
+    public bool Diagnol;
+    public bool movingSide;
 
     void FixedUpdate()
     {
@@ -26,6 +27,34 @@ public class MoveOnTouch : MonoBehaviour
         {
             transform.position += (velocity * Time.fixedDeltaTime);
         }
+        XDir();
+        YDir();
+        // if(transform.position.x  > rightLimit && transform.position.y > topLimit)
+        // {
+        //     movingSide  =  false;
+        // }
+        // if(transform.position.x  < leftLimit && transform.position.y < bottomLimit)
+        // {
+        //     movingSide = true;
+        // }
+        // if(movingSide)
+        // {
+        //     transform.position =  new Vector2(transform.position.x + moveSpeed * Time.deltaTime,transform.position.y + moveSpeed * Time.deltaTime);
+        // }
+        // if(!movingSide)
+        // {
+        //     transform.position =  new Vector2(transform.position.x - moveSpeed * Time.deltaTime,transform.position.y - moveSpeed * Time.deltaTime);
+        // }
+
+
+
+        
+        
+
+        
+    }
+    void XDir()
+    {
         if(!yDir)
         {
             if (transform.position.x - gridPos > rightLimit)
@@ -46,8 +75,12 @@ public class MoveOnTouch : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
         }
+
         }
-        if(yDir)
+    }
+    void YDir()
+    {
+            if(yDir)
         {
              if (transform.position.y - gridPos > topLimit)
         {
@@ -67,11 +100,10 @@ public class MoveOnTouch : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x,transform.position.y - moveSpeed * Time.deltaTime);
         }
-
-
         }
         
     }
+    
 
 
     

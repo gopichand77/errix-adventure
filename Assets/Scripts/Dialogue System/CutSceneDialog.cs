@@ -10,6 +10,7 @@ public class CutSceneDialog : MonoBehaviour
     public AudioSourceGroup audioSourceGroup;
     public string[] Dialog1_sign, Dialog2_sign,Dialog3_sign,Dialog4_sign;
     private int index;
+    public int lineIndex;
     public float timGap;
     public bool Dialog1 = true;
     public bool Dialog2 = true;
@@ -19,6 +20,7 @@ public class CutSceneDialog : MonoBehaviour
     {
         
         index = 0;
+        lineIndex = 0;
         dialogueVertexAnimator = new DialogueVertexAnimator(textBox, audioSourceGroup);
     }
     
@@ -27,18 +29,22 @@ public class CutSceneDialog : MonoBehaviour
         
         if(Dialog1)
         {
-            
+            index =  lineIndex;
             PlayDialog1();
             textBox.text = string.Empty;
-            if(index < Dialog1_sign.Length - 1)
+            if(index < Dialog1_sign.Length -1)
             {
-                Dialog1 = false;
+                 Dialog1 = false;
                 StartCoroutine(Time());
+                
                 
             }
             else
             {
-                Dialog1 = false;
+                Dialog1 = true;
+                lineIndex = 0;
+                // index = 0;
+               
             }
             
         } 
@@ -47,10 +53,13 @@ public class CutSceneDialog : MonoBehaviour
     }
     public void Dialog_Text2()
     {
+        
         if(Dialog2)
         {
-            textBox.text = string.Empty;
+            
+            index =  lineIndex;
             PlayDialog2();
+            textBox.text = string.Empty;
             if(index < Dialog2_sign.Length - 1)
             {
                 Dialog2 = false;
@@ -60,7 +69,8 @@ public class CutSceneDialog : MonoBehaviour
             }
             else
             {
-                Dialog2 = false;
+                Dialog2 = true;
+                lineIndex = 0;
             }
             
         } 
@@ -72,15 +82,18 @@ public class CutSceneDialog : MonoBehaviour
         if(Dialog3)
         {
             textBox.text = string.Empty;
+            index =  lineIndex;
             PlayDialog3();
             if(index < Dialog3_sign.Length - 1)
             {
-                StartCoroutine(Time());
                 Dialog3 = false;
+                StartCoroutine(Time());
+                
             }
             else
             {
-                Dialog3 = false;
+                Dialog3 = true;
+                lineIndex = 0;
             }
         }
     }
@@ -89,6 +102,7 @@ public class CutSceneDialog : MonoBehaviour
         if(Dialog4)
         {
             textBox.text = string.Empty;
+            index =  lineIndex;
             PlayDialog4();
             if(index < Dialog4_sign.Length - 1)
             {
@@ -98,7 +112,8 @@ public class CutSceneDialog : MonoBehaviour
             }
             else
             {
-                Dialog4 = false;
+                Dialog4 = true;
+                lineIndex = 0;
             }
         }
     }
@@ -109,28 +124,33 @@ public class CutSceneDialog : MonoBehaviour
     {
         
      
-        textBox.text = string.Empty;
+        // textBox.text = string.Empty;
         yield return new WaitForSeconds(timGap);
-        index++;
+        lineIndex += 1;
         textBox.text = string.Empty;
         if(!Dialog1)
         {
-            PlayDialog1();
+            Dialog1 = true;
+            Dialog_Text1();
+            
             textBox.text = string.Empty;
         }
         if(!Dialog2)
         {
-            PlayDialog2();
+            Dialog2 =  true;
+            Dialog_Text2();
             textBox.text = string.Empty;
         }
         if(!Dialog3)
         {
-            PlayDialog3();
+            Dialog3 = true;
+            Dialog_Text3();
             textBox.text = string.Empty;
         }
         if(!Dialog4)
         {
-            PlayDialog4();
+            Dialog4 = true;
+            Dialog_Text4();
             textBox.text = string.Empty;
         }
 
