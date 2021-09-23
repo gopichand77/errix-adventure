@@ -6,6 +6,7 @@ public class FallingPlatform : MonoBehaviour
 {
     Vector2 Position;
     SpriteRenderer rend;
+    // SpriteRenderer rendChild;
     Quaternion thisRot;
     BoxCollider2D box;
     Rigidbody2D rb;
@@ -16,6 +17,7 @@ public class FallingPlatform : MonoBehaviour
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        // rendChild = GetComponentInChildren<SpriteRenderer>();
         
         thisRot = Quaternion.identity;
         thisRot.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
@@ -38,6 +40,7 @@ public class FallingPlatform : MonoBehaviour
         {
             
             rend.color = new Color(1f, 1f, 1f, 0f);
+            // rendChild.color = new Color(1f, 1f, 1f, 0f);
         }
 
 
