@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
-
-public class PlayerMovement : MonoBehaviour
+public class FiremanMovement : MonoBehaviour
 {
-    [SerializeField]
-    Player playerScript;
+
     internal Rigidbody2D rb;
-    public Animator anim;
+    private Animator anim;
     internal float dirX;
     internal bool dirY;
     internal bool facingRight = true;
@@ -25,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool DoubleJump;
 
     // Start is called before the first frame update
-    private void Start()
+      private void Start()
     {
         dust = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
@@ -78,14 +75,14 @@ public class PlayerMovement : MonoBehaviour
 
             canDoubleJump = true;
         }
-        else if (canDoubleJump&& DoubleJump)
-        {
+        // else if (canDoubleJump&& DoubleJump)
+        // {
             
-            jumpForce = jumpForce / 2.5f;
-            Jump();
-            canDoubleJump = false;
-            jumpForce = jumpForce * 2.5f;
-        }
+        //     jumpForce = jumpForce / 2.5f;
+        //     Jump();
+        //     canDoubleJump = false;
+        //     jumpForce = jumpForce * 2.5f;
+        // }
     }
         
 
@@ -175,6 +172,4 @@ public class PlayerMovement : MonoBehaviour
     {
         dust.Play();
     }
-
 }
-

@@ -25,7 +25,6 @@ public class WanderAttack : MonoBehaviour {
     private RaycastHit2D hit;
     internal GameObject target;
     private Animator anim;
-
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
     internal bool inRange; //Check if Player is in range
@@ -44,6 +43,7 @@ public class WanderAttack : MonoBehaviour {
     }
 
     void FixedUpdate () {
+        Physics2D.IgnoreLayerCollision(0,2);
         if(player.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector2(-1, 1);
