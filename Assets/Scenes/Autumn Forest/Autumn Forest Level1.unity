@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &625784295
+--- !u!1 &32037619
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,22 +131,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 625784297}
-  - component: {fileID: 625784296}
+  - component: {fileID: 32037620}
+  - component: {fileID: 32037621}
   m_Layer: 0
-  m_Name: 5 - Tree_row_BG_2
+  m_Name: 4 - Trees Parts (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &625784296
+--- !u!4 &32037620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32037619}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246619025}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &32037621
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625784295}
+  m_GameObject: {fileID: 32037619}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -177,8 +191,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 619759891
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19bd9d65a65d7441489db74b08175f5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -191,21 +205,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &625784297
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625784295}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.3, y: 0.76, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1268542904
+--- !u!1 &246619024
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,22 +213,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1268542906}
-  - component: {fileID: 1268542905}
+  - component: {fileID: 246619025}
+  - component: {fileID: 246619027}
+  - component: {fileID: 246619026}
   m_Layer: 0
-  m_Name: _Complete_static_BG_(288 x 208)
+  m_Name: 4 - Trees Parts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &1268542905
+--- !u!4 &246619025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246619024}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 836568161}
+  - {fileID: 32037620}
+  - {fileID: 566144043}
+  - {fileID: 844723979}
+  m_Father: {fileID: 956902504422386131}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &246619026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246619024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f46c241b03a4468d810c8090fc37e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObject: {fileID: 0}
+  parallaxEffect: 0.6
+--- !u!212 &246619027
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268542904}
+  m_GameObject: {fileID: 246619024}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -259,10 +292,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 619759891
+  m_SortingLayer: -5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ba436bd6423434c9f9dcf495fd5424ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19bd9d65a65d7441489db74b08175f5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -273,20 +306,252 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1268542906
+--- !u!1 &566144042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 566144043}
+  - component: {fileID: 566144044}
+  m_Layer: 0
+  m_Name: 4 - Trees Parts (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &566144043
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268542904}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.4, y: 2, z: 0}
+  m_GameObject: {fileID: 566144042}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 246619025}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &566144044
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566144042}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 619759891
+  m_SortingLayer: -5
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 19bd9d65a65d7441489db74b08175f5f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 18, y: 13}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &836568160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836568161}
+  - component: {fileID: 836568162}
+  m_Layer: 0
+  m_Name: 4 - Trees Parts (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836568161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836568160}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246619025}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &836568162
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836568160}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 619759891
+  m_SortingLayer: -5
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 19bd9d65a65d7441489db74b08175f5f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 18, y: 13}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &844723978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844723979}
+  - component: {fileID: 844723980}
+  m_Layer: 0
+  m_Name: 4 - Trees Parts (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &844723979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844723978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -36, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246619025}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &844723980
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844723978}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 619759891
+  m_SortingLayer: -5
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 19bd9d65a65d7441489db74b08175f5f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 18, y: 13}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1297119352
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +646,7 @@ GameObject:
   - component: {fileID: 956902504350399755}
   - component: {fileID: 956902504350399765}
   m_Layer: 0
-  m_Name: 5 - Sky_color (2)
+  m_Name: 5 - Green BG (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +705,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -495,7 +760,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: e5f6acc357e8e483a9327ae4b03b530b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 18, y: 13}
   m_AdaptiveModeThreshold: 0.5
@@ -514,7 +779,7 @@ GameObject:
   - component: {fileID: 956902504390312230}
   - component: {fileID: 956902504390312224}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (5)
+  m_Name: 3 - Leaf BG (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,7 +793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902504390312229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.52, z: 0}
+  m_LocalPosition: {x: 0, y: 12.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956902506270550814}
@@ -545,7 +810,7 @@ GameObject:
   - component: {fileID: 956902504418530138}
   - component: {fileID: 956902504418530148}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (4)
+  m_Name: 3 - Leaf BG (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,7 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956902504422386131}
   m_Layer: 0
-  m_Name: Grasslands Parallex Effect
+  m_Name: Autumn Forest Parallex Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,6 +912,7 @@ Transform:
   - {fileID: 956902505252725238}
   - {fileID: 956902506270550814}
   - {fileID: 956902505315841115}
+  - {fileID: 246619025}
   - {fileID: 956902505117655764}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -662,7 +928,7 @@ GameObject:
   - component: {fileID: 956902504427442525}
   - component: {fileID: 956902504427442527}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (7)
+  m_Name: 3 - Leaf BG (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,7 +942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902504427442524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18, y: 7.52, z: 0}
+  m_LocalPosition: {x: -18, y: 12.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956902506270550814}
@@ -725,7 +991,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: e5f6acc357e8e483a9327ae4b03b530b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 18, y: 13}
   m_AdaptiveModeThreshold: 0.5
@@ -772,7 +1038,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -795,7 +1061,7 @@ GameObject:
   - component: {fileID: 956902504513048654}
   - component: {fileID: 956902504513048648}
   m_Layer: 0
-  m_Name: 5 - Sky_color (6)
+  m_Name: 5 - Green BG (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,7 +1092,7 @@ GameObject:
   - component: {fileID: 956902504596622618}
   - component: {fileID: 956902504596622628}
   m_Layer: 0
-  m_Name: 2 - Hills (4)
+  m_Name: 2 - Trees (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,7 +1152,7 @@ SpriteRenderer:
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 19983a7c1b6604cfbbce1eb952f46bd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f94a33546231c4afaa0abaa264065fce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -908,7 +1174,7 @@ GameObject:
   - component: {fileID: 956902504610691593}
   - component: {fileID: 956902504610691595}
   m_Layer: 0
-  m_Name: 5 - Sky_color (5)
+  m_Name: 5 - Green BG (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,7 +1233,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -990,7 +1256,7 @@ GameObject:
   - component: {fileID: 956902504672432468}
   - component: {fileID: 956902504672432470}
   m_Layer: 0
-  m_Name: 4 - Cloud_cover_2 (4)
+  m_Name: 3.5 - Trees BG (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,7 +1338,7 @@ GameObject:
   - component: {fileID: 956902504753948019}
   - component: {fileID: 956902504753948029}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (9)
+  m_Name: 3 - Leaf BG (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902504753948018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 7.52, z: 0}
+  m_LocalPosition: {x: 36, y: 12.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956902506270550814}
@@ -1135,7 +1401,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: e5f6acc357e8e483a9327ae4b03b530b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 18, y: 13}
   m_AdaptiveModeThreshold: 0.5
@@ -1154,7 +1420,7 @@ GameObject:
   - component: {fileID: 956902504757343130}
   - component: {fileID: 956902504757343140}
   m_Layer: 0
-  m_Name: 5 - Sky_color (9)
+  m_Name: 5 - Green BG (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,7 +1479,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1236,7 +1502,7 @@ GameObject:
   - component: {fileID: 956902504911715917}
   - component: {fileID: 956902504911715919}
   m_Layer: 0
-  m_Name: 5 - Sky_color (1)
+  m_Name: 5 - Green BG (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,7 +1561,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1319,7 +1585,7 @@ GameObject:
   - component: {fileID: 956902505117655755}
   - component: {fileID: 956902505117655765}
   m_Layer: 0
-  m_Name: 5 - Sky_color
+  m_Name: 5 - Green BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,7 +1630,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1397,7 +1663,7 @@ Transform:
   - {fileID: 956902506203417655}
   - {fileID: 956902504757343130}
   m_Father: {fileID: 956902504422386131}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &956902505117655765
 MonoBehaviour:
@@ -1424,7 +1690,7 @@ GameObject:
   - component: {fileID: 956902505175086635}
   - component: {fileID: 956902505175086645}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (8)
+  m_Name: 3 - Leaf BG (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,7 +1704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902505175086634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36, y: 7.52, z: 0}
+  m_LocalPosition: {x: -36, y: 12.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956902506270550814}
@@ -1487,7 +1753,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: e5f6acc357e8e483a9327ae4b03b530b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 18, y: 13}
   m_AdaptiveModeThreshold: 0.5
@@ -1548,7 +1814,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1571,7 +1837,7 @@ GameObject:
   - component: {fileID: 956902505178471032}
   - component: {fileID: 956902505178471034}
   m_Layer: 0
-  m_Name: 5 - Sky_color (7)
+  m_Name: 5 - Green BG (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1854,7 @@ GameObject:
   - component: {fileID: 956902505184300269}
   - component: {fileID: 956902505184300271}
   m_Layer: 0
-  m_Name: 1 - Foreground_scenery (4)
+  m_Name: 1-Leafs (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1721,7 +1987,7 @@ GameObject:
   - component: {fileID: 956902505193976391}
   - component: {fileID: 956902505193976385}
   m_Layer: 0
-  m_Name: 4 - Cloud_cover_2 (2)
+  m_Name: 3.5 - Trees BG (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +2018,7 @@ GameObject:
   - component: {fileID: 956902505208884709}
   - component: {fileID: 956902505208884711}
   m_Layer: 0
-  m_Name: 2 - Hills (3)
+  m_Name: 2 - Trees (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1812,7 +2078,7 @@ SpriteRenderer:
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 19983a7c1b6604cfbbce1eb952f46bd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f94a33546231c4afaa0abaa264065fce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1834,7 +2100,7 @@ GameObject:
   - component: {fileID: 956902505248535426}
   - component: {fileID: 956902505248535436}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (6)
+  m_Name: 3 - Leaf BG (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1848,7 +2114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902505248535425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 7.52, z: 0}
+  m_LocalPosition: {x: 18, y: 12.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956902506270550814}
@@ -1897,7 +2163,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: e5f6acc357e8e483a9327ae4b03b530b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 18, y: 13}
   m_AdaptiveModeThreshold: 0.5
@@ -1917,7 +2183,7 @@ GameObject:
   - component: {fileID: 956902505252725237}
   - component: {fileID: 956902505252725239}
   m_Layer: 0
-  m_Name: 2 - Hills
+  m_Name: 2 - Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1963,7 +2229,7 @@ SpriteRenderer:
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 19983a7c1b6604cfbbce1eb952f46bd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f94a33546231c4afaa0abaa264065fce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1982,7 +2248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902505252725236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 956902505896665321}
@@ -2018,7 +2284,7 @@ GameObject:
   - component: {fileID: 956902505315841114}
   - component: {fileID: 956902505315841124}
   m_Layer: 0
-  m_Name: 4 - Cloud_cover_2
+  m_Name: 3.5 - Trees BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2169,7 +2435,7 @@ GameObject:
   - component: {fileID: 956902505426709334}
   - component: {fileID: 956902505426709328}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (2)
+  m_Name: 3 - Leaf BG (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2200,7 +2466,7 @@ GameObject:
   - component: {fileID: 956902505427653459}
   - component: {fileID: 956902505427653469}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (1)
+  m_Name: 3 - Leaf BG (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,7 +2548,7 @@ GameObject:
   - component: {fileID: 956902505442351763}
   - component: {fileID: 956902505442351773}
   m_Layer: 0
-  m_Name: 5 - Sky_color (3)
+  m_Name: 5 - Green BG (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2341,7 +2607,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2415,7 +2681,7 @@ GameObject:
   - component: {fileID: 956902505472637215}
   - component: {fileID: 956902505472637209}
   m_Layer: 0
-  m_Name: 1 - Foreground_scenery (3)
+  m_Name: 1-Leafs (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2446,7 +2712,7 @@ GameObject:
   - component: {fileID: 956902505537661785}
   - component: {fileID: 956902505537661787}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1 (3)
+  m_Name: 3 - Leaf BG (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2556,7 +2822,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2579,7 +2845,7 @@ GameObject:
   - component: {fileID: 956902505594410711}
   - component: {fileID: 956902505594410705}
   m_Layer: 0
-  m_Name: 5 - Sky_color (4)
+  m_Name: 5 - Green BG (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2661,7 +2927,7 @@ GameObject:
   - component: {fileID: 956902505638862331}
   - component: {fileID: 956902505638862085}
   m_Layer: 0
-  m_Name: 4 - Cloud_cover_2 (1)
+  m_Name: 3.5 - Trees BG (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2743,7 +3009,7 @@ GameObject:
   - component: {fileID: 956902505641643110}
   - component: {fileID: 956902505641643104}
   m_Layer: 0
-  m_Name: 1 - Foreground_scenery (2)
+  m_Name: 1-Leafs (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2825,7 +3091,7 @@ GameObject:
   - component: {fileID: 956902505875373911}
   - component: {fileID: 956902505875373905}
   m_Layer: 0
-  m_Name: 1 - Foreground_scenery (1)
+  m_Name: 1-Leafs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2856,7 +3122,7 @@ GameObject:
   - component: {fileID: 956902505896665321}
   - component: {fileID: 956902505896665323}
   m_Layer: 0
-  m_Name: 2 - Hills (1)
+  m_Name: 2 - Trees (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2916,7 +3182,7 @@ SpriteRenderer:
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 19983a7c1b6604cfbbce1eb952f46bd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f94a33546231c4afaa0abaa264065fce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2966,7 +3232,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 145fc7e08082c45d69b73732f6322286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2989,7 +3255,7 @@ GameObject:
   - component: {fileID: 956902506203417655}
   - component: {fileID: 956902506203417649}
   m_Layer: 0
-  m_Name: 5 - Sky_color (8)
+  m_Name: 5 - Green BG (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3020,7 +3286,7 @@ GameObject:
   - component: {fileID: 956902506248766565}
   - component: {fileID: 956902506248766567}
   m_Layer: 0
-  m_Name: 4 - Cloud_cover_2 (3)
+  m_Name: 3.5 - Trees BG (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3103,7 +3369,7 @@ GameObject:
   - component: {fileID: 956902506270550813}
   - component: {fileID: 956902506270550815}
   m_Layer: 0
-  m_Name: 3 - Cloud_cover_1
+  m_Name: 3 - Leaf BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3168,7 +3434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956902506270550812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 956902505427653459}
@@ -3251,7 +3517,7 @@ SpriteRenderer:
   m_SortingLayerID: 619759891
   m_SortingLayer: -5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 19983a7c1b6604cfbbce1eb952f46bd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f94a33546231c4afaa0abaa264065fce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3273,7 +3539,7 @@ GameObject:
   - component: {fileID: 956902506290871840}
   - component: {fileID: 956902506290871842}
   m_Layer: 0
-  m_Name: 2 - Hills (2)
+  m_Name: 2 - Trees (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3374,7 +3640,7 @@ GameObject:
   - component: {fileID: 956902506470333168}
   - component: {fileID: 956902506470333170}
   m_Layer: 0
-  m_Name: 1 - Foreground_scenery
+  m_Name: 1-Leafs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
