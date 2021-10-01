@@ -19,6 +19,11 @@ public class LevelCompleteEvents : MonoBehaviour
 
     }
 
+    public void TestEvent(){
+        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventJoinGroup, FirebaseAnalytics.ParameterGroupId,
+        "Test");
+    }
+
     public void GLevel1(){
         FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart);
         Debug.Log("GLevel1");
