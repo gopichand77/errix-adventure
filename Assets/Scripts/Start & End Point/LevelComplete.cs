@@ -8,7 +8,14 @@ public class LevelComplete : MonoBehaviour
     public ParticleSystem confetti;
     public GameObject transitionPanel;
     public GameObject controlPanel;
+    SingleLevel levelDone;
+    private int currentStarsNum = 0;
+    public int levelIndex;
     // Start is called before the first frame update
+    private void Start()
+    {
+        levelDone =  FindObjectOfType<SingleLevel>();
+    }
     private void OnTriggerEnter2D(Collider2D trig)
     {
         if(trig.gameObject.CompareTag("Player"))
@@ -17,6 +24,7 @@ public class LevelComplete : MonoBehaviour
             // confetti.Play();
             StartCoroutine(ConfettiPlay());
             StartCoroutine(Level());
+            PressStarsButton();
         }
     }
     
@@ -33,4 +41,21 @@ public class LevelComplete : MonoBehaviour
         yield return new WaitForSeconds(4);
         confetti.Stop();
     }
+    public void PressStarsButton()
+    {
+        currentStarsNum = levelDone.currentStarsNum;
+
+        if(currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
+        {
+            PlayerPrefs.SetInt("Lv" + levelIndex, levelDone.currentStarsNum);
+        }
+
+        //BackButton();
+        //MARKER Each level has saved their own stars number
+        //CORE PLayerPrefs.getInt("KEY", "VALUE"); We can use the KEY to find Our VALUE
+        Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, levelDone.currentStarsNum));
+
+     
+    }
+
 }

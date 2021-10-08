@@ -9,9 +9,11 @@ public class Chest : MonoBehaviour
     public Transform CoinPoint;
     public Transform PrefferedObject;
     private bool Opened = true;
+    SingleLevel levelDone;
     // Start is called before the first frame update
     void Start()
     {
+        levelDone =  FindObjectOfType<SingleLevel>();
 
     }
 
@@ -25,6 +27,7 @@ public class Chest : MonoBehaviour
     {
         if (player.Collectables.Keys > 0 && Opened)
         {
+            levelDone.currentStarsNum +=1 ;
             player.Collectables.Keys -= 1;
             anim.SetBool("Open", true);
             player.Collectables.ChestOpen();

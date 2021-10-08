@@ -397,7 +397,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cbb6203c59f61794998af7b2081dbbad, type: 3}
 --- !u!4 &128782836 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6618545031423121687, guid: cbb6203c59f61794998af7b2081dbbad, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 128782835}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &177752001
@@ -531,6 +531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 388111413}
     m_Modifications:
+    - target: {fileID: 1868157795038694497, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
+      propertyPath: levelIndex
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1868157795038694497, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
       propertyPath: controlPanel
       value: 
@@ -733,6 +737,8 @@ MonoBehaviour:
   leftLimit: 1.04
   topLimit: 0
   bottomLimit: 0
+  Diagnol: 0
+  movingSide: 0
 --- !u!19719996 &292087898
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1268,7 +1274,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cbb6203c59f61794998af7b2081dbbad, type: 3}
 --- !u!4 &350116313 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6618545031423121687, guid: cbb6203c59f61794998af7b2081dbbad, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 350116312}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &366893670
@@ -2133,6 +2139,8 @@ MonoBehaviour:
   leftLimit: 6.8
   topLimit: 0
   bottomLimit: 0
+  Diagnol: 0
+  movingSide: 0
 --- !u!1001 &506837194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2482,6 +2490,8 @@ MonoBehaviour:
   leftLimit: -1.51
   topLimit: 0
   bottomLimit: 0
+  Diagnol: 0
+  movingSide: 0
 --- !u!1001 &540036195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3141,7 +3151,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 727edbe241df9ac4b8c9df7e38321510, type: 3}
 --- !u!4 &627771399 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3403465032765644665, guid: 727edbe241df9ac4b8c9df7e38321510, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 627771398}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &680239830
@@ -3564,6 +3574,8 @@ MonoBehaviour:
   leftLimit: 5
   topLimit: 0
   bottomLimit: 0
+  Diagnol: 0
+  movingSide: 0
 --- !u!1001 &751131961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3694,10 +3706,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 627771399}
-  - {fileID: 350116313}
-  - {fileID: 1863785579}
   - {fileID: 128782836}
+  - {fileID: 350116313}
+  - {fileID: 627771399}
+  - {fileID: 1863785579}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45327,7 +45339,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 727edbe241df9ac4b8c9df7e38321510, type: 3}
 --- !u!4 &1863785579 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3403465032765644665, guid: 727edbe241df9ac4b8c9df7e38321510, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1863785578}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1892795631
