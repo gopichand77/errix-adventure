@@ -45,9 +45,9 @@ public class SpawnMonsters : MonoBehaviour
             spawnPos = new Vector2(randX, transform.position.y);
             Instantiate(mosters[randomMonster], spawnPos, Quaternion.identity);
             if(spwanPoint)
-            {
-                if (Time.time > nextSpawn)
         {
+                if (Time.time > nextSpawn)
+            {
             nextSpawn = Time.time + spawnRate;
             // randX = Random.Range(-12f, 12f);
             randomSpawn = Random.Range(0, spawnPoints.Length);

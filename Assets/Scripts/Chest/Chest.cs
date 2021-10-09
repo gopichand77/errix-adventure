@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    public Animator anim;
-    public Player player;
-    public Transform CoinPoint;
-    public Transform PrefferedObject;
+    private Animator anim;
+    private Player player;
+    public GameObject[] PrefferedObject;
+    // public Transform PrefferedObject;
     private bool Opened = true;
     SingleLevel levelDone;
+    int randomObject;
     // Start is called before the first frame update
     void Start()
     {
+        
+        player = GameObject.FindObjectOfType<Player>();
+        anim = GetComponent<Animator>();
         levelDone =  FindObjectOfType<SingleLevel>();
 
     }
@@ -31,7 +35,8 @@ public class Chest : MonoBehaviour
             player.Collectables.Keys -= 1;
             anim.SetBool("Open", true);
             player.Collectables.ChestOpen();
-            Instantiate(PrefferedObject, CoinPoint.position, CoinPoint.rotation);
+            randomObject = Random.Range(0, PrefferedObject.Length);
+            Instantiate(PrefferedObject[randomObject], transform.position, Quaternion.identity);
 
             Opened = false;
             StartCoroutine(CollectTreasure());

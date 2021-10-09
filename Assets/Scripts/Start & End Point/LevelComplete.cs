@@ -4,17 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelComplete : MonoBehaviour
 {
-    public Animator animator;
-    public ParticleSystem confetti;
+    private Animator animator;
+    private ParticleSystem confetti;
     public GameObject transitionPanel;
-    public GameObject controlPanel;
+    private GameObject controlPanel;
     SingleLevel levelDone;
     private int currentStarsNum = 0;
     public int levelIndex;
     // Start is called before the first frame update
     private void Start()
     {
+        confetti =  transform.GetChild(0).GetComponentInChildren<ParticleSystem>();
+        controlPanel =  GameObject.Find("Controls Panel");
+        // transitionPanel = GameObject.Find("Grasslands Next Level Panel");
         levelDone =  FindObjectOfType<SingleLevel>();
+    }
+    private void Update()
+    {
+        // transitionPanel = GameObject.Find("Grasslands Next Level Panel");
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
