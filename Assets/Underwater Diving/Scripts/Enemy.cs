@@ -54,9 +54,9 @@ public class Enemy : MonoBehaviour {
 
 	void turnAround(){
 		if (transform.localScale.x == 1) {
-			transform.localScale = new Vector3 (-4f, 4f, 4f);
+			transform.localScale = new Vector3 (-1f, 1f, 1f);
 		} else {
-			transform.localScale = new Vector3 (4f,4f,4f);
+			transform.localScale = new Vector3 (1f,1f,1f);
 		}
 	}
 }

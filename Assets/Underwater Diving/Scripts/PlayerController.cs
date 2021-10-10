@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour{
 
 
 		myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.velocity.x));
+		myAnim.SetFloat ("Vertical", Mathf.Abs(myRigidBody.velocity.y));
 
 	 
 		
@@ -81,6 +82,24 @@ public class PlayerController : MonoBehaviour{
 		}
 
 	}
+	private void OnTriggerEnter2D(Collider2D trig)
+	{
+		if(trig.gameObject.CompareTag("Collider"))
+		{
+			myAnim.SetBool("idle",true);
+		}
+		
+		
+	}
+	private void OnTriggerExit2D(Collider2D trig)
+	{
+		if(trig.gameObject.CompareTag("Collider"))
+		{
+			myAnim.SetBool("idle",false);
+		}
+		
+	}
+
 
 
 }
