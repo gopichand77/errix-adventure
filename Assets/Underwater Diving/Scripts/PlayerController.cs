@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour{
 	float timeLeft = 2f;
 
 	private Rigidbody2D myRigidBody;
-
+	
 	private Animator myAnim;
 
 	public GameObject bubbles;
@@ -48,6 +48,33 @@ public class PlayerController : MonoBehaviour{
 			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
 		} else if (Input.GetAxis ("Vertical") < 0f) {
 			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
+		}
+		if(Input.GetAxisRaw ("Horizontal") > 0f && Input.GetAxisRaw ("Vertical") > 0f)
+		{
+			transform.localScale = new Vector3(1f,1f,1f);
+			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
+			movePlayer ();
+		}
+		if(Input.GetAxisRaw ("Horizontal") > 0f && Input.GetAxis ("Vertical") < 0f)
+		{
+			transform.localScale = new Vector3(1f,1f,1f);
+			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
+			movePlayer ();
+
+		}
+		if(Input.GetAxisRaw ("Horizontal") < 0f && Input.GetAxisRaw ("Vertical") > 0f)
+		{
+			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
+			transform.localScale = new Vector3(-1f,1f,1f);
+			movePlayer ();
+
+		}
+		if(Input.GetAxisRaw ("Horizontal") < 0f && Input.GetAxis ("Vertical") < 0f)
+		{
+			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
+			transform.localScale = new Vector3(-1f,1f,1f);
+			movePlayer ();
+
 		}
 
 		if(Input.GetButtonDown("Jump") && !rushing ){

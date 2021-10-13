@@ -14,10 +14,10 @@ public class CameraShake : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            ShakeIt();
-        }
+        // if(Input.GetKeyDown(KeyCode.J))
+        // {
+        //     ShakeIt();
+        // }
     }
     public void ShakeIt()
     {
