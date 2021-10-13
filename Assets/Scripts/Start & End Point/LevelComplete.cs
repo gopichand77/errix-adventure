@@ -23,6 +23,7 @@ public class LevelComplete : MonoBehaviour
         
         // transitionPanel = Resources.Load("Assets/Prefabs/Player/Ul Elements/Grasslands/Grasslands Next Level Panel", typeof(GameObject)) as GameObject;
         levelDone =  FindObjectOfType<SingleLevel>();
+        animator =  gameObject.GetComponent<Animator>();
     }
     private void Update()
     {
