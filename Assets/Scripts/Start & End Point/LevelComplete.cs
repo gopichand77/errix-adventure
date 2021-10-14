@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelComplete : MonoBehaviour
 {
-    
-    public Animator animator;
-    public ParticleSystem confetti;
+    private Animator animator;
+    private ParticleSystem confetti;
     public GameObject transitionPanel;
-    public GameObject controlPanel;
+    private GameObject controlPanel;
     SingleLevel levelDone;
-    private GameObject canvas;
     private int currentStarsNum = 0;
     public int levelIndex;
     // Start is called before the first frame update
@@ -19,29 +17,29 @@ public class LevelComplete : MonoBehaviour
         animator =  gameObject.GetComponent<Animator>();
         confetti =  transform.GetChild(0).GetComponentInChildren<ParticleSystem>();
         controlPanel =  GameObject.Find("Controls Panel");
-        canvas =  GameObject.Find("Canvas");
+      
         
         // transitionPanel = Resources.Load("Assets/Prefabs/Player/Ul Elements/Grasslands/Grasslands Next Level Panel", typeof(GameObject)) as GameObject;
         levelDone =  FindObjectOfType<SingleLevel>();
     }
     private void Update()
     {
-        transitionPanel = Resources.Load("Grasslands Next Level Panel")as GameObject;
+        // transitionPanel = Resources.Load("Grasslands Next Level Panel")as GameObject;
        
         
         
         
-         if(Input.GetKeyDown(KeyCode.J))
-        {
-            GameObject pnel = Instantiate<GameObject>(transitionPanel,new Vector3 (12.59998f, 0, 0), Quaternion.identity);
-          var rect = pnel.GetComponent<RectTransform>();
-           rect.SetPadding(left: 12.59998f, top: 0, right: -12.59998f, bottom: 0);
-        //   GameObject panel = Instantiate<GameObject>(transitionPanel,rect, Quaternion.identity);
+        //  if(Input.GetKeyDown(KeyCode.J))
+        // {
+        //     GameObject pnel = Instantiate<GameObject>(transitionPanel,new Vector3 (12.59998f, 0, 0), Quaternion.identity);
+        //   var rect = pnel.GetComponent<RectTransform>();
+        //    rect.SetPadding(left: 12.59998f, top: 0, right: -12.59998f, bottom: 0);
+        // //   GameObject panel = Instantiate<GameObject>(transitionPanel,rect, Quaternion.identity);
 
-            pnel.transform.SetParent(controlPanel.transform.parent);
+        //     pnel.transform.SetParent(controlPanel.transform.parent);
             
-           pnel.gameObject.SetActive(true);
-        }
+        //    pnel.gameObject.SetActive(true);
+        // }
         // transitionPanel = GameObject.Find("Grasslands Next Level Panel");
     }
     private void OnTriggerEnter2D(Collider2D trig)

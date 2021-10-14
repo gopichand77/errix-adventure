@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour{
 
-	public float moveSpeed;
+	public float horizontalSpeed;
+	public float VerticalSpeed;
+	public bool onLand;
 	public bool rushing = false;
 	private float speedMod = 0;
 
+    internal float dirX;
+    internal float dirY;
 	float timeLeft = 2f;
 
 	private Rigidbody2D myRigidBody;
@@ -23,15 +27,43 @@ public class PlayerController : MonoBehaviour{
 	}
 	
 	// Update is called once per frame
-	void Update (){
+	void FixedUpdate (){
+	#if UNITY_EDITOR
+    dirX = Input.GetAxis("Horizontal") * horizontalSpeed;
+    dirY = Input.GetAxis("Vertical") * VerticalSpeed;
+	#endif
+	myRigidBody.velocity = new Vector2(dirX, myRigidBody.velocity.y);
+	myRigidBody.velocity = new Vector2(myRigidBody.velocity.x,dirY);
+	if (Input.GetAxisRaw ("Horizontal") > 0f) {
+			transform.localScale = new Vector3(1f,1f,1f);
+			
+		} else if (Input.GetAxisRaw ("Horizontal") < 0f) {			
+			transform.localScale = new Vector3(-1f,1f,1f);
+			
+		}
+    
 
 		resetBoostTime ();
-		controllerManager ();
+		// controllerManager ();
 
 
 
-		myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.velocity.x));
+		if(!onLand)
+		{
+			myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.velocity.x));
 		myAnim.SetFloat ("Vertical", Mathf.Abs(myRigidBody.velocity.y));
+		myAnim.SetBool("isRunning", false);
+		}
+		else if(onLand)
+		{
+			myAnim.SetBool("isRunning", true);
+			myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.velocity.x));
+
+		}
+		else
+		{
+			
+		}
 
 	 
 		
@@ -45,37 +77,37 @@ public class PlayerController : MonoBehaviour{
 			transform.localScale = new Vector3(-1f,1f,1f);
 			movePlayer ();
 		} else if (Input.GetAxisRaw ("Vertical") > 0f) {
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
+			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, horizontalSpeed, 0f);
 		} else if (Input.GetAxis ("Vertical") < 0f) {
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
+			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -horizontalSpeed, 0f);
 		}
-		if(Input.GetAxisRaw ("Horizontal") > 0f && Input.GetAxisRaw ("Vertical") > 0f)
-		{
-			transform.localScale = new Vector3(1f,1f,1f);
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
-			movePlayer ();
-		}
-		if(Input.GetAxisRaw ("Horizontal") > 0f && Input.GetAxis ("Vertical") < 0f)
-		{
-			transform.localScale = new Vector3(1f,1f,1f);
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
-			movePlayer ();
+		// if(Input.GetAxisRaw ("Horizontal") > 0f && Input.GetAxisRaw ("Vertical") > 0f)
+		// {
+		// 	transform.localScale = new Vector3(1f,1f,1f);
+		// 	myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, horizontalSpeed, 0f);
+		// 	movePlayer ();
+		// }
+		// if(Input.GetAxisRaw ("Horizontal") > 0f && Input.GetAxis ("Vertical") < 0f)
+		// {
+		// 	transform.localScale = new Vector3(1f,1f,1f);
+		// 	myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -horizontalSpeed, 0f);
+		// 	movePlayer ();
 
-		}
-		if(Input.GetAxisRaw ("Horizontal") < 0f && Input.GetAxisRaw ("Vertical") > 0f)
-		{
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
-			transform.localScale = new Vector3(-1f,1f,1f);
-			movePlayer ();
+		// }
+		// if(Input.GetAxisRaw ("Horizontal") < 0f && Input.GetAxisRaw ("Vertical") > 0f)
+		// {
+		// 	myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, horizontalSpeed, 0f);
+		// 	transform.localScale = new Vector3(-1f,1f,1f);
+		// 	movePlayer ();
 
-		}
-		if(Input.GetAxisRaw ("Horizontal") < 0f && Input.GetAxis ("Vertical") < 0f)
-		{
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
-			transform.localScale = new Vector3(-1f,1f,1f);
-			movePlayer ();
+		// }
+		// if(Input.GetAxisRaw ("Horizontal") < 0f && Input.GetAxis ("Vertical") < 0f)
+		// {
+		// 	myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -horizontalSpeed, 0f);
+		// 	transform.localScale = new Vector3(-1f,1f,1f);
+		// 	movePlayer ();
 
-		}
+		// }
 
 		if(Input.GetButtonDown("Jump") && !rushing ){
 			rushing = true;
@@ -87,9 +119,9 @@ public class PlayerController : MonoBehaviour{
 
 	void movePlayer(){
 		if (transform.localScale.x == 1) {
-			myRigidBody.velocity = new Vector3 (moveSpeed + speedMod, myRigidBody.velocity.y, 0f);	
+			myRigidBody.velocity = new Vector3 (horizontalSpeed + speedMod, myRigidBody.velocity.y, 0f);	
 		} else {
-			myRigidBody.velocity = new Vector3 (- (moveSpeed + speedMod), myRigidBody.velocity.y, 0f);
+			myRigidBody.velocity = new Vector3 (- (horizontalSpeed + speedMod), myRigidBody.velocity.y, 0f);
 		}	
 	}
 
@@ -113,6 +145,7 @@ public class PlayerController : MonoBehaviour{
 	{
 		if(trig.gameObject.CompareTag("Collider"))
 		{
+			onLand = true;
 			myAnim.SetBool("idle",true);
 		}
 		
@@ -122,6 +155,7 @@ public class PlayerController : MonoBehaviour{
 	{
 		if(trig.gameObject.CompareTag("Collider"))
 		{
+			onLand = false;
 			myAnim.SetBool("idle",false);
 		}
 		
@@ -130,3 +164,4 @@ public class PlayerController : MonoBehaviour{
 
 
 }
+
