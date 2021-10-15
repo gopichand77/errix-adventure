@@ -7,8 +7,6 @@ public class PlayerCollections : MonoBehaviour
 
     //=========================================================================================//
 
-    [SerializeField]
-    Player playerScript;
     
     public int Bullets;//We Can keep these as internal to hide from Unity 
     public int goldCoins;// To hide Change public to internal From Unity
@@ -17,11 +15,11 @@ public class PlayerCollections : MonoBehaviour
     public int openChests;
     [Header("UI Elements")]
     [SerializeField]
-    public Text goldCoinScoreText;
-    public Text gemsScoreText;
-    public Text keysText;
-    public Text treasureOpenedText;
-    public Text noOfBulletsText;
+    private Text goldCoinScoreText;
+    private Text gemsScoreText;
+    private Text keysText;
+    private Text treasureOpenedText;
+    private Text noOfBulletsText;
     // [Header("Game Over Panel Text ")]
     // private Text PanelgoldCoinScoreText;
     // private Text PanelgemsScoreText;
@@ -32,6 +30,11 @@ public class PlayerCollections : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        goldCoinScoreText = GameObject.Find("Gold Coin Score/Gold Coin Score").GetComponent<Text>();
+        gemsScoreText = GameObject.Find("Gems Score/Gems Score").GetComponent<Text>();
+        keysText = GameObject.Find("Keys Score/Keys Score").GetComponent<Text>();
+        treasureOpenedText  = GameObject.Find("Treasure Score/Treasure Score").GetComponent<Text>();
+        noOfBulletsText   = GameObject.Find("Axes Score/Axes Score").GetComponent<Text>();
         goldCoinScoreText.text = ""; //goldcoins
         gemsScoreText.text = ""; //gems
         keysText.text = ""; //keys

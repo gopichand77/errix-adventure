@@ -12,12 +12,16 @@ public class PlayerTrigger : MonoBehaviour
     [Header("Attack Button")]
     public Button AttackButton;
     [Header("Treasure Keys Buttons")]
-    public Button TreasureKey1;
-    public Button TreasureKey2;
-    public Button TreasureKey3;
+    private Button TreasureKey1;
+    private Button TreasureKey2;
+    private Button TreasureKey3;
     // Start is called before the first frame update
     void Start()
     {
+        TreasureKey1 = GameObject.FindGameObjectWithTag("Treasure").GetComponent<Button>();
+        TreasureKey2 = GameObject.FindGameObjectWithTag("Treasure2").GetComponent<Button>();
+        TreasureKey3 = GameObject.FindGameObjectWithTag("Treasure3").GetComponent<Button>();
+
         TreasureKey1.gameObject.SetActive(false);
         TreasureKey2.gameObject.SetActive(false);
         TreasureKey3.gameObject.SetActive(false);

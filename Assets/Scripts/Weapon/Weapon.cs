@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
    public Transform firepoint;
    public Transform Axeprefab;
    public Animator anim;
-
+   public Button attack;
+    
     // Update is called once per frame
+    private void Start()
+    {
+        attack = GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
+        attack.onClick.AddListener(Shoot);
+        // firepoint =  GetComponentInChildren<>
+        anim = GetComponent<Animator>(); 
+    }
     private void Update()
     {
+        attack.onClick.AddListener(Shoot);
         if(Input.GetKeyDown(KeyCode.K))
         {
             Fire();
@@ -25,8 +34,8 @@ public class Weapon : MonoBehaviour
 
         Shoot();
         
-        Player player = gameObject.GetComponent<Player>();
-        player.Collectables.BulletHandler();
+        PlayerCollections player = gameObject.GetComponent<PlayerCollections>();
+        player.BulletHandler();
         
     }
         

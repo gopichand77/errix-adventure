@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 
-public class PlayerMovement : MonoBehaviour
+public class DiegoMovement : MonoBehaviour
 {
     
-    internal Rigidbody2D rb;
+     internal Rigidbody2D rb;
     internal Animator anim;
     internal float dirX;
     internal bool dirY;
@@ -87,8 +87,14 @@ public class PlayerMovement : MonoBehaviour
             jumpForce = jumpForce * 2.5f;
         }
     }
-        
-
+     if(Input.GetKeyDown(KeyCode.C))
+        {
+            anim.SetBool("Shooting", true);
+        }
+        else if(Input.GetKeyDown(KeyCode.V))
+        {
+            anim.SetBool("Shooting",false);
+        }
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
         {
@@ -175,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dust.Play();
     }
+
 
 }
 
