@@ -142,8 +142,8 @@ public class AdMObScript : MonoBehaviour
  
     public void RequestInterstitial()
     {
-        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-        // string adUnitId = "ca-app-pub-9793616844322643/1584681548";
+        // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        string adUnitId = "ca-app-pub-9793616844322643/1584681548";
         // Initialize an InterstitialAd.
         interstitial = new InterstitialAd(adUnitId);
         // Create an empty ad request.

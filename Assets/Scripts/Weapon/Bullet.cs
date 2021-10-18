@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
         anim.SetBool("Throw", true);
     }
@@ -22,14 +23,6 @@ public class Bullet : MonoBehaviour
     {
         Monster enemy = hitInfo.GetComponent<Monster>();
 
-        // if (enemy != null)
-        // {
-        //     // enemy.TakeDamage(5);
-        //     rb.velocity = transform.right * 0;
-        //     anim.SetBool("isDestroy", true);
-        //     StartCoroutine(Death());
-        //     enemy.gameObject.SetActive(false);
-        // }
         if(hitInfo.gameObject.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
@@ -50,16 +43,6 @@ public class Bullet : MonoBehaviour
         }
        
 
-        //earthworm die
-        // if (hitInfo.gameObject.CompareTag("Earthworm"))
-        // {
-        //     rb.velocity = transform.right * 0;
-        //     anim.SetBool("isDestroy", true);
-        //     StartCoroutine(Death());
-        //     Destroy(hitInfo.gameObject);
-        // }
-
-
     }
 
     IEnumerator Death()
@@ -67,17 +50,7 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
     }
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     Monster enemy = collision.gameObject.GetComponent<Monster>();
-
-
-    //     if(collision.contacts[0].normal.y < -0.5 && collision.contacts[0].normal.x < -0.5)
-    //     {
-    //         Destroy(gameObject);
-
-    //     }
-    // }
+    
 
 
 }
