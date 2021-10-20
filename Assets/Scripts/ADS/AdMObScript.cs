@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
+
 // public class AdMObScript : MonoBehaviour
 // {
 //     InterstitialAd interstitial;
@@ -102,26 +102,28 @@ using GoogleMobileAds.Common;
  
 public class AdMObScript : MonoBehaviour
 {
- 
-   
+
+
     //THE SCRIPT HAS ORIGNAL ID'S OF ADMOB
     InterstitialAd interstitial;
+    RewardedAd rewarded;
     BannerView bannerView;
     // Use this for initialization
     void Start()
     {
-        MobileAds.Initialize(initStatus => {});
- 
+        MobileAds.Initialize(initStatus => { });
+
         RequestBanner();
         RequestInterstitial();
     }
- 
- 
+
+
+
     public void RequestBanner()
     {
-   // replace this id with your orignal admob id for banner ad
+        // replace this id with your orignal admob id for banner ad
         string adUnitId = "ca-app-pub-3940256099942544/6300978111";
- 
+
         // Create a 320x50 banner at the top of the screen.
         bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
         // Create an empty ad request.
@@ -129,31 +131,57 @@ public class AdMObScript : MonoBehaviour
         // Load the banner with the request.
         bannerView.LoadAd(request);
         bannerView.OnAdLoaded += HandleOnAdLoaded;
- 
+
     }
- 
+
     void HandleOnAdLoaded(object a, EventArgs args)
     {
         print("loaded");
         bannerView.Show();
-        interstitial.Show();
+        // interstitial.Show();
     }
+    
+
+public void RequestRewaded()
+    {
+        // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        #if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-9793616844322643/4149318449"; // main
+    #elif UNITY_IOS
+        string adUnitId = "ca-app-pub-9793616844322643/9909383375";
+    #endif
+        
+        // string adUnitId = "	ca-app-pub-3940256099942544/5224354917";
+        // Initialize an InterstitialAd.
+        rewarded = new RewardedAd(adUnitId);
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the interstitial with the request.
+        rewarded.LoadAd(request);
+        // AdRequest request = new AdRequest.Builder()
+          
  
  
+    }
     public void RequestInterstitial()
     {
         // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-        string adUnitId = "ca-app-pub-9793616844322643/1584681548";
+        // string adUnitId = "ca-app-pub-9793616844322643/1584681548";
+#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-9793616844322643/1584681548"; // main
+#elif UNITY_IOS
+        string adUnitId = "ca-app-pub-9793616844322643/3448279163";
+#endif
         // Initialize an InterstitialAd.
         interstitial = new InterstitialAd(adUnitId);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         interstitial.LoadAd(request);
- 
- 
+
+
     }
- 
+
     public void show()
     {
         RequestInterstitial();
@@ -162,6 +190,16 @@ public class AdMObScript : MonoBehaviour
             interstitial.Show();
         }
     }
- 
- 
+
+
+
+    public void showRewarded()
+    {
+        RequestRewaded();
+        if (rewarded.IsLoaded())
+        {
+            rewarded.Show();
+        }
+    }
 }
+ 
