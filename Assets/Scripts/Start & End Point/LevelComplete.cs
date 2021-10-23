@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Firebase;
+using Firebase.Analytics;
 public class LevelComplete : MonoBehaviour
 {
     private Animator animator;
@@ -10,6 +12,7 @@ public class LevelComplete : MonoBehaviour
     private GameObject controlPanel;
     SingleLevel levelDone;
     private int currentStarsNum = 0;
+    public Scene scene;
     public int levelIndex;
     // Start is called before the first frame update
     private void Start()
@@ -25,6 +28,8 @@ public class LevelComplete : MonoBehaviour
     }
     private void Update()
     {
+        scene =  SceneManager.GetActiveScene();
+        
         // transitionPanel = Resources.Load("Grasslands Next Level Panel")as GameObject;
        
         
@@ -47,11 +52,15 @@ public class LevelComplete : MonoBehaviour
     {
         if(trig.gameObject.CompareTag("Player"))
         {
+            FirebaseAnalytics.LogEvent(scene.name);
+            
             animator.SetBool("Done",true);
             // confetti.Play();
             StartCoroutine(ConfettiPlay());
             StartCoroutine(Level());
             PressStarsButton();
+            
+            
         }
     }
     IEnumerator Level()
