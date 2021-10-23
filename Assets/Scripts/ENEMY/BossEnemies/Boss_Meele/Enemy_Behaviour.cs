@@ -23,6 +23,7 @@ public class Enemy_Behaviour : MonoBehaviour
     #endregion
 
     #region Private Variables
+   
     private Animator anim;
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
@@ -88,6 +89,8 @@ public class Enemy_Behaviour : MonoBehaviour
         }
         else if (attackDistance >= distance && cooling == false)
         {
+            
+              
             Attack();
 
         }
@@ -96,13 +99,9 @@ public class Enemy_Behaviour : MonoBehaviour
         {
             Cooldown();
             anim.SetBool("Attack", false);
+            
         }
-
-
-
-
-
-    }
+}
 
     void Move()
     {
@@ -119,14 +118,17 @@ public class Enemy_Behaviour : MonoBehaviour
 
     void Attack()
     {
+        // randX = Random.Range(1,3);
+       
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
 
 
         anim.SetBool("canWalk", false);
         anim.SetBool("Attack", true);
+        // anim.SetInteger("Number",2);
     }
-
+    
     void Cooldown()
     {
         timer -= Time.deltaTime;

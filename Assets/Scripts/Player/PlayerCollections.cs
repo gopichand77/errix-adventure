@@ -15,11 +15,11 @@ public class PlayerCollections : MonoBehaviour
     public int openChests;
     [Header("UI Elements")]
     [SerializeField]
-    private Text goldCoinScoreText;
-    private Text gemsScoreText;
-    private Text keysText;
-    private Text treasureOpenedText;
-    private Text noOfBulletsText;
+    public Text goldCoinScoreText;
+    public Text gemsScoreText;
+    public Text keysText;
+    public Text treasureOpenedText;
+    public Text noOfBulletsText;
     // [Header("Game Over Panel Text ")]
     // private Text PanelgoldCoinScoreText;
     // private Text PanelgemsScoreText;
@@ -32,7 +32,7 @@ public class PlayerCollections : MonoBehaviour
     {
         goldCoinScoreText = GameObject.Find("Gold Coin Score/Gold Coin Score").GetComponent<Text>();
         gemsScoreText = GameObject.Find("Gems Score/Gems Score").GetComponent<Text>();
-        keysText = GameObject.Find("Keys Score/Keys Score").GetComponent<Text>();
+        // keysText = GameObject.Find("Keys Score/Keys Score").GetComponent<Text>();
         treasureOpenedText  = GameObject.Find("Treasure Score/Treasure Score").GetComponent<Text>();
         noOfBulletsText   = GameObject.Find("Axes Score/Axes Score").GetComponent<Text>();
         goldCoinScoreText.text = ""; //goldcoins
@@ -52,7 +52,7 @@ public class PlayerCollections : MonoBehaviour
     {
         goldCoinScoreText.text = "" + goldCoins;//working
         gemsScoreText.text = "" + gems;//not working
-        keysText.text = "" + Keys;//working
+        // keysText.text = "" + Keys;//working
         noOfBulletsText.text = "" + Bullets;// working
         treasureOpenedText.text = "" + openChests;
         // PaneltreasureOpenedText.text = "" + openChests;
