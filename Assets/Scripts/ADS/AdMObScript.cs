@@ -100,7 +100,7 @@ using GoogleMobileAds.Api;
 // }
 
  
-public class AdMObScript : MonoBehaviour
+public class AdMobScript : MonoBehaviour
 {
 
 
