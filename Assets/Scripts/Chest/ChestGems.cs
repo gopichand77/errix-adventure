@@ -7,7 +7,7 @@ public class ChestGems : MonoBehaviour
     Player player;
     public Rigidbody2D rb;
     public Animator anim;
-    private bool ChestOpened = true;
+    // private bool ChestOpened;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class ChestGems : MonoBehaviour
         rb.velocity = transform.up *5 ;
         player.Collectables.NoOfgems();
         StartCoroutine(CoinOut());
-        ChestOpened = false;
+        // ChestOpened = false;
         
     }
 
