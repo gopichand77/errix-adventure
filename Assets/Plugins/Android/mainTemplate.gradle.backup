@@ -23,6 +23,7 @@
 }
 // Android Resolver Repos End
 apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 **APPLY_PLUGINS**
 
 dependencies {
@@ -45,6 +46,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:22.0.0' // Assets/Firebase/Editor/MessagingDependencies.xml:13
     implementation 'com.google.firebase:firebase-messaging-unity:8.1.0' // Assets/Firebase/Editor/MessagingDependencies.xml:20
     implementation 'com.google.games:gpgs-plugin-support:0.10.12' // Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml:11
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
 // Android Resolver Dependencies End
 **DEPS**}
 
@@ -54,6 +56,7 @@ android {
       exclude ('/lib/armeabi/*' + '*')
       exclude ('/lib/mips/*' + '*')
       exclude ('/lib/mips64/*' + '*')
+      exclude ('/lib/x86/*' + '*')
       exclude ('/lib/x86_64/*' + '*')
   }
 }
