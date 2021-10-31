@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_ANDROID
 using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
@@ -34,3 +35,4 @@ public class GPGS_SERVICES : MonoBehaviour
     }
 
 }
+#endif
