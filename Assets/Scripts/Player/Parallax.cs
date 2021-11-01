@@ -12,6 +12,7 @@ public class Parallax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraObject =  GameObject.Find("Main Camera");
         startPos = transform.position.x;
         yPos = transform.position.y;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
