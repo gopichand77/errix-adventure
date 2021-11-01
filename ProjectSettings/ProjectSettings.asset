@@ -243,7 +243,7 @@ PlayerSettings:
   useCustomLauncherGradleManifest: 1
   useCustomBaseGradleTemplate: 1
   useCustomGradlePropertiesTemplate: 1
-  useCustomProguardFile: 0
+  useCustomProguardFile: 1
   AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
@@ -279,48 +279,6 @@ PlayerSettings:
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
-    - m_Textures:
-      - {fileID: 2800000, guid: 9701abdf1598a4e338c50eacd14f7c67, type: 3}
-      - {fileID: 2800000, guid: 9701abdf1598a4e338c50eacd14f7c67, type: 3}
-      m_Width: 432
-      m_Height: 432
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: 16be2a1857124487b961a6f7905e299d, type: 3}
-      - {fileID: 2800000, guid: 16be2a1857124487b961a6f7905e299d, type: 3}
-      m_Width: 324
-      m_Height: 324
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: 5a79e0981548b4b318f6b05151508126, type: 3}
-      - {fileID: 2800000, guid: 5a79e0981548b4b318f6b05151508126, type: 3}
-      m_Width: 216
-      m_Height: 216
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
-      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
-      m_Width: 162
-      m_Height: 162
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
-      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
-      m_Width: 108
-      m_Height: 108
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: e0ef674e619094bdbbeb0a493beafd1b, type: 3}
-      - {fileID: 2800000, guid: e0ef674e619094bdbbeb0a493beafd1b, type: 3}
-      m_Width: 81
-      m_Height: 81
-      m_Kind: 2
-      m_SubKind: 
     - m_Textures:
       - {fileID: 2800000, guid: 2c98861478c374c1db56236686da9d34, type: 3}
       m_Width: 192
@@ -390,6 +348,48 @@ PlayerSettings:
       m_Width: 36
       m_Height: 36
       m_Kind: 0
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 9701abdf1598a4e338c50eacd14f7c67, type: 3}
+      - {fileID: 2800000, guid: 9701abdf1598a4e338c50eacd14f7c67, type: 3}
+      m_Width: 432
+      m_Height: 432
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 16be2a1857124487b961a6f7905e299d, type: 3}
+      - {fileID: 2800000, guid: 16be2a1857124487b961a6f7905e299d, type: 3}
+      m_Width: 324
+      m_Height: 324
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 5a79e0981548b4b318f6b05151508126, type: 3}
+      - {fileID: 2800000, guid: 5a79e0981548b4b318f6b05151508126, type: 3}
+      m_Width: 216
+      m_Height: 216
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
+      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
+      m_Width: 162
+      m_Height: 162
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
+      - {fileID: 2800000, guid: 16d3d5f8ea84741fe9cb8c6fb2bee86c, type: 3}
+      m_Width: 108
+      m_Height: 108
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: e0ef674e619094bdbbeb0a493beafd1b, type: 3}
+      - {fileID: 2800000, guid: e0ef674e619094bdbbeb0a493beafd1b, type: 3}
+      m_Width: 81
+      m_Height: 81
+      m_Kind: 2
       m_SubKind: 
   - m_BuildTarget: iPhone
     m_Icons:
@@ -807,7 +807,7 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
