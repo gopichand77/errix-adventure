@@ -34,7 +34,7 @@ public class GPGS_SERVICES : MonoBehaviour
         m_SignIn.onClick.AddListener(SignInGooglePlayGames);
         // m_LoadFriendsButton.onClick.AddListener(LoadFriends);
 
-        SignInGooglePlayGames();
+        // SignInGooglePlayGames();
     }
 
     private void LoadFriends()
@@ -98,12 +98,21 @@ public class GPGS_SERVICES : MonoBehaviour
         });
     }
 
-    private void SignoutGooglePlay()
+    public  void SignoutGooglePlay()
     {
+        
         PlayGamesPlatform.Instance.SignOut();
         // m_Message.text = "Sign Out";
         SignInGooglePlayGames();
     }
+    public void Achievement()
+    {
+        Social.ReportProgress("CgkInZKS2JwaEAIQAg", 100.0f, (bool success) => {
+      // handle success or failure
+    });
+    }
+    
+    
     
 
 
