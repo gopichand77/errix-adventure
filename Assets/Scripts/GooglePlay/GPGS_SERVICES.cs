@@ -1,3 +1,4 @@
+#if UNITY_ANDROID
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -150,3 +151,5 @@ public class GPGS_SERVICES : MonoBehaviour
 //         public const string achievement_google_signin = "CgkI-5f3-qEFEAIQAQ"; // <GPGSID>
 
 // }
+
+#endif
