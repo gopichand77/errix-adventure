@@ -7,16 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class LevelCompleteEvents : MonoBehaviour
 {
+    PlayerCollections collections;
 
     // Start is called before the first frame update
     void Start()
     {
+        collections = GameObject.FindObjectOfType<PlayerCollections>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    public void addmoney()
+    {
+        collections.NoofGoldCoins();
     }
 
     public void TestEvent(){
