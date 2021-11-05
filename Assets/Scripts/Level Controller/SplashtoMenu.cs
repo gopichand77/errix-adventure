@@ -18,7 +18,7 @@ public class SplashtoMenu : MonoBehaviour
         yield return new WaitForSeconds(4.8f);
         GoNextLevel();
     }
-    void GoNextLevel()
+    void GoNextLevel()  
     {
         SceneManager.LoadSceneAsync(menu);
     }

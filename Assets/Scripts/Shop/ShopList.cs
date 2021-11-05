@@ -5,6 +5,17 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+public static class ButtonExtension
+{
+	public static void AddEventListener<T> (this Button button, T param, Action<T> OnClick)
+	{
+		button.onClick.AddListener (delegate() {
+			OnClick (param);
+		});
+	}
+}
+
+
 public class ShopList : MonoBehaviour
 {
     [Serializable]
@@ -13,6 +24,7 @@ public class ShopList : MonoBehaviour
         public string Name;
         public string Description;
         public Sprite Img;
+        public Button button;
     }
 
     [SerializeField] ShopMenu[] shoplist;
@@ -28,9 +40,19 @@ public class ShopList : MonoBehaviour
             g.transform.GetChild(0).GetComponent<Image>().sprite = shoplist[i].Img;
             g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = shoplist[i].Name;
             g.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = shoplist[i].Description;
+            // g.transform.GetChild(3).GetComponent<Button>() = shoplist[i].button;
+            g.GetComponent <Button> ().AddEventListener (i, ItemClicked);
+            
 
         }
         Destroy(buttonTemplate);
+
+        void ItemClicked (int itemIndex)
+	{
+		Debug.Log ("------------item " + itemIndex + " clicked---------------");
+		Debug.Log ("name " + shoplist [itemIndex].Name);
+		Debug.Log ("desc " + shoplist [itemIndex].Description);
+	}
 
     }
 
