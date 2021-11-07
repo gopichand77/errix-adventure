@@ -6,9 +6,12 @@ using UnityEngine.Purchasing;
 public class IAPManager : MonoBehaviour, IStoreListener
 {
     public static IAPManager instance;
-
+    PlayerCollections collections;
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
+    private string removeAds = "addcoins";
+
+    private string Add = "co.errix.errixsadventure.70removeads ";
 
     //Step 1 create your products
 
@@ -21,6 +24,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
         //Step 2 choose if your product is a consumable or non consumable
+        builder.AddProduct(removeAds,ProductType.Consumable);
 
 
         UnityPurchasing.Initialize(this, builder);
@@ -31,6 +35,12 @@ public class IAPManager : MonoBehaviour, IStoreListener
     {
         return m_StoreController != null && m_StoreExtensionProvider != null;
     }
+    public void addmoney()
+    {
+        BuyProductID(removeAds);
+        //collections.NoofGoldCoins();
+    }
+
 
 
     //Step 3 Create methods
@@ -41,9 +51,9 @@ public class IAPManager : MonoBehaviour, IStoreListener
     //Step 4 modify purchasing
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
-        if (String.Equals(args.purchasedProduct.definition.id, "", StringComparison.Ordinal))
+        if (String.Equals(args.purchasedProduct.definition.id, removeAds , StringComparison.Ordinal))
         {
-            Debug.Log("");
+            Debug.Log("Player Add Coin");
         }
         else
         {
@@ -64,6 +74,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
     //**************************** Dont worry about these methods ***********************************
     private void Awake()
     {
+        collections = GameObject.FindObjectOfType<PlayerCollections>();
         TestSingleton();
     }
 
