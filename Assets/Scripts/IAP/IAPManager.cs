@@ -9,7 +9,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
     PlayerCollections collections;
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
-    private string removeAds = "addcoins";
+    private string removeAds = "test1";
 
     private string Add = "co.errix.errixsadventure.70removeads ";
 
