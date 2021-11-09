@@ -15,7 +15,7 @@ public class PrivacyPolicyCheck : MonoBehaviour
     void Start()
     {
         accepted = PlayerPrefs.GetInt(policykey, 0) == 1;
-        Debug.Log(accepted);
+        Debug.Log(PlayerPrefs.GetInt(policykey, 0) == 1);
 
         if (accepted)
         {
@@ -62,6 +62,6 @@ public class PrivacyPolicyCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(PlayerPrefs.GetInt(policykey, 0) == 1);
     }
 }

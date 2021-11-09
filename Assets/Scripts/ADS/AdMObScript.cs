@@ -103,7 +103,7 @@ using GoogleMobileAds.Api;
 public class AdMobScript : MonoBehaviour
 {
 
-
+    private string ads = "Ads";
     //THE SCRIPT HAS ORIGNAL ID'S OF ADMOB
     InterstitialAd interstitial;
     RewardedAd rewarded;
@@ -112,9 +112,12 @@ public class AdMobScript : MonoBehaviour
     void Start()
     {
         MobileAds.Initialize(initStatus => { });
-
+        if(PlayerPrefs.HasKey(ads) == false)
+        {
         RequestBanner();
+
         RequestInterstitial();
+        }
     }
 
 
@@ -181,13 +184,22 @@ public void RequestRewaded()
 
 
     }
+     public void BackPref()
+    {
+        PlayerPrefs.SetInt(ads, 1);
+        // Debug.Log(accepted);
+
+    }
 
     public void show()
     {
-        RequestInterstitial();
+        if(PlayerPrefs.HasKey(ads) == false)
+        {        
+            RequestInterstitial();
         if (interstitial.IsLoaded())
         {
             interstitial.Show();
+        }
         }
     }
 
