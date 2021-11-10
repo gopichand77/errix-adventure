@@ -30,12 +30,13 @@ public class PlayerCollections : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // coins = PlayerPrefs.GetInt("Coins");
         goldCoinScoreText = GameObject.Find("Gold Coin Score/Gold Coin Score").GetComponent<Text>();
         gemsScoreText = GameObject.Find("Gems Score/Gems Score").GetComponent<Text>();
         // keysText = GameObject.Find("Keys Score/Keys Score").GetComponent<Text>();
         treasureOpenedText  = GameObject.Find("Treasure Score/Treasure Score").GetComponent<Text>();
         noOfBulletsText   = GameObject.Find("Axes Score/Axes Score").GetComponent<Text>();
-        goldCoinScoreText.text = ""; //goldcoins
+        goldCoinScoreText.text = "" ; //goldcoins
         gemsScoreText.text = ""; //gems
         keysText.text = ""; //keys
         treasureOpenedText.text = "";//Treasures opened
@@ -50,6 +51,9 @@ public class PlayerCollections : MonoBehaviour
     
     void Update()
     {
+        // goldCoins = PlayerPrefs.GetInt("Coins");
+        // coins = PlayerPrefs.GetInt("Coins");
+        
         goldCoinScoreText.text = "" + goldCoins;//working
         gemsScoreText.text = "" + gems;//not working
         // keysText.text = "" + Keys;//working
@@ -62,10 +66,22 @@ public class PlayerCollections : MonoBehaviour
     }
     internal void NoofGoldCoins()
     {
-        goldCoins = goldCoins + 1;
+        goldCoins = goldCoins +1;
+        // coins += 1 ;
+        // PlayerPrefs.SetInt("Coins", coins);
+        
+        
+        // goldCoins = PlayerPrefs.GetInt("Coins");
+        // goldCoins += PlayerPrefs.GetInt("Coins");
+        // PlayerPrefsManager.UpdateCoins();
+        
+        // goldCoins = goldCoins + 1;
+        // goldCoins = PlayerPrefsManager.coins;
+
     }
     internal void NoOfAxes(int NoOfAxes1)
     {
+        
         Bullets += NoOfAxes1;
     }
     internal void NoofKeys(int NoofKeys1)

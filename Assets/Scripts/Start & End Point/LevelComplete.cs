@@ -6,6 +6,8 @@ using Firebase;
 using Firebase.Analytics;
 public class LevelComplete : MonoBehaviour
 {
+    PlayerCollections collections;
+    // PlayerPrefsManager prefsManager;
     private Animator animator;
     private ParticleSystem confetti;
     public GameObject transitionPanel;
@@ -13,10 +15,12 @@ public class LevelComplete : MonoBehaviour
     SingleLevel levelDone;
     private int currentStarsNum = 0;
     public Scene scene;
+    public bool Coinup = true; 
     public int levelIndex;
     // Start is called before the first frame update
     private void Start()
     {
+        collections = GameObject.FindObjectOfType<PlayerCollections>();
         animator =  gameObject.GetComponent<Animator>();
         confetti =  transform.GetChild(0).GetComponentInChildren<ParticleSystem>();
         controlPanel =  GameObject.Find("Controls Panel");
@@ -52,6 +56,13 @@ public class LevelComplete : MonoBehaviour
     {
         if(trig.gameObject.CompareTag("Player"))
         {
+            if(Coinup)
+            {
+                UpdatePref();
+                Coinup = false;
+            }
+            PlayerPrefsManager.UpdateCoins();
+            PlayerPrefs.Save();
             FirebaseAnalytics.LogEvent(scene.name);
             
             animator.SetBool("Done",true);
@@ -62,6 +73,11 @@ public class LevelComplete : MonoBehaviour
             
             
         }
+    }
+    void UpdatePref()
+    {
+        PlayerPrefsManager.coins = PlayerPrefsManager.coins + collections.goldCoins;
+        PlayerPrefsManager.gems = PlayerPrefsManager.gems + collections.gems;
     }
     IEnumerator Level()
     {

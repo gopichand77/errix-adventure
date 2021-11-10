@@ -12,15 +12,15 @@ public class PlayerTrigger : MonoBehaviour
     [Header("Attack Button")]
     public Button AttackButton;
     [Header("Treasure Keys Buttons")]
-    private Button TreasureKey1;
-    private Button TreasureKey2;
-    private Button TreasureKey3;
+    public Button TreasureKey1;
+    public Button TreasureKey2;
+    public Button TreasureKey3;
     // Start is called before the first frame update
     void Start()
     {
-        TreasureKey1 = GameObject.FindGameObjectWithTag("Treasure").GetComponent<Button>();
-        TreasureKey2 = GameObject.FindGameObjectWithTag("Treasure2").GetComponent<Button>();
-        TreasureKey3 = GameObject.FindGameObjectWithTag("Treasure3").GetComponent<Button>();
+        TreasureKey1 = GameObject.Find("Canvas/Controls Panel/Treasure Button 1").GetComponent<Button>();
+        TreasureKey2 = GameObject.Find("Canvas/Controls Panel/Treasure Button 2").GetComponent<Button>();
+        TreasureKey3 = GameObject.Find("Canvas/Controls Panel/Treasure Button 3").GetComponent<Button>();
 
         TreasureKey1.gameObject.SetActive(false);
         TreasureKey2.gameObject.SetActive(false);
@@ -31,7 +31,7 @@ public class PlayerTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
        private void OnTriggerEnter2D(Collider2D trig)
     {

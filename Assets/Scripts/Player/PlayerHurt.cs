@@ -41,6 +41,7 @@ public class PlayerHurt : MonoBehaviour
 
     private void Start()
     {
+        playerScript = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         theAnimator = GetComponent<Animator>();
         // playerCol = GetComponent<Collider2D>();
