@@ -10,6 +10,8 @@ using UnityEngine.SocialPlatforms;
 public class GPGS_SERVICES : MonoBehaviour
 {
     //   public Text m_Message;
+    public GameObject signinT;
+    public GameObject signOutT;
     public Button m_SignIn;
     // public Button m_LoadFriendsButton;
 
@@ -21,10 +23,13 @@ public class GPGS_SERVICES : MonoBehaviour
 
     private void Start()
     {
+        
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
     .RequestIdToken()
     .RequestServerAuthCode(false)
     .Build();
+    if(config == null)
+    {
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
@@ -36,6 +41,25 @@ public class GPGS_SERVICES : MonoBehaviour
         // m_LoadFriendsButton.onClick.AddListener(LoadFriends);
 
         // SignInGooglePlayGames();
+    }
+    }
+    public  void Update()
+    {
+       if(PlayGamesPlatform.Instance.IsAuthenticated())
+       {
+           signinT.SetActive(false);
+           signOutT.SetActive(true);
+           m_SignIn.onClick.AddListener(SignoutGooglePlay);
+
+
+       } 
+       else
+       {
+             signinT.SetActive(true);
+           signOutT.SetActive(false);
+            m_SignIn.onClick.AddListener(SignInGooglePlayGames);
+           
+       }
     }
 
     private void LoadFriends()
@@ -95,7 +119,7 @@ public class GPGS_SERVICES : MonoBehaviour
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptAlways, (result) =>
         {
             // m_Message.text = result.ToString();
-            m_SignIn.onClick.AddListener(SignoutGooglePlay);
+            // m_SignIn.onClick.AddListener(SignoutGooglePlay);
         });
     }
 
@@ -104,7 +128,7 @@ public class GPGS_SERVICES : MonoBehaviour
         
         PlayGamesPlatform.Instance.SignOut();
         // m_Message.text = "Sign Out";
-        SignInGooglePlayGames();
+        // SignInGooglePlayGames();
     }
     public void Achievement()
     {
