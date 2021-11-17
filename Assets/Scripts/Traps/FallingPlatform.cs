@@ -6,8 +6,8 @@ public class FallingPlatform : MonoBehaviour
 {
     Vector2 Position;
     SpriteRenderer rend;
-    public SpriteRenderer rendChild;
-    public BoxCollider2D box2;
+    // public SpriteRenderer rendChild;
+    // public BoxCollider2D box2;
     Quaternion thisRot;
     BoxCollider2D box;
    
@@ -32,15 +32,15 @@ public class FallingPlatform : MonoBehaviour
     }
     private void Update()
     {
-          if(rendChild == null)
-        {
-            Debug.Log("This Object is null");
-        }
-        else
-        {
-            Debug.Log("This Object there");
+        //   if(rendChild == null)
+        // {
+        //     Debug.Log("This Object is null");
+        // }
+        // else
+        // {
+        //     Debug.Log("This Object there");
             
-        }
+        // }
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class FallingPlatform : MonoBehaviour
         {
             
             rend.color = new Color(1f, 1f, 1f, 0f);
-            rendChild.color = new Color(1f, 1f, 1f, 0f);
+            // rendChild.color = new Color(1f, 1f, 1f, 0f);
         }
 
 
@@ -81,7 +81,7 @@ public class FallingPlatform : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Invoke("Respawan", 1.9f);
         box.enabled = false;
-        box2.enabled = false;
+        // box2.enabled = false;
     }
     
     void Respawan()
@@ -101,46 +101,46 @@ public class FallingPlatform : MonoBehaviour
         anim.Play("Yellow Rotating");
         yield return new WaitForSeconds(0.3f);
        rend.color = new Color(1f, 1f, 1f, 0.4f);
-       rendChild.color = new Color(1f, 1f, 1f, 0.4f);
+    //    rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
-         rendChild.color = new Color(1f, 1f, 1f, 1f);
+        //  rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
-        rendChild.color = new Color(1f, 1f, 1f, 0.4f);
+        // rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
-        rendChild.color = new Color(1f, 1f, 1f, 1f);
+        // rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
-        rendChild.color = new Color(1f, 1f, 1f, 0.4f);
+        // rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
-        rendChild.color = new Color(1f, 1f, 1f, 1f);
+        // rendChild.color = new Color(1f, 1f, 1f, 1f);
         box.enabled = true;
-        box2.enabled = true;
+        // box2.enabled = true;
         }
      IEnumerator Downcolor()
     {
         
         yield return new WaitForSeconds(0.3f);
        rend.color = new Color(1f, 1f, 1f, 0.4f);
-       rendChild.color = new Color(1f, 1f, 1f, 0.4f);
+    //    rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
-        rendChild.color = new Color(1f, 1f, 1f, 1f);
+        // rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
-         rendChild.color = new Color(1f, 1f, 1f, 0.4f);
+        //  rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
-        rendChild.color = new Color(1f, 1f, 1f, 1f);
+        // rendChild.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 0.4f);
-        rendChild.color = new Color(1f, 1f, 1f, 0.4f);
+        // rendChild.color = new Color(1f, 1f, 1f, 0.4f);
         yield return new WaitForSeconds(0.3f);
         rend.color = new Color(1f, 1f, 1f, 1f);
-        rendChild.color = new Color(1f, 1f, 1f, 1f);
+        // rendChild.color = new Color(1f, 1f, 1f, 1f);
         
 
     }
