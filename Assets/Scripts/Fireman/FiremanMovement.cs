@@ -18,12 +18,12 @@ public class FiremanMovement : MonoBehaviour
     public bool isGrounded;
     public float hangTime = 0.2f;
     public float hangCounter;
-    public  bool ctrlActive = true;
+    public bool ctrlActive = true;
     public bool canDoubleJump;
     public bool DoubleJump;
 
     // Start is called before the first frame update
-      private void Start()
+    private void Start()
     {
         dust = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
@@ -34,58 +34,58 @@ public class FiremanMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ctrlActive)
+        if (ctrlActive)
         {
-        Movement();
-       
+            Movement();
+
 
         }
-        
-        
+
+
     }
     void Movement()
     {
-    #if UNITY_EDITOR
-    dirX = Input.GetAxis("Horizontal") * moveSpeed;
-    dirY = Input.GetButtonDown("Jump");
+#if UNITY_EDITOR
+        dirX = Input.GetAxis("Horizontal") * moveSpeed;
+        dirY = Input.GetButtonDown("Jump");
 
-    #elif UNITY_ANDROID
+#elif UNITY_ANDROID
     dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
     dirY = CrossPlatformInputManager.GetButtonDown("Jump");
 
-    #elif UNITY_IOS
+#elif UNITY_IOS
     dirY = CrossPlatformInputManager.GetButtonDown("Jump");
     dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
 
-    #elif UNITY_EDITOR__WIN || UNITY_EDITOR_OSX || UNITY_STANDALONE || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
+#elif UNITY_EDITOR__WIN || UNITY_EDITOR_OSX || UNITY_STANDALONE || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
     dirX = Input.GetAxis("Horizontal") * moveSpeed;
     dirY = Input.GetButtonDown("Jump");
 
-    #endif
-    // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-    // dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+#endif
+        // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+        // dirY = CrossPlatformInputManager.GetButtonDown("Jump");
         if (dirY)
 
         {
 
-        if (isGrounded)
-        {
-            
+            if (isGrounded)
+            {
 
-            Jump();
 
-            canDoubleJump = true;
+                Jump();
+
+                canDoubleJump = true;
+            }
+            // else if (canDoubleJump&& DoubleJump)
+            // {
+
+            //     jumpForce = jumpForce / 2.5f;
+            //     Jump();
+            //     canDoubleJump = false;
+            //     jumpForce = jumpForce * 2.5f;
+            // }
         }
-        // else if (canDoubleJump&& DoubleJump)
-        // {
-            
-        //     jumpForce = jumpForce / 2.5f;
-        //     Jump();
-        //     canDoubleJump = false;
-        //     jumpForce = jumpForce * 2.5f;
-        // }
-    }
-        
+
 
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y > -0.1 && rb.velocity.y < 0.1)
@@ -106,7 +106,7 @@ public class FiremanMovement : MonoBehaviour
         {
             //these codes are for jumping and falling animation
             anim.SetBool("isJumping", false);
-            anim.SetBool("isFalling", false);
+            // anim.SetBool("isFalling", false);
         }
 
         if (rb.velocity.y > 2 && !isGrounded)
@@ -119,7 +119,7 @@ public class FiremanMovement : MonoBehaviour
         {
             //these codes are for jumping and falling animation
             anim.SetBool("isJumping", false);
-            anim.SetBool("isFalling", true);
+            // anim.SetBool("isFalling", true);
         }
         rb.velocity = new Vector2(dirX, rb.velocity.y);
     }

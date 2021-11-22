@@ -157,11 +157,7 @@ public class PlayerController : MonoBehaviour{
 		{
 			onLand = false;
 			myAnim.SetBool("idle",false);
-		}
-		
+		}	
 	}
-
-
-
 }
 

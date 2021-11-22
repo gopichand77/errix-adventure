@@ -4815,10 +4815,11 @@ GameObject:
   - component: {fileID: 5503159700633478551}
   - component: {fileID: 5503159700633478550}
   - component: {fileID: 5503159700633478504}
-  - component: {fileID: 5503159700633478505}
   - component: {fileID: 5503159700633478506}
   - component: {fileID: 5503159700633478507}
   - component: {fileID: 5503159700633478508}
+  - component: {fileID: 1920946293465964589}
+  - component: {fileID: 6222197725885346417}
   m_Layer: 6
   m_Name: Fireman
   m_TagString: Player
@@ -4911,29 +4912,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5503159700633478505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503159700633478549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c492e00b821d3814b9a6e1e7f781fde4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpForce: 7
-  groundlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  isGrounded: 1
-  hangTime: 0.2
-  hangCounter: 0
-  ctrlActive: 1
-  canDoubleJump: 0
-  DoubleJump: 0
 --- !u!50 &5503159700633478506
 Rigidbody2D:
   serializedVersion: 4
@@ -5007,3 +4985,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1612244, y: 1.7511601}
   m_EdgeRadius: 0
+--- !u!114 &1920946293465964589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503159700633478549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5f7c14ba2994b8982dc1518d0171c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 2
+  VerticalSpeed: 4
+  onLand: 0
+  rushing: 0
+  bubbles: {fileID: 1801604868145782, guid: e969aaa734be044efad60bd50e7fb070, type: 3}
+--- !u!58 &6222197725885346417
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503159700633478549}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04, y: -0.67447275}
+  serializedVersion: 2
+  m_Radius: 0.34008437
