@@ -2595,7 +2595,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In-App-Purchases
+  m_Text: Test1
 --- !u!222 &704731925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6602,7 +6602,7 @@ GameObject:
   - component: {fileID: 1709468719}
   - component: {fileID: 1709468718}
   - component: {fileID: 1709468717}
-  - component: {fileID: 1709468720}
+  - component: {fileID: 1709468716}
   m_Layer: 5
   m_Name: Show Ad
   m_TagString: Untagged
@@ -6630,6 +6630,19 @@ RectTransform:
   m_AnchoredPosition: {x: -283, y: 140}
   m_SizeDelta: {x: 160, y: 69.5456}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1709468716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709468714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fbaf8d568794a74b808538a7db96e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievement1: coinmaster
 --- !u!114 &1709468717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6674,9 +6687,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1709468720}
-        m_TargetAssemblyTypeName: GPGS_SERVICES, Assembly-CSharp
-        m_MethodName: SignInGooglePlayGames
+      - m_Target: {fileID: 1709468716}
+        m_TargetAssemblyTypeName: Appstore_connect, Assembly-CSharp
+        m_MethodName: AchievementDone
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6724,18 +6737,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709468714}
   m_CullTransparentMesh: 1
---- !u!114 &1709468720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709468714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e58e75e37044ee458d400b49e7e519f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1710269874
 GameObject:
   m_ObjectHideFlags: 0
@@ -7807,7 +7808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2000520399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7948,9 +7949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: 
+  productId: test1
   buttonType: 0
-  consumePurchase: 0
+  consumePurchase: 1
   onPurchaseComplete:
     m_PersistentCalls:
       m_Calls:

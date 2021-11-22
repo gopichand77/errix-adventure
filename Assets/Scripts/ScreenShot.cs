@@ -17,7 +17,7 @@ public class ScreenShot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            ScreenCapture.CaptureScreenshot("/Users/gopichand/Desktop/Screenshots-test/img.png");
+            ScreenCapture.CaptureScreenshot("/Users/gopichand/Desktop/testimages/img.png");
         }
     }
 }
