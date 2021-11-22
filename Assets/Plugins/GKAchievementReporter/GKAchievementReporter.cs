@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿#if UNITY_IOS
+using System.Runtime.InteropServices;
 
 namespace UnityEngine.SocialPlatforms {
 
@@ -28,3 +29,4 @@ namespace UnityEngine.SocialPlatforms {
 		private static extern void _ReportAchievement(string achievementID, float progress, bool showsCompletionBanner);
 	}
 }
+#endif

@@ -7,19 +7,29 @@ using UnityEngine.SceneManagement;
 public class LevelSelection : MonoBehaviour
 {
 
-    [SerializeField] private bool unlocked;//Default value is false;
+    [SerializeField] private bool unlocked =  false;//Default value is false;
     public Image unlockImage;
     public GameObject[] stars;
-
+    public Button button;
     public Sprite starSprite;
 
     private void Start()
     {
+        button =  gameObject.GetComponent<Button>();
         //PlayerPrefs.DeleteAll();
     }
 
     private void Update()
     {
+        if(unlocked)
+        {
+            button.interactable =  true;
+
+        }
+        else
+        {
+            button.interactable = false;
+        }
         UpdateLevelImage();//TODO MOve this method later
         UpdateLevelStatus();//TODO MOve this method later
     }
@@ -61,10 +71,7 @@ public class LevelSelection : MonoBehaviour
 
     public void PressSelection(string _LevelName)//When we press this level, we can move to the corresponding Scene to play
     {
-        if(unlocked)
-        {
-            SceneManager.LoadScene(_LevelName);
-        }
+       
     }
 
 }
