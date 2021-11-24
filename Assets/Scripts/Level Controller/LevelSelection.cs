@@ -15,7 +15,7 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
-        button =  gameObject.GetComponent<Button>();
+        // button =  gameObject.GetComponent<Button>();
         //PlayerPrefs.DeleteAll();
     }
 

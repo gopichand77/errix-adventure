@@ -13,14 +13,14 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        attack = GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
-        attack.onClick.AddListener(Shoot);
+        // attack = GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
+        // attack.onClick.AddListener(Fire);
         // firepoint =  GetComponentInChildren<>
         anim = GetComponent<Animator>(); 
     }
     private void Update()
     {
-        attack.onClick.AddListener(Shoot);
+        // attack.onClick.AddListener(Shoot);
         if(Input.GetKeyDown(KeyCode.K))
         {
             Fire();
