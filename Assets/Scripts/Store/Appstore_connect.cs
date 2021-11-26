@@ -29,7 +29,7 @@ public class Appstore_connect : MonoBehaviour
     
     public void AchievementDone()
     { 
-        Social.ReportProgress(achievement1,100.0, (bool success)=>
+        Social.ReportProgress("coinmaster",100.0, (bool success)=>
         {
             if(success)
             {
@@ -54,7 +54,7 @@ public class Appstore_connect : MonoBehaviour
             Debug.Log ("Got " + achievements.Length + " achievements");
      
         // You can also call into the functions like this
-        Social.ReportProgress (achievement1, 100.0, result => {
+        Social.ReportProgress ("coinmaster", 100.0, result => {
             if (result)
                 Debug.Log ("Successfully reported achievement progress");
             else
