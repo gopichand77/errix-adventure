@@ -16,20 +16,12 @@ public class LevelSelection : MonoBehaviour
     private void Start()
     {
         // button =  gameObject.GetComponent<Button>();
-        //PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
     }
 
     private void Update()
     {
-        if(unlocked)
-        {
-            button.interactable =  true;
-
-        }
-        else
-        {
-            button.interactable = false;
-        }
+      
         UpdateLevelImage();//TODO MOve this method later
         UpdateLevelStatus();//TODO MOve this method later
     }

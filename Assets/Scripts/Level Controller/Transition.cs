@@ -9,7 +9,7 @@ public class Transition : MonoBehaviour
     public void GoToNextLevelTran()
     {
         SceneManager.LoadSceneAsync("Loading Screen");
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
         StartCoroutine(Scene());
     }
      IEnumerator Scene()
