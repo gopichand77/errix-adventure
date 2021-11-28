@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using EasyUI.Toast;
 public class LevelSelection : MonoBehaviour
 {
     
@@ -70,12 +71,18 @@ public class LevelSelection : MonoBehaviour
 
     public void PressSelection()//When we press this level, we can move to the corresponding Scene to play
     {
+        int previousLevelNum = int.Parse(gameObject.name) - 1;
         if(unlocked )
         {
             // t mbl =   trans.GoToNextLevelTran(nameLevel);
             trans.GoToNextLevelTran(nameOfLevel: nameLevel);
             // button.onClick.AddListener(trans.GoToNextLevelTran(nameLevel));
             
+        }
+        else if(!unlocked)
+        {
+            Toast.Show("Please complete" +  previousLevelNum, 1.5f, new Color(0f,0f,0f,0f));
+
         }
        
     }
