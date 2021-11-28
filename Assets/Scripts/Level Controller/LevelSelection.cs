@@ -3,31 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Events;
 public class LevelSelection : MonoBehaviour
 {
-
+    
     [SerializeField] private bool unlocked =  false;//Default value is false;
     public Image unlockImage;
     public GameObject[] stars;
+    // public bool Loaded =  false;
     public Button button;
     public Sprite starSprite;
-
-    private void Start()
+    public Transition trans;
+    public string nameLevel;
+        private void Start()
     {
-        // button =  gameObject.GetComponent<Button>();
-        // PlayerPrefs.DeleteAll();
+        trans = FindObjectOfType<Transition>();
+        // nameLevel = "Grassland Level1";
+        button =  gameObject.GetComponent<Button>();
+        
+        PlayerPrefs.DeleteAll();
     }
 
     private void Update()
     {
-      
+        
+        
         UpdateLevelImage();//TODO MOve this method later
         UpdateLevelStatus();//TODO MOve this method later
     }
 
     private void UpdateLevelStatus()
     {
+        // UnityAction<string> mbListener = new UnityAction(trans.GoToNextLevelTran)
         //if the current lv is 5, the pre should be 4
         int previousLevelNum = int.Parse(gameObject.name) - 1;
         if (PlayerPrefs.GetInt("Lv" + previousLevelNum.ToString()) > 0)//If the firts level star is bigger than 0, second level can play
@@ -61,9 +68,15 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
-    public void PressSelection(string _LevelName)//When we press this level, we can move to the corresponding Scene to play
+    public void PressSelection()//When we press this level, we can move to the corresponding Scene to play
     {
+        if(unlocked )
+        {
+            // t mbl =   trans.GoToNextLevelTran(nameLevel);
+            trans.GoToNextLevelTran(nameOfLevel: nameLevel);
+            // button.onClick.AddListener(trans.GoToNextLevelTran(nameLevel));
+            
+        }
        
     }
-
 }
