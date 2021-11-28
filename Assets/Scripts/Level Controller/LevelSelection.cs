@@ -81,7 +81,7 @@ public class LevelSelection : MonoBehaviour
         }
         else if(!unlocked)
         {
-            Toast.Show("Please complete" +  previousLevelNum, 1.5f, new Color(0f,0f,0f,0f));
+            Toast.Show("Please complete" +  previousLevelNum, 1.5f);
 
         }
        
