@@ -8,8 +8,11 @@ public class Coin : MonoBehaviour
 
     public Animator anim;
     private bool CoinCollected = true;
-
-
+    public AudioSource audioSource;
+ private void Update()
+ {
+    audioSource = GetComponent<AudioSource>();
+ }
     void OnTriggerEnter2D(Collider2D trig)
     {
         Player player = trig.gameObject.GetComponent<Player>();
@@ -29,8 +32,10 @@ public class Coin : MonoBehaviour
 
     IEnumerator Collected()
     {
+        audioSource.Play();
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
+        
     }
 }
 

@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour{
 		else if(onLand)
 		{
 			myAnim.SetBool("isRunning", true);
+			myAnim.SetFloat("Vertical",0);
 			myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.velocity.x));
 
 		}
