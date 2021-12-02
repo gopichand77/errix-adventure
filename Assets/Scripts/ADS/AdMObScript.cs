@@ -108,6 +108,7 @@ public class AdMobScript : MonoBehaviour
     InterstitialAd interstitial;
     RewardedAd rewarded;
     BannerView bannerView;
+    public bool Ads;
     // Use this for initialization
     void Start()
     {
@@ -116,8 +117,37 @@ public class AdMobScript : MonoBehaviour
         RequestBanner();
         RequestInterstitial();
     }
+    private void Update()
+    {
+        if(PlayerPrefs.HasKey("RemoveAds") == false)
+        {
+            Ads = true;
+        }
+        else
+        {
+            Ads = false;
+            bannerView.Hide();
+        }
+    }
+    public void RequestInterstitial()
+    {
+        // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        // string adUnitId = "ca-app-pub-9793616844322643/1584681548";
+#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-9793616844322643/1584681548"; // main
+#elif UNITY_IOS
+        string adUnitId = "ca-app-pub-9793616844322643/3448279163";
+#endif
+        // Initialize an InterstitialAd.
+        interstitial = new InterstitialAd(adUnitId);
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the interstitial with the request.
+        interstitial.LoadAd(request);
+        interstitial.OnAdLoaded += HandleOnAdLoaded;
 
 
+    }
 
     public void RequestBanner()
     {
@@ -129,17 +159,14 @@ public class AdMobScript : MonoBehaviour
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the banner with the request.
+        if(PlayerPrefs.HasKey("RemoveAds") == false)
+        {
         bannerView.LoadAd(request);
         bannerView.OnAdLoaded += HandleOnAdLoaded;
-
+    }
     }
 
-    void HandleOnAdLoaded(object a, EventArgs args)
-    {
-        print("loaded");
-        bannerView.Show();
-        // interstitial.Show();
-    }
+
     
 
 public void RequestRewaded()
@@ -159,35 +186,18 @@ public void RequestRewaded()
         // Load the interstitial with the request.
         rewarded.LoadAd(request);
         // AdRequest request = new AdRequest.Builder()
-          
- 
- 
     }
-    public void RequestInterstitial()
+    
+
+    public void ShowInterstitial()
     {
-        // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-        // string adUnitId = "ca-app-pub-9793616844322643/1584681548";
-#if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-9793616844322643/1584681548"; // main
-#elif UNITY_IOS
-        string adUnitId = "ca-app-pub-9793616844322643/3448279163";
-#endif
-        // Initialize an InterstitialAd.
-        interstitial = new InterstitialAd(adUnitId);
-        // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
-        // Load the interstitial with the request.
-        interstitial.LoadAd(request);
-
-
-    }
-
-    public void show()
-    {
-        RequestInterstitial();
-        if (interstitial.IsLoaded())
+        // RequestInterstitial();
+        if(PlayerPrefs.HasKey("RemoveAds") == false)
+        {
+            if (interstitial.IsLoaded())
         {
             interstitial.Show();
+        }
         }
     }
 
@@ -200,6 +210,18 @@ public void RequestRewaded()
         {
             rewarded.Show();
         }
+    }
+        void HandleOnAdLoaded(object a, EventArgs args)
+    {
+        // interstitial.Show
+        if(PlayerPrefs.HasKey("RemoveAds") ==  false)
+       {
+            print("loaded");
+        bannerView.Show();
+        
+       }
+       
+        // interstitial.Show();
     }
 }
  
