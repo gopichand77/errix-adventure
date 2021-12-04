@@ -4,52 +4,33 @@ using UnityEngine;
 
 public class PendulumTraps : MonoBehaviour
 {
-   Rigidbody2D rb2d;
-
-    public float moveSpeed;
-    public float leftAngle;
-    public float rightAngle;
-
-    bool movingClockwise;
-    // Start is called before the first frame update
-    void Start()
+     float timer = 0f;
+    public float speed = 1f;
+    public int phase = 0;
+    void FixedUpdate()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        movingClockwise = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        Move();
-    }
-
-    public void ChangeMoveDir()
-    {
-        if (transform.rotation.z > rightAngle)
+        timer += Time.fixedDeltaTime;
+        if(timer>1f)
         {
-            movingClockwise = false;
-        }
-        if (transform.rotation.z > leftAngle)
-        {
-            movingClockwise = true;
+            phase++;
+            phase %= 4;            //Keep the phase between 0 to 3.
+            timer = 0f;
         }
 
-    }
-
-    public void Move()
-    {
-        ChangeMoveDir();
-
-        if (movingClockwise)
+        switch(phase)
         {
-            rb2d.angularVelocity = moveSpeed;
-        }
-
-        if (!movingClockwise)
-        {
-            rb2d.angularVelocity = -1*moveSpeed;
+            case 0:
+                transform.Rotate(0f, 0f, speed * (1 - timer));  //Speed, from maximum to zero.
+                break;
+            case 1:
+                transform.Rotate(0f, 0f, -speed * timer);       //Speed, from zero to maximum.
+                break;
+            case 2:
+                transform.Rotate(0f, 0f, -speed * (1 - timer)); //Speed, from maximum to zero.
+                break;
+            case 3:
+                transform.Rotate(0f, 0f, speed * timer);        //Speed, from zero to maximum.
+                break;
         }
     }
 }
