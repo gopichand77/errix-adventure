@@ -6672,9 +6672,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709468714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fbaf8d568794a74b808538a7db96e7, type: 3}
+  m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ads: 0
 --- !u!114 &1709468717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6720,8 +6721,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1709468716}
-        m_TargetAssemblyTypeName: Appstore_connect, Assembly-CSharp
-        m_MethodName: AchievementDone
+        m_TargetAssemblyTypeName: AdMobScript, Assembly-CSharp
+        m_MethodName: ShowInterstitial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7831,16 +7832,16 @@ GameObject:
   - component: {fileID: 2000520403}
   - component: {fileID: 2000520402}
   - component: {fileID: 2000520401}
-  - component: {fileID: 2000520404}
   - component: {fileID: 2000520405}
   - component: {fileID: 2000520406}
+  - component: {fileID: 2000520400}
   m_Layer: 5
   m_Name: Analytics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2000520399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7861,6 +7862,18 @@ RectTransform:
   m_AnchoredPosition: {x: 432, y: -213}
   m_SizeDelta: {x: 160, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2000520400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000520398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7c2bad9fa4c3d47a0a2e812ce2b169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2000520401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7943,18 +7956,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000520398}
   m_CullTransparentMesh: 1
---- !u!114 &2000520404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000520398}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3543a19f04a6464abfa52923b033a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2000520405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7981,15 +7982,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: test1
+  productId: ads
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2000520406}
-        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 2000520400}
+        m_TargetAssemblyTypeName: IAP_Purchaser, Assembly-CSharp
+        m_MethodName: RemoveAds
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
