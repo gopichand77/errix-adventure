@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114002540259931054}
   - component: {fileID: 50051937484235604}
   - component: {fileID: 95589756580555454}
+  - component: {fileID: 4459692424528841383}
   m_Layer: 0
   m_Name: FishMid
   m_TagString: Untagged
@@ -100,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.03}
+  m_Offset: {x: -0.042589247, y: -0.10888016}
   serializedVersion: 2
-  m_Radius: 0.09
+  m_Radius: 0.5475064
 --- !u!114 &114269398801437304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849596494334278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9608d209ea1884745841726a7230acf7, type: 3}
   m_Name: 
@@ -170,3 +171,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4459692424528841383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849596494334278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd1308432fa0fb40be9dd75b602eb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  movingRight: 0

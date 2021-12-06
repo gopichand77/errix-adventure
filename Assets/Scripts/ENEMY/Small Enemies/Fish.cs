@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Earthworm : MonoBehaviour
+public class Fish : MonoBehaviour
 {
-    [SerializeField]
-    EnemyParticleSys enemyParticleSys;
+   [SerializeField]
+    // EnemyParticleSys enemyParticleSys;
     public float moveSpeed = 1;
     public bool movingRight;
     // public Animator anim;
@@ -19,20 +19,17 @@ public class Earthworm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movingRight)
+       if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(-1, 1);
         }
         else
         {
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(1, 1);
         }
-        if (enemyParticleSys.Dead)
-        {
-            moveSpeed = 0;
-        }
+     
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
@@ -40,10 +37,12 @@ public class Earthworm : MonoBehaviour
         {
             if (movingRight)
             {
+                
                 movingRight = false;
             }
             else
             {
+                
                 movingRight = true;
             }
         }

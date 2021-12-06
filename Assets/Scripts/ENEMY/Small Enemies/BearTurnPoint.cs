@@ -8,7 +8,7 @@ public class BearTurnPoint : MonoBehaviour
     EnemyParticleSys enemyParticleSys;
     public float moveSpeed = 1;
     public bool movingRight;
-    public Animator anim;
+    // public Animator anim;
     Rigidbody2D rb;
 
 
@@ -19,18 +19,15 @@ public class BearTurnPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movingRight)
+          if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-                transform.Rotate(0f, 0f, 0f);
-            
-            
+            transform.localScale = new Vector2(1, 1);
         }
         else
         {
             transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.Rotate(0f, 180f, 0f);
-            
+            transform.localScale = new Vector2(-1, 1);
         }
         if (enemyParticleSys.Dead)
         {

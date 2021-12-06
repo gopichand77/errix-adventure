@@ -12,7 +12,8 @@ public class HurtPlayerUnder : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "Player"){
+		if(gameObject.CompareTag("Player"))
+		{
 			thePlayer.hurt ();	 
 		}
 

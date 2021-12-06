@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 95799510858217854}
   - component: {fileID: 114945651046562810}
   - component: {fileID: 50066830953986102}
+  - component: {fileID: 7886316364080768615}
   m_Layer: 0
   m_Name: FishBig
   m_TagString: Untagged
@@ -100,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.22767353, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 1.069129
 --- !u!114 &114825552694270172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788738869386804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9608d209ea1884745841726a7230acf7, type: 3}
   m_Name: 
@@ -170,3 +171,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7886316364080768615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788738869386804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd1308432fa0fb40be9dd75b602eb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  movingRight: 0
