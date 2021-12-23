@@ -3,7 +3,7 @@ guid: bd18eee30834e4f71bded96fd14033a9
 labels:
 - gvh
 - gvh_dotnet-4.5
-- gvh_version-8.1.0
+- gvh_version-8.7.0
 - gvhp_exportpath-Parse/Plugins/dotNet45/Unity.Tasks.dll
 PluginImporter:
   externalObjects: {}
@@ -22,56 +22,35 @@ PluginImporter:
       enabled: 1
       settings: {}
   - first:
-      : Linux
+      : Any
     second:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: x86
-  - first:
-      : LinuxUniversal
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      : OSXIntel
-    second:
-      enabled: 1
-      settings:
-        CPU: x86
-  - first:
-      : OSXIntel64
-    second:
-      enabled: 1
-      settings:
-        CPU: x86_64
-  - first:
-      : Web
-    second:
-      enabled: 1
-      settings: {}
-  - first:
-      : WebStreamed
-    second:
-      enabled: 1
-      settings: {}
+        Exclude Android: 1
+        Exclude Editor: 1
+        Exclude Linux64: 1
+        Exclude OSXUniversal: 1
+        Exclude Win: 1
+        Exclude Win64: 1
   - first:
       Android: Android
     second:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: ARMv7
   - first:
       Any: 
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   - first:
       Editor: Editor
     second:
-      enabled: 1
+      enabled: 0
       settings:
+        CPU: AnyCPU
         DefaultValueInitialized: true
+        OS: AnyOS
   - first:
       Nintendo Switch: Switch
     second:
@@ -85,27 +64,27 @@ PluginImporter:
   - first:
       Standalone: Linux64
     second:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
   - first:
       Standalone: OSXUniversal
     second:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
   - first:
       Standalone: Win
     second:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: x86
+        CPU: None
   - first:
       Standalone: Win64
     second:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: x86_64
+        CPU: None
   - first:
       WebGL: WebGL
     second:
@@ -114,7 +93,7 @@ PluginImporter:
   - first:
       Windows Store Apps: WindowsStoreApps
     second:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: AnyCPU
   - first:
@@ -126,9 +105,7 @@ PluginImporter:
       iPhone: iOS
     second:
       enabled: 1
-      settings:
-        CompileFlags: 
-        FrameworkDependencies: 
+      settings: {}
   - first:
       tvOS: tvOS
     second:
