@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Threading.Tasks;
 // Import Firebase
 
 
 public class CrashlyticsInit : MonoBehaviour {
     // Use this for initialization
-    void Start () {
+    void Start() =>
         // Initialize Firebase
-        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
             var dependencyStatus = task.Result;
             Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug; // to enable debug logging for crashlytics
             if (dependencyStatus == Firebase.DependencyStatus.Available)
@@ -25,9 +26,8 @@ public class CrashlyticsInit : MonoBehaviour {
             else
             {
                 UnityEngine.Debug.LogError(System.String.Format(
-                  "Could not resolve all Firebase dependencies: {0}",dependencyStatus));
+                  "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
                 // Firebase Unity SDK is not safe to use here.
             }
         });
-    }
 }

@@ -1,15 +1,18 @@
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using Firebase;
 using Firebase.Extensions;
- public class RemoteConfig : MonoBehaviour
+
+public class FirebaseConfig : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
+      InitializeFirebase();
         Firebase.DependencyStatus  dependencyStatus = Firebase.DependencyStatus.UnavailableOther;
 
-        Firebase.FirebaseApp.RemoteConfig.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
         dependencyStatus = task.Result;
         if (dependencyStatus == Firebase.DependencyStatus.Available) {
           InitializeFirebase();
@@ -18,7 +21,13 @@ using Firebase.Extensions;
             "Could not resolve all Firebase dependencies: " + dependencyStatus);
         }
       });
-    }    
+    }  
+
+    public void FetchData()
+    {
+      FetchDataAsync();
+    }
+
      void InitializeFirebase() {
       // [START set_defaults]
       System.Collections.Generic.Dictionary<string, object> defaults =
@@ -36,7 +45,7 @@ using Firebase.Extensions;
         .ContinueWithOnMainThread(task => {
         // [END set_defaults]
        Debug.Log("RemoteConfig configured and ready!");
-        isFirebaseInitialized = true;
+        // isFirebaseInitialized = true;
       });
 
     }
@@ -56,18 +65,18 @@ using Firebase.Extensions;
     //  will still have data from the last time it was run.
     public void DisplayData() {
      Debug.Log("Current Data:");
-     Debug.Log("config_test_string: " +
-               Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
-               .GetValue("config_test_string").StringValue);
+    //  Debug.Log("config_test_string: " +
+    //            Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
+    //            .GetValue("config_test_string").StringValue);
      Debug.Log("config_test_int: " +
                Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
-               .GetValue("config_test_int").LongValue);
-     Debug.Log("config_test_float: " +
-               Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
-               .GetValue("config_test_float").DoubleValue);
-     Debug.Log("config_test_bool: " +
-               Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
-               .GetValue("config_test_bool").BooleanValue);
+               .GetValue("MenuSeason").LongValue);
+    //  Debug.Log("config_test_float: " +
+    //            Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
+    //            .GetValue("config_test_float").DoubleValue);
+    //  Debug.Log("config_test_bool: " +
+    //            Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance
+    //            .GetValue("config_test_bool").BooleanValue);
     }
 
     public void DisplayAllKeys() {
