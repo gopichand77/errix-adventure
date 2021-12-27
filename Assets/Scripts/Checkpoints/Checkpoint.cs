@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     private bool flying = false;
     private Animator anim;
+    public AdMObScript ad;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (!flying)
         {
+            ad.ShowInterstitial();
             StartCoroutine(PlayAnim());
             flying = true;
         }

@@ -4875,6 +4875,7 @@ GameObject:
   - component: {fileID: 1868157795038694526}
   - component: {fileID: 1868157795038694527}
   - component: {fileID: 1868157795038694497}
+  - component: {fileID: 8463102089628790553}
   m_Layer: 6
   m_Name: End Point
   m_TagString: Untagged
@@ -5005,7 +5006,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835f619da8f99da409d0a4a752f4de8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1868157795038694526}
-  confetti: {fileID: 1868157793857340448}
-  Trnasition: {fileID: 0}
-  ControlPanles: {fileID: 0}
+  transitionPanel: {fileID: 0}
+  scene:
+    m_Handle: 0
+  Coinup: 1
+  levelIndex: 0
+--- !u!114 &8463102089628790553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868157795038694522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ads: 0

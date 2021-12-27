@@ -67,6 +67,7 @@ public class LevelComplete : MonoBehaviour
             
             animator.SetBool("Done",true);
             // confetti.Play();
+            
             StartCoroutine(ConfettiPlay());
             StartCoroutine(Level());
             PressStarsButton();

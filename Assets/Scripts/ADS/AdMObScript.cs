@@ -109,6 +109,7 @@ public class AdMObScript : MonoBehaviour
     RewardedAd rewarded;
     BannerView bannerView;
     public bool Ads;
+    bool  interstitialLoad;
     // Use this for initialization
     void Start()
     {
@@ -145,6 +146,7 @@ public class AdMObScript : MonoBehaviour
         // Load the interstitial with the request.
         interstitial.LoadAd(request);
         interstitial.OnAdLoaded += HandleOnAdLoaded;
+        interstitial.OnAdLoaded += Loaded;
 
 
     }
@@ -153,7 +155,7 @@ public class AdMObScript : MonoBehaviour
     {
         // replace this id with your orignal admob id for banner ad
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        string adUnitId = "ca-app-pub-9793616844322643/9518309551";
 #elif UNITY_IOS
         string adUnitId = "ca-app-pub-3940256099942544/6300978111";
 #endif
@@ -168,6 +170,10 @@ public class AdMObScript : MonoBehaviour
             bannerView.LoadAd(request);
             bannerView.OnAdLoaded += HandleOnAdLoaded;
         }
+    }
+    void Loaded(object a, EventArgs args)
+    {
+        interstitialLoad = true;
     }
 
 
@@ -194,7 +200,13 @@ public class AdMObScript : MonoBehaviour
 
 
     public void ShowInterstitial()
+    {if(!interstitialLoad)
     {
+        RequestInterstitial();
+
+    }
+        
+
         // RequestInterstitial();
         if (PlayerPrefs.HasKey("RemoveAds") == false)
         {
