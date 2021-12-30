@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3659762940796420809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earthworm
   m_TagString: Earthworm
   m_Icon: {fileID: 0}
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 3659762941596076534}
   - component: {fileID: 3659762941596076529}
   - component: {fileID: 4768671217441142806}
+  - component: {fileID: 921812337039737140}
   m_Layer: 3
   m_Name: Earthworm
   m_TagString: Earthworm
@@ -260,7 +261,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6fd9c15752f1a495e81f295592fbcb26, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.15761673, y: -0.3148384}
   m_SpriteTilingProperty:
@@ -290,7 +291,6 @@ MonoBehaviour:
   enemyParticleSys: {fileID: 4768671217441142806}
   moveSpeed: 1
   movingRight: 1
-  anim: {fileID: 3659762941596076533}
 --- !u!61 &3659762941596076529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -331,8 +331,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   damage: 5
+  damaged: 0
   Dead: 0
   PrefferedObject: {fileID: 8629771056137240494, guid: 69a6bb43ab4942d45b7170c02a77cc21, type: 3}
+--- !u!251 &921812337039737140
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659762941596076536}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 180
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &3659762942103772998
 GameObject:
   m_ObjectHideFlags: 0

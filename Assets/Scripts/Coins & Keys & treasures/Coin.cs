@@ -19,6 +19,7 @@ public class Coin : MonoBehaviour
 
         if (trig.gameObject.CompareTag("Player") && CoinCollected)
         {
+            
             player.Collectables.NoofGoldCoins();
             CoinCollected = false;
             // Destroy(gameObject);

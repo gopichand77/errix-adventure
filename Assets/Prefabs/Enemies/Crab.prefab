@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8125171454965534343}
   - component: {fileID: 8125171454965534342}
   - component: {fileID: 8125171454965534340}
+  - component: {fileID: 1252750124724360494}
   m_Layer: 3
   m_Name: Crab
   m_TagString: Untagged
@@ -139,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0023002625, y: -0.0046010017}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.125, y: 0.5625}
+  m_Size: {x: 1.0743866, y: 0.553298}
   m_EdgeRadius: 0
 --- !u!114 &8125171454965534340
 MonoBehaviour:
@@ -166,3 +167,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
   movingRight: 0
+--- !u!61 &1252750124724360494
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125171454965534338}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0069007874, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.125, y: 0.5625}
+    newSize: {x: 1.125, y: 0.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1848145, y: 0.5625}
+  m_EdgeRadius: 0

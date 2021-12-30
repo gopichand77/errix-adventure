@@ -9,6 +9,7 @@ public class LevelComplete : MonoBehaviour
     PlayerCollections collections;
     // PlayerPrefsManager prefsManager;
     private Animator animator;
+    public AdMObScript adMObScript;
     private ParticleSystem confetti;
     public GameObject transitionPanel;
     private GameObject controlPanel;
@@ -58,6 +59,7 @@ public class LevelComplete : MonoBehaviour
         {
             if(Coinup)
             {
+                adMObScript.ShowInterstitial();
                 UpdatePref();
                 Coinup = false;
             }
@@ -67,7 +69,7 @@ public class LevelComplete : MonoBehaviour
             
             animator.SetBool("Done",true);
             // confetti.Play();
-            
+
             StartCoroutine(ConfettiPlay());
             StartCoroutine(Level());
             PressStarsButton();

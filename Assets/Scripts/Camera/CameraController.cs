@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     Vector2 posOffset;
 
     private Vector3 velocity;
-
+    
     //limits for camera like boundaries
     [SerializeField]
     float leftLimit;
@@ -25,16 +25,19 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     float topLimit;
     public bool bossLevel;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-
+    
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+         Player PlayerScript = GameObject.FindObjectOfType<Player>();
         //camera current position
         Vector3 startpos = transform.position;
 

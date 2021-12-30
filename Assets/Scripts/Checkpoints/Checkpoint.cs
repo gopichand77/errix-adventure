@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private bool flying = false;
+    public bool flying = false;
     private Animator anim;
     public AdMObScript ad;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!flying)
+        if (other.gameObject.CompareTag("Player") && !flying)
         {
             ad.ShowInterstitial();
             StartCoroutine(PlayAnim());

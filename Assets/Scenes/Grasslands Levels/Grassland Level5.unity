@@ -75015,6 +75015,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1868157795038694497, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
+      propertyPath: adMObScript
+      value: 
+      objectReference: {fileID: 2020167524}
+    - target: {fileID: 1868157795038694497, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
       propertyPath: transitionPanel
       value: 
       objectReference: {fileID: 1585595788}
@@ -75073,6 +75077,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1868157795038694524, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
   m_PrefabInstance: {fileID: 2020167522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2020167524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8463102089628790553, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
+  m_PrefabInstance: {fileID: 2020167522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2022490053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75758,15 +75773,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5873579703366096909, guid: f1d9f0afd9a0a75409270bae58dd85a2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5873579703620212150, guid: f1d9f0afd9a0a75409270bae58dd85a2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5873579703620212150, guid: f1d9f0afd9a0a75409270bae58dd85a2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5873579703821534696, guid: f1d9f0afd9a0a75409270bae58dd85a2, type: 3}
       propertyPath: m_SizeDelta.x

@@ -31,17 +31,22 @@ public class Player : MonoBehaviour
    [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
+    Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     public PlayerHealthSlider healthBar;
     private Vector3 checkPoint =  new Vector3(0,2,0);
+    
     
     
 
  private void Start()
     {
-        
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+               // audioSource = GetComponent<AudioSource>();
         GameOverPanel.SetActive(false);
         InteractButtons.AttackButton.interactable = false;
         currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxhealth(maxHealth);
          //treasure reference 
                
@@ -49,10 +54,7 @@ public class Player : MonoBehaviour
 }
  private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            transform.position =  checkPoint;
-        }
+
         if (currentHealth <= 0)
         {
             new WaitForSeconds(1);
@@ -127,8 +129,18 @@ public class Player : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+           
+        //   gameObject.SetActive(false);
+        spriteRenderer.enabled = false;
+        rb.isKinematic = true;
         }
+    }
+    public void Revive()
+    {
+         rb.isKinematic = false;
+          spriteRenderer.enabled = true;
+      
+        transform.position =  checkPoint;
     }
     IEnumerator GameTim()
     {

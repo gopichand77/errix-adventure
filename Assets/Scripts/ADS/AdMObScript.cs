@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using GoogleMobileAds.Api;
-
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 // public class AdMObScript : MonoBehaviour
 // {
 //     InterstitialAd interstitial;
@@ -85,12 +86,12 @@ using GoogleMobileAds.Api;
 //         //do this when ad is opened
 //     }
 
-//     public void HandleOnAdClosed(object sender, EventArgs args)
-//     {
-//         Debug.Log("Ad Closed");
+    // public void HandleOnAdClosed(object sender, EventArgs args)
+    // {
+    //     Debug.Log("Ad Closed");
 
-//         //do this when ad is closed
-//     }
+    //     //do this when ad is closed
+    // }
 
 //     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
 //     {
@@ -107,9 +108,11 @@ public class AdMObScript : MonoBehaviour
     //THE SCRIPT HAS ORIGNAL ID'S OF ADMOB
     InterstitialAd interstitial;
     RewardedAd rewarded;
+    public UnityEvent UnityEvent;
     BannerView bannerView;
     public bool Ads;
     bool  interstitialLoad;
+    bool  rewardlLoad;
     // Use this for initialization
     void Start()
     {
@@ -118,6 +121,8 @@ public class AdMObScript : MonoBehaviour
         RequestBanner();
         RequestInterstitial();
     }
+     
+    
     private void Update()
     {
         if (PlayerPrefs.HasKey("RemoveAds") == false)
@@ -130,6 +135,7 @@ public class AdMObScript : MonoBehaviour
             bannerView.Hide();
         }
     }
+    
     public void RequestInterstitial()
     {
         // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
@@ -171,15 +177,18 @@ public class AdMObScript : MonoBehaviour
             bannerView.OnAdLoaded += HandleOnAdLoaded;
         }
     }
+
     void Loaded(object a, EventArgs args)
     {
         interstitialLoad = true;
     }
 
+     void RewardLoaded(object a, EventArgs args)
+    {
+        rewardlLoad = true;
+    }
 
-
-
-    public void RequestRewaded()
+  public void RequestRewaded()
     {
         // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #if UNITY_ANDROID
@@ -195,12 +204,29 @@ public class AdMObScript : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         rewarded.LoadAd(request);
+        rewarded.OnAdLoaded += RewardLoaded;
+        rewarded.OnAdClosed += HandleOnAdClosed;
+        
         // AdRequest request = new AdRequest.Builder()
     }
 
+public void showRewarded()
+    {
+         if(!rewardlLoad)
+    {
+        RequestInterstitial();
 
-    public void ShowInterstitial()
-    {if(!interstitialLoad)
+    }
+        RequestRewaded();
+        if (rewarded.IsLoaded())
+        {
+            rewarded.Show();
+        }
+    }
+ 
+ public void ShowInterstitial()
+    {
+        if(!interstitialLoad)
     {
         RequestInterstitial();
 
@@ -216,17 +242,7 @@ public class AdMObScript : MonoBehaviour
             }
         }
     }
-
-
-
-    public void showRewarded()
-    {
-        RequestRewaded();
-        if (rewarded.IsLoaded())
-        {
-            rewarded.Show();
-        }
-    }
+ 
     void HandleOnAdLoaded(object a, EventArgs args)
     {
         // interstitial.Show
@@ -239,5 +255,21 @@ public class AdMObScript : MonoBehaviour
 
         // interstitial.Show();
     }
+
+public void HandleOnAdFailedToLoad(object sender , EventArgs args)
+    {
+        Debug.Log("Ad Failed");
+        //do this when ad fails to load
+    }
+
+   public void HandleOnAdClosed(object sender, EventArgs args)
+    {
+        UnityEvent.Invoke();
+        
+        Debug.Log("Ad Closed");
+
+        //do this when ad is closed
+    }
+
 }
 

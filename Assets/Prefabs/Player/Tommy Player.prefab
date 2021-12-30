@@ -225,13 +225,12 @@ MonoBehaviour:
   Collectables: {fileID: 6196523669175608273}
   playerhurt: {fileID: 9170426992720156964}
   damageTextPrefab: {fileID: 0}
-  textToDisplay: 
   GameOverPanel: {fileID: 0}
+  DeathOn: []
   HurtForce: 4
   maxHealth: 200
   currentHealth: 200
   healthBar: {fileID: 0}
-  damage: 0
 --- !u!114 &7423574116704486768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +246,7 @@ MonoBehaviour:
   firepoint: {fileID: 7423574116126047949}
   Axeprefab: {fileID: 6493890710494246444, guid: a7833eab9f9710c43aa29dcc387bd173, type: 3}
   anim: {fileID: 7423574116704486774}
+  attack: {fileID: 0}
 --- !u!114 &6247982198812336509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,20 +259,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65ecbd64f525ac4980abe5d59257a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 7423574116704486775}
-  rb: {fileID: 7423574116704486769}
-  anim: {fileID: 7423574116704486774}
   moveSpeed: 10
   jumpForce: 7
-  groundCheck: {fileID: 0}
   groundlayer:
     serializedVersion: 2
     m_Bits: 1
-  dust: {fileID: 7423574116870822538}
-  isGrounded: 0
   hangTime: 0.2
   hangCounter: 0.2
   ctrlActive: 1
+  canDoubleJump: 0
+  DoubleJump: 0
 --- !u!114 &5919918261963955168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,15 +305,12 @@ MonoBehaviour:
   spikeKnockback: 7
   spikeKnockLenght: 0.5
   spikeKnockCount: 0
-  damageTextPrefab: {fileID: 0}
-  textToDisplay: 
   isDead: 0
   playerCol: {fileID: 7423574116704486771}
   playerCol2: {fileID: 7423574116704486770}
   playerCol3: {fileID: 6454532108542085250}
   childObjs: []
   shockForce: 0
-  floatingDamage: {fileID: 2390527921530245899, guid: 205c1d45a7d93e241b7a2418ec4bb8d1, type: 3}
 --- !u!114 &6196523669175608273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03db8b3f970a9f48837f3525bddf61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 7423574116704486775}
   Bullets: 0
   goldCoins: 0
   gems: 0

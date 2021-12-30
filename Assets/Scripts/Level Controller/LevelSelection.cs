@@ -70,19 +70,19 @@ public class LevelSelection : MonoBehaviour
     public void PressSelection()//When we press this level, we can move to the corresponding Scene to play
     {
         int previousLevelNum = int.Parse(gameObject.name) - 1;
-        trans.GoToNextLevelTran(nameOfLevel: nameLevel);
-        // if (unlocked)
-        // {
-        //     // t mbl =   trans.GoToNextLevelTran(nameLevel);
-        //     trans.GoToNextLevelTran(nameOfLevel: nameLevel);
-        //     // button.onClick.AddListener(trans.GoToNextLevelTran(nameLevel));
+        // trans.GoToNextLevelTran(nameOfLevel: nameLevel);
+        if (unlocked)
+        {
+            // t mbl =   trans.GoToNextLevelTran(nameLevel);
+            trans.GoToNextLevelTran(nameOfLevel: nameLevel);
+            // button.onClick.AddListener(trans.GoToNextLevelTran(nameLevel));
 
-        // }
-        // else if (!unlocked)
-        // {
-        //     Toast.Show("Please complete" + previousLevelNum, 1.5f);
+        }
+        else if (!unlocked)
+        {
+            Toast.Show("Please complete Level" + previousLevelNum, 1.5f);
 
-        // }
+        }
 
     }
 }
