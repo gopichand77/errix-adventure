@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 3861846356310275602}
   - component: {fileID: 3861846356310275601}
   - component: {fileID: 7416561998640675044}
+  - component: {fileID: 6179603184282295768}
+  - component: {fileID: 2910901328669402680}
   m_Layer: 0
   m_Name: Cobra Sprite Sheet_0
   m_TagString: Untagged
@@ -198,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd4bd8bb7c987e43b8d52703c629433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParticleSys: {fileID: 0}
+  enemyParticleSys: {fileID: 2910901328669402680}
   moveSpeed: 1
   movingRight: 0
 --- !u!61 &7416561998640675044
@@ -227,6 +229,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1430745, y: 0.93223}
   m_EdgeRadius: 0
+--- !u!114 &6179603184282295768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3861846356310275607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d3aa3d7c4cab4fa19d2ed49b6eab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyDamage: 5
+--- !u!114 &2910901328669402680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3861846356310275607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214c76ea9a88034419f69fc848b4c633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  damage: 5
+  damaged: 0
+  Dead: 0
+  PrefferedObject: {fileID: 0}
 --- !u!1 &5514574816513043675
 GameObject:
   m_ObjectHideFlags: 0
