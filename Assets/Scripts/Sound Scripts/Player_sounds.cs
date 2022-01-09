@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player_sounds : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public GameObject player;
+    private AudioSource audioSource;
+    private GameObject player;
     public bool played;
     // Start is called before the first frame update
     void Start()
