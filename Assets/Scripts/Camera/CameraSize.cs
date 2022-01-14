@@ -17,12 +17,12 @@ public class CameraSize : MonoBehaviour
     public static bool IsZoomedOut = false;
 
     //Cache reference
-    public Transform target;
-    public Camera cam;
-    public bool zoomIn;
-    public bool zoomOut;
-    public bool zoom;
-    public bool playerEnter = false;
+    private Transform target;
+    private Camera cam;
+    private bool zoomIn;
+    private bool zoomOut;
+    private bool zoom;
+    private bool playerEnter = false;
 
 
 
@@ -32,6 +32,7 @@ public class CameraSize : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        target = GameObject.FindWithTag("Player").transform;
         initalZoom = cam.orthographicSize;
         initialPosX = cam.transform.position.x;
         initialPosY = cam.transform.position.y;
