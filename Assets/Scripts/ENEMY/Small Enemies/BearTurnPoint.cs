@@ -19,15 +19,13 @@ public class BearTurnPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-          if (movingRight)
+           if (movingRight)
         {
-            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(1, 1);
+            gameObject.transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
         }
         else
         {
-            transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
-            transform.localScale = new Vector2(-1, 1);
+           gameObject.transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
         }
         if (enemyParticleSys.Dead)
         {
@@ -41,11 +39,13 @@ public class BearTurnPoint : MonoBehaviour
             if (movingRight)
             {
                 
+            gameObject.transform.localScale = new Vector2(1, 1);
                 movingRight = false;
             }
             else
             {
-                
+                 
+            gameObject.transform.localScale = new Vector2(-1, 1);
                 movingRight = true;
             }
         }

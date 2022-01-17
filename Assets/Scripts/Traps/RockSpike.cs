@@ -19,14 +19,16 @@ public class RockSpike : MonoBehaviour
     public float bottomLimit;
     public bool Diagnol;
     public bool movingSide;
-
+    public int EnemyDamage;
+   
     void FixedUpdate()
     {
+       
          if (moving)
         {
             transform.position += (velocity * Time.fixedDeltaTime);
         }
-        // XDir();
+        XDir();
         YDir();
     }
     void XDir()
@@ -76,23 +78,38 @@ public class RockSpike : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x,transform.position.y - moveSpeed * Time.deltaTime);
         }
-        }
+
+    }
         
     
     
 
 
-    
-
-    private void OnTriggerEnter2D(Collider2D trig)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        Player player = trig.gameObject.GetComponent<Player>();
-        if (player)
-        {
-            // moving = true;
-            // trig.gameObject.transform.SetParent(transform);
-        }
-        if(gameObject.CompareTag("Collider"))
+        //  if (col.gameObject.CompareTag("Player"))
+        //          {
+
+        //     var player = col.gameObject.GetComponent<Player>();
+        //     if (player.playerhurt.Damaged)
+        //     {
+        //         player.TakeDamage(EnemyDamage);
+        //         player.MovementScript.anim.SetBool("isHurt", true);
+        //         player.playerhurt.Damaged = false;
+        //     }
+        //     player.playerhurt.knockCount = player.playerhurt.knockLenght;
+
+        //     if (col.transform.position.x < transform.position.x)
+        //     {
+        //         player.playerhurt.knockfromRight = true;
+        //     }
+        //     else
+        //     {
+        //         player.playerhurt.knockfromRight = false;
+        //     }
+
+        // }
+        if(col.gameObject.CompareTag("Collider") )
         {
             if(moveTop)
             {
@@ -105,9 +122,8 @@ public class RockSpike : MonoBehaviour
         }
     }
 
-    // private void OnTriggerExit2D(Collider2D trig)
-    // {
-    //     trig.gameObject.transform.SetParent(null);
-    // }
+   
+
+   
 
 }

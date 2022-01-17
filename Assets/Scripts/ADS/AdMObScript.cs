@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using GoogleMobileAds.Api;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
+
 // public class AdMObScript : MonoBehaviour
 // {
 //     InterstitialAd interstitial;

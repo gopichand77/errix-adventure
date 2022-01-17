@@ -36,6 +36,7 @@ public class Bull : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>().transform;
+       
         attacking = true;
         canHurt = true;
         bullHealth = maxHealth;
