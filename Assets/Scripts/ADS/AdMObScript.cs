@@ -109,6 +109,7 @@ public class AdMObScript : MonoBehaviour
     InterstitialAd interstitial;
     RewardedAd rewarded;
     public UnityEvent UnityEvent;
+    public UnityEvent loading;
     BannerView bannerView;
     public bool Ads;
     bool  interstitialLoad;
@@ -187,6 +188,10 @@ public class AdMObScript : MonoBehaviour
     {
         rewardlLoad = true;
     }
+     void AdFailed(object a, EventArgs args)
+    {
+        loading.Invoke();
+    }
 
   public void RequestRewaded()
     {
@@ -204,11 +209,13 @@ public class AdMObScript : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         rewarded.LoadAd(request);
+        rewarded.OnAdFailedToLoad += AdFailed;
         rewarded.OnAdLoaded += RewardLoaded;
         rewarded.OnAdClosed += HandleOnAdClosed;
         
         // AdRequest request = new AdRequest.Builder()
     }
+    
 
 public void showRewarded()
     {

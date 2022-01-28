@@ -9577,6 +9577,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1105335573}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: loading.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
 --- !u!4 &655032610 stripped
@@ -37148,7 +37192,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -37838,6 +37882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loading Ads
       objectReference: {fileID: 0}
+    - target: {fileID: 4976306980821438400, guid: 8fac9c6c3e9954b7b9041aa36516aac0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4976306980821438401, guid: 8fac9c6c3e9954b7b9041aa36516aac0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -37927,6 +37975,11 @@ PrefabInstance:
 --- !u!224 &1105335572 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4976306980821438401, guid: 8fac9c6c3e9954b7b9041aa36516aac0, type: 3}
+  m_PrefabInstance: {fileID: 1105335571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1105335573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4976306980821438400, guid: 8fac9c6c3e9954b7b9041aa36516aac0, type: 3}
   m_PrefabInstance: {fileID: 1105335571}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1112165181
