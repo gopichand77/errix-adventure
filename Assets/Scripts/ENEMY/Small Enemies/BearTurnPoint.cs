@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class BearTurnPoint : MonoBehaviour
 {
-    [SerializeField]
-    EnemyParticleSys enemyParticleSys;
+   [SerializeField]
+    // EnemyParticleSys enemyParticleSys;
     public float moveSpeed = 1;
     public bool movingRight;
     // public Animator anim;
     Rigidbody2D rb;
+    Transform transform1;
 
 
     private void Start()
     {
+        transform1  = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-           if (movingRight)
+       if (movingRight)
         {
-            gameObject.transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform1.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform1.localScale = new Vector2(-1, 1);
         }
         else
         {
-           gameObject.transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform1.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform1.localScale = new Vector2(1, 1);
         }
-        if (enemyParticleSys.Dead)
-        {
-            moveSpeed = 0;
-        }
+     
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
@@ -39,13 +40,11 @@ public class BearTurnPoint : MonoBehaviour
             if (movingRight)
             {
                 
-            gameObject.transform.localScale = new Vector2(1, 1);
                 movingRight = false;
             }
             else
             {
-                 
-            gameObject.transform.localScale = new Vector2(-1, 1);
+                
                 movingRight = true;
             }
         }

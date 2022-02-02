@@ -18,7 +18,7 @@ public class Boss_Spider : MonoBehaviour
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
-    public Transform  rayCastTransform;
+    public Transform  FirePoint;
     public GameObject ThrowObject;
     
     
@@ -120,10 +120,17 @@ public class Boss_Spider : MonoBehaviour
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
         
-        Shoot();
+        
          anim.SetBool("canWalk", false);
-         
-        anim.SetBool("Attack", true);
+         Shoot();
+         StartCoroutine(Animation());
+        
+
+}
+IEnumerator Animation()
+{
+     yield return new WaitForSeconds(0.3f);
+     anim.SetBool("Attack", true);
 }
 
     void Cooldown()
@@ -204,8 +211,8 @@ public class Boss_Spider : MonoBehaviour
          
          if(canShoot)
          {
-             Vector2 Obj =  new Vector2(rayCastTransform.position.x,rayCastTransform.position.y+0.5f);
-            GameObject thr =  (GameObject)Instantiate(ThrowObject,transform.position,transform.rotation);
+             Vector2 Obj =  new Vector2(FirePoint.position.x,FirePoint.position.y+0.5f);
+            GameObject thr =  (GameObject)Instantiate(ThrowObject,FirePoint.position,FirePoint.rotation);
 
              canShoot = false;
              TriggerCooling();

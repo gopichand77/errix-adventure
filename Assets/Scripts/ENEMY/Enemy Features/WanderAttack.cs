@@ -15,9 +15,10 @@ public class WanderAttack : MonoBehaviour {
     public LayerMask raycastMask;
     public float rayCastLength;
     public float attackDistance; //Minimum distance for attack
-    public float moveSpeed;
+    public float moveSpeed = 1;
     public float timer; //Timer for cooldown between attacks
     public bool canWalk = true;
+    public float attckSpd;
    
     #endregion
 
@@ -27,12 +28,13 @@ public class WanderAttack : MonoBehaviour {
     private Animator anim;
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
-    internal bool inRange; //Check if Player is in range
+    public bool inRange; //Check if Player is in range
     private bool cooling; //Check if Enemy is cooling after attack
     private float intTimer;
     private Player player;
     private Vector2 value;
-    
+    public bool movingRight;
+    internal bool right;
     #endregion
 
     void Awake()
@@ -43,25 +45,45 @@ public class WanderAttack : MonoBehaviour {
     }
 
     void FixedUpdate () {
+       moveSpeed = 1f;
         Physics2D.IgnoreLayerCollision(0,2);
-        if(player.transform.position.x > transform.position.x)
+       
+        
+        if (inRange)
         {
+            moveSpeed = attckSpd;
+            hit = Physics2D.Raycast(rayCast.position, value, rayCastLength, raycastMask);
+            RaycastDebugger();
+           
+            // attckSpd = 1f;
+         if(player.transform.position.x > transform.position.x)
+        {
+            right = true;
             transform.localScale = new Vector2(-1, 1);
             value = -Vector2.left;
             
         }
         else
         {
+            right = false;
             transform.localScale = new Vector2(1, 1);
             value = Vector2.left;
         }
-        
-        if (inRange)
+        }
+        else if(!inRange)
         {
-            hit = Physics2D.Raycast(rayCast.position, value, rayCastLength, raycastMask);
-            RaycastDebugger();
-            canWalk =  true;
-            moveSpeed = 2f;
+               if (movingRight)
+        {
+            transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            transform.Translate(-2 * Time.deltaTime * -moveSpeed, 0, 0);
+            transform.localScale = new Vector2(-1, 1);
+        }
+       
+
         }
 
         //When Player is detected
@@ -69,6 +91,7 @@ public class WanderAttack : MonoBehaviour {
         {
             EnemyLogic();
         }
+        
         else if(hit.collider == null)
         {
             inRange = false;
@@ -76,21 +99,33 @@ public class WanderAttack : MonoBehaviour {
 
         if(inRange == false)
         {
-            anim.SetBool("canWalk", false);
+            
             StopAttack();
         }
 	}
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        
-        if(trig.gameObject.tag == "Turn")
+        if(trig.gameObject.tag == "Turn" )
         {
-            moveSpeed = 0;
-            inRange = false;
-            canWalk =  false;
-            anim.SetBool("canWalk",false);
+             if (movingRight)
+            {
+                movingRight = false;
+            }
+            else
+            {
+                movingRight = true;
+            }
+         
         }
+        
+        // if(trig.gameObject.tag == "Turn"&& inRange)
+        // {
+        //     // moveSpeed = 0;
+        //     inRange = false;
+        //     canWalk =  false;
+          
+        // }
         if(trig.gameObject.CompareTag("Bullet"))
         {
             Destroy(trig.gameObject);
@@ -100,20 +135,13 @@ public class WanderAttack : MonoBehaviour {
         }
         
     }
-    private void OnTriggerExit2D(Collider2D trig)
-    {
-       
-         if(trig.gameObject.tag == "Turn")
-        {
-              canWalk = false;
-        }
-    }
+   
 
     void EnemyLogic()
     {
         distance = Vector2.Distance(transform.position, target.transform.position);
 
-        if(distance > attackDistance && canWalk)
+        if(distance > attackDistance  && inRange)
         {
             Move();
             StopAttack();
@@ -126,20 +154,20 @@ public class WanderAttack : MonoBehaviour {
         if (cooling)
         {
             Cooldown();
-            anim.SetBool("Attack", false);
+            // anim.SetBool("Attack", false);
         }
     }
 
     void Move()
     {
-        anim.SetBool("canWalk", true);
-
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_attack"))
+       
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_attack"))
         {
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
+        
     }
 
     void Attack()
@@ -147,19 +175,29 @@ public class WanderAttack : MonoBehaviour {
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
 
-        anim.SetBool("canWalk", false);
+        
         anim.SetBool("Attack", true);
+        // TriggerCooling();
+        cooling = true;
     }
 
     void Cooldown()
     {
         timer -= Time.deltaTime;
-
-        if(timer <= 0 && cooling && attackMode)
+        if(timer <=0)
         {
+            anim.SetBool("Attack", false);
+            // cooling = false;
+            timer = 3;
             cooling = false;
-            timer = intTimer;
         }
+        
+        // if(timer <= 0 && cooling && attackMode)
+        // {
+        //     cooling = false;
+        //     timer = intTimer;
+           
+        // }
     }
 
     void StopAttack()
@@ -171,13 +209,16 @@ public class WanderAttack : MonoBehaviour {
 
     void RaycastDebugger()
     {
-        if(distance > attackDistance)
+        if(inRange)
+        {
+            if(distance > attackDistance)
         {
             Debug.DrawRay(transform.position,value * rayCastLength, Color.red);
         }
         else if(attackDistance > distance)
         {
             Debug.DrawRay(transform.position, value * rayCastLength, Color.green);
+        }
         }
     }
 

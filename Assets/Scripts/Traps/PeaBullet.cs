@@ -23,6 +23,11 @@ public class PeaBullet : MonoBehaviour
             // anim.SetBool("Destroy",true);
             Destroy(this.gameObject);
         }
+        if(trig.gameObject.CompareTag("Collider"))
+        {
+            // anim.SetBool("Destroy",true);
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame

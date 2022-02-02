@@ -10,9 +10,20 @@ public class Hanging_Web : MonoBehaviour
     Player player;
     public int damage;
     public bool isHurt;
+    public bool Hanging = true;
+    public Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
+        if(Hanging)
+        {
+            dir =  -transform.up;
+
+        }
+        else if(!Hanging)
+        {
+            dir = transform.right;
+        }
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
@@ -29,7 +40,7 @@ public class Hanging_Web : MonoBehaviour
     IEnumerator Speed()
     {
         yield return new WaitForSeconds(0.3f);
-        rb.velocity = -transform.up * speed;
+        rb.velocity = dir * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D trig)
