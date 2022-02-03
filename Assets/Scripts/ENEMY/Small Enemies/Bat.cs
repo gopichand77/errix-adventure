@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snail : MonoBehaviour
+public class Bat : MonoBehaviour
 {
-    [SerializeField]
+         [SerializeField]
     EnemyParticleSys enemyParticleSys;
     public float moveSpeed = 1;
     public bool movingRight;
@@ -49,7 +49,3 @@ public class Snail : MonoBehaviour
         }
     }
 }
-  // private void FixedUpdate()
-    // {
-    //   anim.PlayInFixedTime("Snail_running");
-    // }
