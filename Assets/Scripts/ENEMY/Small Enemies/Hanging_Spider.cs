@@ -6,7 +6,7 @@ public class Hanging_Spider : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool inRange;
-    public Transform player;
+    private Transform player;
     public float Range;
     public float shootRange = 5;
     float shootTimer;
@@ -56,6 +56,4 @@ public class Hanging_Spider : MonoBehaviour
             }
         }
     }
-
-
 }

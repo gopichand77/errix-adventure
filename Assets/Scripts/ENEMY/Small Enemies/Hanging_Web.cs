@@ -49,7 +49,7 @@ public class Hanging_Web : MonoBehaviour
         {
             rb.velocity = transform.right * 0;
             anim.SetBool("isDestroyed", true);
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
         }
         if (trig.gameObject.CompareTag("Player") && !isHurt)
         {
