@@ -41,7 +41,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 6584610264694379073}
   - component: {fileID: 6584610264694379074}
   - component: {fileID: 6584610264694379075}
+  - component: {fileID: 3107348738405992164}
   m_Layer: 3
   m_Name: Snail
   m_TagString: Untagged
@@ -175,10 +176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe350fda0957b44c8015756499c76f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyParticleSys: {fileID: 0}
   moveSpeed: -10
   movingRight: 0
-  anim: {fileID: 0}
-  alive: 0
+  shell: {fileID: 0}
+  snail: {fileID: 0}
+  Dead: 0
 --- !u!50 &6584610264694379073
 Rigidbody2D:
   serializedVersion: 4
@@ -207,7 +210,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6584610264694379076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -252,6 +255,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6440048, y: 1.004816}
   m_EdgeRadius: 0
+--- !u!114 &3107348738405992164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584610264694379076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214c76ea9a88034419f69fc848b4c633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  damage: 10
+  damaged: 0
+  Dead: 0
+  PrefferedObject: {fileID: 0}
 --- !u!1 &6584610265375846773
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +313,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

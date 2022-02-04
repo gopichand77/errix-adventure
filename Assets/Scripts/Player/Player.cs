@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
             checkPoint =  new Vector3(trig.transform.position.x,trig.transform.position.y+2,trig.transform.position.z);
         }
     }
+   
 
     public void checkAttackButton()
     {
