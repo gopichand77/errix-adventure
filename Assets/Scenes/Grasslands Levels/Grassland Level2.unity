@@ -43221,6 +43221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  loading:
+    m_PersistentCalls:
+      m_Calls: []
   Ads: 0
 --- !u!1 &1758970814
 GameObject:
@@ -43291,6 +43297,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454496417}
     m_Modifications:
+    - target: {fileID: 825992487074761095, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 825992487074761096, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -44629,7 +44639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092413596180, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092413596181, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_Pivot.x
@@ -44753,11 +44763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092628277810, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092628277810, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
