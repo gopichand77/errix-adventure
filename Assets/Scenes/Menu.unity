@@ -925,9 +925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e58e75e37044ee458d400b49e7e519f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signinT: {fileID: 1101431133}
-  signOutT: {fileID: 588266002}
-  m_SignIn: {fileID: 113865431}
 --- !u!1 &118646120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1901,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347368214}
   m_CullTransparentMesh: 1
+--- !u!1 &365432084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 365432085}
+  m_Layer: 0
+  m_Name: Local Notification
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &365432085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365432084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 639.5801, y: 215.83598, z: -197.89499}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &395558252
 GameObject:
   m_ObjectHideFlags: 0
@@ -9410,6 +9437,7 @@ GameObject:
   - component: {fileID: 2000520405}
   - component: {fileID: 2000520406}
   - component: {fileID: 2000520400}
+  - component: {fileID: 2000520404}
   m_Layer: 5
   m_Name: Analytics
   m_TagString: Untagged
@@ -9434,7 +9462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 432, y: -213}
+  m_AnchoredPosition: {x: 498, y: -173}
   m_SizeDelta: {x: 160, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000520400
@@ -9543,6 +9571,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000520398}
   m_CullTransparentMesh: 1
+--- !u!114 &2000520404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000520398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf67b5ec847c4ff8b6683dcac800759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2000520405
 MonoBehaviour:
   m_ObjectHideFlags: 0
