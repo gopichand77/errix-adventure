@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public GameObject damageTextPrefab;
     int textToDisplay;
     public GameObject GameOverPanel;
+    public GameObject BlackScreen;
     public GameObject[] DeathOn;
     private Vector3 localScale;
     public float HurtForce = 30;
@@ -41,9 +42,11 @@ public class Player : MonoBehaviour
 
  private void Start()
     {
+        
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                // audioSource = GetComponent<AudioSource>();
         GameOverPanel.SetActive(false);
+        BlackScreen.SetActive(false);
         InteractButtons.AttackButton.interactable = false;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour
         {
             new WaitForSeconds(1);
             GameOverPanel.SetActive(true);
+            BlackScreen.SetActive(true);
              foreach (GameObject death in DeathOn)
             death.SetActive(true);
         }
