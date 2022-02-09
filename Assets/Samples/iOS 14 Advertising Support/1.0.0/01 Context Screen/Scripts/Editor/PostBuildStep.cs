@@ -8,7 +8,6 @@ using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
 #endif
 using System.IO;
-
 #if UNITY_IOS
 public class PostBuildStep
 {
@@ -18,9 +17,33 @@ public class PostBuildStep
     [PostProcessBuild(0)]
     public static void OnPostProcessBuild(BuildTarget buildTarget, string pathToXcode)
     {
+        //appgroups
+        //https://docs.unity3d.com/Manual/UnityCloudBuildiOS.html
+        //https://docs.unity3d.com/ScriptReference/Callbacks.PostProcessBuildAttribute.html
+        //https://answers.unity.com/questions/1646797/xcode-project-build-automation-setting-up-app-grou.html
+        //https://documentation.onesignal.com/docs/ios-sdk-app-groups-setup
+        //co.errix.errixsadventure.OneSignalNotificationServiceExtension
+        
+        // string projectPath = PBXProject.GetPBXProjectPath(pathToXcode);
+
+        // string entitlementsPath = "Unity-iPhone.entitlements";
+
+        // PBXProject project = new PBXProject();
+        // project.ReadFromFile(projectPath);
+
+        // //This is the same as going manually to Signing & Capabilities > pressing "+ Capability" > App Groups, then adding an entry for the desired group
+        // ProjectCapabilityManager projectManager = new ProjectCapabilityManager(projectPath, entitlementsPath, null, project.GetUnityMainTargetGuid());
+        // project.AddCapability(project.GetUnityMainTargetGuid(), PBXCapabilityType.AppGroups, entitlementsPath);
+        // projectManager.AddAppGroups(new string[] { "group.97862CMFGR.co.errix.errixsadventure" });
+
+        // projectManager.WriteToFile();
+        // project.WriteToFile(projectPath);
+        // //above
+
         if (buildTarget == BuildTarget.iOS)
         {
             AddPListValues(pathToXcode);
+
         }
         else
         {
@@ -31,6 +54,8 @@ public class PostBuildStep
     // Implement a function to read and write values to the plist file:
     static void AddPListValues(string pathToXcode)
     {
+
+        // Get the path to the plist file: 
 
         //unity sdk
         string[] skAdNetwork = {
@@ -100,7 +125,8 @@ public class PostBuildStep
         // Set the description key-value in the plist:
         plistRoot.SetString("NSUserTrackingUsageDescription", k_TrackingDescription);
         // plistRoot.SetString("SKAdNetworkIdentifier", skadnetwork.ToString());
-        for (int i =0; i < skAdNetwork.Length; i++) {
+        for (int i = 0; i < skAdNetwork.Length; i++)
+        {
             plistRoot.SetString("SKAdNetworkIdentifier", skAdNetwork[i]);
         }
         // Save changes to the plist:
