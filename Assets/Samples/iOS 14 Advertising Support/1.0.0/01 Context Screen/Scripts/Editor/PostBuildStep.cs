@@ -124,6 +124,8 @@ public class PostBuildStep
 
         // Set the description key-value in the plist:
         plistRoot.SetString("NSUserTrackingUsageDescription", k_TrackingDescription);
+        // firebase error
+        // plistRoot.SetBoolean("FirebaseAppDelegateProxyEnabled",false);
         // plistRoot.SetString("SKAdNetworkIdentifier", skadnetwork.ToString());
         for (int i = 0; i < skAdNetwork.Length; i++)
         {
