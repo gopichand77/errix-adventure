@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using OneSignalSDK;
+// using OneSignalSDK;
 
 public class Notif_Handler : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class Notif_Handler : MonoBehaviour
   // OneSignal.SetLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
   
   // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
-  OneSignal.Default.Initialize("fdc1c477-83ec-450e-b189-35c8d6650fdf");
+  // OneSignal.Default.Initialize("fdc1c477-83ec-450e-b189-35c8d6650fdf");
 //     .HandleNotificationOpened(OneSignalHandleNotificationOpened)
 //     .Settings(new Dictionary<string, bool>() {
 //       { OneSignal.kOSSettingsAutoPrompt, false },

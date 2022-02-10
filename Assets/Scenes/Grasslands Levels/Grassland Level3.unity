@@ -6323,6 +6323,7 @@ MonoBehaviour:
   loading:
     m_PersistentCalls:
       m_Calls: []
+  Loading: {fileID: 0}
   Ads: 0
 --- !u!1001 &262684311
 PrefabInstance:
@@ -43582,6 +43583,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1004996112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4976306980821438400, guid: 8fac9c6c3e9954b7b9041aa36516aac0, type: 3}
+  m_PrefabInstance: {fileID: 386892398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1033483529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3659762940796420809, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
@@ -45639,6 +45645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: Loading
+      value: 
+      objectReference: {fileID: 1004996112}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
 --- !u!4 &1528501662 stripped
@@ -45724,11 +45734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 118.7
+      value: 45.45
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.3
+      value: 7.94
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45810,7 +45820,8 @@ PrefabInstance:
       propertyPath: spikeKnockLenght
       value: 0.8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4361050794647514318, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
 --- !u!1001 &1567137643
 PrefabInstance:

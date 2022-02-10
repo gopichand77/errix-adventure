@@ -10468,6 +10468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8151852684664899588, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
+      propertyPath: Loading
+      value: 
+      objectReference: {fileID: 1907261069}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
 --- !u!4 &898152339 stripped
@@ -37063,6 +37067,7 @@ GameObject:
   - component: {fileID: 1371327317}
   - component: {fileID: 1371327316}
   - component: {fileID: 1371327319}
+  - component: {fileID: 1371327320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -37155,6 +37160,39 @@ MonoBehaviour:
   bottomLimit: -1.25
   topLimit: 9.8
   bossLevel: 0
+--- !u!114 &1371327320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371327315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1388398930
 GameObject:
   m_ObjectHideFlags: 0
@@ -42758,7 +42796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 118.54
+      value: 36.35
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43283,30 +43321,6 @@ PrefabInstance:
       objectReference: {fileID: 8629771056137240494, guid: 69a6bb43ab4942d45b7170c02a77cc21, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25ef3a6b4e2a30945b03c27074d8ae23, type: 3}
---- !u!1 &1753722189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5378754075692664324, guid: 96d72c98183c541818c9eba1277e06f3, type: 3}
-  m_PrefabInstance: {fileID: 898152338}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1753722190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753722189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnityEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  loading:
-    m_PersistentCalls:
-      m_Calls: []
-  Ads: 0
 --- !u!1 &1758970814
 GameObject:
   m_ObjectHideFlags: 0
@@ -43990,6 +44004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae59ed5825baee488f8dcbc31ba9995, type: 3}
+--- !u!1 &1907261069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4976306980821438400, guid: 8fac9c6c3e9954b7b9041aa36516aac0, type: 3}
+  m_PrefabInstance: {fileID: 259042797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1909098665 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9033395091585028952, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
