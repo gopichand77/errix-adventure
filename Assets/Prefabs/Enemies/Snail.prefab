@@ -176,11 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe350fda0957b44c8015756499c76f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParticleSys: {fileID: 0}
-  moveSpeed: -10
+  enemyParticleSys: {fileID: 3107348738405992164}
+  moveSpeed: 1
   movingRight: 0
-  shell: {fileID: 0}
-  snail: {fileID: 0}
+  shell: {fileID: 6541907187652140986, guid: 60fc10dccfbaddd4997e0568057316f0, type: 3}
+  snail: {fileID: 3764454603785750673, guid: 9a954e8288d9d53448308bacad37f3ed, type: 3}
   Dead: 0
 --- !u!50 &6584610264694379073
 Rigidbody2D:
@@ -194,15 +194,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &6584610264694379074
 BoxCollider2D:
   m_ObjectHideFlags: 0
