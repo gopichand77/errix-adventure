@@ -1044,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.26
       objectReference: {fileID: 0}
+    - target: {fileID: 3659762941596076536, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3659762942103772993, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.79
@@ -13309,6 +13313,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &508565643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6005757370948797857, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+  m_PrefabInstance: {fileID: 1563267101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &508565645
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508565643}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.062158585, y: 0.03551984}
+  m_Size: {x: 1.0150337, y: 1.8879895}
+  m_Direction: 0
 --- !u!1001 &510507502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41411,6 +41436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grasslands Parallex Effect
       objectReference: {fileID: 0}
+    - target: {fileID: 7309931593377975025, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aba6f3ced85fa4949a9eb57a639cba5f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83cf5ceda5caf437e95ee495dfd733d9, type: 3}
 --- !u!4 &682726282 stripped
@@ -43581,7 +43610,7 @@ Transform:
   - {fileID: 328235237}
   - {fileID: 1580646743}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1004996112 stripped
 GameObject:
@@ -44971,7 +45000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867900, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8713411162950867900, guid: bfe0b12dc4a8adb4b947f156249eae5f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -45668,6 +45697,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1553335238983520695, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.021
+      objectReference: {fileID: 0}
     - target: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: AttackButton
       value: 
@@ -45684,6 +45717,14 @@ PrefabInstance:
       propertyPath: TreasureKey3
       value: 
       objectReference: {fileID: 1859893465}
+    - target: {fileID: 6005757370948797857, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005757370948797857, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6196523669175608273, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: keysText
       value: 
@@ -45820,8 +45861,7 @@ PrefabInstance:
       propertyPath: spikeKnockLenght
       value: 0.8
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4361050794647514318, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
 --- !u!1001 &1567137643
 PrefabInstance:

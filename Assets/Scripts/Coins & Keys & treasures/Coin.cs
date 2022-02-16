@@ -15,12 +15,12 @@ public class Coin : MonoBehaviour
  }
     void OnTriggerEnter2D(Collider2D trig)
     {
-        Player player = trig.gameObject.GetComponent<Player>();
+        PlayerCollections player = trig.gameObject.GetComponent<PlayerCollections>();
 
         if (trig.gameObject.CompareTag("Player") && CoinCollected)
         {
             
-            player.Collectables.NoofGoldCoins();
+            player.NoofGoldCoins();
             CoinCollected = false;
             // Destroy(gameObject);
             anim.SetBool("collectedCoin", true);

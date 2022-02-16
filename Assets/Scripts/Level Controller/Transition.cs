@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Transition : MonoBehaviour
 {
     // public string Hai;
+    public Scene scene;
 
     public void GoToNextLevelTran(string nameOfLevel)
     {
@@ -20,8 +21,21 @@ public class Transition : MonoBehaviour
 
        
     }
-   
-    //    return Hai;
+    }
+    public void Restart()
+    {
+        scene =  SceneManager.GetActiveScene();
+         SceneManager.LoadSceneAsync("Loading Screen");
+        DontDestroyOnLoad(this.gameObject);
+        StartCoroutine(Scene1());
+   IEnumerator Scene1()
+    {
+        yield return  new WaitForSeconds(1.8f);
+        SceneManager.LoadScene(scene.name);
+        Destroy(gameObject);
+
+       
+    }
     
     }
   

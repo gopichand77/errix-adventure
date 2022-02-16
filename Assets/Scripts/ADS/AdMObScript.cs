@@ -136,6 +136,7 @@ public class AdMObScript : MonoBehaviour
             Ads = false;
             bannerView.Hide();
         }
+        // rewarded.OnAdDidRecordImpression += 
     }
     
     public void RequestInterstitial()
@@ -235,6 +236,12 @@ public void showRewarded()
         {
             rewarded.Show();
         }
+        rewarded.OnAdDidRecordImpression+= Respawn;
+
+    }
+    void Respawn(object a, EventArgs args)
+    {
+        
     }
  
  public void ShowInterstitial()
