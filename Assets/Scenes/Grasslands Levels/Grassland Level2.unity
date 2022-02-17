@@ -541,7 +541,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1175682395
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 1.0625, y: 1.75, z: 0}
   m_MaxChunkCount: 16
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 235542897}
   - component: {fileID: 235542896}
   m_Layer: 0
-  m_Name: Collider - Tile Map
+  m_Name: 'Collider '
   m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5623,7 +5623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278905141801723087, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d0fe434996649f380e908034df001a, type: 3}
@@ -14724,7 +14724,7 @@ GameObject:
   - component: {fileID: 1301705431}
   - component: {fileID: 1301705433}
   m_Layer: 0
-  m_Name: Ground - Tile Map
+  m_Name: 'Ground '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14783,7 +14783,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1175682395
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -37148,7 +37148,7 @@ Camera:
   m_GameObject: {fileID: 1371327315}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -37166,7 +37166,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -37209,7 +37209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 846358808}
-  timeOffset: 2
+  timeOffset: 7
   posOffset: {x: 0.5, y: 0.5}
   leftLimit: -5.2
   rightLimit: 158
@@ -42790,6 +42790,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1553335238983520695, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5919918261963955168, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: AttackButton
       value: 
@@ -42852,11 +42856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.35
+      value: 21.29
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.06
+      value: 7.14
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486772, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43628,7 +43632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f72bca6d4224b549abcbda1abad003b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlCanvas: {fileID: 1815983247}
+  controlCanvas: {fileID: 2026575723}
   spikeDamge: 10
 --- !u!19719996 &1815983250
 TilemapCollider2D:
@@ -43683,8 +43687,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1175682395
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -44984,6 +44988,14 @@ PrefabInstance:
     - target: {fileID: 9033395092628277810, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033395092717129872, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 85.299805
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033395092717129872, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -67.19995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
