@@ -5,7 +5,7 @@ using GoogleMobileAds.Api;
 using UnityEngine.Events;
 using System;
 using UnityEngine.UI;
-public class AdMobInit : MonoBehaviour
+public class AdMobRewardedAd : MonoBehaviour
 {
     public UnityEvent loading;
     private Player player;
