@@ -161,7 +161,7 @@ public class AdMObScript : MonoBehaviour
 
 
     }
-
+    
     public void RequestBanner()
     {
         // replace this id with your orignal admob id for banner ad
@@ -199,51 +199,6 @@ public class AdMObScript : MonoBehaviour
     void FailedtoLoad()
     {
         Loading.SetActive(true);
-    }
-
-  public void RequestRewaded()
-    {
-        // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-#if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-9793616844322643/4149318449"; // main
-#elif UNITY_IOS
-        string adUnitId = "ca-app-pub-9793616844322643/9909383375";
-#endif
-
-        // string adUnitId = "	ca-app-pub-3940256099942544/5224354917";
-        // Initialize an InterstitialAd.
-        rewarded = new RewardedAd(adUnitId);
-        // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
-        // Load the interstitial with the request.
-        rewarded.LoadAd(request);
-        rewarded.OnAdFailedToLoad += AdFailed;
-        rewarded.OnAdLoaded += RewardLoaded;
-        rewarded.OnAdClosed += HandleOnAdClosed;
-        
-        // AdRequest request = new AdRequest.Builder()
-    }
-    
-
-public void showRewarded()
-    {
-         if(!rewardlLoad)
-    {
-        RequestInterstitial();
-
-    }
-        RequestRewaded();
-        if (rewarded.IsLoaded())
-        {
-            rewarded.Show();
-        }
-        rewarded.OnAdDidRecordImpression+= Respawn;
-
-    }
-    void Respawn(object a, EventArgs args)
-    {
-        respawn = true;
-        
     }
  
  public void ShowInterstitial()

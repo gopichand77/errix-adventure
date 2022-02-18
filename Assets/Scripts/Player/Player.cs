@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
  private void Start()
     {
-        
+        checkPoint =  new Vector3(0,2,0);
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                // audioSource = GetComponent<AudioSource>();
         GameOverPanel.SetActive(false);
@@ -58,20 +58,21 @@ public class Player : MonoBehaviour
  private void Update()
     {
 
-        if (currentHealth <= 0)
+        if (currentHealth == 0 || currentHealth < 0)
         {
             new WaitForSeconds(1);
             GameOverPanel.SetActive(true);
             BlackScreen.SetActive(true);
              foreach (GameObject death in DeathOn)
             death.SetActive(true);
+           gameObject.SetActive(false);
         }
         checkAttackButton();
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
         }
-        Die();
+        
         // if ()
 
     }
@@ -136,17 +137,20 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0)
         {
            
-        //   gameObject.SetActive(false);
+          gameObject.SetActive(true);
         spriteRenderer.enabled = false;
         rb.isKinematic = true;
         }
     }
     public void Revive()
     {
+        currentHealth = 200;
          rb.isKinematic = false;
           spriteRenderer.enabled = true;
-      
+       gameObject.SetActive(true);
         transform.position =  checkPoint;
+        GameOverPanel.SetActive(false);
+        BlackScreen.SetActive(false);
     }
     IEnumerator GameTim()
     {

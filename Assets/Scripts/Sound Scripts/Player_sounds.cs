@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_sounds : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     private GameObject player;
     public bool played;
     // Start is called before the first frame update
