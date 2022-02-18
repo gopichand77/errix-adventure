@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
             TakeDamage(10);
         }
         Die();
+        // if ()
 
     }
     private void OnTriggerEnter2D(Collider2D trig)

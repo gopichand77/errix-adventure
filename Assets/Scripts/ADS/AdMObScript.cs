@@ -114,6 +114,7 @@ public class AdMObScript : MonoBehaviour
     BannerView bannerView;
     public bool Ads;
     bool  interstitialLoad;
+    public bool respawn;
     bool  rewardlLoad;
     // Use this for initialization
     void Start()
@@ -241,6 +242,7 @@ public void showRewarded()
     }
     void Respawn(object a, EventArgs args)
     {
+        respawn = true;
         
     }
  
