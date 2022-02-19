@@ -19,7 +19,7 @@ public class PlayerHurt : MonoBehaviour
     public float knockback;
     public float knockLenght;
     public float knockCount;
-    internal bool knockfromRight;
+    public bool knockfromRight;
     internal bool Damaged = false;
     [Header("spikeKnockOut")]
     public float spikeKnockback;
@@ -34,7 +34,7 @@ public class PlayerHurt : MonoBehaviour
     public Collider2D playerCol;
     public Collider2D playerCol2;
     public Collider2D playerCol3;
-    public GameObject[] childObjs;
+    // public GameObject[] childObjs;
     public float shockForce;
     private Animator theAnimator;
     private Rigidbody2D rb;
@@ -139,8 +139,8 @@ public class PlayerHurt : MonoBehaviour
         playerCol.enabled = false;
         playerCol2.enabled =  false;
         playerCol3.enabled = false;
-        foreach (GameObject child in childObjs)
-            child.SetActive(false);
+        // foreach (GameObject child in childObjs)
+        //     child.SetActive(false);
         rb.gravityScale = 2.5f;
         // rb.AddForce(transform.up * shockForce, ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * 100f * shockForce);

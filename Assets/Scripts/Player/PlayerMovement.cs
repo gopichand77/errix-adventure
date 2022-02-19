@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        groundlayer = LayerMask.GetMask("Ground");
         anim =  GetComponent<Animator>();
         dust = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();

@@ -9,17 +9,15 @@ public class PlayerCollections : MonoBehaviour
 
     
     public int Bullets;//We Can keep these as internal to hide from Unity 
-    public int goldCoins;// To hide Change public to internal From Unity
-    public int gems;
-    public int Keys;
-    public int openChests;
-    [Header("UI Elements")]
-    [SerializeField]
-    public Text goldCoinScoreText;
-    public Text gemsScoreText;
-    public Text keysText;
-    public Text treasureOpenedText;
-    public Text noOfBulletsText;
+    internal int goldCoins;
+    internal int gems;
+    internal int Keys;
+    internal int openChests;
+    private Text goldCoinScoreText;
+    private Text gemsScoreText;
+    // private Text keysText;
+    private Text treasureOpenedText;
+    private Text noOfBulletsText;
     // [Header("Game Over Panel Text ")]
     // private Text PanelgoldCoinScoreText;
     // private Text PanelgemsScoreText;
@@ -38,7 +36,7 @@ public class PlayerCollections : MonoBehaviour
         noOfBulletsText   = GameObject.Find("Axes Score/Axes Score").GetComponent<Text>();
         goldCoinScoreText.text = "" ; //goldcoins
         gemsScoreText.text = ""; //gems
-        keysText.text = ""; //keys
+        // keysText.text = ""; //keys
         treasureOpenedText.text = "";//Treasures opened
         noOfBulletsText.text = ""; //bullets
         // PaneltreasureOpenedText.text = "";

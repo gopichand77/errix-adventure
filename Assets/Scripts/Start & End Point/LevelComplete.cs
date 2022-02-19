@@ -9,7 +9,7 @@ public class LevelComplete : MonoBehaviour
     PlayerCollections collections;
     // PlayerPrefsManager prefsManager;
     private Animator animator;
-    public AdMObScript adMObScript;
+    internal AdMobRewardedAd adMObScript;
     private ParticleSystem confetti;
     public GameObject transitionPanel;
     private GameObject controlPanel;
@@ -25,8 +25,7 @@ public class LevelComplete : MonoBehaviour
         animator =  gameObject.GetComponent<Animator>();
         confetti =  transform.GetChild(0).GetComponentInChildren<ParticleSystem>();
         controlPanel =  GameObject.Find("Controls Panel");
-      
-        
+       adMObScript = GetComponent<AdMobRewardedAd>();
         // transitionPanel = Resources.Load("Assets/Prefabs/Player/Ul Elements/Grasslands/Grasslands Next Level Panel", typeof(GameObject)) as GameObject;
         levelDone =  FindObjectOfType<SingleLevel>();
         animator =  gameObject.GetComponent<Animator>();
@@ -59,7 +58,7 @@ public class LevelComplete : MonoBehaviour
         {
             if(Coinup)
             {
-                adMObScript.ShowInterstitial();
+                adMObScript.showRewarded();
                 UpdatePref();
                 Coinup = false;
             }

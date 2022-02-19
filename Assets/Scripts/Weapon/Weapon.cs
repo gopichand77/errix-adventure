@@ -5,21 +5,23 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
-   public Transform firepoint;
+   internal Transform firepoint;
    public Transform Axeprefab;
-   public Animator anim;
-   public Button attack;
+   internal Animator anim;
+   internal Button attack;
     
     // Update is called once per frame
     private void Start()
     {
-        // attack = GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
-        // attack.onClick.AddListener(Fire);
-        // firepoint =  GetComponentInChildren<>
+        // AttackButton =  GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
+        attack = GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
+        attack.onClick.AddListener(Fire);
+        firepoint =  transform.GetChild(1);
         anim = GetComponent<Animator>(); 
     }
     private void Update()
     {
+        attack.onClick.AddListener(Fire);
         // attack.onClick.AddListener(Shoot);
         if(Input.GetKeyDown(KeyCode.K))
         {
@@ -39,14 +41,14 @@ public class Weapon : MonoBehaviour
         
     }
         
-    void Shoot()
+    public void Shoot()
     {
         Instantiate(Axeprefab, firepoint.position,firepoint.rotation);
         
 
         StartCoroutine(ThrowAnime());
     }
-    IEnumerator ThrowAnime()
+    public IEnumerator ThrowAnime()
         {
             anim.SetBool("throw",true);
             yield return new WaitForSeconds(0.2f);

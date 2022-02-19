@@ -7,25 +7,26 @@ public class PlayerTrigger : MonoBehaviour
     //========================================================//
     // This the script for Player Triggering events to Check Treasure Buttons and Attack Button //
     // This also checks for the keys and the bullets of the player//
-    [SerializeField]
-    Player playerScript;
-    [Header("Attack Button")]
-    public Button AttackButton;
-    [Header("Treasure Keys Buttons")]
-    public Button TreasureKey1;
-    public Button TreasureKey2;
-    public Button TreasureKey3;
+   
+    private  Player playerScript;
+    // [Header("Attack Button")]
+    internal Button AttackButton;
+    // [Header("Treasure Keys Buttons")]
+    internal Button TreasureKey1;
+    internal Button TreasureKey2;
+    internal Button TreasureKey3;
     // Start is called before the first frame update
     void Start()
     {
+        playerScript =  GetComponent<Player>();
         TreasureKey1 = GameObject.Find("Canvas/Controls Panel/Treasure Button 1").GetComponent<Button>();
         TreasureKey2 = GameObject.Find("Canvas/Controls Panel/Treasure Button 2").GetComponent<Button>();
         TreasureKey3 = GameObject.Find("Canvas/Controls Panel/Treasure Button 3").GetComponent<Button>();
-
+        AttackButton =  GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
         TreasureKey1.gameObject.SetActive(false);
         TreasureKey2.gameObject.SetActive(false);
         TreasureKey3.gameObject.SetActive(false);
-        
+        AttackButton.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

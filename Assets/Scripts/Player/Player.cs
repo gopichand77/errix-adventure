@@ -13,28 +13,25 @@ public class Player : MonoBehaviour
     //3. GaveOver Panel
     //4. Death of the Player.
     //5. Checkpoint
-    [Header("Drag Player here")]
-    [SerializeField]
+    
+    
     internal PlayerMovement MovementScript;
-    [SerializeField]
     internal PlayerTrigger InteractButtons;
-    [SerializeField]
     internal PlayerCollections Collectables;
-    [SerializeField]
     internal PlayerHurt playerhurt;
     public GameObject damageTextPrefab;
     int textToDisplay;
     public GameObject GameOverPanel;
     public GameObject BlackScreen;
-    public GameObject[] DeathOn;
+    // public GameObject[] DeathOn;
     private Vector3 localScale;
-    public float HurtForce = 30;
+    // public float HurtForce = 30;
    [Header("Health")]
-    public int maxHealth = 100;
-    public int currentHealth;
+    internal int maxHealth = 200;
+    internal int currentHealth = 200;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
-    public PlayerHealthSlider healthBar;
+    internal PlayerHealthSlider healthBar;
     private Vector3 checkPoint =  new Vector3(0,2,0);
     
     
@@ -42,6 +39,14 @@ public class Player : MonoBehaviour
 
  private void Start()
     {
+        currentHealth = 200;
+        maxHealth = 200;
+        MovementScript =GetComponent<PlayerMovement>();
+        InteractButtons = GetComponent<PlayerTrigger>();
+        Collectables = GetComponent<PlayerCollections>();
+        playerhurt = GetComponent<PlayerHurt>();
+        healthBar = GameObject.FindObjectOfType<PlayerHealthSlider>();
+        // GameOverPanel =  GameObject.Find("Canvas/GameOverPanel");
         checkPoint =  new Vector3(0,2,0);
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                // audioSource = GetComponent<AudioSource>();
@@ -63,8 +68,8 @@ public class Player : MonoBehaviour
             new WaitForSeconds(1);
             GameOverPanel.SetActive(true);
             BlackScreen.SetActive(true);
-             foreach (GameObject death in DeathOn)
-            death.SetActive(true);
+            //  foreach (GameObject death in DeathOn)
+            // death.SetActive(true);
            gameObject.SetActive(false);
         }
         checkAttackButton();
