@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7652815095167815620}
   - component: {fileID: 7652815095167815619}
   - component: {fileID: 7652815095167815621}
+  - component: {fileID: 6910315162256866578}
   m_Layer: 3
   m_Name: Trunk
   m_TagString: Untagged
@@ -285,6 +286,23 @@ MonoBehaviour:
   Pea: {fileID: 7559403927825573815, guid: e1c0521cba0638c4ab5282059f752bf4, type: 3}
   peaBullet: {fileID: 1998052248297173500, guid: e1c0521cba0638c4ab5282059f752bf4, type: 3}
   Parentpos: {fileID: 7652815095167815619}
+--- !u!114 &6910315162256866578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652815095167815642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214c76ea9a88034419f69fc848b4c633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  damage: 2
+  damaged: 0
+  Dead: 0
+  PrefferedObject: {fileID: 0}
 --- !u!1 &7652815095262160897
 GameObject:
   m_ObjectHideFlags: 0
