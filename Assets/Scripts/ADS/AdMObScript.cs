@@ -182,16 +182,64 @@ public class AdMObScript : MonoBehaviour
             bannerView.OnAdLoaded += HandleOnAdLoaded;
         }
     }
+       public void showRewarded()
+    {
+         if(!rewardlLoad)
+    {
+        // RequestInterstitial();
+        RequestRewaded();
+
+    }
+        
+        if (rewarded.IsLoaded())
+        {
+            rewarded.Show();
+        }
+       
+    }
+      public void RequestRewaded()
+    {
+        // string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-9793616844322643/4149318449"; // main
+#elif UNITY_IOS
+        string adUnitId = "ca-app-pub-9793616844322643/9909383375";
+#endif
+
+        // string adUnitId = "	ca-app-pub-3940256099942544/5224354917";
+        // Initialize an InterstitialAd.
+        rewarded = new RewardedAd(adUnitId);
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the interstitial with the request.
+        rewarded.LoadAd(request);
+        rewarded.OnAdFailedToLoad += AdFailed;
+        rewarded.OnAdLoaded += RewardLoaded;
+        rewarded.OnAdClosed += HandleOnAdClosed;
+        
+        // AdRequest request = new AdRequest.Builder()
+    }
+         
+       
+       void RewardLoaded(object a, EventArgs args)
+    {
+        rewardlLoad = true;
+    }
+      public void HandleOnAdClosed(object sender, EventArgs args)
+    {
+        UnityEvent.Invoke();
+        
+        Debug.Log("Ad Closed");
+
+        //do this when ad is closed
+    }
 
     void Loaded(object a, EventArgs args)
     {
         interstitialLoad = true;
     }
 
-     void RewardLoaded(object a, EventArgs args)
-    {
-        rewardlLoad = true;
-    }
+   
      void AdFailed(object a, EventArgs args)
     {
         loading.Invoke();
@@ -241,14 +289,15 @@ public void HandleOnAdFailedToLoad(object sender , EventArgs args)
         //do this when ad fails to load
     }
 
-   public void HandleOnAdClosed(object sender, EventArgs args)
-    {
-        UnityEvent.Invoke();
+//    public void HandleOnAdClosed(object sender, EventArgs args)
+//     {
+//         UnityEvent.Invoke();
         
-        Debug.Log("Ad Closed");
+//         Debug.Log("Ad Closed");
 
-        //do this when ad is closed
-    }
+//         //do this when ad is closed
+//     }
+    
 
 }
 
