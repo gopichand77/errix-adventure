@@ -6977,6 +6977,7 @@ MonoBehaviour:
       m_Calls: []
   Loading: {fileID: 0}
   Ads: 0
+  respawn: 0
 --- !u!1 &580963006
 GameObject:
   m_ObjectHideFlags: 0
@@ -7165,17 +7166,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbedbd2485237340bfb6f4945d02ac8, type: 3}
---- !u!114 &604202518 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8463102089628790553, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
-  m_PrefabInstance: {fileID: 1028349246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &675738589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11245,7 +11235,7 @@ PrefabInstance:
     - target: {fileID: 1868157795038694497, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
       propertyPath: adMObScript
       value: 
-      objectReference: {fileID: 604202518}
+      objectReference: {fileID: 0}
     - target: {fileID: 1868157795038694497, guid: 1be3d60d2bcdb4f969c63d6cfc1f0d06, type: 3}
       propertyPath: controlPanel
       value: 
@@ -43450,6 +43440,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454496417}
     m_Modifications:
+    - target: {fileID: 825992486214720010, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 825992486214720012, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 825992486214720012, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1647041151}
+    - target: {fileID: 825992486214720012, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToNextLevelTran
+      objectReference: {fileID: 0}
+    - target: {fileID: 825992486214720012, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Grassland Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 825992487074761095, guid: 117cf39c858c1469d8ddc3461edde48d, type: 3}
       propertyPath: m_IsActive
       value: 0

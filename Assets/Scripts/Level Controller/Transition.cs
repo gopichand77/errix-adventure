@@ -6,6 +6,7 @@ public class Transition : MonoBehaviour
 {
     // public string Hai;
     public Scene scene;
+    // public int num;
 
     public void GoToNextLevelTran(string nameOfLevel)
     {
@@ -38,5 +39,10 @@ public class Transition : MonoBehaviour
     }
     
     }
+    // public void DummyButton()
+    // {
+    //     Debug.Log("GrassLand Level"+1);
+    //     SceneManager.LoadScene("GrassLand Level"+1+num);
+    // } 
   
 }
