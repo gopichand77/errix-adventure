@@ -6,6 +6,7 @@ public class Transition : MonoBehaviour
 {
     // public string Hai;
     public Scene scene;
+    public string nameOfLevel;
     // public int num;
 
     public void GoToNextLevelTran(string nameOfLevel)
