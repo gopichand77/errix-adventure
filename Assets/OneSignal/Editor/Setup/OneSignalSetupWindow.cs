@@ -1,189 +1,189 @@
-#if !ONE_SIGNAL_INSTALLED
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.UI;
+// #if !ONE_SIGNAL_INSTALLED
+// using System;
+// using System.Collections.Generic;
+// using System.Linq;
+// using System.Xml;
+// using UnityEditor;
+// using UnityEngine;
+// using UnityEngine.UI;
 
-/// <summary>
-/// Pop up window which displays any additional required or optional setup steps by the SDK
-/// </summary>
-public sealed class OneSignalSetupWindow : EditorWindow
-{
-    [MenuItem("Window/OneSignal")]
-    public static void ShowWindow()
-    {
-        var window = GetWindow(typeof(OneSignalSetupWindow), false, _title);
-        window.minSize = _minSize;
-        window.Show();
-    }
+// /// <summary>
+// /// Pop up window which displays any additional required or optional setup steps by the SDK
+// /// </summary>
+// public sealed class OneSignalSetupWindow : EditorWindow
+// {
+//     [MenuItem("Window/OneSignal")]
+//     public static void ShowWindow()
+//     {
+//         var window = GetWindow(typeof(OneSignalSetupWindow), false, _title);
+//         window.minSize = _minSize;
+//         window.Show();
+//     }
     
-    public static void CloseWindow()
-    {
-        var window = GetWindow(typeof(OneSignalSetupWindow), false, _title);
-        window.Close();
-    }
+//     public static void CloseWindow()
+//     {
+//         var window = GetWindow(typeof(OneSignalSetupWindow), false, _title);
+//         window.Close();
+//     }
 
-    private static readonly Vector2 _minSize = new Vector2(300, 400);
+//     private static readonly Vector2 _minSize = new Vector2(300, 400);
     
-    private const string _title = "OneSignal SDK Setup";
-    private const string _description = "Additional steps required to get the OneSignal Unity SDK up and running";
+//     private const string _title = "OneSignal SDK Setup";
+//     private const string _description = "Additional steps required to get the OneSignal Unity SDK up and running";
     
-    private IReadOnlyList<OneSignalSetupStep> _setupSteps;
-    private readonly Queue<OneSignalSetupStep> _stepsToRun = new Queue<OneSignalSetupStep>();
+//     private IReadOnlyList<OneSignalSetupStep> _setupSteps;
+//     private readonly Queue<OneSignalSetupStep> _stepsToRun = new Queue<OneSignalSetupStep>();
     
-    private bool _guiSetupComplete = false;
-    private GUIStyle _summaryStyle;
-    private GUIStyle _runStyle;
-    private GUIStyle _detailsStyle;
-    private GUIStyle _requiredStyle;
-    private GUIStyle _optionalStyle;
-    private Texture _checkTexture;
-    private Texture _boxTexture;
+//     private bool _guiSetupComplete = false;
+//     private GUIStyle _summaryStyle;
+//     private GUIStyle _runStyle;
+//     private GUIStyle _detailsStyle;
+//     private GUIStyle _requiredStyle;
+//     private GUIStyle _optionalStyle;
+//     private Texture _checkTexture;
+//     private Texture _boxTexture;
 
-    private Vector2 _scrollPosition;
+//     private Vector2 _scrollPosition;
     
-    private void OnEnable()
-    {
-        var stepTypes = _findAllAssignableTypes<OneSignalSetupStep>("OneSignal");
-        var steps = new List<OneSignalSetupStep>();
+//     private void OnEnable()
+//     {
+//         var stepTypes = _findAllAssignableTypes<OneSignalSetupStep>("OneSignal");
+//         var steps = new List<OneSignalSetupStep>();
 
-        foreach (var stepType in stepTypes)
-        {
-            if (Activator.CreateInstance(stepType) is OneSignalSetupStep step)
-                steps.Add(step);
-            else
-                Debug.LogWarning($"could not create setup step from type {stepType.Name}");
-        }
+//         foreach (var stepType in stepTypes)
+//         {
+//             if (Activator.CreateInstance(stepType) is OneSignalSetupStep step)
+//                 steps.Add(step);
+//             else
+//                 Debug.LogWarning($"could not create setup step from type {stepType.Name}");
+//         }
 
-        _setupSteps = steps;
-    }
+//         _setupSteps = steps;
+//     }
 
-    private void OnGUI()
-    {
-        _setupGUI();
+//     private void OnGUI()
+//     {
+//         _setupGUI();
 
-        GUILayout.Label(_description);
-        EditorGUILayout.Separator();
+//         GUILayout.Label(_description);
+//         EditorGUILayout.Separator();
 
-        if (_setupSteps == null) 
-            return;
+//         if (_setupSteps == null) 
+//             return;
 
-        var willDisableControls = _stepsToRun.Count > 0 
-            || EditorApplication.isUpdating 
-            || EditorApplication.isCompiling;
+//         var willDisableControls = _stepsToRun.Count > 0 
+//             || EditorApplication.isUpdating 
+//             || EditorApplication.isCompiling;
 
-        EditorGUI.BeginDisabledGroup(willDisableControls);
-        if (GUILayout.Button("Run All Steps"))
-        {
-            foreach (var step in _setupSteps)
-                _stepsToRun.Enqueue(step);
-        }
-        EditorGUI.EndDisabledGroup();
+//         EditorGUI.BeginDisabledGroup(willDisableControls);
+//         if (GUILayout.Button("Run All Steps"))
+//         {
+//             foreach (var step in _setupSteps)
+//                 _stepsToRun.Enqueue(step);
+//         }
+//         EditorGUI.EndDisabledGroup();
         
-        EditorGUILayout.Separator();
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+//         EditorGUILayout.Separator();
+//         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
-        EditorGUILayout.BeginHorizontal();
-        _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
+//         EditorGUILayout.BeginHorizontal();
+//         _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
         
-        foreach (var step in _setupSteps)
-        {
-            EditorGUILayout.BeginHorizontal();
+//         foreach (var step in _setupSteps)
+//         {
+//             EditorGUILayout.BeginHorizontal();
 
-            var sumContent = new GUIContent(step.Summary);
-            var sumRect = GUILayoutUtility.GetRect(sumContent, _summaryStyle);
+//             var sumContent = new GUIContent(step.Summary);
+//             var sumRect = GUILayoutUtility.GetRect(sumContent, _summaryStyle);
 
-            var checkRect = new Rect(sumRect.x, sumRect.y, sumRect.height, sumRect.height);
-            GUI.DrawTexture(checkRect, step.IsStepCompleted ? _checkTexture: _boxTexture);
+//             var checkRect = new Rect(sumRect.x, sumRect.y, sumRect.height, sumRect.height);
+//             GUI.DrawTexture(checkRect, step.IsStepCompleted ? _checkTexture: _boxTexture);
 
-            sumRect.x += sumRect.height + EditorStyles.label.padding.left;
-            GUI.Label(sumRect, sumContent);
+//             sumRect.x += sumRect.height + EditorStyles.label.padding.left;
+//             GUI.Label(sumRect, sumContent);
             
-            EditorGUI.BeginDisabledGroup(step.IsStepCompleted || willDisableControls);
-            if (GUILayout.Button("Run", _runStyle) && !_stepsToRun.Contains(step))
-                _stepsToRun.Enqueue(step);
-            EditorGUI.EndDisabledGroup();
+//             EditorGUI.BeginDisabledGroup(step.IsStepCompleted || willDisableControls);
+//             if (GUILayout.Button("Run", _runStyle) && !_stepsToRun.Contains(step))
+//                 _stepsToRun.Enqueue(step);
+//             EditorGUI.EndDisabledGroup();
             
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.Separator();
+//             EditorGUILayout.EndHorizontal();
+//             EditorGUILayout.Separator();
 
-            GUILayout.Label(step.Details, _detailsStyle);
+//             GUILayout.Label(step.Details, _detailsStyle);
             
-            if (step.IsRequired)
-                GUILayout.Label("Required", _requiredStyle);
-            else
-                GUILayout.Label("Optional", _optionalStyle);
+//             if (step.IsRequired)
+//                 GUILayout.Label("Required", _requiredStyle);
+//             else
+//                 GUILayout.Label("Optional", _optionalStyle);
             
-            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
-        }
+//             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+//         }
         
-        EditorGUILayout.EndScrollView();
-        EditorGUILayout.EndHorizontal();
-    }
+//         EditorGUILayout.EndScrollView();
+//         EditorGUILayout.EndHorizontal();
+//     }
 
-    private void OnInspectorUpdate()
-    {
-        var runnerCount = _stepsToRun.Count + 1.0f;
-        while (_stepsToRun.Count > 0)
-        {
-            var step = _stepsToRun.Dequeue();
+//     private void OnInspectorUpdate()
+//     {
+//         var runnerCount = _stepsToRun.Count + 1.0f;
+//         while (_stepsToRun.Count > 0)
+//         {
+//             var step = _stepsToRun.Dequeue();
             
-            EditorUtility.DisplayProgressBar(
-                "OneSignal Setup", 
-                $"Running step \"{step.Summary}\"", 
-                _stepsToRun.Count / runnerCount
-            );
+//             EditorUtility.DisplayProgressBar(
+//                 "OneSignal Setup", 
+//                 $"Running step \"{step.Summary}\"", 
+//                 _stepsToRun.Count / runnerCount
+//             );
             
-            step.RunStep();
-        }
-        EditorUtility.ClearProgressBar();
-    }
+//             step.RunStep();
+//         }
+//         EditorUtility.ClearProgressBar();
+//     }
 
-    private void _setupGUI()
-    {
-        if (_guiSetupComplete)
-            return;
+//     private void _setupGUI()
+//     {
+//         if (_guiSetupComplete)
+//             return;
 
-        _summaryStyle = EditorStyles.boldLabel;
+//         _summaryStyle = EditorStyles.boldLabel;
 
-        _detailsStyle = new GUIStyle(GUI.skin.textField);
-        _detailsStyle.wordWrap = true;
+//         _detailsStyle = new GUIStyle(GUI.skin.textField);
+//         _detailsStyle.wordWrap = true;
 
-        _runStyle = new GUIStyle(GUI.skin.button);
-        _runStyle.fixedWidth = _minSize.x * .3f;
+//         _runStyle = new GUIStyle(GUI.skin.button);
+//         _runStyle.fixedWidth = _minSize.x * .3f;
 
-        _requiredStyle = new GUIStyle(EditorStyles.miniBoldLabel);
-        _requiredStyle.normal.textColor = Color.red;
+//         _requiredStyle = new GUIStyle(EditorStyles.miniBoldLabel);
+//         _requiredStyle.normal.textColor = Color.red;
 
-        _optionalStyle = new GUIStyle(EditorStyles.miniLabel);
-        _optionalStyle.normal.textColor = Color.yellow;
-        _optionalStyle.fontStyle = FontStyle.Italic;
+//         _optionalStyle = new GUIStyle(EditorStyles.miniLabel);
+//         _optionalStyle.normal.textColor = Color.yellow;
+//         _optionalStyle.fontStyle = FontStyle.Italic;
 
-        var checkContent = EditorGUIUtility.IconContent("TestPassed");
-        _checkTexture = checkContent.image;
+//         var checkContent = EditorGUIUtility.IconContent("TestPassed");
+//         _checkTexture = checkContent.image;
 
-        var boxContent = EditorGUIUtility.IconContent("Warning");
-        _boxTexture = boxContent.image;
+//         var boxContent = EditorGUIUtility.IconContent("Warning");
+//         _boxTexture = boxContent.image;
         
-        _guiSetupComplete = true;
-    }
+//         _guiSetupComplete = true;
+//     }
 
-    private static IEnumerable<Type> _findAllAssignableTypes<T>(string assemblyFilter)
-    {
-        var assignableType = typeof(T);
+//     private static IEnumerable<Type> _findAllAssignableTypes<T>(string assemblyFilter)
+//     {
+//         var assignableType = typeof(T);
         
-        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        var filteredAssemblies = assemblies.Where(assembly 
-            => assembly.FullName.Contains(assemblyFilter));
+//         var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+//         var filteredAssemblies = assemblies.Where(assembly 
+//             => assembly.FullName.Contains(assemblyFilter));
         
-        var allTypes = filteredAssemblies.SelectMany(assembly => assembly.GetTypes());
-        var assignableTypes = allTypes.Where(type 
-            => type != assignableType && assignableType.IsAssignableFrom(type));
+//         var allTypes = filteredAssemblies.SelectMany(assembly => assembly.GetTypes());
+//         var assignableTypes = allTypes.Where(type 
+//             => type != assignableType && assignableType.IsAssignableFrom(type));
 
-        return assignableTypes;
-    }
-}
-#endif
+//         return assignableTypes;
+//     }
+// }
+// #endif
