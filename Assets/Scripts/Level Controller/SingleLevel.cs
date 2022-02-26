@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SingleLevel : MonoBehaviour
-{
+{   
+    [Header("Only for Testing")]
     public int currentStarsNum = 0;
    
 
