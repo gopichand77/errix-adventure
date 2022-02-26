@@ -5512,7 +5512,7 @@ PrefabInstance:
     - target: {fileID: 1822700656745547863, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 573638501}
+      objectReference: {fileID: 0}
     - target: {fileID: 1822700656745547863, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: showRewarded
@@ -5523,7 +5523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278905140811827762, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7278905140811827762, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5531,7 +5531,7 @@ PrefabInstance:
       objectReference: {fileID: 310018070}
     - target: {fileID: 7278905140811827762, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToNextLevelTran
+      value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 7278905141801723080, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_Pivot.x
@@ -5619,7 +5619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278905141801723087, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_Name
-      value: Grasslands Game Over Panel
+      value: Game Over Panel
       objectReference: {fileID: 0}
     - target: {fileID: 7278905141801723087, guid: 04d0fe434996649f380e908034df001a, type: 3}
       propertyPath: m_IsActive
@@ -6952,32 +6952,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae59ed5825baee488f8dcbc31ba9995, type: 3}
---- !u!1 &573638496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 798864861421611468, guid: 04d0fe434996649f380e908034df001a, type: 3}
-  m_PrefabInstance: {fileID: 275301922}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &573638501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573638496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33a413c3403aed41bc7130e0453f7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnityEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  loading:
-    m_PersistentCalls:
-      m_Calls: []
-  Loading: {fileID: 0}
-  Ads: 0
-  respawn: 0
 --- !u!1 &580963006
 GameObject:
   m_ObjectHideFlags: 0
