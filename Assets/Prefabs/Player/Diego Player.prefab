@@ -4817,11 +4817,12 @@ GameObject:
   - component: {fileID: 1719099118158339762}
   - component: {fileID: 1719099118158339763}
   - component: {fileID: 1719099118158339764}
-  - component: {fileID: 1719099118158339766}
   - component: {fileID: 1719099118158339765}
   - component: {fileID: 1719099118158339767}
   - component: {fileID: 1719099118158339769}
   - component: {fileID: 1719099118158339768}
+  - component: {fileID: 492855939638907033}
+  - component: {fileID: 7724947390634403535}
   m_Layer: 6
   m_Name: Diego Player
   m_TagString: Player
@@ -4962,28 +4963,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1719099118158339766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719099118158339790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6eea0d6f10a8b4ea575842704e1e36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpForce: 7
-  groundlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  hangTime: 0.2
-  hangCounter: 0.2
-  ctrlActive: 1
-  canDoubleJump: 0
-  DoubleJump: 0
 --- !u!58 &1719099118158339765
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5038,10 +5017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdb5495191a2c3499be6dabd0b725af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firepoint: {fileID: 1719099118380727835}
   Axeprefab: {fileID: 1626951665886589652, guid: 213bca183fb3d0e479c516bbd1b4f170, type: 3}
-  anim: {fileID: 1719099118158339762}
-  attack: {fileID: 0}
 --- !u!114 &1719099118158339768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5055,15 +5031,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullets: 0
-  goldCoins: 0
-  gems: 0
-  Keys: 0
-  openChests: 0
-  goldCoinScoreText: {fileID: 0}
-  gemsScoreText: {fileID: 0}
-  keysText: {fileID: 0}
-  treasureOpenedText: {fileID: 0}
-  noOfBulletsText: {fileID: 0}
+--- !u!114 &492855939638907033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719099118158339790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2bc7e4da3bd4783b99c92ac1096cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTextPrefab: {fileID: 0}
+  GameOverPanel: {fileID: 0}
+  BlackScreen: {fileID: 0}
+--- !u!114 &7724947390634403535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719099118158339790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622e0191d7418aa42b1cf49e2bcda449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
+  knockback: 0
+  knockLenght: 0
+  knockCount: 0
+  knockfromRight: 0
+  spikeKnockback: 0
+  spikeKnockLenght: 0
+  spikeKnockCount: 0
+  isDead: 0
+  playerCol: {fileID: 0}
+  playerCol2: {fileID: 0}
+  playerCol3: {fileID: 0}
+  shockForce: 0
 --- !u!1 &1719099118380727832
 GameObject:
   m_ObjectHideFlags: 0

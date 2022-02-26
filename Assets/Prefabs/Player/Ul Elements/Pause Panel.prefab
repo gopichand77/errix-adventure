@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b676d4757d0b7054286a5ec5581a823b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleCanvas: {fileID: 0}
-  SettingsMenu: {fileID: 843014192593621757}
+  titleCanvas: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &843014192593621757
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 843014193513208401}
   - component: {fileID: 843014193513208402}
   - component: {fileID: 843014193513208403}
+  - component: {fileID: 1046943290327894077}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -921,6 +922,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1046943290327894077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843014193513208413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5120ffa34bfcb5c498d6e86e1f0580ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &843014193587075737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b246bf2ddd9a74570b101caabb9fc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Intro: 0
   levelName: Grasslands Level Selector
+  scene:
+    m_Handle: 0
 --- !u!1 &843014194281731397
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class SettingMenu : MonoBehaviour
 {
-    public GameObject titleCanvas;
+    private GameObject ControlPanel;
     public GameObject pauseMenu;
     // Start is called before the first frame update
-   
+   private void Start()
+   {
+      ControlPanel =  GameObject.Find("Canvas/Controls Panel");
+    //   pauseMenu = GameObject.Find("Canvas/Pause Panel");
+   }
+  
    public void Setting()
    {
        pauseMenu.SetActive(true);
-       titleCanvas.gameObject.SetActive(false);
+       ControlPanel.gameObject.SetActive(false);
    } 
     public void Back()
    {
        pauseMenu.SetActive(false);
-       titleCanvas.SetActive(true);
+       ControlPanel.SetActive(true);
    } 
     public void Quit()
    {
