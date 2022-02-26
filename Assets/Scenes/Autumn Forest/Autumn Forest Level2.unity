@@ -1990,6 +1990,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9033395092413596181, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
   m_PrefabInstance: {fileID: 499236782}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &499236784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9033395092413596180, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
+  m_PrefabInstance: {fileID: 499236782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &509235794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34575,6 +34580,8 @@ GameObject:
   - component: {fileID: 674644464}
   - component: {fileID: 674644466}
   - component: {fileID: 674644465}
+  - component: {fileID: 674644468}
+  - component: {fileID: 674644467}
   m_Layer: 0
   m_Name: Traps
   m_TagString: Untagged
@@ -34976,6 +34983,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &674644467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674644463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f72bca6d4224b549abcbda1abad003b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlCanvas: {fileID: 499236784}
+  spikeDamge: 10
+--- !u!19719996 &674644468
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674644463}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &686318160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69411,8 +69448,8 @@ MonoBehaviour:
   player: {fileID: 1526951369}
   timeOffset: 7
   posOffset: {x: 0, y: 0}
-  leftLimit: -24.41
-  rightLimit: 187.4
+  leftLimit: -22.15
+  rightLimit: 182.3
   bottomLimit: -3.25
   topLimit: 9.5
   bossLevel: 0
