@@ -27,13 +27,14 @@ public class Transition : MonoBehaviour
     public void Restart()
     {
         scene =  SceneManager.GetActiveScene();
+        nameOfLevel =  scene.name;
          SceneManager.LoadSceneAsync("Loading Screen");
         DontDestroyOnLoad(this.gameObject);
         StartCoroutine(Scene1());
    IEnumerator Scene1()
     {
         yield return  new WaitForSeconds(1.8f);
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadSceneAsync(nameOfLevel);
         Destroy(gameObject);
 
        

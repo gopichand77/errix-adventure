@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System;
 using System.Text;
 public class Player : MonoBehaviour
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     public GameObject damageTextPrefab;
     int textToDisplay;
     public GameObject GameOverPanel;
+    public GameObject[] GameOverChilds;
     public GameObject BlackScreen;
     // public GameObject[] DeathOn;
     private Vector3 localScale;
@@ -39,14 +41,12 @@ public class Player : MonoBehaviour
 
  private void Start()
     {
+        getPlayer();
         currentHealth = 200;
         maxHealth = 200;
-        MovementScript =GetComponent<PlayerMovement>();
-        InteractButtons = GetComponent<PlayerTrigger>();
-        Collectables = GetComponent<PlayerCollections>();
-        playerhurt = GetComponent<PlayerHurt>();
-        healthBar = GameObject.FindObjectOfType<PlayerHealthSlider>();
-        // GameOverPanel =  GameObject.Find("Canvas/GameOverPanel");
+
+        // GameOverPanel =  GameObject.Find("Game Over Panel");
+        // GameOverChilds =  GameOverPanel.GetComponentInChildren<ImagePanel>()
         checkPoint =  new Vector3(0,2,0);
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                // audioSource = GetComponent<AudioSource>();
@@ -161,6 +161,14 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GameOverPanel.SetActive(true);
+    }
+    void getPlayer()
+    {
+                MovementScript =GetComponent<PlayerMovement>();
+        InteractButtons = GetComponent<PlayerTrigger>();
+        Collectables = GetComponent<PlayerCollections>();
+        playerhurt = GetComponent<PlayerHurt>();
+        healthBar = GameObject.FindObjectOfType<PlayerHealthSlider>();
     }
     //count score
 }

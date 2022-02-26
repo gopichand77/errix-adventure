@@ -362,7 +362,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attacking: 0
-  bullHealth: 100
+  bullHealth: 20
   player: {fileID: 0}
   BossCollider: {fileID: 0}
   Died: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   boxColliders:
   - {fileID: 6544491132535213445}
   - {fileID: 6544491132535213442}
-  bullHealthScript: {fileID: 6544491131987341408}
+  bossHealth: {fileID: 0}
   bossFightImage: {fileID: 0}
   maxHealth: 100
 --- !u!60 &6544491132535213447
@@ -393,7 +393,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.28897858, y: 0.000073830284}
-    oldSize: {x: 2.375, y: 3}
+    oldSize: {x: 3.1666667, y: 4}
     newSize: {x: 4.6875, y: 4.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -458,7 +458,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.28897858, y: 0.000073830284}
-    oldSize: {x: 2.375, y: 3}
+    oldSize: {x: 3.1666667, y: 4}
     newSize: {x: 4.6875, y: 4.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -484,7 +484,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.28897858, y: 0.000073830284}
-    oldSize: {x: 2.375, y: 3}
+    oldSize: {x: 3.1666667, y: 4}
     newSize: {x: 4.6875, y: 4.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -510,7 +510,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.28897858, y: 0.000073830284}
-    oldSize: {x: 2.375, y: 3}
+    oldSize: {x: 3.1666667, y: 4}
     newSize: {x: 4.6875, y: 4.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
