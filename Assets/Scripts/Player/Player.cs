@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     //3. GaveOver Panel
     //4. Death of the Player.
     //5. Checkpoint
-    
-    
+
+
     internal PlayerMovement MovementScript;
     internal PlayerTrigger InteractButtons;
     internal PlayerCollections Collectables;
@@ -28,18 +28,18 @@ public class Player : MonoBehaviour
     // public GameObject[] DeathOn;
     private Vector3 localScale;
     // public float HurtForce = 30;
-   [Header("Health")]
+    [Header("Health")]
     internal int maxHealth = 200;
     internal int currentHealth = 200;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     internal PlayerHealthSlider healthBar;
-    private Vector3 checkPoint =  new Vector3(0,2,0);
-    
-    
-    
+    private Vector3 checkPoint = new Vector3(0, 2, 0);
 
- private void Start()
+
+
+
+    private void Start()
     {
         getPlayer();
         currentHealth = 200;
@@ -47,20 +47,20 @@ public class Player : MonoBehaviour
 
         // GameOverPanel =  GameObject.Find("Game Over Panel");
         // GameOverChilds =  GameOverPanel.GetComponentInChildren<ImagePanel>()
-        checkPoint =  new Vector3(0,2,0);
+        checkPoint = new Vector3(0, 2, 0);
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-               // audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
         GameOverPanel.SetActive(false);
         BlackScreen.SetActive(false);
         InteractButtons.AttackButton.interactable = false;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxhealth(maxHealth);
-         //treasure reference 
-               
+        //treasure reference 
+
         //for score
-}
- private void Update()
+    }
+    private void Update()
     {
 
         if (currentHealth == 0 || currentHealth < 0)
@@ -70,25 +70,25 @@ public class Player : MonoBehaviour
             BlackScreen.SetActive(true);
             //  foreach (GameObject death in DeathOn)
             // death.SetActive(true);
-           gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
         checkAttackButton();
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
         }
-        
+
         // if ()
 
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.CompareTag("CheckPoint"))
+        if (trig.gameObject.CompareTag("CheckPoint"))
         {
-            checkPoint =  new Vector3(trig.transform.position.x,trig.transform.position.y+2,trig.transform.position.z);
+            checkPoint = new Vector3(trig.transform.position.x, trig.transform.position.y + 2, trig.transform.position.z);
         }
     }
-   
+
 
     public void checkAttackButton()
     {
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
             InteractButtons.AttackButton.interactable = false;
         }
     }
-    public void TakeDamage( int damage)
+    public void TakeDamage(int damage)
     {
         // health -= damage;
         StartCoroutine(Hurt());
@@ -110,27 +110,27 @@ public class Player : MonoBehaviour
             currentHealth -= damage;
             // damage = textToDisplay;
             textToDisplay = damage;
-             playerhurt.Damaged = false;
+            playerhurt.Damaged = false;
             playerhurt.spikeDamaged = false;
-            playerhurt.shotHurt =  false;
-            Invoke("Floating",0.5f);    
+            playerhurt.shotHurt = false;
+            Invoke("Floating", 0.5f);
         }
 
         healthBar.SetHealth(currentHealth);
     }
     internal void Floating()
     {
-        Vector3 PlayerPos =  new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-       GameObject DamageTextInstance = Instantiate(damageTextPrefab, PlayerPos, Quaternion.identity);
-           DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("-"+textToDisplay.ToString());
-           Destroy(DamageTextInstance, 2f);
+        Vector3 PlayerPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        GameObject DamageTextInstance = Instantiate(damageTextPrefab, PlayerPos, Quaternion.identity);
+        DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("-" + textToDisplay.ToString());
+        Destroy(DamageTextInstance, 2f);
     }
     IEnumerator Hurt()
-    {   
+    {
         MovementScript.anim.SetBool("isFalling", false);
         MovementScript.anim.SetBool("isHurt", true);
         MovementScript.moveSpeed = 0;
-        
+
         yield return new WaitForSeconds(0.8f);
         MovementScript.moveSpeed = 7;
         MovementScript.anim.SetBool("isHurt", false);
@@ -141,19 +141,19 @@ public class Player : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-           
-          gameObject.SetActive(true);
-        spriteRenderer.enabled = false;
-        rb.isKinematic = true;
+
+            gameObject.SetActive(true);
+            spriteRenderer.enabled = false;
+            rb.isKinematic = true;
         }
     }
     public void Revive()
     {
         currentHealth = 200;
-         rb.isKinematic = false;
-          spriteRenderer.enabled = true;
-       gameObject.SetActive(true);
-        transform.position =  checkPoint;
+        rb.isKinematic = false;
+        spriteRenderer.enabled = true;
+        gameObject.SetActive(true);
+        transform.position = checkPoint;
         GameOverPanel.SetActive(false);
         BlackScreen.SetActive(false);
     }
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
     }
     void getPlayer()
     {
-                MovementScript =GetComponent<PlayerMovement>();
+        MovementScript = GetComponent<PlayerMovement>();
         InteractButtons = GetComponent<PlayerTrigger>();
         Collectables = GetComponent<PlayerCollections>();
         playerhurt = GetComponent<PlayerHurt>();
