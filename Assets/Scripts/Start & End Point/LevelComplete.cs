@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Firebase;
-using Firebase.Analytics;
+// using Firebase.Analytics;
 public class LevelComplete : MonoBehaviour
 {
     PlayerCollections collections;
@@ -64,7 +64,7 @@ public class LevelComplete : MonoBehaviour
             }
             PlayerPrefsManager.UpdateCoins();
             PlayerPrefs.Save();
-            FirebaseAnalytics.LogEvent(scene.name);
+            // FirebaseAnalytics.LogEvent(scene.name);
             
             animator.SetBool("Done",true);
             // confetti.Play();
