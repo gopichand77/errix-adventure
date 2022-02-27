@@ -5,11 +5,27 @@ using UnityEngine;
 public class IAP_Purchaser : MonoBehaviour
 {
 
+    public void Start()
+    {
+        Firebase.Messaging.FirebaseMessaging.TokenReceived += OnTokenReceived;
+        Firebase.Messaging.FirebaseMessaging.MessageReceived += OnMessageReceived;
+        Firebase.Messaging.FirebaseMessaging.TokenRegistrationOnInitEnabled = true;
+    }
+
+    public void OnTokenReceived(object sender, Firebase.Messaging.TokenReceivedEventArgs token)
+    {
+        UnityEngine.Debug.Log("Received Registration Token: " + token.Token);
+    }
+
+    public void OnMessageReceived(object sender, Firebase.Messaging.MessageReceivedEventArgs e)
+    {
+        UnityEngine.Debug.Log("Received a new message from: " + e.Message.From);
+    }
     public void RemoveAds()
     {
-        if(PlayerPrefs.HasKey("RemoveAds") ==  false)
+        if (PlayerPrefs.HasKey("RemoveAds") == false)
         {
-            PlayerPrefs.SetInt("RemoveAds",0);
+            PlayerPrefs.SetInt("RemoveAds", 0);
         }
     }
 }
