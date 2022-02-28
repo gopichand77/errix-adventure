@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Restart_bttn : MonoBehaviour
 {
     
-    public Transition trans;
+    internal Transition trans;
     internal Button bttn;
     internal string nameLevel;
     private Scene scene;

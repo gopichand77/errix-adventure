@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 public class Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,10 +10,13 @@ public class Weapon : MonoBehaviour
    public Transform Axeprefab;
    internal Animator anim;
    internal Button attack;
-    
+    PlayerCollections player;
+    public bool fire;
     // Update is called once per frame
     private void Start()
     {
+        fire = CrossPlatformInputManager.GetButtonDown("Fire1");
+        player = gameObject.GetComponent<PlayerCollections>();
         // AttackButton =  GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
         attack = GameObject.Find("Canvas/Controls Panel/Attack").GetComponent<Button>();
         attack.onClick.AddListener(Fire);
@@ -21,7 +25,7 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
-        attack.onClick.AddListener(Fire);
+       
         // attack.onClick.AddListener(Shoot);
         if(Input.GetKeyDown(KeyCode.K))
         {
@@ -33,23 +37,23 @@ public class Weapon : MonoBehaviour
     }
      public void Fire()
     {
-
-        Shoot();
+       
+            Shoot();
+            
         
-        PlayerCollections player = gameObject.GetComponent<PlayerCollections>();
+        
+        
         player.BulletHandler();
         
     }
         
     public void Shoot()
     {
-        Instantiate(Axeprefab, firepoint.position,firepoint.rotation);
-        
-
-        StartCoroutine(ThrowAnime());
+        StartCoroutine(ThrowAnime());    
     }
     public IEnumerator ThrowAnime()
         {
+            Instantiate(Axeprefab, firepoint.position,firepoint.rotation); 
             anim.SetBool("throw",true);
             yield return new WaitForSeconds(0.2f);
             anim.SetBool("throw",false);
