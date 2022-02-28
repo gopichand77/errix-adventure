@@ -47,6 +47,7 @@ public class MenuScene_updater : MonoBehaviour
     }
     void Update()
     {
+        ConfigManager.FetchCompleted += ApplyRemoteSettings;
         if(Menuvalue == 1)
         {
             Winter.SetActive(true);

@@ -194,6 +194,7 @@ public class AdMObScript : MonoBehaviour
         if (rewarded.IsLoaded())
         {
             rewarded.Show();
+            UnityEvent.Invoke();
         }
        
     }
@@ -223,6 +224,7 @@ public class AdMObScript : MonoBehaviour
        
        void RewardLoaded(object a, EventArgs args)
     {
+        rewarded.Show();
         rewardlLoad = true;
     }
       public void HandleOnAdClosed(object sender, EventArgs args)
