@@ -49,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
     #if UNITY_EDITOR
-    // dirX = Input.GetAxis("Horizontal") * moveSpeed;
+    dirX = Input.GetAxis("Horizontal") * moveSpeed;
     // // dirY = Input.GetKeyDown(KeyCode.W);
-    // dirY = Input.GetButtonDown("Jump");
-    dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
-    dirY = CrossPlatformInputManager.GetButtonDown("Jump");
+    dirY = Input.GetButtonDown("Jump");
+    // dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+    // dirY = CrossPlatformInputManager.GetButtonDown("Jump");
     #elif UNITY_ANDROID
     dirX = CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
     dirY = CrossPlatformInputManager.GetButtonDown("Jump");
