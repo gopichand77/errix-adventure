@@ -29,19 +29,19 @@ public class PlayerCollections : MonoBehaviour
     void Start()
     {
         // coins = PlayerPrefs.GetInt("Coins");
-        goldCoinScoreText = GameObject.Find("Gold Coin Score/Gold Coin Score").GetComponent<Text>();
-        gemsScoreText = GameObject.Find("Gems Score/Gems Score").GetComponent<Text>();
+        goldCoinScoreText = GameObject.Find("Controls Panel/Gold Coin Score/Gold Coin Score").GetComponent<Text>();
+        gemsScoreText = GameObject.Find("Controls Panel/Gems Score/Gems Score").GetComponent<Text>();
         // keysText = GameObject.Find("Keys Score/Keys Score").GetComponent<Text>();
-        treasureOpenedText  = GameObject.Find("Treasure Score/Treasure Score").GetComponent<Text>();
-        noOfBulletsText   = GameObject.Find("Axes Score/Axes Score").GetComponent<Text>();
+        treasureOpenedText  = GameObject.Find("Controls Panel/Treasure Score/Treasure Score").GetComponent<Text>();
+        noOfBulletsText   = GameObject.Find("Controls Panel/Axes Score/Axes Score").GetComponent<Text>();
         goldCoinScoreText.text = "" ; //goldcoins
         gemsScoreText.text = ""; //gems
         // keysText.text = ""; //keys
         treasureOpenedText.text = "";//Treasures opened
         noOfBulletsText.text = ""; //bullets
-        PaneltreasureOpenedText.text = "";
-        PanelgoldCoinScoreText.text = "";
-        PanelgemsScoreText.text = "";
+        PaneltreasureOpenedText = GameObject.Find("Next Level Panel/Chest Score").GetComponent<Text>();
+        PanelgoldCoinScoreText =GameObject.Find("Next Level Panel/Gold Coin Score").GetComponent<Text>();;
+        PanelgemsScoreText = GameObject.Find("Next Level Panel/Gems Score ").GetComponent<Text>();;
         
     }
 
