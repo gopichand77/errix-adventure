@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 48407211}
   - component: {fileID: 48407210}
   - component: {fileID: 48407212}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DialogManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76432,7 +76432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3659762941021682258, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.97
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 3659762941021682259, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_Layer
@@ -76441,6 +76441,10 @@ PrefabInstance:
     - target: {fileID: 3659762941596076536, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659762942103772993, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: 3659762942103772998, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_Layer
@@ -77614,6 +77618,10 @@ PrefabInstance:
     - target: {fileID: 3659762941021682258, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659762941596076536, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3659762942103772993, guid: ee057925aaaf940c09e72526d2d1d603, type: 3}
       propertyPath: m_LocalPosition.x
@@ -95526,7 +95534,7 @@ PrefabInstance:
       objectReference: {fileID: 1003737824}
     - target: {fileID: 2898959977951661052, guid: dbd182ed98e1a5c448ddb6b126201749, type: 3}
       propertyPath: m_Name
-      value: Chest
+      value: Chest3
       objectReference: {fileID: 0}
     - target: {fileID: 2898959977951661054, guid: dbd182ed98e1a5c448ddb6b126201749, type: 3}
       propertyPath: m_RootOrder
@@ -95926,7 +95934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5692534156421777982, guid: 8145088a982c8e54a835b5b11bac070d, type: 3}
       propertyPath: m_Name
-      value: Chest (1)
+      value: Chest1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8145088a982c8e54a835b5b11bac070d, type: 3}
@@ -95991,7 +95999,7 @@ PrefabInstance:
       objectReference: {fileID: 8629771056137240494, guid: 8369ab979a1a39e4f91eca3d244f7767, type: 3}
     - target: {fileID: 6556528483266948242, guid: 1b5849939c98b414e8ac1db1939f498f, type: 3}
       propertyPath: m_Name
-      value: Chest (2)
+      value: Chest2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b5849939c98b414e8ac1db1939f498f, type: 3}
@@ -96183,9 +96191,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7423574116126047950, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486728, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_Name
       value: Tommy Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423574116704486728, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423574116704486728, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7423574116704486768, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: attack
@@ -96355,6 +96375,10 @@ PrefabInstance:
       propertyPath: treasureOpenedText
       value: 
       objectReference: {fileID: 695514709}
+    - target: {fileID: 7423574116870822539, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7423574117257973707, guid: d6a37c7ff9be24d93a85d18cf0edb1fa, type: 3}
       propertyPath: m_Icon
       value: 
@@ -96589,6 +96613,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 9033395091703846067, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9033395091705475886, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -96629,6 +96657,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 9033395091705475888, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9033395092116684874, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -96668,6 +96700,10 @@ PrefabInstance:
     - target: {fileID: 9033395092116684874, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033395092116684876, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9033395092413596180, guid: 5c83b19c165e64684a896bd9e75f4ed8, type: 3}
       propertyPath: m_Name

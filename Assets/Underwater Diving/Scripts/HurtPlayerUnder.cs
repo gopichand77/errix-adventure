@@ -13,8 +13,7 @@ public class HurtPlayerUnder : MonoBehaviour
 
         if (trig.gameObject.tag == "Player")
         {
-
-            var player = trig.GetComponent<PlayerController>();
+			var player = trig.GetComponent<PlayerController>();
             if (player.playerhurt.Damaged)
             {
                 player.TakeDamage(EnemyDamage);
@@ -25,8 +24,7 @@ public class HurtPlayerUnder : MonoBehaviour
 
             if (trig.transform.position.x < transform.position.x)
             {
-                player.playerhurt.knockfromRight = true
-            ;
+                player.playerhurt.knockfromRight = true;
             }
             else
             {

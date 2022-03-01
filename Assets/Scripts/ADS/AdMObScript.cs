@@ -5,100 +5,6 @@ using System;
 using GoogleMobileAds.Api;
 using UnityEngine.Events;
 
-// public class AdMObScript : MonoBehaviour
-// {
-//     InterstitialAd interstitial;
-//     string interstitialId;
-//     void Start()
-//     {
-//         MobileAds.Initialize(initStatus => {});
-//         RequestInterstitial();
-//     }
-
-//     void RequestInterstitial()
-//     {
-
-// #if UNITY_ANDROID
-//         // interstitialId = "ca-app-pub-3940256099942544/1033173712";
-//         interstitialId = "ca-app-pub-9793616844322643/7816189618";
-// #elif UNITY_IPHONE
-//         // interstitialId = "ca-app-pub-3940256099942544/1033173712";
-// #else
-//         interstitialId = null;
-// #endif
-
-//         interstitial = new InterstitialAd(interstitialId);
-
-//         //call events
-//         interstitial.OnAdLoaded += HandleOnAdLoaded;
-//         interstitial.OnAdFailedToLoad += HandleOnAdFailedToLoad;
-//         interstitial.OnAdOpening += HandleOnAdOpened;
-//         interstitial.OnAdClosed += HandleOnAdClosed;
-//         // interstitial.OnAdLeavingApplication += HandleOnAdLeavingApplication;
-
-
-//         //create and ad request
-//         if (PlayerPrefs.HasKey("Consent"))
-//         {
-//             AdRequest request = new AdRequest.Builder().Build();
-//             interstitial.LoadAd(request); //load & show the banner ad
-//         } else
-//         {
-//             AdRequest request = new AdRequest.Builder().AddExtra("npa", "1").Build();
-//             interstitial.LoadAd(request); //load & show the banner ad (non-personalised)
-//         }
-//     }
-
-//     //show the ad
-//     public void ShowInterstitial()
-//     {
-//         // MediationTestSuite.Show();
-//         MobileAds.Initialize(initStatus => {});
-//         RequestInterstitial();
-//         if (interstitial.IsLoaded())
-//         {
-
-//             this.interstitial.Show();
-//         }
-//     }
-
-
-//     // events below
-//      //events below
-//     public void HandleOnAdLoaded(object sender, EventArgs args)
-//     {
-//         Debug.Log("Ad loaded");
-//         this.interstitial.Show();
-//         //do this when ad loads
-//         // this.interstitial.Show();
-//         // MediationTestSuite.Show();
-//     }
-
-//     public void HandleOnAdFailedToLoad(object sender, EventArgs args)
-//     {
-//         Debug.Log("Ad Failed");
-//         //do this when ad fails to load
-//     }
-
-//     public void HandleOnAdOpened(object sender, EventArgs args)
-//     {
-//         Debug.Log("Ad Opened");
-//         //do this when ad is opened
-//     }
-
-    // public void HandleOnAdClosed(object sender, EventArgs args)
-    // {
-    //     Debug.Log("Ad Closed");
-
-    //     //do this when ad is closed
-    // }
-
-//     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
-//     {
-//         //do this when on leaving application;
-//     }
-
-// }
 
 
 public class AdMObScript : MonoBehaviour
@@ -155,8 +61,8 @@ public class AdMObScript : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         interstitial.LoadAd(request);
-        interstitial.OnAdLoaded += HandleOnAdLoaded;
-        interstitial.OnAdLoaded += Loaded;
+        interstitial.OnAdLoaded += HandleOnAdLoadedinter;
+        // interstitial.OnAdLoaded += Loaded;
         interstitial.OnAdFailedToLoad += HandleOnAdFailedToLoad;
 
 
@@ -253,6 +159,7 @@ public class AdMObScript : MonoBehaviour
  
  public void ShowInterstitial()
     {
+        interstitial.Show();
       
         if(!interstitialLoad)
     {
@@ -278,6 +185,18 @@ public class AdMObScript : MonoBehaviour
         {
             print("loaded");
             bannerView.Show();
+
+        }
+
+        // interstitial.Show();
+    }
+    void HandleOnAdLoadedinter(object a, EventArgs args)
+    {
+        // interstitial.Show
+        if (PlayerPrefs.HasKey("RemoveAds") == false)
+        {
+            print("loaded");
+            interstitial.Show();
 
         }
 

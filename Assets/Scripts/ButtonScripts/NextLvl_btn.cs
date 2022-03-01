@@ -15,7 +15,7 @@ public class NextLvl_btn : MonoBehaviour
         adMObScript = gameObject.GetComponent<AdMObScript>();
         trans =  FindObjectOfType<Transition>();
         bttn =  gameObject.GetComponent<Button>();
-        
+        bttn.onClick.AddListener(()=> trans.GoToNextLevelTran(nameLevel));
         // bttn.onClick.AddListener(L);
     }
     public void L()
@@ -34,12 +34,6 @@ public class NextLvl_btn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(h)
-        {
-            adMObScript.enabled =  false;
-            bttn.onClick.RemoveAllListeners();
-            bttn.onClick.AddListener(i);
-        }
             
         
        

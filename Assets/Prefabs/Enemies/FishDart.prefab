@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 50588372370297440}
   - component: {fileID: 95233173578709766}
   - component: {fileID: 4645252294602257337}
+  - component: {fileID: 6630623937982244661}
   m_Layer: 0
   m_Name: FishDart
   m_TagString: Enemy
@@ -187,3 +188,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   movingRight: 0
+--- !u!114 &6630623937982244661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225044215565552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609dc6b73a5ce4b1bb5bf085838b2318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyDamage: 10
+  spikeDamge: 10

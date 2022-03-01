@@ -12,7 +12,7 @@ public class PlayerTrigger : MonoBehaviour
     // [Header("Attack Button")]
     internal Button AttackButton;
     // [Header("Treasure Keys Buttons")]
-    internal Button TreasureKey1;
+    public Button TreasureKey1;
     internal Button TreasureKey2;
     internal Button TreasureKey3;
     internal Chest chest1;

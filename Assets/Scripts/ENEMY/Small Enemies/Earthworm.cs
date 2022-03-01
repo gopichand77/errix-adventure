@@ -10,16 +10,22 @@ public class Earthworm : MonoBehaviour
     public bool movingRight;
     // public Animator anim;
     Rigidbody2D rb;
+    LayerMask layer;
+    internal Player player;
     
 
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
+       
+        gameObject.layer = LayerMask.NameToLayer("Earthworm");
     }
 
     private void FixedUpdate()
     {
+        // Physics2D.IgnoreCollision(player.GetComponent)
         if (movingRight)
         {
             transform.Translate(2 * Time.deltaTime * -moveSpeed, 0, 0);
@@ -47,6 +53,13 @@ public class Earthworm : MonoBehaviour
             {
                 movingRight = true;
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D  col)
+    {
+        if(col.gameObject.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(),GetComponent<Collider2D>());
         }
     }
 }

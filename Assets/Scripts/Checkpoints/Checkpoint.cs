@@ -19,7 +19,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !flying)
         {
-            ad.ShowInterstitial();
+            ad.RequestInterstitial();
             StartCoroutine(PlayAnim());
             flying = true;
         }

@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
 
     internal PlayerMovement MovementScript;
-    internal PlayerTrigger InteractButtons;
+    public PlayerTrigger InteractButtons;
     internal PlayerCollections Collectables;
     internal PlayerHurt playerhurt;
     public GameObject damageTextPrefab;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     internal int maxHealth = 200;
     internal int currentHealth = 200;
     Rigidbody2D rb;
+    LayerMask layer;
     SpriteRenderer spriteRenderer;
     internal PlayerHealthSlider healthBar;
     private Vector3 checkPoint = new Vector3(0, 2, 0);
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxhealth(maxHealth);
+         gameObject.layer = LayerMask.NameToLayer("Player");
         //treasure reference 
 
         //for score

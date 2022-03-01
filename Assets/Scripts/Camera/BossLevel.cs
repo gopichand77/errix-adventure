@@ -5,22 +5,28 @@ using UnityEngine;
 public class BossLevel : MonoBehaviour
 {
     Vector3 matric;
-    public GameObject cam;
+    internal GameObject cam;
     Vector3 moveToPosition;
     float speed = 2f;
     public bool move_ = false;
     public bool move_back = false;
-    [SerializeField] Transform EnemyTransform;
+    [SerializeField] 
+    Transform EnemyTransform;
     [SerializeField]
-    Transform PlayerTransform;
+    internal Transform PlayerTransform;
     [SerializeField]
-    Player playerScript;
+    internal Player playerScript;
     [SerializeField]
     CameraController Camera;
     public int timer;
     public int stayTimer;
     private void Start()
     {
+        cam = gameObject;
+        Camera = GetComponent<CameraController>();
+
+        playerScript =  FindObjectOfType<Player>();
+        PlayerTransform =  playerScript.transform;
         Camera.enabled = false;
         playerScript.MovementScript.ctrlActive = false;
         move_ = false;
