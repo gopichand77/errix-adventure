@@ -11,7 +11,7 @@ public class ChestGems : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindObjectOfType<Player>();
+       
         rb.velocity = transform.up *5 ;
         player.Collectables.NoOfgems();
         StartCoroutine(CoinOut());

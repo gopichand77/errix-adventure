@@ -7,9 +7,11 @@ public class ChestGoldCoin : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     private bool ChestOpened = true;
+    internal PlayerCollections player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<PlayerCollections>();
         rb.velocity = transform.up *5 ;
         StartCoroutine(CoinOut());
         
@@ -21,8 +23,8 @@ public class ChestGoldCoin : MonoBehaviour
     }
     IEnumerator CoinOut() {
         yield return new WaitForSeconds(0.5f);
-        Player player = GameObject.Find("Tommy Player").GetComponent<Player>();
-        player.Collectables.NoofGoldCoins();
+      
+        player.NoofGoldCoins();
         anim.SetBool("collectedCoin", true);
             StartCoroutine(Collected());
     }

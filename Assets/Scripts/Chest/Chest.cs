@@ -5,7 +5,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     private Animator anim;
-    private Player player;
+    private PlayerCollections player;
     public GameObject[] PrefferedObject;
     public AudioSource audioSource;
     // public Transform PrefferedObject;
@@ -17,7 +17,7 @@ public class Chest : MonoBehaviour
     {
 
         audioSource = GetComponent<AudioSource>();
-        player = GameObject.FindObjectOfType<Player>();
+        player = GameObject.FindObjectOfType<PlayerCollections>();
         anim = GetComponent<Animator>();
         levelDone =  FindObjectOfType<SingleLevel>();
 
@@ -31,13 +31,13 @@ public class Chest : MonoBehaviour
 
     public void OpenChest()
     {
-        if (player.Collectables.Keys > 0 && Opened)
+        if (player.Keys > 0 && Opened)
         {
             audioSource.Play();
             levelDone.currentStarsNum +=1 ;
-            player.Collectables.Keys -= 1;
+            player.Keys -= 1;
             anim.SetBool("Open", true);
-            player.Collectables.ChestOpen();
+            player.ChestOpen();
             randomObject = Random.Range(0, PrefferedObject.Length);
             Instantiate(PrefferedObject[randomObject], transform.position, Quaternion.identity);
 

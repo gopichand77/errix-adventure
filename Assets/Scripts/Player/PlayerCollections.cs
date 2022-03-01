@@ -18,7 +18,7 @@ public class PlayerCollections : MonoBehaviour
     // private Text keysText;
     private Text treasureOpenedText;
     private Text noOfBulletsText;
-    [Header("Game Over Panel Text ")]
+    [Header("Next Level Panel Text ")]
     internal Text PanelgoldCoinScoreText;
     internal Text PanelgemsScoreText;
     internal Text PaneltreasureOpenedText;

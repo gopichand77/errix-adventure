@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         getPlayer();
         currentHealth = 200;
         maxHealth = 200;
-
+        healthBar = GameObject.FindObjectOfType<PlayerHealthSlider>();
         // GameOverPanel =  GameObject.Find("Game Over Panel");
         // GameOverChilds =  GameOverPanel.GetComponentInChildren<ImagePanel>()
         checkPoint = new Vector3(0, 2, 0);

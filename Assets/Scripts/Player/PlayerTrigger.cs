@@ -8,7 +8,7 @@ public class PlayerTrigger : MonoBehaviour
     // This the script for Player Triggering events to Check Treasure Buttons and Attack Button //
     // This also checks for the keys and the bullets of the player//
    
-    private  Player playerScript;
+    private  PlayerCollections playerScript;
     // [Header("Attack Button")]
     internal Button AttackButton;
     // [Header("Treasure Keys Buttons")]
@@ -26,7 +26,7 @@ public class PlayerTrigger : MonoBehaviour
         chest3 =  GameObject.Find("Chest3").GetComponent<Chest>();
 
 
-        playerScript =  GetComponent<Player>();
+        playerScript =  GetComponent<PlayerCollections>();
         TreasureKey1 = GameObject.Find("Canvas/Controls Panel/Treasure Button 1").GetComponent<Button>();
         TreasureKey2 = GameObject.Find("Canvas/Controls Panel/Treasure Button 2").GetComponent<Button>();
         TreasureKey3 = GameObject.Find("Canvas/Controls Panel/Treasure Button 3").GetComponent<Button>();
@@ -49,7 +49,7 @@ public class PlayerTrigger : MonoBehaviour
         {
             Destroy(trig.gameObject);
 
-            playerScript.Collectables.NoOfgems();
+            playerScript.NoOfgems();
         }
         if (trig.gameObject.CompareTag("Treasure"))
         {
@@ -76,7 +76,7 @@ public class PlayerTrigger : MonoBehaviour
             TreasureKey3.onClick.AddListener(chest3.OpenChest);
 
         }
-        if (playerScript.Collectables.Keys == 0)
+        if (playerScript.Keys == 0)
         {
             TreasureKey2.interactable = false;
             TreasureKey3.interactable = false;

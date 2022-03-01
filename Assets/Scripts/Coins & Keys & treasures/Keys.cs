@@ -11,11 +11,11 @@ public class Keys : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        Player player = trig.gameObject.GetComponent<Player>();
+        PlayerCollections player = trig.gameObject.GetComponent<PlayerCollections>();
 
         if (trig.gameObject.CompareTag("Player") && KeyCollected)
         {
-            player.Collectables.NoofKeys(1);
+            player.NoofKeys(1);
             StartCoroutine(Collected());
             KeyCollected  = false;
         }

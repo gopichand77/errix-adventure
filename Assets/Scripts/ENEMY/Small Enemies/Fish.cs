@@ -46,5 +46,9 @@ public class Fish : MonoBehaviour
                 movingRight = true;
             }
         }
+        // if(trig.gameObject.CompareTag("Player"))
+        // {
+        //     gameObject.SetActive(false);
+        // }
     }
 }

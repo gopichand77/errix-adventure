@@ -10,6 +10,7 @@ public class Earthworm : MonoBehaviour
     public bool movingRight;
     // public Animator anim;
     Rigidbody2D rb;
+    
 
 
     private void Start()
