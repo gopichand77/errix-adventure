@@ -9625,6 +9625,7 @@ GameObject:
   - component: {fileID: 1920946293465964589}
   - component: {fileID: 6222197725885346417}
   - component: {fileID: 5214888053053320247}
+  - component: {fileID: 3056067178192794974}
   m_Layer: 6
   m_Name: Fireman
   m_TagString: Player
@@ -9807,6 +9808,9 @@ MonoBehaviour:
   VerticalSpeed: 4
   onLand: 0
   rushing: 0
+  GameOverPanel: {fileID: 0}
+  BlackScreen: {fileID: 0}
+  damageTextPrefab: {fileID: 0}
   bubbles: {fileID: 1801604868145782, guid: e969aaa734be044efad60bd50e7fb070, type: 3}
 --- !u!58 &6222197725885346417
 CircleCollider2D:
@@ -9837,12 +9841,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullets: 0
-  goldCoins: 0
-  gems: 0
-  Keys: 0
-  openChests: 0
-  goldCoinScoreText: {fileID: 0}
-  gemsScoreText: {fileID: 0}
-  keysText: {fileID: 0}
-  treasureOpenedText: {fileID: 0}
-  noOfBulletsText: {fileID: 0}
+--- !u!114 &3056067178192794974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503159700633478549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde8e0ebff209b44fafe3707ed5fcf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
+  knockback: 5
+  knockLenght: 2
+  knockCount: 0
+  knockfromRight: 0
+  spikeKnockback: 5
+  spikeKnockLenght: 5
+  spikeKnockCount: 0
+  isDead: 0
+  playerCol: {fileID: 0}
+  playerCol2: {fileID: 0}
+  playerCol3: {fileID: 0}
+  shockForce: 5

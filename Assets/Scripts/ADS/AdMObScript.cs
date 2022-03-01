@@ -70,6 +70,7 @@ public class AdMObScript : MonoBehaviour
     
     public void RequestBanner()
     {
+       
         // replace this id with your orignal admob id for banner ad
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-9793616844322643/9518309551";
@@ -78,12 +79,13 @@ public class AdMObScript : MonoBehaviour
 #endif
 
         // Create a 320x50 banner at the top of the screen.
-        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the banner with the request.
         if (PlayerPrefs.HasKey("RemoveAds") == false)
         {
+            
             bannerView.LoadAd(request);
             bannerView.OnAdLoaded += HandleOnAdLoaded;
         }

@@ -335,8 +335,8 @@ RectTransform:
   m_Father: {fileID: 1585879850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 15.6979065, y: 0}
   m_SizeDelta: {x: 51.3958, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1685,7 +1685,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1947,7 +1947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &395558253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3900,7 +3900,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5603,6 +5603,7 @@ GameObject:
   - component: {fileID: 1175674392}
   - component: {fileID: 1175674391}
   - component: {fileID: 1175674390}
+  - component: {fileID: 1175674393}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -5724,6 +5725,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175674388}
   m_CullTransparentMesh: 1
+--- !u!114 &1175674393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175674388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b676d4757d0b7054286a5ec5581a823b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 395558252}
 --- !u!1 &1177670857
 GameObject:
   m_ObjectHideFlags: 0
@@ -7239,8 +7253,8 @@ RectTransform:
   m_Father: {fileID: 2111660030}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 15.6979065, y: 0}
   m_SizeDelta: {x: 51.3958, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8113,7 +8127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1709468715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8540,6 +8554,7 @@ GameObject:
   - component: {fileID: 1741929682}
   - component: {fileID: 1741929683}
   - component: {fileID: 1741929684}
+  - component: {fileID: 1741929685}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8691,6 +8706,18 @@ MonoBehaviour:
   Winter: {fileID: 1993886478}
   Autumn: {fileID: 1293375958}
   Grassland: {fileID: 1600382909}
+--- !u!114 &1741929685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741929677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e58e75e37044ee458d400b49e7e519f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1754295384
 GameObject:
   m_ObjectHideFlags: 0
@@ -9491,7 +9518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2000520399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10489,6 +10516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5941433708317690237, guid: 5112c6652b8eef24d848c99491e9669f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5112c6652b8eef24d848c99491e9669f, type: 3}
 --- !u!1001 &8713411162288983419
@@ -10602,6 +10633,10 @@ PrefabInstance:
     - target: {fileID: 9067942796348447368, guid: 5cacc10cca009ac41a26d6204095bcad, type: 3}
       propertyPath: m_Name
       value: Soundplayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067942796348447368, guid: 5cacc10cca009ac41a26d6204095bcad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9067942796348447373, guid: 5cacc10cca009ac41a26d6204095bcad, type: 3}
       propertyPath: m_RootOrder
