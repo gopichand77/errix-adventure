@@ -34919,7 +34919,7 @@ Transform:
   - {fileID: 1349757360}
   - {fileID: 973536864}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &882937845
 PrefabInstance:
@@ -36650,6 +36650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6405869423689716388, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6544491132535213443, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -36698,8 +36702,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bull
       objectReference: {fileID: 0}
+    - target: {fileID: 7089685569794347903, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089685569794347903, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191837448526125319, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.81
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
+--- !u!4 &1234977634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3901870903603864609, guid: 6260f9f5faf3d0b4fa0af615c45a6fb0, type: 3}
+  m_PrefabInstance: {fileID: 1234977633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1238232804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44210,6 +44231,7 @@ GameObject:
   - component: {fileID: 1709350249}
   - component: {fileID: 1709350253}
   - component: {fileID: 1709350252}
+  - component: {fileID: 1709350254}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44335,6 +44357,26 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1709350254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709350248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2787d5d171661a94dbffcd3e194f6990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_: 0
+  move_back: 0
+  EnemyTransform: {fileID: 1234977634}
+  PlayerTransform: {fileID: 0}
+  playerScript: {fileID: 0}
+  Camera: {fileID: 0}
+  timer: 0
+  stayTimer: 0
 --- !u!4 &1741738854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2498144115131427433, guid: 64863302d86a7ae40830581e49bfdf39, type: 3}

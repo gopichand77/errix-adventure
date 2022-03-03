@@ -40317,6 +40317,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c898d21cbd30f40995b125d4ac4784, type: 3}
+--- !u!4 &789379454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1588912844425760846, guid: 26c898d21cbd30f40995b125d4ac4784, type: 3}
+  m_PrefabInstance: {fileID: 789379453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &811164994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41566,6 +41571,7 @@ GameObject:
   - component: {fileID: 942150694}
   - component: {fileID: 942150698}
   - component: {fileID: 942150697}
+  - component: {fileID: 942150699}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -41691,6 +41697,26 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &942150699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942150693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2787d5d171661a94dbffcd3e194f6990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_: 0
+  move_back: 0
+  EnemyTransform: {fileID: 789379454}
+  PlayerTransform: {fileID: 0}
+  playerScript: {fileID: 0}
+  Camera: {fileID: 0}
+  timer: 0
+  stayTimer: 0
 --- !u!1001 &944214784
 PrefabInstance:
   m_ObjectHideFlags: 0

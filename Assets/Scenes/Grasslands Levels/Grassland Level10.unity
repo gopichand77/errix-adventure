@@ -934,6 +934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ad189b3176844941b4f11ed55243b3c, type: 3}
+--- !u!4 &20173029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5125978935824711178, guid: 7ad189b3176844941b4f11ed55243b3c, type: 3}
+  m_PrefabInstance: {fileID: 20173028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &25083378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38726,20 +38731,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951381649}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2787d5d171661a94dbffcd3e194f6990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 951381649}
   move_: 0
   move_back: 0
-  EnemyTransform: {fileID: 0}
+  EnemyTransform: {fileID: 20173029}
   PlayerTransform: {fileID: 66389316}
   playerScript: {fileID: 66389310}
   Camera: {fileID: 951381653}
-  timer: 0
-  stayTimer: 3
+  timer: 6
+  stayTimer: 4
 --- !u!1 &978733871
 GameObject:
   m_ObjectHideFlags: 0
