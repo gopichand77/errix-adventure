@@ -53,7 +53,7 @@ public class AdMObScript : MonoBehaviour
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-9793616844322643/1584681548"; // main
 #elif UNITY_IOS
-        string adUnitId = "ca-app-pub-9793616844322643/3448279163";
+        string adUnitId = "ca-app-pub-9793616844322643/9909383375";
 #endif
         // Initialize an InterstitialAd.
         interstitial = new InterstitialAd(adUnitId);
@@ -75,7 +75,7 @@ public class AdMObScript : MonoBehaviour
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-9793616844322643/9518309551";
 #elif UNITY_IOS
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        string adUnitId = "ca-app-pub-9793616844322643/1753685390";
 #endif
 
         // Create a 320x50 banner at the top of the screen.
@@ -112,7 +112,7 @@ public class AdMObScript : MonoBehaviour
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-9793616844322643/4149318449"; // main
 #elif UNITY_IOS
-        string adUnitId = "ca-app-pub-9793616844322643/9909383375";
+        string adUnitId = "ca-app-pub-9793616844322643/3448279163";
 #endif
 
         // string adUnitId = "	ca-app-pub-3940256099942544/5224354917";

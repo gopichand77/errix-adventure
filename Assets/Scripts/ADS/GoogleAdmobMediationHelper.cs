@@ -48,6 +48,7 @@ public class GoogleAdmobMediationHelper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        publishingApp =  true;
         if (publishingApp)
         {
 #if UNITY_ANDROID
