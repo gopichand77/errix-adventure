@@ -58,7 +58,7 @@ public class AdMobRewardedAd : MonoBehaviour
 
         // string adUnitId = "	ca-app-pub-3940256099942544/5224354917";
         // Initialize an InterstitialAd.
-        rewarded = new RewardedAd(adUnitId);
+        // rewarded = new RewardedAd(adUnitId);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
