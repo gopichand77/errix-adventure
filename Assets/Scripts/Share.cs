@@ -9,7 +9,7 @@ public class Share : MonoBehaviour
 {
 
     public string subject = "Now Play🎮 Errix's Adventure Game available on Apple AppStore & Google Playstore";
-    public string link = "https://www.errix.co";
+    public string link = "https://onelink.to/errixsadventure";
 
     public void ShareScreenShot()
     {
