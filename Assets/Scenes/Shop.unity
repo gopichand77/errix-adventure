@@ -14094,6 +14094,7 @@ GameObject:
   - component: {fileID: 2074877910}
   - component: {fileID: 2074877909}
   - component: {fileID: 2074877908}
+  - component: {fileID: 2074877911}
   m_Layer: 5
   m_Name: Restore Purc
   m_TagString: Untagged
@@ -14215,6 +14216,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074877906}
   m_CullTransparentMesh: 1
+--- !u!114 &2074877911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074877906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: Ads
+  buttonType: 1
+  consumePurchase: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &2100753469
 GameObject:
   m_ObjectHideFlags: 0
